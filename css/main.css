@@ -40,11 +40,6 @@ body {
     font-kerning: normal;
 }
 
-
-
-/**
- * Set `margin-bottom` to maintain vertical rhythm
- */
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
@@ -52,22 +47,12 @@ vertical-rhythm {
     margin-bottom: var(--spacing-unit) / 2;
 }
 
-
-
-/**
- * Images
- */
 img {
     display: block;
     margin: 10 auto;
     max-width: 25%;
 }
 
-
-
-/**
- * Figures
- */
 figure > img {
     display: block;
 }
@@ -77,10 +62,6 @@ figcaption {
 }
 
 
-
-/**
- * Lists
- */
 ul, ol {
     margin-left: var(--spacing-unit);
     color: #666;
@@ -91,10 +72,6 @@ ul {
     list-style-type: square;
 }
 
-
-/**
- * Headings
- */
 h1 {
     font-size: 18px;
 }
@@ -106,11 +83,6 @@ h5,
 h6 {
     font-size: 16px;
 }
-
-
-/**
- * Links
- */
 
 a {
     color: #25b3bc;
@@ -141,11 +113,6 @@ a:hover {
     border: none;
 }
 
-
-/**
- * Share
- */
-
 .share {
     margin-bottom: 30px;
     border-top: 1px solid #eee;
@@ -169,10 +136,6 @@ a:hover {
     color: #E53935;
 }
 
-
-/**
- * Blockquotes
- */
 blockquote {
     border-left: 5px solid #eee;
     margin-left: 30px;
@@ -180,10 +143,6 @@ blockquote {
     color: #888888;
 }
 
-
-/**
- * Hr
- */
 hr {
     border: none;
     height: 1px;
@@ -192,11 +151,6 @@ hr {
     width: 100%;
 }
 
-
-
-/**
- * Code formatting
- */
 pre,
 code {
     font-size: 15px;
@@ -215,11 +169,6 @@ pre {
     overflow-x: auto;
 }
 
-
-/**
- * Table
- */
-
 table, th {
     width: 100%;
     table-layout: fixed;
@@ -231,10 +180,6 @@ line-height: 25px;
 letter-spacing: 1px;
 }
 
-
-/**
- * Wrapper
- */
 .container {
     margin-right: auto;
     margin-left: auto;
@@ -245,13 +190,6 @@ letter-spacing: 1px;
 .icon {
 
 }
-
-
-
-
-/**
- * TBC
- */
 
 .tbc {
     height: 1px;
@@ -270,10 +208,6 @@ letter-spacing: 1px;
     top: -8px;
 }
 
-
-/**
- * EOF
- */
 .eof {
     height: 1px;
     margin:6rem auto;
