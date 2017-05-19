@@ -49,12 +49,8 @@ vertical-rhythm {
 
 img {
     display: block;
-    margin: 10 auto;
-    max-width: 25%;
-}
-
-figure > img {
-    display: block;
+    margin: 20 auto;
+    max-width: 40%;
 }
 
 figcaption {
