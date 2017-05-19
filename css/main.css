@@ -52,7 +52,7 @@ ul.posts li {
 }
 
 img {
-    float: center;
-    margin: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 10px auto;
     width: 30% auto;
+    float: left;
 }
