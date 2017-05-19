@@ -16,13 +16,13 @@ Developed and maintained the following:
 + Mediator model Event Handler for Collision resolution and Message passing.</li>
 + Visual Effects Programming including electricity, lasers, explosions, and teleporting.  </li>
 
-[Try it out!]("http://games.digipen.edu/downloads/shortcircuit")
+[Try it out!](http://games.digipen.edu/downloads/shortcircuit)
 
 ---
 
 {% for img in site.static_files %}
     {% if img.path contains 'ShortCircuit' %}
-        <img src="{{ img.path }}" />
+        ![{{ img.path }}]({{ img.path }})
     {% endif %}
 {% endfor%}
 

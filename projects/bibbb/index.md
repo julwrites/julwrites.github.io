@@ -14,12 +14,12 @@ Developed tools for the team including:
 + Undo and Redo functionalities using a Memento method save/restore.
 + Visual Effects Programming including selection indicators, gravity and magnet forces. 
 
-[Try it out!]("http://games.digipen.edu/downloads/bibbb")
+[Try it out!](http://games.digipen.edu/downloads/bibbb)
 
 ---
 
 {% for img in site.static_files %}
     {% if img.path contains 'BIBBB' %}
-        <img src="{{ img.path }}" />
+        ![{{ img.path }}]({{ img.path }})
     {% endif %}
 {% endfor%}
