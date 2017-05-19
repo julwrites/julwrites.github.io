@@ -1,42 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!--{{ }} is a liquid tag for Jekyll-->
-        <title>{{ page.title }}</title>
-        <link rel="stylesheet" type="text/css" media="all" href="/css/main.css">
-        <link rel="stylesheet" type="text/css" media="all" href="/css/fonts.css">
+
+        {% include head.html %}
+
         {% include analytics.html %}
+
     </head>
+
     <body>
-        <nav>
-            <ul>
-                <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="/bio">Bio</a>
-                </li>
-                <li>
-                    <a href="http://resume.tehj.org">Resume</a>
-                </li>
-                <li>
-                    <a href="/projects">Projects</a>
-                </li>
-            </ul>
-        </nav>
-        <!--Division for the main container-->
+
+        {% include header.html %} 
+
         <div class="container">
             {{ content }}
         </div>
-        <footer>
-            <ul>
-                <li>
-                    <a href="mailto:contact@tehj.org">Contact</a>
-                </li>
-                <li>
-                    <a href="https://github.com/julwrites">Github</a>
-                </li>
-            </ul>
-        </footer>
     </body>
+
+    <foot>
+
+        {% include footer.html %}
+        {% include foot.html %}
+
+    </foot>
 </html>
