@@ -16,7 +16,7 @@ Developed and maintained the following:
 + Mediator model Event Handler for Collision resolution and Message passing.</li>
 + Visual Effects Programming including electricity, lasers, explosions, and teleporting.  </li>
 
-[Try it out!](http://games.digipen.edu/downloads/shortcircuit)
+[Try it out!](http://games.digipen.edu/games/shortcircuit)
 
 ---
 
