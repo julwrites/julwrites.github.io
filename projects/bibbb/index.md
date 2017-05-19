@@ -2,10 +2,9 @@
 layout: default
 title: BIBBB
 ---
-## {{ page.title }}
+# {{ page.title }}
 
-![]("/files/images/BIBBB_1.jpg") ![]("/files/images/BIBBB_2.jpg")
-![]("/files/images/BIBBB_3.jpg") ![]("/files/images/BIBBB_4.jpg")
+---
 
 A puzzle game where the player has to get the boxer from one end of the level to the other using only the boxes in that level
 
@@ -17,3 +16,7 @@ Developed tools for the team including:
 
 [Try it out!]("http://games.digipen.edu/downloads/bibbb")
 
+---
+
+![]("/files/images/BIBBB_1.jpg") ![]("/files/images/BIBBB_2.jpg")
+![]("/files/images/BIBBB_3.jpg") ![]("/files/images/BIBBB_4.jpg")
