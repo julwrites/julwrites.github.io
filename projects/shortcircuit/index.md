@@ -1,3 +1,4 @@
+
 ---
 layout: default
 title: Short Circuit 
