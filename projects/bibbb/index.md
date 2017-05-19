@@ -18,5 +18,11 @@ Developed tools for the team including:
 
 ---
 
+{% for img in site.static_files %}
+    {% if img.path contains 'BIBBB' %}
+        ![{{ img.path }}]({{ img.path }})
+    {% endif %}
+{% endfor%}
+
 ![]("/files/images/BIBBB_1.jpg") ![]("/files/images/BIBBB_2.jpg")
 ![]("/files/images/BIBBB_3.jpg") ![]("/files/images/BIBBB_4.jpg")
