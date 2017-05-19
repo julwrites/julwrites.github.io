@@ -1,9 +1,11 @@
 body {
+    float: center;
     margin: 60px auto;
     width: 70%;
 }
 
 nav ul, footer ul {
+    float: center;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
     padding: 0px;
     list-style: none;
@@ -11,6 +13,7 @@ nav ul, footer ul {
 }
 
 nav ul li, footer ul li {
+    float: center;
     display: inline;
     margin-right: 20px;
 }
@@ -25,6 +28,7 @@ a:hover {
 }
 
 h1 {
+    float: center;
     font-size: 3em;
     font-family:'Helvetica', 'Arial', 'Sans-Serif';
 }
@@ -50,5 +54,6 @@ ul.posts li {
 }
 
 img {
-    
+    float: center;
+    margin: 10px 10px 10px 10px;
 }
