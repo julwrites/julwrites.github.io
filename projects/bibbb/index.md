@@ -20,6 +20,6 @@ Developed tools for the team including:
 
 {% for img in site.static_files %}
     {% if img.path contains 'BIBBB' %}
-        ![{{ img.path }}]({{ img.path }})
+        <a href="{{ img.path }}">{{ img.path }}</a>
     {% endif %}
 {% endfor%}
