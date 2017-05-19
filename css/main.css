@@ -1,55 +1,292 @@
----
-# Only the main Sass file needs front matter (the dashes are enough)
----
-@charset "utf-8";
+element {
+    --base-font-family: 'Noto Sans', serif;
+    --base-font-size:   15px;
+    --base-font-weight: 400;
+    --small-font-size:  var(--base-font-size) * 0.875;
+    --base-line-height: 1.5;
+
+    --spacing-unit:     30px;
+
+    --text-color:       #111;
+    --background-color: #fdfdfd;
+    --brand-color:      #2a7ae2;
+
+    --grey-color:       #828282;
+    --grey-color-light: lighten(var(--grey-color), 40%);
+    --grey-color-dark:  darken(var(--grey-color), 25%);
+
+    --content-width:    800px;
+
+    --on-palm:          600px;
+    --on-laptop:        800px;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
 
-
-// Our variables
-$base-font-family: 'Noto Sans', serif;
-$base-font-size:   15px;
-$base-font-weight: 400;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
-
-$spacing-unit:     30px;
-
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
-
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
-
-// Width of the content area
-$content-width:    800px;
-
-$on-palm:          600px;
-$on-laptop:        800px;
-
-
-
-// Use media queries like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
+body {
+    font: var(--base-font-weight) var(--base-font-family);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
 }
 
 
 
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "base",
-        "layout",
-        "syntax-highlighting"
-;
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+vertical-rhythm {
+    margin-bottom: var(--spacing-unit) / 2;
+}
 
 
+
+/**
+ * Images
+ */
+img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+
+
+/**
+ * Figures
+ */
+figure > img {
+    display: block;
+}
+
+figcaption {
+    font-size: var(--small-font-size);
+}
+
+
+
+/**
+ * Lists
+ */
+ul, ol {
+    margin-left: var(--spacing-unit);
+    color: #666;
+    letter-spacing: 1px;
+}
+
+ul {
+    list-style-type: square;
+}
+
+
+/**
+ * Headings
+ */
+h1 {
+    font-size: 18px;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 16px;
+}
+
+
+/**
+ * Links
+ */
+
+a {
+    color: #25b3bc;
+    text-decoration: none;
+    transition: border .5s;
+}
+
+a:hover {
+    border-bottom: 2px dotted #000;
+}
+
+
+.post-content h2:before {
+    content: "¶ ";
+    margin-right: 20px;
+    color: #25bcba;
+}
+
+.link {
+    padding: 2px;
+    color: #25b3bc;
+    text-decoration: none;
+    transition: var(--background-color) .7s;
+}
+
+.link:hover {
+    background-color: #e6e6e6;
+    border: none;
+}
+
+
+/**
+ * Share
+ */
+
+.share {
+    margin-bottom: 30px;
+    border-top: 1px solid #eee;
+    color: #777;
+    font-size: 17px;
+}
+
+.share a {
+    border-bottom: none;
+}
+
+.twitter-share {
+    color: #1B95E0;
+}
+
+.facebook-share {
+    color: #3A5795;
+}
+
+.googleplus-share {
+    color: #E53935;
+}
+
+
+/**
+ * Blockquotes
+ */
+blockquote {
+    border-left: 5px solid #eee;
+    margin-left: 30px;
+    padding: 5px 15px;
+    color: #888888;
+}
+
+
+/**
+ * Hr
+ */
+hr {
+    border: none;
+    height: 1px;
+    margin: 40px auto;
+    background: #dcdcdc;
+    width: 100%;
+}
+
+
+
+/**
+ * Code formatting
+ */
+pre,
+code {
+    font-size: 15px;
+    border: 1px solid #f8f8f8;
+    border-radius: 3px;
+    background-color: #f8f8f8;
+    color: #27badf;
+}
+
+code {
+    padding: 1px 5px;
+}
+
+pre {
+    padding: 8px 12px;
+    overflow-x: auto;
+}
+
+
+/**
+ * Table
+ */
+
+table, th {
+    width: 100%;
+    table-layout: fixed;
+    margin: 24px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    border-collapse: collapse;
+line-height: 25px;
+letter-spacing: 1px;
+}
+
+
+/**
+ * Wrapper
+ */
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: var(--spacing-unit);
+    padding-left: var(--spacing-unit);
+}
+
+.icon {
+
+}
+
+
+
+
+/**
+ * TBC
+ */
+
+.tbc {
+    height: 1px;
+    margin: 6rem auto;
+    width: 100%
+}
+
+.tbc:before {
+    content: "- T.B.C -";
+    width: 100%;
+    text-align: center;
+    display: block;
+    color: #aaa;
+    letter-spacing: 4px;
+    position: relative;
+    top: -8px;
+}
+
+
+/**
+ * EOF
+ */
+.eof {
+    height: 1px;
+    margin:6rem auto;
+    width: 100%;
+}
+
+.eof:before {
+    content: "- E.O.F -";
+    width: 100%;
+    text-align: center;
+    display: block;
+    color: #aaa;
+    letter-spacing: 4px;
+    position: relative;
+    top: -8px;
+}
