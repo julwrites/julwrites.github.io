@@ -23,6 +23,3 @@ Developed tools for the team including:
         ![{{ img.path }}]({{ img.path }})
     {% endif %}
 {% endfor%}
-
-![]("/files/images/BIBBB_1.jpg") ![]("/files/images/BIBBB_2.jpg")
-![]("/files/images/BIBBB_3.jpg") ![]("/files/images/BIBBB_4.jpg")
