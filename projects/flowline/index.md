@@ -17,13 +17,11 @@ Developed the majority of gameplay mechanics including:
 
 [Try it out!](http://games.digipen.edu/games/flowline)
 
-![/files/images/BIBBB_1.jpg](/files/images/BIBBB_1.jpg)
-
 ---
 
 {% for img in site.static_files %}
-    {% if img.path contains 'Flowline' %}
-        ![{{ img.path }}]({{ img.path }})
+    {% if img.path contains '/images/Flowline' %}
+        ![/files/images/{{ img.basename }}.jpg](/files/images/{{ img.path }}.jpg)
     {% endif %}
 {% endfor%}
 
