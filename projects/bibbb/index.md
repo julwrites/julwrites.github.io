@@ -9,6 +9,7 @@ title: BIBBB
 A puzzle game where the player has to get the boxer from one end of the level to the other using only the boxes in that level
 
 Responsibilities:
+
 Developed tools for the team including:
 + Level Editor using a Prototype to clone from and place object instances.
 + Undo and Redo functionalities using a Memento method save/restore.
@@ -18,8 +19,10 @@ Developed tools for the team including:
 
 ---
 
+<html>
 {% for img in site.static_files %}
     {% if img.path contains 'BIBBB' %}
-        ![{{ img.path }}]({{ img.path }})
+        <img src="{{ img.path }}", alt="{{ img.path }}">
     {% endif %}
 {% endfor%}
+</html>

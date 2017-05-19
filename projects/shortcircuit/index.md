@@ -7,7 +7,9 @@ title: Short Circuit
 ---
 
 A fast paced third person shooter where the player traverses 8 floors of a robot-overrun facility using his skill, gun, and some nifty grenades
+
 Responsibilities:
+
 Developed and maintained the following:
 + Data-driven Game entities/behaviors using a Builder factory to clone and specialize Archetypes.
 + Level Editor and Object Editor which included the following functionalities:
@@ -20,9 +22,10 @@ Developed and maintained the following:
 
 ---
 
+<html>
 {% for img in site.static_files %}
     {% if img.path contains 'ShortCircuit' %}
-        ![{{ img.path }}]({{ img.path }})
+        <img src="{{ img.path }}" alt="{{ img.path }}">
     {% endif %}
 {% endfor%}
-
+</html>
