@@ -2,7 +2,7 @@
 layout: default
 title: BIBBB
 ---
-<h1>{{ page.title }}</h1>
+## {{ page.title }}
 <body>
     <p>
         A puzzle game where the player has to get the boxer from one end of the level to the other using only the boxes in that level
@@ -17,4 +17,3 @@ title: BIBBB
         </ul>
     </p>
     <a href="http://games.digipen.edu/downloads/bibbb">Download</a>
-</body>
