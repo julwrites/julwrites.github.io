@@ -1,19 +1,18 @@
 body {
-    float: center;
     margin: 60px auto;
-    width: 70%;
+    width: 70% auto;
+    font: 'Helvetica';
 }
 
 nav ul, footer ul {
     float: center;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    font-family:'Helvetica';
     padding: 0px;
     list-style: none;
     font-weight: bold;
 }
 
 nav ul li, footer ul li {
-    float: center;
     display: inline;
     margin-right: 20px;
 }
@@ -28,9 +27,8 @@ a:hover {
 }
 
 h1 {
-    float: center;
     font-size: 3em;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+    font-family:'Helvetica';
 }
 
 p {
@@ -56,4 +54,5 @@ ul.posts li {
 img {
     float: center;
     margin: 10px 10px 10px 10px;
+    width: 30% auto;
 }
