@@ -19,9 +19,10 @@ Developed the majority of gameplay mechanics including:
 
 ---
 
+<html>
 {% for img in site.static_files %}
     {% if img.path contains '/images/Flowline' %}
         <img src="{{ img.path }}" alt="{{ img.path }}">
     {% endif %}
 {% endfor%}
-
+</html>
