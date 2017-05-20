@@ -12,7 +12,9 @@ Responsibilities:
 
 Developed tools for the team including:
 + Level Editor using a Prototype to clone from and place object instances.
+
 + Undo and Redo functionalities using a Memento method save/restore.
+
 + Visual Effects Programming including selection indicators, gravity and magnet forces. 
 
 [Try it out!](http://games.digipen.edu/games/bibbb)

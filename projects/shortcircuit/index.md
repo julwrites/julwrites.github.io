@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Short Circuit 
 ---
 # {{ page.title }}
@@ -12,12 +12,14 @@ Responsibilities:
 
 Developed and maintained the following:
 + Data-driven Game entities/behaviors using a Builder factory to clone and specialize Archetypes.
+
 + Level Editor and Object Editor which included the following functionalities:
 
     - Run-time creation, deletion and modification of objects and their components.
     - Undo, Redo and ‘Restore Last Saved State’ functionality using a Memento method save/restore.
 
 + Mediator model Event Handler for Collision resolution and Message passing.
+
 + Visual Effects Programming including electricity, lasers, explosions, and teleporting.
 
 [Try it out!](http://games.digipen.edu/games/shortcircuit)
