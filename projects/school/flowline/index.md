@@ -10,15 +10,15 @@ A top-down puzzle game where the player creates flowlines by drawing on the scre
 
 Responsibilities:
 
-    Developed the majority of gameplay mechanics including:
+> Developed the majority of gameplay mechanics including:
 
-    A drawing mechanic using a discrete Vector Field
+> A drawing mechanic using a discrete Vector Field
 
-    A teleporting mechanic using basic collision detection.
+> A teleporting mechanic using basic collision detection.
 
-    A swiveling/tracking turret using basic collision detection and AI
+> A swiveling/tracking turret using basic collision detection and AI
 
-    Visual Effects Programming including Vector Field path, line of sight indicator and portal effects.
+Visual Effects Programming including Vector Field path, line of sight indicator and portal effects.
 
 [Try it out!](http://games.digipen.edu/games/flowline)
 
