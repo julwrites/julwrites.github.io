@@ -12,7 +12,7 @@ title: Julian's Work
     <div class="imageGrid">
         <a href="/projects/personal/vscode_fileexplorer"><img src="/files/images/folderIcon.png" alt="VSCode File Explorer"></a>
     </div>
-<html>
+</html>
 
 ---
 
