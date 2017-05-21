@@ -6,30 +6,23 @@ title: VS Code File Explorer
 
 ---
 
-A Visual Studio Code extension that allows users to navigate around a file system from the command palette. 
+A Visual Studio Code extension that allows users to navigate around a file system from the command palette using severl commands.
 
-Commands:
-* Navigate: 
+    Navigate: 
+        Provides a few basic commands to navigate around file system and select files/folders
+        Allows selecting of bookmarked files/folders
 
-    * Provides a few basic commands to navigate around file system and select files/folders
+    Fuzzy Find:
+        Lists files/folders in the workspace root for quick pick
 
-    * Allows selecting of bookmarked files/folders
+    Set Root:
+        Sets the default root directory if workspace is not open
 
-* Fuzzy Find:
+    Add Bookmark:
+        Adds a bookmark tagged to a name
 
-    * Lists files/folders in the workspace root for quick pick
-
-* Set Root:
-
-    * Sets the default root directory if workspace is not open
-
-* Add Bookmark:
-
-    * Adds a bookmark tagged to a name
-
-* Remove Bookmark: 
-
-    * Removes a bookmark tagged to a name
+    Remove Bookmark: 
+        Removes a bookmark tagged to a name
 
 
 [Try it out!](https://marketplace.visualstudio.com/items?itemName=Julwrites.codeexplorer)
