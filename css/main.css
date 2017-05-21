@@ -49,7 +49,12 @@ vertical-rhythm {
 }
 
 img {
-    display: inline-block;
+    display: inline-flex;
+    display: -webkit-inline-box;
+    display: -moz-inline-box;
+    display: -ms-inline-flexbox;
+    display: -webkit-inline-flex;
+
     margin: .5rem auto;
     width: 40%;
     height: auto;
@@ -96,6 +101,10 @@ a {
     color: #25b3bc;
     text-decoration: none;
     transition: border .5s;
+    display: inherit;
+    width: inherit;
+    height: inherit;
+    margin: inherit;
 }
 
 a:hover {
