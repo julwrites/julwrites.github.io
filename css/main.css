@@ -53,16 +53,15 @@ img {
     margin: .5rem auto;
     width: 40%;
     height: 40%;
+    flex-basis: 30%;
 }
 
 .imageGrid {
     display: flex;
     width: 100%;
     height: auto;
-    flex-basis: 25%;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: space-around;
+    flex-flow: row wrap;
+    justify-content: space-around;
 }
 
 figcaption {
