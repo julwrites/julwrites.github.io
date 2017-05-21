@@ -38,6 +38,7 @@ body {
     -o-font-feature-settings: "kern" 1;
     font-feature-settings: "kern" 1;
     font-kerning: normal;
+    padding: 2rem; 
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -49,8 +50,18 @@ vertical-rhythm {
 
 img {
     display: block;
-    margin: 20 auto;
-    max-width: 40%;
+    margin: .5rem auto;
+    min-width: 0;
+    height: auto;
+    width: 100%;
+    align-self: flex-start;
+    flex-shrink: 1;
+}
+
+.hasImage {
+    display: flex;
+    width: 100%;
+    margin-bottom: 3rem;
 }
 
 figcaption {
