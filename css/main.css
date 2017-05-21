@@ -51,10 +51,8 @@ vertical-rhythm {
 img {
     display: block;
     margin: .5rem auto;
-    max-width: 100%;
     width: 40%;
-    height: auto;
-    align-self: flex-start;
+    height: 40%;
 }
 
 .imageGrid {
