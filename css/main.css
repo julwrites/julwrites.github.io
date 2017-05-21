@@ -52,8 +52,8 @@ img {
     display: block;
     margin: .5rem auto;
     max-width: 100%;
-    width: 50%;
-    height: 50% auto;
+    width: 33.33%;
+    height: auto;
     align-self: flex-start;
 }
 
@@ -61,7 +61,7 @@ img {
     display: flex;
     width: 100%;
     height: auto;
-    flex-basis: 50%;
+    flex-basis: 33.33%;
     flex-wrap: wrap;
     justify-content: center;
     align-content: space-around;
