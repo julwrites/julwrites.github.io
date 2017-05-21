@@ -22,13 +22,13 @@ Developed tools for the team including:
 ---
 
 <html>
-    <p class="hasImage">
+    <div class="hasImage">
         {% for img in site.static_files %}
             {% if img.path contains 'BIBBB' %}
                 <img src="{{ img.path }}" alt="{{ img.path }}">
             {% endif %}
         {% endfor%}
-    </p>
+    </div>
 </html>
 
 ---
