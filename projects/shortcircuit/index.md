@@ -27,11 +27,13 @@ Developed and maintained the following:
 ---
 
 <html>
+    <p class=".hasImage">
 {% for img in site.static_files %}
     {% if img.path contains 'ShortCircuit' %}
         <img src="{{ img.path }}" alt="{{ img.path }}">
     {% endif %}
 {% endfor%}
+    </p>
 </html>
 
 ---
