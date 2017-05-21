@@ -22,13 +22,13 @@ Responsibilities:
 ---
 
 <html>
-    <p class="hasImage">
+    <div class="hasImage">
         {% for img in site.static_files %}
             {% if img.path contains '/images/Flowline' %}
                 <img src="{{ img.path }}" alt="{{ img.path }}">
             {% endif %}
         {% endfor%}
-    </p>
+    </div>
 </html>
 
 ---
