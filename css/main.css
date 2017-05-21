@@ -101,7 +101,6 @@ a {
     color: #25b3bc;
     text-decoration: none;
     transition: border .5s;
-    display: inherit;
     width: inherit;
     height: inherit;
     margin: inherit;
