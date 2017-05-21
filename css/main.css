@@ -52,8 +52,8 @@ img {
     display: block;
     margin: .5rem auto;
     max-width: 100%;
-    width: 33.33%;
-    height: auto;
+    width: 50%;
+    height: 50% auto;
     align-self: flex-start;
 }
 
@@ -61,7 +61,10 @@ img {
     display: flex;
     width: 100%;
     height: auto;
-    margin: 3rem;
+    flex-basis: 50%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-around;
 }
 
 figcaption {
