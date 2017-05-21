@@ -53,8 +53,7 @@ img {
     margin: .5rem auto;
     min-width: 0;
     height: auto;
-    width: 100%;
-    align-self: flex-start;
+    width: 100%;s
     flex-shrink: 1;
 }
 
