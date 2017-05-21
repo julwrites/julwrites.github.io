@@ -22,7 +22,7 @@ Responsibilities:
 ---
 
 <html>
-    <div>
+    <div class="hasImage">
         {% for img in site.static_files %}
             {% if img.path contains '/images/Flowline' %}
                 <img src="{{ img.path }}" alt="{{ img.path }}">
