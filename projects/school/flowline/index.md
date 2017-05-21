@@ -8,9 +8,7 @@ title: Flowline
 
 A top-down puzzle game where the player creates flowlines by drawing on the screen to clear 15 levels
 
-Responsibilities:
-
-> Developed the majority of gameplay mechanics including:
+Developed the majority of gameplay mechanics including:
 
 > A drawing mechanic using a discrete Vector Field
 

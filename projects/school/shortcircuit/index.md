@@ -8,9 +8,7 @@ title: Short Circuit
 
 A fast paced third person shooter where the player traverses 8 floors of a robot-overrun facility using his skill, gun, and some nifty grenades
 
-Responsibilities:
-
-> Developed and maintained the following:
+Developed and maintained the following:
 
 > Data-driven Game entities/behaviors using a Builder factory to clone and specialize Archetypes.
 
