@@ -53,14 +53,14 @@ img {
     margin: .5rem auto;
     min-width: 0;
     height: auto;
-    width: 100%;
+    width: 50%;
     align-self: flex-start;
 }
 
 .hasImage {
     display: flex;
     width: 100%;
-    margin-bottom: 3rem;
+    margin: 3rem;
 }
 
 figcaption {
