@@ -13,3 +13,9 @@ title: Julian's Work
 [![BIBBB](/files/images/BIBBB_1.jpg)](/projects/school/bibbb)
 
 ---
+
+## What I do in my spare time
+
+[![VSCode File Explorer](/files/images/folderIcon.png)[/projects/personal/vscode_fileexplorer)
+
+---
