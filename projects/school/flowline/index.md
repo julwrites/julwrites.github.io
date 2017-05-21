@@ -16,7 +16,7 @@ Developed the majority of gameplay mechanics including:
 
 > A swiveling/tracking turret using basic collision detection and AI
 
-Visual Effects Programming including Vector Field path, line of sight indicator and portal effects.
+> Visual Effects Programming including Vector Field path, line of sight indicator and portal effects.
 
 [Try it out!](http://games.digipen.edu/games/flowline)
 
