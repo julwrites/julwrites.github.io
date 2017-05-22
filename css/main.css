@@ -49,14 +49,8 @@ vertical-rhythm {
 }
 
 img {
-    display: inline-flex;
-    display: -webkit-inline-box;
-    display: -moz-inline-box;
-    display: -ms-inline-flexbox;
-    display: -webkit-inline-flex;
-
     margin: .5rem auto;
-    width: 40%;
+    width: auto;
     height: auto;
 }
 
@@ -65,10 +59,10 @@ img {
     display: -webkit-inline-box;
     display: -moz-inline-box;
     display: -ms-inline-flexbox;
-    display: -webkit-inline-flex;
+    display: -webkit-inline-box;
 
     margin: .5rem auto;
-    width: 40;
+    width: 40%;
     height: auto;
 }
 
