@@ -60,6 +60,28 @@ img {
     height: auto;
 }
 
+.thumb {
+    display: inline-block;
+    display: -webkit-inline-box;
+    display: -moz-inline-box;
+    display: -ms-inline-flexbox;
+    display: -webkit-inline-flex;
+
+    margin: .5rem auto;
+    width: 40;
+    height: auto;
+}
+
+.menuGrid {
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex: 0 0 auto;
+    flex-flow: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
 .imageGrid {
     display: flex;
     width: 100%;
