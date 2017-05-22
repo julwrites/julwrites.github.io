@@ -49,9 +49,8 @@ vertical-rhythm {
 }
 
 img {
-    margin: .5rem auto;
-    width: auto;
-    height: auto;
+    width: inherit;
+    height: inherit;
 }
 
 .thumb {
