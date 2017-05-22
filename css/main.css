@@ -70,7 +70,7 @@ img {
     display: flex;
     width: inherit;
     height: inherit;
-    flex: 1 1 auto;
+    flex: 0 0 auto;
     flex-flow: row nowrap;
     justify-content: space-around;
 }
@@ -81,7 +81,9 @@ img {
     height: inherit;
     flex: 0 0 auto;
     flex-flow: row wrap;
-    justify-content: space-around;
+    align-items: flex-start;
+    align-content: center;
+    justify-content: center;
 }
 
 figcaption {
