@@ -28,7 +28,7 @@ Developed and maintained the following:
     <div class="imageGrid">
         {% for img in site.static_files %}
             {% if img.path contains 'ShortCircuit' %}
-                <img class="thumb" src="{{ img.path }}" alt="{{ img.path }}">
+                <img src="{{ img.path }}" alt="{{ img.path }}">
             {% endif %}
         {% endfor%}
     </div>

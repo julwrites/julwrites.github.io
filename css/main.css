@@ -49,8 +49,15 @@ vertical-rhythm {
 }
 
 img {
-    width: inherit;
-    height: inherit;
+    display: inline-block;
+    display: -webkit-inline-box;
+    display: -moz-inline-box;
+    display: -ms-inline-flexbox;
+    display: -webkit-inline-box;
+
+    margin: 1rem auto;
+    width: calc(33.33% - .55rem);
+    height: auto;
 }
 
 .thumb {
