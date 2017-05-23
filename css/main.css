@@ -71,7 +71,6 @@ img {
     height: inherit;
     flex: 0 0 auto;
     flex-wrap: wrap;
-    justify-content: space-around;
 }
 
 .imageGrid {
@@ -81,8 +80,6 @@ img {
     flex: 0 0 auto;
     flex-wrap: wrap;
     align-items: flex-start;
-    align-content: center;
-    justify-content: center;
 }
 
 figcaption {
