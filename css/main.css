@@ -61,7 +61,7 @@ img {
     display: -webkit-inline-box;
 
     margin: .5rem auto;
-    width: calc(50% - .25rem);
+    width: calc(50% - .275rem);
     height: auto;
 }
 
