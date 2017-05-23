@@ -61,9 +61,8 @@ img {
     display: -webkit-inline-box;
 
     margin: .5rem auto;
-    width: 40%;
+    width: calc(50% - .25rem);
     height: auto;
-    align-self: flex-start;
 }
 
 .menuGrid {
@@ -71,7 +70,7 @@ img {
     width: inherit;
     height: inherit;
     flex: 0 0 auto;
-    flex-flow: row nowrap;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 
@@ -80,7 +79,7 @@ img {
     width: inherit;
     height: inherit;
     flex: 0 0 auto;
-    flex-flow: row wrap;
+    flex-wrap: wrap;
     align-items: flex-start;
     align-content: center;
     justify-content: center;
