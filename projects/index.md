@@ -10,7 +10,9 @@ title: Julian's Work
 
 <html>
     <div class="menuGrid">
-        <a class="thumb" href="https://marketplace.visualstudio.com/items?itemName=Julwrites.codeexplorer"><img src="/files/images/folderIcon.jpg" alt="VSCode File Explorer"></a>
+        <a class="thumb" href="/projects/personal/vscode_fileexplorer">
+            <img src="/files/images/folderIcon.jpg" alt="VSCode File Explorer">
+        </a>
     </div>
 </html>
 
