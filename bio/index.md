@@ -10,4 +10,4 @@ title: Hi, I'm Julian
 
 ### A Martial Artist by interest
 
-### A Believer of Christ by faith
+### A Follower of Jesus by faith
