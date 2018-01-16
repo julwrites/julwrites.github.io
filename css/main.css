@@ -76,9 +76,8 @@ img {
 }
 
 .grid-img {
-    width: inherit;
-    height: inherit;
     display: flex;
+    flex-basis: inherit;
     flex-flow: row wrap;
     align-items: flex-start;
     justify-content: center;
