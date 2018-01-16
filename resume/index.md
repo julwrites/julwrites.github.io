@@ -22,13 +22,20 @@ Conducted weekly review classes for Freshman Linear Algebra and Storytelling mod
 Graded assignments for C++ Programming, Game programming and Calculus modules
 Provided academic support to junior students as part of the school's Academic Support Center
 
+
+
+
 ## Education
 ### National University of Singapore 
 _Master of Computing, January 2017-Present_
+
 ### Digipen Institute of Technology Singapore 
 _B.Sc. in Computer Science in Real-Time Interactive Simulation with a Minor in Mathematics, September 2012-August 2015_
+
 Dean's List: Spring 2013, Fall 2013, Fall 2015
 Valedictorian, Class of 2015
+
 ### Singapore Polytechnic 
 _Diploma in Computer Engineering, April 2007-May 2010_
+
 Bronze Award at SPInnovex 2010 for DIY Multi-Touch Display
