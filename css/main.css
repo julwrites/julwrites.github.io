@@ -221,7 +221,6 @@ table, th {
 .container {
     margin-right: auto;
     margin-left: auto;
-    text-align: left;
     padding-right: var(--spacing-unit);
     padding-left: var(--spacing-unit);
 }
