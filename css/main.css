@@ -60,14 +60,14 @@ img {
     height: auto;
 }
 
-.thumb {
+.img-thumb {
     display: inline-block;
     display: -webkit-inline-box;
     display: -moz-inline-box;
     display: -ms-inline-flexbox;
     display: -webkit-inline-box;
 
-    margin: 1rem auto;
+    margin: 1rem;
     width: calc(20% - .55rem);
     height: auto;
 }
