@@ -80,7 +80,6 @@ img {
     flex-basis: inherit;
     flex-flow: row wrap;
     align-content: space-around;
-    justify-content: center;
 }
 
 ul, ol {
