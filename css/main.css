@@ -72,6 +72,7 @@ img {
     display: flex;
     flex-basis: inherit;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .gallery-container {
