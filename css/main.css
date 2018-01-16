@@ -57,7 +57,9 @@ img {
 }
 
 .img-thumb {
-    max-width: 25%;
+    width: 30%;
+    height: auto;
+    max-width: 30%;
     max-height: auto;
 }
 
@@ -70,7 +72,7 @@ img {
     display: flex;
     flex-basis: inherit;
     flex-flow: row nowrap;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 .grid-img {
