@@ -79,7 +79,7 @@ img {
     display: flex;
     flex-basis: inherit;
     flex-flow: row wrap;
-    align-content: space-around;
+    align-content: space-between;
 }
 
 ul, ol {
