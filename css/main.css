@@ -57,6 +57,7 @@ img {
 .img-thumb {
     width: calc(20%);
     height: auto;
+    overflow: hidden;
 }
 
 .img-icon {
