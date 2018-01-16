@@ -23,6 +23,8 @@ As part of an ever ongoing journey of self-improvement, I take up small side pro
 ---
 
 ## DigiPen Institute of Technology
+DigiPen is a school that majors in Games and Animation, and as such students work on production-quality games throughout their education.
+
 <html>
     <div class="grid-menu">
         <a class="link" href="/projects/school/shortcircuit">
