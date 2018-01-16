@@ -58,9 +58,6 @@ img {
 
 .img-thumb {
     width: 25%;
-    max-width: auto;
-    max-height: auto;
-    overflow: hidden;
 }
 
 .img-icon {
