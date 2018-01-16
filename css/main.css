@@ -87,11 +87,6 @@ img {
     align-items: flex-start;
 }
 
-figcaption {
-    font-size: var(--small-font-size);
-}
-
-
 ul, ol {
     margin-left: var(--spacing-unit);
     color: #666;
@@ -133,7 +128,7 @@ h6 {
 }
 
 a {
-    color: #25b3bc;
+    color: #20b0b0;
     text-decoration: none;
     transition: border .5s;
     width: inherit;
@@ -145,50 +140,27 @@ a:hover {
     border-bottom: 2px dotted #000;
 }
 
-
 .post-content h2:before {
     content: "¶ ";
     margin-right: 20px;
-    color: #25bcba;
+    color: #20b0b0;
 }
 
 .link {
     padding: 2px;
-    color: #25b3bc;
+    color: #20b0b0;
     text-decoration: none;
     transition: var(--background-color) .7s;
 }
 
 .link:hover {
+    color: #50e0e0;
     border: none;
 }
 
 .icon-link {
     width: 50px;
     height: 50px;
-}
-
-.share {
-    margin-bottom: 30px;
-    border-top: 1px solid #eee;
-    color: #777;
-    font-size: 17px;
-}
-
-.share a {
-    border-bottom: none;
-}
-
-.twitter-share {
-    color: #1B95E0;
-}
-
-.facebook-share {
-    color: #3A5795;
-}
-
-.googleplus-share {
-    color: #E53935;
 }
 
 blockquote {
@@ -240,42 +212,4 @@ table, th {
     margin-left: auto;
     padding-right: var(--spacing-unit);
     padding-left: var(--spacing-unit);
-}
-
-.icon {
-
-}
-
-.tbc {
-    height: 1px;
-    margin: 6rem auto;
-    width: 100%
-}
-
-.tbc:before {
-    content: "- T.B.C -";
-    width: 100%;
-    text-align: center;
-    display: block;
-    color: #aaa;
-    letter-spacing: 4px;
-    position: relative;
-    top: -8px;
-}
-
-.eof {
-    height: 1px;
-    margin:6rem auto;
-    width: 100%;
-}
-
-.eof:before {
-    content: "- E.O.F -";
-    width: 100%;
-    text-align: center;
-    display: block;
-    color: #aaa;
-    letter-spacing: 4px;
-    position: relative;
-    top: -8px;
 }
