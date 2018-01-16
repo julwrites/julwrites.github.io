@@ -4,10 +4,10 @@ title: Hi, I'm Julian
 ---
 # {{ page.title }}
 
-### A Singaporean by birth
+A Singaporean by birth
 
-### A Computer Scientist by training
+A Computer Scientist by training
 
-### A Martial Artist by interest
+A Martial Artist by interest
 
-### A Follower of Jesus by faith
+A Follower of Jesus by faith
