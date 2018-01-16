@@ -19,7 +19,7 @@ A Follower of Jesus by faith
 
 ## Professional
 <html>
-    <a class="link" href="files/resume.pdf">
+    <a class="link" href="files/Resume_Julian_Teh.pdf">
         <img class="img-icon" src="/files/images/resume.png" alt="Resume">
     </a>
 </html>
