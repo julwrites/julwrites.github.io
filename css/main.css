@@ -76,12 +76,14 @@ img {
 .grid-menu {
     display: flex;
     flex-basis: inherit;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 
 .grid-img {
     display: flex;
     flex-basis: inherit;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 
