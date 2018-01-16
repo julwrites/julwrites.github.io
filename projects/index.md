@@ -6,22 +6,23 @@ title: Julian's Work
 
 ---
 
-## What I do in my spare time
-
+## Hobbyist Projects
 <html>
-    <div class="menuGrid">
-        <a class="img-thumb" href="/projects/personal/vscode_fileexplorer">
-            <img src="/files/images/folderIcon.jpg" alt="VSCode File Explorer">
+    <div class="grid-menu">
+        <a class="img-thumb" href="/projects/personal/vscode_explorer">
+            <img src="/files/images/vscode_explorer.jpg" alt="VSCode File Explorer">
         </a>
+        <!-- <a class="img-thumb" href="/projects/personal/biblicabot">
+            <img src="/files/images/biblicabot.jpg" alt="Biblica Bot">
+        </a> -->
     </div>
 </html>
 
 ---
 
-## What I did in school
-
+## DigiPen Institute of Technology
 <html>
-    <div class="menuGrid">
+    <div class="grid-menu">
         <a class="link" href="/projects/school/shortcircuit">
             <img class="img-thumb" src="/files/images/ShortCircuit_1.jpg" alt="ShortCircuit">
         </a>

@@ -17,6 +17,6 @@ A Follower of Jesus by faith
 Software Engineer - Autodesk Asia
 <html>
     <a class="link" href="files/resume.pdf">
-        <img class="icon-link" src="/files/images/resume.png" alt="Resume">
+        <img class="img-icon" src="/files/images/resume.png" alt="Resume">
     </a>
 </html>

@@ -23,7 +23,7 @@ Developed the majority of gameplay mechanics including:
 ---
 
 <html>
-    <div class="imageGrid">
+    <div class="grid-img">
         {% for img in site.static_files %}
             {% if img.path contains 'Flowline' %}
                 <img class="img-thumb" src="{{ img.path }}" alt="{{ img.path }}">

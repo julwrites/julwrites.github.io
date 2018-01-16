@@ -25,7 +25,7 @@ Developed and maintained the following:
 ---
 
 <html>
-    <div class="imageGrid">
+    <div class="grid-img">
         {% for img in site.static_files %}
             {% if img.path contains 'ShortCircuit' %}
                 <img class="img-thumb" src="{{ img.path }}" alt="{{ img.path }}">

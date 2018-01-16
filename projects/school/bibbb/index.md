@@ -21,7 +21,7 @@ Developed tools for the team including:
 ---
 
 <html>
-    <div class="imageGrid">
+    <div class="grid-img">
         {% for img in site.static_files %}
             {% if img.path contains 'BIBBB' %}
                 <img class="img-thumb" src="{{ img.path }}" alt="{{ img.path }}">
