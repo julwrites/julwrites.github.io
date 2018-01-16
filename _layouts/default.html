@@ -1,30 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
 
-        {% include head.html %}
+<head>
 
-        {% include analytics.html %}
+    {% include head.html %}
 
-    </head>
+</head>
 
-    <body>
+<body>
 
-        <center>
-            {% include header.html %} 
+    <center>
+        {% include header.html %}
 
-            <div class="container">
-                {{ content }}
-            </div>
- 
-        </center>
-    </body>
+        <div class="container">
+            {{ content }}
+        </div>
 
-    <foot>
+    </center>
+</body>
 
-        {% include footer.html %}
+<foot>
 
-        {% include foot.html %}
+    {% include footer.html %} {% include foot.html %}
 
-    </foot>
+</foot>
+
 </html>
