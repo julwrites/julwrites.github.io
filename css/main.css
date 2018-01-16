@@ -63,6 +63,11 @@ img {
     max-height: auto;
 }
 
+.img-gallery {
+    width: 30%;
+    height: auto;
+}
+
 .img-icon {
     width: 32px;
     height: 32px;
