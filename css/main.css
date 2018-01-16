@@ -76,15 +76,13 @@ img {
 .grid-menu {
     display: flex;
     flex-basis: inherit;
-    flex-flow: row nowrap;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .grid-img {
     display: flex;
     flex-basis: inherit;
-    flex-flow: row wrap;
-    align-content: center;
+    justify-content: space-around;
 }
 
 ul, ol {
