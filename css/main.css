@@ -78,9 +78,8 @@ img {
 .gallery-container {
     display: flex;
     flex-basis: inherit;
-    flex-wrap: wrap;
-    vertical-align: middle;
-    justify-content: space-around;
+    flex-flow: column;
+    justify-content: center;
 }
 
 .gallery-img {
