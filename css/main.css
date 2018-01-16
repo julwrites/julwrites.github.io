@@ -77,15 +77,15 @@ img {
 
 .gallery-container {
     display: flex;
+    flex-basis: inherit;
     flex-wrap: wrap;
-    padding: 0.5%;
     vertical-align: middle;
+    justify-content: space-around;
 }
 
 .gallery-img {
     width: 40%;
     height: 40%;
-    align-self: center;
 }
 
 ul, ol {
