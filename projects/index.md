@@ -9,8 +9,8 @@ title: Julian's Work
 ## Hobbyist Projects
 <html>
     <div class="grid-menu">
-        <a class="img-thumb" href="/projects/personal/vscode_explorer">
-            <img src="/files/images/vscode_explorer.jpg" alt="VSCode File Explorer">
+        <a class="link" href="/projects/personal/vscode_explorer">
+            <img class="img-thumb" src="/files/images/vscode_explorer.jpg" alt="VSCode File Explorer">
         </a>
         <!-- <a class="img-thumb" href="/projects/personal/biblicabot">
             <img src="/files/images/biblicabot.jpg" alt="Biblica Bot">
