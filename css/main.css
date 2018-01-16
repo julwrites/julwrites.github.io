@@ -1,3 +1,5 @@
+/* Bare bones style css, using a white, grey and blue color theme */
+
 element {
     --base-font-family: 'Noto Sans', serif;
     --base-font-size:   15px;
