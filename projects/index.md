@@ -22,9 +22,15 @@ title: Julian's Work
 
 <html>
     <div class="menuGrid">
-        <a class="thumb" href="/projects/school/shortcircuit"><img src="/files/images/ShortCircuit_1.jpg" alt="ShortCircuit"></a>
-        <a class="thumb" href="/projects/school/flowline"><img src="/files/images/Flowline_1.jpg" alt="FlowLine"></a>
-        <a class="thumb" href="/projects/school/bibbb"><img src="/files/images/BIBBB_1.jpg" alt="BIBBB"></a>
+        <a class="link" href="/projects/school/shortcircuit">
+            <img class="thumb" src="/files/images/ShortCircuit_1.jpg" alt="ShortCircuit">
+        </a>
+        <a class="link" href="/projects/school/flowline">
+            <img class="thumb" src="/files/images/Flowline_1.jpg" alt="FlowLine">
+        </a>
+        <a class="link" href="/projects/school/bibbb">
+            <img class="thumb" src="/files/images/BIBBB_1.jpg" alt="BIBBB">
+        </a>
     </div>
 </html>
 
