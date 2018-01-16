@@ -59,7 +59,7 @@ img {
 .img-thumb {
     width: 30%;
     height: auto;
-    max-width: 30%;
+    max-width: 512px;
     max-height: auto;
 }
 
