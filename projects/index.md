@@ -7,14 +7,16 @@ title: Julian's Work
 ---
 
 ## Hobbyist Projects
+As part of an ever ongoing journey of self-improvement, I take up small side projects in my spare time. 
+
 <html>
     <div class="grid-menu">
         <a class="link" href="/projects/personal/vscode_explorer">
             <img class="img-thumb" src="/files/images/vscode_explorer.jpg" alt="VSCode File Explorer">
         </a>
-        <!-- <a class="link" href="/projects/personal/biblicabot">
-            <img class="img-thumb" src="/files/images/biblicabot.jpg" alt="Biblica Bot">
-        </a> -->
+        <a class="link" href="/projects/personal/biblicabot">
+            <img class="img-thumb" src="/files/images/biblicabot.png" alt="Biblica Bot">
+        </a>
     </div>
 </html>
 
