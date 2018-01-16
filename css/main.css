@@ -67,9 +67,8 @@ img {
 }
 
 .grid-menu {
-    width: inherit;
-    height: inherit;
-    display: inline-block;
+    display: flex;
+    flex-basis: inherit;
     flex-flow: row nowrap;
     justify-content: space-around;
 }
