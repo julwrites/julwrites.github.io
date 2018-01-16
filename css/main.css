@@ -80,11 +80,10 @@ img {
     justify-content: space-around;
 }
 
-.grid-img {
+.grid-gallery {
     display: flex;
     flex-basis: inherit;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    flex-flow: column;
 }
 
 ul, ol {
