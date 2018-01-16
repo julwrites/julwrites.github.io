@@ -64,8 +64,8 @@ img {
 }
 
 .img-gallery {
-    width: 30%;
-    height: 30%;
+    width: 50%;
+    height: 50%;
 }
 
 .img-icon {
@@ -84,6 +84,7 @@ img {
     display: flex;
     flex-basis: inherit;
     flex-flow: column;
+    justify-content: center;
 }
 
 ul, ol {
