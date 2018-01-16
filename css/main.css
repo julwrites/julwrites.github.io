@@ -55,8 +55,8 @@ img {
     display: -ms-inline-flexbox;
     display: -webkit-inline-box;
 
-    margin: 1rem auto;
-    width: calc(33.33% - .55rem);
+    margin: 1rem;
+    width: auto;
     height: auto;
 }
 
@@ -67,7 +67,6 @@ img {
     display: -ms-inline-flexbox;
     display: -webkit-inline-box;
 
-    margin: 1rem;
     width: calc(20% - .55rem);
     height: auto;
 }
