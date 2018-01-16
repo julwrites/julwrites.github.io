@@ -57,8 +57,10 @@ img {
 }
 
 .img-thumb {
-    width: calc(20%);
+    width: auto;
     height: auto;
+    max-width: calc(20%);
+    max-height: calc(20%);
     overflow: hidden;
 }
 
