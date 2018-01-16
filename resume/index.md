@@ -14,10 +14,13 @@ Working knowledge of Computer Graphics, Machine Learning, Multi-Processor Progra
 ## Experience
 ### Autodesk Singapore Research & Development - Reality Solutions 
 _Software Engineer, January 2015-Present_
+
 Heavily involved in UI Design ideation and implementation
 Proposed and implemented UI Architecture and Widget Library
+
 ## Digipen Institute of Technology Singapore
 _Teaching Assistant, September 2013-December 2014_
+
 Conducted weekly review classes for Freshman Linear Algebra and Storytelling modules
 Graded assignments for C++ Programming, Game programming and Calculus modules
 Provided academic support to junior students as part of the school's Academic Support Center
