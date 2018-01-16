@@ -214,13 +214,14 @@ table, th {
     text-align: center;
     border-bottom: 1px solid #eee;
     border-collapse: collapse;
-line-height: 25px;
-letter-spacing: 1px;
+    line-height: 25px;
+    letter-spacing: 1px;
 }
 
 .container {
     margin-right: auto;
     margin-left: auto;
+    text-align: left;
     padding-right: var(--spacing-unit);
     padding-left: var(--spacing-unit);
 }
