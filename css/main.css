@@ -63,11 +63,6 @@ img {
     max-height: auto;
 }
 
-.img-gallery {
-    width: 50%;
-    height: 50%;
-}
-
 .img-icon {
     width: 32px;
     height: 32px;
@@ -77,13 +72,18 @@ img {
     display: flex;
     flex-basis: inherit;
     flex-wrap: wrap;
-    justify-content: space-around;
 }
 
 .gallery-container {
     display: flex;
     flex-wrap: wrap;
     padding: 0.5%;
+}
+
+.gallery-img {
+    width: 50%;
+    height: 50%;
+    vertical-align: middle;
 }
 
 ul, ol {
