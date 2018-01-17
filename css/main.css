@@ -44,7 +44,8 @@ body {
 }
 
 .container {
-    width: 80%;
+    width: 75%;
+    max-width: 800px;
     margin-right: auto;
     margin-left: auto;
     padding-right: var(--spacing-unit);
