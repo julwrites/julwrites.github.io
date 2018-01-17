@@ -70,6 +70,10 @@
 * {
     font-family: var(--font-family);
     font-weight: var(--font-weight);
+
+    /* Disabling unwanted things */
+    text-decoration: none;
+    cursor: unset;
 }
 
 a {
