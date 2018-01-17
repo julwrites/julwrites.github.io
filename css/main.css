@@ -50,7 +50,7 @@
     --text-color-h6: var(--blue-grey);
     --text-color-a: var(--grey-black);
     --text-color-list: var(--blue-grey-dark);
-    --text-color-link: var(--grey-dark);
+    --text-color-link: var(--blue-grey);
     --text-color-link-hover: var(--blue-grey-more);
 
     /* Body variables */
@@ -89,6 +89,21 @@ h2 {
 h3 {
     color: var(--text-color-h3);
     font-size: var(--font-size-norm);
+}
+
+h4 {
+    color: var(--text-color-h4);
+    font-size: var(--font-size-minus);
+}
+
+h5 {
+    color: var(--text-color-h5);
+    font-size: var(--font-size-small);
+}
+
+h6 {
+    color: var(--text-color-h6);
+    font-size: var(--font-size-tiny);
 }
 
 ul {
