@@ -147,6 +147,7 @@ foot, footer {
 img {
     width: auto;
     height: auto;
+    padding: var(--spacing-unit);
 }
 
 .img-thumb {
