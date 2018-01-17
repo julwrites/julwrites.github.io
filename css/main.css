@@ -72,6 +72,11 @@
     font-weight: var(--font-weight);
 }
 
+a {
+    width: inherit;
+    height: inherit;
+}
+
 p {
     color: var(--text-color-p);
 }
