@@ -78,17 +78,17 @@ p {
 
 h1 {
     color: var(--text-color-h1);
-    font-size: var(--font-size-large);
+    font-size: var(--font-size-huge);
 }
 
 h2 {
     color: var(--text-color-h2);
-    font-size: var(--font-size-plus);
+    font-size: var(--font-size-large);
 }
 
 h3 {
     color: var(--text-color-h3);
-    font-size: var(--font-size-norm);
+    font-size: var(--font-size-plus);
 }
 
 h4 {
