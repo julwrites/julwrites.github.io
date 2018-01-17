@@ -3,15 +3,14 @@ layout: default
 title: Julian Writes 
 ---
 
+# {{ page.title }}
+
 <html>
-<h1>{{ page.title }}</h1>
-<ul class="posts">
     {% for post in site.posts %}
-    <li>
-        <span>{{ post.date | date_to_string }}</span>
+    <div class="post">
         <a href="{{ post.url}}" title="{{ post.title }}">{{ post.title }}</a>
+        <a><em>{{ post.date |date_to_string }}</em></a>
         <p>{{ post.content }}</p>
-    </li>
+    </div>
     {% endfor%}
-</ul>
 </html>
