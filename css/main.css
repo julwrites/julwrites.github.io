@@ -1,6 +1,7 @@
 /* Bare bones style css, using a white, grey and blue color theme */
 
-:variables {
+/* Variables to use across the css file */
+element.style {
     --content-width:    800px;
 
     --spacing-unit:     30px;
