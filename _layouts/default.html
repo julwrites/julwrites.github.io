@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html>
 
+<!-- Static head of the page -->
+
 <head>
-
-    {% include head.html %}
-
+    {% include head.html %} {% include header.html %}
 </head>
 
+<!-- Body of the page -->
+
 <body>
+    <!-- Center section -->
+    <center>
+        <!-- The main content -->
+        <div class="container">
+            {{ content }}
+        </div>
 
-    {% include header.html %}
-
-    <div class="container">
-        {{ content }}
-    </div>
-
+    </center>
 </body>
 
+<!-- Static footer of the page -->
 <foot>
-
     {% include footer.html %} {% include foot.html %}
-
 </foot>
 
 </html>
