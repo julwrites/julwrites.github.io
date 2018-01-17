@@ -1,10 +1,10 @@
-/* Bare bones style css, using a white, grey and blue color theme */
+/* Simple css, using a white, grey and blue color theme */
 
 /* Variables to use across the css file */
 :root {
     --content-width: 800px;
 
-    --spacing-unit: 15px;
+    --spacing-unit: 2rem;
 
     --grey: #888888;
     --blue: #6688AA;
@@ -22,6 +22,26 @@
     --blue-grey-more: #445566;
     --blue-grey-dark: #334455;
 
+    --font-family: "Verdana", Sans-serif;
+    --font-weight: 400;
+
+    --font-size-tiny: 7.5px;
+    --font-size-small: 10px;
+    --font-size-minus: 12.5px;
+    --font-size-norm: 15px;
+    --font-size-plus: 17.5px;
+    --font-size-large: 20px;
+    --font-size-huge: 22.5px;
+    
+    --icon-size-small: 32px;
+    --icon-size-mid: 64px;
+    --icon-size-large: 128px;
+
+    --image-size-small: 512px;
+    --image-size-mid: 1024px;
+    --image-size-large: 2048px;
+
+    /* Text variables */
     --text-color-h1: var(--blue-grey-dark);
     --text-color-h2: var(--grey-dark);
     --text-color-h3: var(--blue-grey-more);
@@ -29,33 +49,46 @@
     --text-color-h5: var(--blue);
     --text-color-h6: var(--blue-grey);
     --text-color-a: var(--grey-black);
-
     --text-color-list: var(--blue-grey-dark);
     --text-color-link: var(--grey-dark);
     --text-color-link-hover: var(--blue-grey-more);
 
-    /* Fonts */
-    --font-family: "Verdana", Sans-serif;
-    --font-weight: 400;
-
     /* Body variables */
-    --body-font-size: 15px;
-
-    --body-background-color: #fdfdfd;
+    --body-background-color: var(--grey-light);
+    --body-font-size: var(--font-size-norm);
     --body-text-color: var(--text-color-a);
 
     /* Head variables */
-    --head-font-size: var(--body-font-size) * 1.25;
+    --head-font-size: var(--font-size-large);
     --head-text-color: var(--text-color-h1);
 
     /* Foot variables */
-    --foot-font-size:  var(--body-font-size) * 0.75;
+    --foot-font-size:  var(--body-font-small);
     --foot-text-color: var(--text-color-h6);
 }
 
 * {
     font-family: var(--font-family);
     font-weight: var(--font-weight);
+}
+
+a {
+    color: var(--text-color-a);
+}
+
+h1 {
+    color: var(--text-color-h1);
+    font-size: var(--font-size-large);
+}
+
+h2 {
+    color: var(--text-color-h2);
+    font-size: var(--font-size-plus);
+}
+
+h3 {
+    color: var(--text-color-h3);
+    font-size: var(--font-size-norm);
 }
 
 ul {
@@ -92,7 +125,7 @@ foot {
 }
 
 img {
-    margin: 1rem;
+    margin: var(--spacing-unit);
     width: auto;
     height: auto;
 }
@@ -100,13 +133,13 @@ img {
 .img-thumb {
     width: 30%;
     height: auto;
-    max-width: 512px;
+    max-width: var(--image-size-small);
     max-height: auto;
 }
 
 .img-icon {
-    width: 32px;
-    height: 32px;
+    width: var(--icon-size-small);
+    height: var(--icon-size-small);
 }
 
 .menu-gallery {
@@ -114,6 +147,13 @@ img {
     flex-basis: inherit;
     flex-wrap: wrap;
     justify-content: space-around;
+}
+
+.menu-gallery-img {
+    width: 30%;
+    height: auto;
+    max-width: var(--image-size-mid);
+    max-height: auto;
 }
 
 .gallery-container {
