@@ -1,6 +1,6 @@
 /* Bare bones style css, using a white, grey and blue color theme */
 
-element {
+/* element {
     --base-font-family: 'Noto Sans', serif;
     --base-font-size:   15px;
     --base-font-weight: 400;
@@ -21,13 +21,13 @@ element {
 
     --on-palm:          600px;
     --on-laptop:        800px;
-}
+} */
 
-* {
+/* * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-}
+} */
 
 
 body {
