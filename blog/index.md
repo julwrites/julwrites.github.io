@@ -1,5 +1,9 @@
---- layout: default title: Julian Teh - Ramblings ---
+--- 
+layout: default 
+title: Julian Writes 
+---
 
+<html>
 <h1>{{ page.title }}</h1>
 <ul class="posts">
     {% for post in site.posts %}
@@ -9,3 +13,4 @@
     </li>
     {% endfor%}
 </ul>
+</html>
