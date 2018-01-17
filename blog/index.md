@@ -8,9 +8,9 @@ title: Julian Writes
 <html>
     {% for post in site.posts %}
     <div class="post">
-        <a href="{{ post.url}}" title="{{ post.title }}">{{ post.title }}</a>
+        <h3 href="{{ post.url}}" title="{{ post.title }}">{{ post.title }}</h3>
         <br>
-        <em>{{ post.date |date_to_string }}</em>
+        <h6><em>{{ post.date |date_to_string }}</em></h6>
         <br>
         <p>{{ post.content }}</p>
     </div>
