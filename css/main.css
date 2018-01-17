@@ -43,6 +43,14 @@ body {
     padding: 2rem; 
 }
 
+.container {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: var(--spacing-unit);
+    padding-left: var(--spacing-unit);
+}
+
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
@@ -200,11 +208,4 @@ table, th {
     border-collapse: collapse;
     line-height: 25px;
     letter-spacing: 1px;
-}
-
-.container {
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: var(--spacing-unit);
-    padding-left: var(--spacing-unit);
 }
