@@ -194,6 +194,7 @@ img {
 
 .link {
     color: var(--text-color-link);
+    cursor: pointer;
 }
 
 .link:hover {
