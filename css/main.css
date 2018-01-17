@@ -126,7 +126,7 @@ head, header {
     color: var(--head-text-color);
 }
 
-body, center {
+body {
     font-size: var(--body-font-size);
     color: var(--body-text-color);
     background-color: var(--background-color);
