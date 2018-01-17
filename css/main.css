@@ -76,11 +76,6 @@
     cursor: unset;
 }
 
-a {
-    color: var(--text-color-p);
-    font-size: var(--font-size-norm);
-}
-
 p {
     color: var(--text-color-p);
 }
