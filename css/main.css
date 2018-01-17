@@ -73,8 +73,8 @@
 }
 
 a {
-    width: inherit;
-    height: inherit;
+    color: var(--text-color-p);
+    font-size: var(--font-size-norm);
 }
 
 p {
@@ -145,7 +145,6 @@ foot, footer {
 }
 
 img {
-    margin: var(--spacing-unit);
     width: auto;
     height: auto;
 }
