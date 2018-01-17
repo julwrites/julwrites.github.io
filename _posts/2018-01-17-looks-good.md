@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: "Looks good"
 date: 2018-01-17
 ---
