@@ -4,43 +4,54 @@
 :root {
     --content-width: 800px;
 
-    --spacing-unit: 30px;
+    --spacing-unit: 15px;
 
-    --text-color-h1: #223344;
-    --text-color-h2: #334455;
-    --text-color-h3: #444444;
+    --text-color-h1: #112233;
+    --text-color-h2: #223344;
+    --text-color-h3: #333333;
+    --text-color-h4: #444444;
+    --text-color-h5: #556677;
+    --text-color-h6: #667788;
     --text-color-a: #101010;
 
+    /* Fonts */
+    --font-family: "Verdana", Sans-serif;
+    --font-weight: 400;
+
     /* Body variables */
-    --body-font-family: 'Noto Sans', serif;
     --body-font-size: 15px;
-    --body-font-weight: 400;
-    --body-line-height: 1.5;
 
     --body-background-color: #fdfdfd;
     --body-text-color: var(--text-color-a);
 
     /* Head variables */
     --head-font-size: var(--body-font-size) * 1.25;
+    --head-text-color: var(--text-color-h1);
 
     /* Foot variables */
     --foot-font-size:  var(--body-font-size) * 0.75;
+    --foot-text-color: var(--text-color-h6);
+}
+
+* {
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
 }
 
 head {
-    font-size: var(--head-font-size)
+    font-size: var(--head-font-size);
+    color: var(--head-text-color);
 }
 
 body {
     font-family: var(--body-font-family);
-    font-size: var(--body-font-size);
-    font-weight: var(--body-font-weight);
     color: var(--body-text-color);
     background-color: var(--background-color);
 }
 
 foot {
-    font-size: var(--foot-font-size)
+    font-size: var(--foot-font-size);
+    color: var(--foot-text-color);
 }
 
 .container {
@@ -48,8 +59,6 @@ foot {
     max-width: var(--content-width);
     margin-right: auto;
     margin-left: auto;
-    padding-right: var(--spacing-unit);
-    padding-left: var(--spacing-unit);
 }
 
 img {
