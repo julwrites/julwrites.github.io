@@ -20,7 +20,7 @@ A Follower of Jesus by faith
 ## Professional
 <html>
     <a class="link" href="https://resume.tehj.org">
-        <img class="img-icon" src="/files/images/resume.png" alt="Resume">
+        <img class="img-icon" src="/files/images/resume.png" alt="Resume"/>
     </a>
 </html>
 Software Engineer - Autodesk Asia

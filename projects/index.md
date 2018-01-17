@@ -12,10 +12,10 @@ As part of an ever ongoing journey of self-improvement, I take up small side pro
 <html>
     <div class="menu-gallery">
         <a class="link" href="/projects/personal/vscode_explorer">
-            <img class="menu-gallery-img" src="/files/images/vscode_explorer.jpg" alt="VSCode File Explorer">
+            <img class="menu-gallery-img" src="/files/images/vscode_explorer.jpg" alt="VSCode File Explorer"/>
         </a>
         <a class="link" href="/projects/personal/biblicabot">
-            <img class="menu-gallery-img" src="/files/images/biblicabot.png" alt="Biblica Bot">
+            <img class="menu-gallery-img" src="/files/images/biblicabot.png" alt="Biblica Bot"/>
         </a>
     </div>
 </html>
@@ -28,13 +28,13 @@ DigiPen is a school that majors in Games and Animation, and as such students wor
 <html>
     <div class="menu-gallery">
         <a class="link" href="/projects/school/shortcircuit">
-            <img class="menu-gallery-img" src="/files/images/ShortCircuit_1.jpg" alt="ShortCircuit">
+            <img class="menu-gallery-img" src="/files/images/ShortCircuit_1.jpg" alt="ShortCircuit"/>
         </a>
         <a class="link" href="/projects/school/flowline">
-            <img class="menu-gallery-img" src="/files/images/Flowline_1.jpg" alt="FlowLine">
+            <img class="menu-gallery-img" src="/files/images/Flowline_1.jpg" alt="FlowLine"/>
         </a>
         <a class="link" href="/projects/school/bibbb">
-            <img class="menu-gallery-img" src="/files/images/BIBBB_1.jpg" alt="BIBBB">
+            <img class="menu-gallery-img" src="/files/images/BIBBB_1.jpg" alt="BIBBB"/>
         </a>
     </div>
 </html>
