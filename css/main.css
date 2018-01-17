@@ -1,45 +1,57 @@
 /* Bare bones style css, using a white, grey and blue color theme */
 
 :variables {
-    --base-font-family: 'Noto Sans', serif;
-    --base-font-size:   15px;
-    --base-font-weight: 400;
-    --small-font-size:  var(--base-font-size) * 0.875;
-    --base-line-height: 1.5;
+    --content-width:    800px;
 
     --spacing-unit:     30px;
 
-    --text-color:       #111;
-    --background-color: #fdfdfd;
-    --brand-color:      #2a7ae2;
+    --text-color-h1:        #223344;
+    --text-color-h2:        #334455;
+    --text-color-h3:        #444444;
+    --text-color-a:         #101010;
 
-    --grey-color:       #828282;
-    --grey-color-light: lighten(var(--grey-color), 40%);
-    --grey-color-dark:  darken(var(--grey-color), 25%);
+    /* Body variables */
+    --body-font-family: 'Noto Sans', serif;
+    --body-font-size:   15px;
+    --body-font-weight: 400;
+    --body-line-height: 1.5;
 
-    --content-width:    800px;
+    --body-background-color:    #fdfdfd;
+    --body-text-color:          var(--text-color-a);
 
-    --on-palm:          600px;
-    --on-laptop:        800px;
+    /* Head variables */
+    --head-font-size: var(--body-font-size) * 1.25;
+
+    /* Foot variables */
+    --foot-font-size:  var(--body-font-size) * 0.75;
 }
 
-/* 
+head {
+    font-size: var(--head-font-size)
+}
+
 body {
-    font: var(--base-font-weight) var(--base-font-family);
-    color: var(--text-color);
+    font-family: var(--body-font-family);
+    font-size: var(--body-font-size);
+    font-weight: var(--body-font-weight);
+    color: var(--body-text-color);
     background-color: var(--background-color);
-    -webkit-text-size-adjust: 100%;
+    /* -webkit-text-size-adjust: 100%;
     -webkit-font-feature-settings: "kern" 1;
     -moz-font-feature-settings: "kern" 1;
     -o-font-feature-settings: "kern" 1;
     font-feature-settings: "kern" 1;
     font-kerning: normal;
-    padding: 2rem; 
-} */
+    padding: 2rem;  */
+}
+
+foot {
+    font-size: var(--foot-font-size)
+}
 
 .container {
     width: 75%;
-    max-width: 800px;
+    max-width: var(--content-width);
     margin-right: auto;
     margin-left: auto;
     padding-right: var(--spacing-unit);
