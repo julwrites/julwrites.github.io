@@ -2,23 +2,23 @@
 
 /* Variables to use across the css file */
 element {
-    --content-width:    800px;
+    --content-width: 800px;
 
-    --spacing-unit:     30px;
+    --spacing-unit: 30px;
 
-    --text-color-h1:        #223344;
-    --text-color-h2:        #334455;
-    --text-color-h3:        #444444;
-    --text-color-a:         #101010;
+    --text-color-h1: #223344;
+    --text-color-h2: #334455;
+    --text-color-h3: #444444;
+    --text-color-a: #101010;
 
     /* Body variables */
     --body-font-family: 'Noto Sans', serif;
-    --body-font-size:   15px;
+    --body-font-size: 15px;
     --body-font-weight: 400;
     --body-line-height: 1.5;
 
-    --body-background-color:    #fdfdfd;
-    --body-text-color:          var(--text-color-a);
+    --body-background-color: #fdfdfd;
+    --body-text-color: var(--text-color-a);
 
     /* Head variables */
     --head-font-size: var(--body-font-size) * 1.25;
