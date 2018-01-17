@@ -116,18 +116,18 @@ ol {
     list-style-type: square;
 }
 
-head {
+head, header {
     font-size: var(--head-font-size);
     color: var(--head-text-color);
 }
 
-body {
+body, center {
     font-size: var(--body-font-size);
     color: var(--body-text-color);
     background-color: var(--background-color);
 }
 
-foot {
+foot, footer {
     font-size: var(--foot-font-size);
     color: var(--foot-text-color);
 }
