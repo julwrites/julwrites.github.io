@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "This blog"
+title: "Looks good"
 date: 2018-01-17
 ---
 
