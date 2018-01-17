@@ -36,13 +36,6 @@ body {
     font-weight: var(--body-font-weight);
     color: var(--body-text-color);
     background-color: var(--background-color);
-    /* -webkit-text-size-adjust: 100%;
-    -webkit-font-feature-settings: "kern" 1;
-    -moz-font-feature-settings: "kern" 1;
-    -o-font-feature-settings: "kern" 1;
-    font-feature-settings: "kern" 1;
-    font-kerning: normal;
-    padding: 2rem;  */
 }
 
 foot {
@@ -56,13 +49,6 @@ foot {
     margin-left: auto;
     padding-right: var(--spacing-unit);
     padding-left: var(--spacing-unit);
-}
-
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-ul, ol, dl, figure,
-vertical-rhythm {
-    margin-bottom: var(--spacing-unit) / 2;
 }
 
 img {
