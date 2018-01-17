@@ -63,7 +63,7 @@
     --head-text-color: var(--text-color-h1);
 
     /* Foot variables */
-    --foot-font-size:  var(--body-font-small);
+    --foot-font-size:  var(--font-size-small);
     --foot-text-color: var(--text-color-h6);
 }
 
