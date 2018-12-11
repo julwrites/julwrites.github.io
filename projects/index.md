@@ -11,8 +11,8 @@ As part of an ever ongoing journey of self-improvement, I take up small side pro
 
 <html>
     <div class="menu-gallery">
-        <a href="/projects/personal/vscode_explorer">
-            <img class="menu-gallery-img" src="/files/images/vscode_explorer.jpg" alt="VSCode File Explorer">
+        <a href="/projects/personal/vscodecmder">
+            <img class="menu-gallery-img" src="/files/images/vscodecmder.jpg" alt="VSCodeCmder">
         </a>
         <a href="/projects/personal/biblicabot">
             <img class="menu-gallery-img" src="/files/images/biblicabot.png" alt="Biblica Bot">
