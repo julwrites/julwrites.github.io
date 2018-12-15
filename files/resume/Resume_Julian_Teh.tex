@@ -1,0 +1,115 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{titlesec}
+
+\pagenumbering{gobble}
+\setlength{\parindent}{0pt}
+
+\definecolor{section_color}{RGB}{128, 0, 0}
+\definecolor{subsection_color}{RGB}{128, 128, 0}
+\definecolor{subsubsection_color}{RGB}{128, 128, 128}
+
+% Sections formatting
+\titleformat{\section}{
+    \color{section_color}
+    \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\titlerule \vspace{-5pt}]
+
+\titleformat{\subsection}{
+    \color{subsection_color}
+    \vspace{-4pt}\scshape\raggedright\normalsize
+}{}{0em}{}[\vspace{-5pt}]
+
+\titleformat{\subsubsection}{
+    \color{subsubsection_color}
+    \vspace{-4pt}\scshape\raggedright\small
+}{}{2em}{}[\vspace{-5pt}]
+
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\begin{document}
+
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\href{http://tehj.org/}{\Large Julian Teh}} \texttt{\small $\rightarrow$ \href{http://tehj.org/}{tehj.org}} & Email : \href{mailto:mail@tehj.org}{mail@tehj.org} $|$ Mobile : +65 96614104
+\end{tabular*}
+
+\section{Profile}
+    I love designing and developing innovative solutions to problems. 
+
+
+\section{Skills}
+
+\begin{itemize}
+    \item Software Development (C++, Python, Javascript) \textit{2012 - Present}
+    \item Agile Methodology \textit{2014 - Present}
+    \item User Experience, Computer Graphics, Machine Learning, Distributed Systems \textit{2015 - Present}
+\end{itemize}
+
+
+\section{Experience}
+
+\subsection{Autodesk Singapore}
+\textit{{\small Software Engineer, 2015 - Present}}
+
+\begin{itemize}
+    \item Desktop Application Architecture and Development \textit{(Autodesk Desktop App)}
+    \item Download and Install Architecture and Development \textit{(Autodesk Desktop App)}
+    \item CI/CD Pipeline Architecture and Development \textit{(Autodesk ReCap Photo)}
+    \item Desktop Application Architecture and Development \textit{(Autodesk ReMake)}
+    \item UI/UX Ideation and Development \textit{(Autodesk ReMake)}
+\end{itemize}
+
+\subsection{DigPen Institute of Technology}
+\textit{{\small Teaching Assistant, 2013 - 2015}}
+
+\begin{itemize}
+    \item Provided academic support to junior students as part of the school’s Academic Support Center. 
+    \item Assignment grading for C++ Programming, Game Programming and Calculus modules
+    \item Conducted weekly review classes for Freshman Linear Algebra and Storytelling modules
+\end{itemize}
+
+
+\section{Education}
+
+\subsection{National University of Singapore}
+\textit{{\small M.Comp in Computer Science, 2017 - Present}}
+
+\subsubsection{Research Projects}
+\begin{itemize}
+    \item Image Feature Generation using Deep Autoencoders
+    \item Browser-based Data Visualization
+\end{itemize}
+
+\subsection{DigiPen Institute of Technology}
+\textit{{\small B.Sc in Computer Science in Real-Time Interactive Simulation, 2012 - 2015}}
+
+\subsubsection{Student Projects}
+\begin{itemize}
+    \item Tools Programmer, \href{http://games.digipen.edu/games/shortcircuit}{Short Circuit} \textit{(January 2014 - December 2014)}
+    \item Gameplay Programmer, \href{http://games.digipen.edu/games/flowline}{Flowline} \textit{(May 2013 - December 2013)}
+    \item Technical Lead, \href{http://games.digipen.edu/games/bibbb}{BIBBB} \textit{(January 2013 - April 2013)}
+\end{itemize}
+
+\end{document}
