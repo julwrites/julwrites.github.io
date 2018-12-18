@@ -1,0 +1,5 @@
+
+/* Hiding PDF Viewer elements */
+.toolbar { display: none !important; }
+
+#sidebarContainer { display: none !important; }
