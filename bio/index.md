@@ -18,11 +18,12 @@ A Follower of Jesus by faith
 ---
 
 ## Professional
+Software Engineer - Autodesk Asia
+
 <html>
     <a class="link" href="https://resume.tehj.org">
         <embed src="/files/resume/Resume_Julian_Teh.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" width="100%" height="100%" alt="Resume"/>
     </a>
 </html>
-Software Engineer - Autodesk Asia
 
 ---
