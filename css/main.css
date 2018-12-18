@@ -196,3 +196,12 @@ img {
 .link:hover {
     color: var(--text-color-link-hover);
 }
+
+/* Hiding PDF Viewer elements */
+.toolbarViewer { display: none !important; }
+
+.sizebarResizer { display: none !important; }
+
+.toolbarButton { display: none !important; }
+
+.secondaryToolbarButton { display: none !important; }
