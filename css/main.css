@@ -198,10 +198,6 @@ img {
 }
 
 /* Hiding PDF Viewer elements */
-.toolbarViewer { display: none !important; }
+.toolbar { display: none !important; }
 
-.sizebarResizer { display: none !important; }
-
-.toolbarButton { display: none !important; }
-
-.secondaryToolbarButton { display: none !important; }
+.sidebarContainer { display: none !important; }
