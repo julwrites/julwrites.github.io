@@ -1,48 +1,44 @@
 \documentclass[letterpaper,11pt]{article}
 
-\usepackage{latexsym}
 \usepackage[empty]{fullpage}
-\usepackage{marvosym}
-\usepackage[usenames,dvipsnames]{color}
-\usepackage{verbatim}
-\usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
-\usepackage{fancyhdr}
-\usepackage[english]{babel}
 
 \usepackage{xcolor}
 \usepackage{amsmath}
 \usepackage{titlesec}
 
 \pagenumbering{gobble}
-\setlength{\parindent}{0pt}
 
 \definecolor{section_color}{RGB}{128, 0, 0}
 \definecolor{subsection_color}{RGB}{128, 128, 0}
 \definecolor{subsubsection_color}{RGB}{128, 128, 128}
+\definecolor{item_color}{RGB}{64, 64, 64}
+\definecolor{link_color}{RGB}{0, 128, 128}
 
 % Sections formatting
 \titleformat{\section}{
     \color{section_color}
-    \vspace{-4pt}\scshape\raggedright\large
+    \vspace{-4pt}
+    \scshape\raggedright\large
 }{}{0em}{}[\titlerule \vspace{-5pt}]
 
 \titleformat{\subsection}{
     \color{subsection_color}
-    \vspace{-4pt}\scshape\raggedright\normalsize
+    \vspace{-4pt}
+    \scshape\raggedright\normalsize
 }{}{0em}{}[\vspace{-5pt}]
 
-\titleformat{\subsubsection}{
-    \color{subsubsection_color}
-    \vspace{-4pt}\scshape\raggedright\small
-}{}{2em}{}[\vspace{-5pt}]
+\newcommand{\cvitem}[1]{\hspace{10pt}\vspace{2.5pt} \small\scshape\raggedright \textcolor{item_color}{#1}\\}
 
+\newcommand{\link}[2]{\textcolor{link_color}{\href{#1}{#2}}}
+\newcommand{\qualifier}[1]{\hfill \textsl{\footnotesize #1}}
+\newcommand{\reference}[1]{\texttt{\small $\rightarrow$ #1}}
 
 % Adjust margins
 \addtolength{\oddsidemargin}{-0.5in}
 \addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
+\addtolength{\topmargin}{-0.5in}
 \addtolength{\textheight}{1.0in}
 
 \raggedbottom
@@ -52,64 +48,54 @@
 \begin{document}
 
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-  \textbf{\href{http://tehj.org/}{\Large Julian Teh}} \texttt{\small $\rightarrow$ \href{http://tehj.org/}{tehj.org}} & Email : \href{mailto:mail@tehj.org}{mail@tehj.org} $|$ Mobile : +65 96614104
+  \textbf{\Large Julian Teh} 
+  \reference{\link{http://tehj.org/}{tehj.org}}
+  &
+  Email
+  \reference{\link{mailto:mail@tehj.org}{mail@tehj.org}}
+  $|$
+  Mobile
+  \reference{+65 96614104}
 \end{tabular*}
 
 \section{Profile}
-    I love designing and developing innovative solutions to problems. 
+    \cvitem{I love designing and developing innovative solutions to problems}
 
 
 \section{Skills}
 
-\begin{itemize}
-    \item Software Development (C++, Python, Javascript) \textit{2012 - Present}
-    \item Agile Methodology \textit{2014 - Present}
-    \item User Experience, Computer Graphics, Machine Learning, Distributed Systems \textit{2015 - Present}
-\end{itemize}
+    \cvitem{Software Development (C++, Python, Javascript) \qualifier{2012 - Present}}
+    \cvitem{Agile Methodology \qualifier{2014 - Present}}
+    \cvitem{User Experience, Computer Graphics, Machine Learning, Distributed Systems}
 
 
 \section{Experience}
 
-\subsection{Autodesk Singapore}
-\textit{{\small Software Engineer, 2015 - Present}}
+\subsection{Autodesk Singapore \qualifier{Software Engineer, 2015 - Present}}
 
-\begin{itemize}
-    \item Desktop Application Architecture and Development \textit{(Autodesk Desktop App)}
-    \item Download and Install Architecture and Development \textit{(Autodesk Desktop App)}
-    \item CI/CD Pipeline Architecture and Development \textit{(Autodesk ReCap Photo)}
-    \item Desktop Application Architecture and Development \textit{(Autodesk ReMake)}
-    \item UI/UX Ideation and Development \textit{(Autodesk ReMake)}
-\end{itemize}
+    \cvitem{Desktop Application Architecture and Development \qualifier{Autodesk Desktop App}}
+    \cvitem{Download and Install Architecture and Development \qualifier{Autodesk Desktop App}}
+    \cvitem{CI/CD Pipeline Architecture and Development \qualifier{Autodesk ReCap Photo}}
+    \cvitem{Desktop Application Architecture and Development \qualifier{Autodesk ReMake}}
+    \cvitem{UI/UX Ideation and Development \qualifier{Autodesk ReMake}}
 
-\subsection{DigPen Institute of Technology}
-\textit{{\small Teaching Assistant, 2013 - 2015}}
+\subsection{DigPen Institute of Technology \qualifier{Teaching Assistant, 2013 - 2015}}
 
-\begin{itemize}
-    \item Provided academic support to junior students as part of the school’s Academic Support Center. 
-    \item Assignment grading for C++ Programming, Game Programming and Calculus modules
-    \item Conducted weekly review classes for Freshman Linear Algebra and Storytelling modules
-\end{itemize}
+    \cvitem{Tutoring students in Computing, Mathematics and Physics}
+    \cvitem{Grading assignments for Computing and Mathematics}
 
 
 \section{Education}
 
-\subsection{National University of Singapore}
-\textit{{\small M.Comp in Computer Science, 2017 - Present}}
+\subsection{National University of Singapore \qualifier{M.Comp in Computer Science, 2017 - Present}}
 
-\subsubsection{Research Projects}
-\begin{itemize}
-    \item Image Feature Generation using Deep Autoencoders
-    \item Browser-based Data Visualization
-\end{itemize}
+    \cvitem{Image Feature Generation using Deep Autoencoders}
+    \cvitem{Browser-based Data Visualization}
 
-\subsection{DigiPen Institute of Technology}
-\textit{{\small B.Sc in Computer Science in Real-Time Interactive Simulation, 2012 - 2015}}
+\subsection{DigiPen Institute of Technology \qualifier{B.Sc in Computer Science in Real-Time Interactive Simulation, 2012 - 2015}}
 
-\subsubsection{Student Projects}
-\begin{itemize}
-    \item Tools Programmer, \href{http://games.digipen.edu/games/shortcircuit}{Short Circuit} \textit{(January 2014 - December 2014)}
-    \item Gameplay Programmer, \href{http://games.digipen.edu/games/flowline}{Flowline} \textit{(May 2013 - December 2013)}
-    \item Technical Lead, \href{http://games.digipen.edu/games/bibbb}{BIBBB} \textit{(January 2013 - April 2013)}
-\end{itemize}
+    \cvitem{Tools Programmer, \link{http://games.digipen.edu/games/shortcircuit}{Short Circuit} \qualifier{January 2014 - December 2014}}
+    \cvitem{Gameplay Programmer, \link{http://games.digipen.edu/games/flowline}{Flowline} \qualifier{May 2013 - December 2013}}
+    \cvitem{Technical Lead, \link{http://games.digipen.edu/games/bibbb}{BIBBB} \qualifier{January 2013 - April 2013}}
 
 \end{document}
