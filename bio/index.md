@@ -21,7 +21,7 @@ A Follower of Jesus by faith
 Software Engineer - Autodesk Asia
 
 <html>
-    <object data="/files/resume/Resume_Julian_Teh.pdf" type="application/pdf" style="width:100%;height:75vw;" typemustmatch>
+    <object data="/files/resume/Resume_Julian_Teh.pdf#zoom=Fit" type="application/pdf" style="width:100%;height:75vw;" typemustmatch>
        <a class="link" href="https://resume.tehj.org">
             <img class="img-icon" src="/files/images/resume.png" alt="Resume"/>
         </a>
