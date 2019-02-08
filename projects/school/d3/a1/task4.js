@@ -5,6 +5,10 @@
 
 // Setup canvas
 register_task(() => {
+
+  let WIDTH = 600;
+  let HEIGHT = 400;
+
   let canvasid = 'task4';
   create_canvas('#' + canvasid, WIDTH, HEIGHT, MARGIN, canvasid);
 
@@ -27,7 +31,7 @@ register_task(() => {
 
   console.log('plotting graph')
 
-  colors = ['#FF8888', '#88BB88', '#8888FF', '#888888'];
+  colors = ['#FF666655', '#66BB6655', '#6666FF55', '#66666655'];
   disps = [-0.03, -0.01, 0.01, 0.03];
 
   types['profile'].forEach(profile => {

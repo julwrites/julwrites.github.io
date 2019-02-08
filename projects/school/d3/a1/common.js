@@ -8,18 +8,14 @@ function register_task (fn) {
 // D3'Classes' and methods
 //////////////////////////////////////
 
-// Canvas variables
 const MARGIN = 0.1;
-const WIDTH = 600;
-const HEIGHT = 800;
-const DEPTH = 10;
-
 
 // We assume that pos is normalized to [0, 1]
 function Pos (n, x, y, z) {
   let bb = d3.select(get_canvas(n)).node().getBoundingClientRect();
-  this.x = (bb.width * (1 - (2 * MARGIN))) * (x + MARGIN);
-  this.y = (bb.height * (1 - (2 * MARGIN))) * (1.0 - y + MARGIN);
+  let s = 1 / (1 + (2 * MARGIN));
+  this.x = (bb.width * s) * (x + MARGIN);
+  this.y = (bb.height * s) * (MARGIN + 1.0 - y);
   this.z = z;
 }
 
@@ -93,6 +89,22 @@ function draw (p) {
         .attr('cz', p.pos.z)
         .attr('fill', p.color);
       break;
+    case 'cross':
+      d3.select(n).append('line')
+        .attr('x1', p.pos.x - p.size)
+        .attr('y1', p.pos.y - p.size)
+        .attr('x2', p.pos.x + p.size)
+        .attr('y2', p.pos.y + p.size)
+        .attr('stroke-width', 2)
+        .attr('stroke', p.color);
+      d3.select(n).append('line')
+        .attr('x1', p.pos.x - p.size)
+        .attr('y1', p.pos.y + p.size)
+        .attr('x2', p.pos.x + p.size)
+        .attr('y2', p.pos.y - p.size)
+        .attr('stroke-width', 2)
+        .attr('stroke', p.color);
+      break;
     default:
       break;
   }
@@ -139,23 +151,25 @@ function scale_ruler (n, l, u, o, w, c, t, d) {
   console.log('generated decimal measures', dscalar, dstep, ds);
 
   l = truncate((l / dscalar) * 10);
+  a = (o == 'v' ? 'end' : 'middle');
+  r = (o == 'v' ? -90 : 0);
 
   console.log('generated bounds', l, u);
 
   for (let i = 0; i <= ds; i++) {
     if (i == 0) continue;
 
-    let x1 = (o == 'v' ? -MARGIN : i / ds);
-    let y1 = (o == 'h' ? -MARGIN : i / ds);
+    let x1 = (o == 'v' ? 0 : i / ds);
+    let y1 = (o == 'h' ? 0 : i / ds);
     let x2 = (o == 'v' ? 1 : i / ds);
     let y2 = (o == 'h' ? 1 : i / ds);
 
     line(n, new Pos(n, x1, y1, 0), new Pos(n, x2, y2, 0), w, c);
-    text(n, new Pos(n, x1, y1, 0), 'left', 0, w * 5, c, truncate(dstep * (l + i), d));
+    text(n, new Pos(n, x1 - (MARGIN * 0.2), y1 - (MARGIN * 0.2), 0), a, 0, w * 5, c, truncate(dstep * (l + i), d));
   }
 
   console.log('generating axis title')
-  text(n, new Pos(n, (o == 'v' ? -(MARGIN * 0.1) : 0.5), (o == 'h' ? -(MARGIN * 0.5) : 0.5), 0), 'middle', (o == 'v' ? -90 : 0), w * 7.5, c, t);
+  text(n, new Pos(n, (o == 'v' ? -(MARGIN * 0.75) : 0.5), (o == 'h' ? -(MARGIN * 0.75) : 0.5), 0), 'middle', r, w * 7.5, c, t);
 }
 
 function type_ruler (n, t, o, w, c) {
@@ -165,13 +179,13 @@ function type_ruler (n, t, o, w, c) {
 
   t.forEach(key => {
     let i = t.indexOf(key) + 1;
-    let x1 = (o == 'v' ? -MARGIN : i / ds);
-    let y1 = (o == 'h' ? -MARGIN : i / ds);
+    let x1 = (o == 'v' ? (-MARGIN * 0.1) : i / ds);
+    let y1 = (o == 'h' ? (-MARGIN * 0.1) : i / ds);
     let x2 = (o == 'v' ? 1 : i / ds);
     let y2 = (o == 'h' ? 1 : i / ds);
 
     line(n, new Pos(n, x1, y1, 0), new Pos(n, x2, y2, 0), w, c);
-    text(n, new Pos(n, x1, y1, 0), 'middle', 0, w * 5, c, key);
+    text(n, new Pos(n, x1 - (MARGIN * 0.1), y1 - (MARGIN * 0.1), 0), 'middle', (o == 'v' ? -90 : 0), w * 5, c, key);
   });
 }
 
@@ -244,7 +258,7 @@ function load_csv (file) {
 
       for (key in row) {
         if (mins[key] != undefined && maxs[key] != undefined)
-          sanitizedrow[key] = (row[key] - mins[key]) / (maxs[key] - mins[key]);
+          sanitizedrow[key] = (row[key] - mins[key]) / (scales[key]);
         else
           sanitizedrow[key] = row[key];
 

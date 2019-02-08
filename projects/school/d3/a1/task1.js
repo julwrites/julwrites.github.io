@@ -5,6 +5,10 @@
 
 // Setup canvas
 register_task(() => {
+
+  let WIDTH = 600;
+  let HEIGHT = 400;
+
   let canvasid = 'task1';
   let bufgroup = make_key_group('bufSize', rows);
 
@@ -33,13 +37,13 @@ register_task(() => {
     let qualityshape = 'circle';
     let qualitycolor = '#8888FF';
     DataPoint(canvasbufid, qualityshape, new Pos(canvasbufid, 0.525, legendheight + (4 / HEIGHT), 0), pointsize, qualitycolor);
-    text(canvasbufid, new Pos(canvasbufid, 0.55, legendheight, 0), 'left', 0, legendsize, 'black', ': Average Quality');
+    text(canvasbufid, new Pos(canvasbufid, 0.55, legendheight, 0), 'left', 0, legendsize, legendcolor, ': Average Quality');
     plot_group(metgroup, 'quality', canvasbufid, qualityshape, pointsize, qualitycolor, mins['quality'], scales['quality'], maxs['quality']);
 
     let changeshape = 'rect';
     let changecolor = '#FF8888';
     DataPoint(canvasbufid, changeshape, new Pos(canvasbufid, 0.775, legendheight + (4 / HEIGHT), 0), pointsize, changecolor);
-    text(canvasbufid, new Pos(canvasbufid, 0.8, legendheight, 0), 'left', 0, legendsize, 'black', ': Changes in Quality');
+    text(canvasbufid, new Pos(canvasbufid, 0.8, legendheight, 0), 'left', 0, legendsize, legendcolor, ': Changes in Quality');
     plot_group(metgroup, 'change', canvasbufid, changeshape, pointsize, changecolor, mins['change'], scales['change'], maxs['quality']);
   }
 });

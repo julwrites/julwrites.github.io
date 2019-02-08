@@ -5,6 +5,10 @@
 
 // Setup canvas
 register_task(() => {
+
+  let WIDTH = 600;
+  let HEIGHT = 400;
+
   let canvasid = 'task2';
   let bufgroup = make_key_group('bufSize', rows);
 
