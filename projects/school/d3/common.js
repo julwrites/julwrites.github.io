@@ -98,7 +98,7 @@ function draw (p) {
   }
 }
 
-function text (n, p, o, s, c, t) {
+function text (n, p, o, a, s, c, t) {
   // console.log('adding text to canvas:', n, '->', t, ': (', p.x, ',', p.y, ')');
   n = get_canvas(n);
   d3.select(n).append('text')
@@ -108,6 +108,7 @@ function text (n, p, o, s, c, t) {
     .attr('font-size', s)
     .style('font-color', c)
     .style('text-anchor', o)
+    .attr('transform', 'rotate(' + a + ')')
     .text(t);
 }
 
@@ -129,7 +130,7 @@ function axis (n, p, w, c) {
   line(n, new Pos(n, p.x + 0, -1, 0), new Pos(n, p.x + 0, 1, 0), w, c);
 }
 
-function scale_ruler (n, l, u, o, w, c, d) {
+function scale_ruler (n, l, u, o, w, c, t, d) {
   console.log('adding ruler to canvas:', n, '-> [', l, u, ']');
   let s = u - l;
 
@@ -153,8 +154,10 @@ function scale_ruler (n, l, u, o, w, c, d) {
     let y2 = (o == 'h' ? 1 : i / ds);
 
     line(n, new Pos(n, x1, y1, 0), new Pos(n, x2, y2, 0), w, c);
-    text(n, new Pos(n, x1, y1, 0), 'left', w * 5, c, truncate(dstep * (l + i), d));
+    text(n, new Pos(n, x1, y1, 0), 'left', 0, w * 5, c, truncate(dstep * (l + i), d));
   }
+
+  text(n, new Pos(n, (o == 'v' ? -MARGIN : 0.5), (o == 'h' ? -MARGIN : 0.5), 0), 'left', -90, w * 10, c, t);
 }
 
 function type_ruler (n, t, o, w, c) {
@@ -170,7 +173,7 @@ function type_ruler (n, t, o, w, c) {
     let y2 = (o == 'h' ? 1 : i / ds);
 
     line(n, new Pos(n, x1, y1, 0), new Pos(n, x2, y2, 0), w, c);
-    text(n, new Pos(n, x1, y1, 0), 'middle', w * 5, c, key);
+    text(n, new Pos(n, x1, y1, 0), 'middle', 0, w * 5, c, key);
   });
 }
 
@@ -183,6 +186,7 @@ var columns = {}
 var rows = [];
 var mins = {};
 var maxs = {};
+var scales = {};
 var types = {};
 
 function load_csv (file) {
@@ -226,8 +230,13 @@ function load_csv (file) {
       if (types[key].length == 0)
         types[key] = undefined;
     }
+    for (const key in maxs) {
+      if (mins[key] != undefined && maxs[key] != undefined)
+        scales[key] = maxs[key] - mins[key];
+    }
     console.log('load_csv::harvested::mins:', mins);
     console.log('load_csv::harvested::maxs:', maxs);
+    console.log('load_csv::harvested::scales:', scales);
     console.log('load_csv::harvested::types:', types);
 
     // Second pass to sanitize and cache
@@ -275,7 +284,7 @@ function make_key_group (key, data) {
   return group;
 }
 
-function plot_group (group, ykey, canvas, type, size, color) {
+function plot_group (group, ykey, canvas, type, size, color, min, scale, norm) {
   console.log('plot_group::canvas:', canvas);
   console.log('plot_group::group:', group, '(', ykey, color, ')');
   clear_canvas();
@@ -291,12 +300,12 @@ function plot_group (group, ykey, canvas, type, size, color) {
     let xpos = i * step;
 
     if (ykey.length == 0) {
-      DataPoint(canvas, type, new Pos(canvas, xpos, groupdata, 0), size, color);
+      DataPoint(canvas, type, new Pos(canvas, xpos, (min + (groupdata * scale)) / norm, 0), size, color);
     }
     else {
       groupdata.forEach(row => {
         if (ykey in row) {
-          DataPoint(canvas, type, new Pos(canvas, xpos, row[ykey], 0), size, color);
+          DataPoint(canvas, type, new Pos(canvas, xpos, (min + (row[ykey] * scale)) / norm, 0), size, color);
         }
         else {
           console.log('plot_group::foreach: not found', ykey);

@@ -18,7 +18,7 @@ register_task(() => {
 
   console.log('generating graph artifacts')
 
-  text(canvasid, new Pos(canvasid, 0, legendheight, 0), 'left', legendsize, legendcolor, 'Buffer Configuration:');
+  text(canvasid, new Pos(canvasid, 0, legendheight, 0), 'left', 0, legendsize, legendcolor, 'Buffer Configuration:');
   line(canvasid, new Pos(canvasid, 0, legendheight - 0.025, 0), new Pos(canvasid, 1, legendheight - 0.025, 0), 2, legendcolor);
   axis(canvasid, new Pt(0, 0, 0), 2, legendcolor);
 
@@ -41,7 +41,7 @@ register_task(() => {
   }
 
   console.log('generating ruler with bounds', '[', min * maxs['qoe'], max * maxs['qoe'], ']')
-  scale_ruler(canvasid, min * maxs['qoe'], max * maxs['qoe'], 'v', 2, graphcolor);
+  scale_ruler(canvasid, min * maxs['qoe'], max * maxs['qoe'], 'v', 2, graphcolor, 'Quality of Experience');
   type_ruler(canvasid, types['method'], 'h', 2, graphcolor);
 
   for (buf in bufgroup) {
@@ -55,9 +55,9 @@ register_task(() => {
     let color = groupcolors[i++];
     let shape = 'circle';
 
-    plot_group(avggroup, '', canvasid, shape, pointsize, color);
+    plot_group(avggroup, '', canvasid, shape, pointsize, color, 0, max - min, max - min);
 
     DataPoint(canvasid, shape, new Pos(canvasid, 0.3 * i - 0.025, legendheight + (4 / HEIGHT), 0), pointsize, color);
-    text(canvasid, new Pos(canvasid, 0.3 * i, legendheight, 0), 'left', legendsize, legendcolor, buf);
+    text(canvasid, new Pos(canvasid, 0.3 * i, legendheight, 0), 'left', 0, legendsize, legendcolor, buf);
   }
 });

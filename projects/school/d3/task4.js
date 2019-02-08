@@ -20,9 +20,9 @@ register_task(() => {
   console.log('generating graph artifacts')
 
   line(canvasid, new Pos(canvasid, 0, legendheight - 0.025, 0), new Pos(canvasid, 1, legendheight - 0.025, 0), 2, legendcolor);
-  text(canvasid, new Pos(canvasid, 0, legendheight, 0), 'left', legendsize, legendcolor, 'Video V7 Stalls');
+  text(canvasid, new Pos(canvasid, 0, legendheight, 0), 'left', 0, legendsize, legendcolor, 'Video V7 Stalls');
   axis(canvasid, new Pt(0, 0, 0), 2, legendcolor);
-  scale_ruler(canvasid, mins['numStall'], maxs['numStall'], 'v', 2, graphcolor);
+  scale_ruler(canvasid, mins['numStall'], maxs['numStall'], 'v', 2, graphcolor, 'Number of Stalls');
   type_ruler(canvasid, types['method'], 'h', 2, graphcolor);
 
   console.log('plotting graph')
@@ -37,7 +37,7 @@ register_task(() => {
     let disp = disps[i];
 
     DataPoint(canvasid, shape, new Pos(canvasid, 0.25 + 0.2 * i, legendheight + (4 / HEIGHT), 0), pointsize, color);
-    text(canvasid, new Pos(canvasid, 0.3 + 0.2 * i, legendheight, 0), 'left', legendsize, legendcolor, 'Profile: ' + profile);
+    text(canvasid, new Pos(canvasid, 0.3 + 0.2 * i, legendheight, 0), 'left', 0, legendsize, legendcolor, 'Profile: ' + profile);
     plot_group_2d(netgroup[profile], 'method', 'numStall', canvasid, shape, pointsize, color, new Pt(disp, 0, 0));
   });
 });

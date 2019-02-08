@@ -24,10 +24,10 @@ register_task(() => {
       console.log('generating graph artifacts')
 
       line(canvasbufmetid, new Pos(canvasbufmetid, 0, legendheight - 0.025, 0), new Pos(canvasbufmetid, 1, legendheight - 0.025, 0), 2, legendcolor);
-      text(canvasbufmetid, new Pos(canvasbufmetid, 0, legendheight, 0), 'left', legendsize, legendcolor, 'Buffer Configuration: ' + buf + ', ' + met);
+      text(canvasbufmetid, new Pos(canvasbufmetid, 0, legendheight, 0), 'left', 0, legendsize, legendcolor, 'Buffer Configuration: ' + buf + ', ' + met);
       axis(canvasbufmetid, new Pt(0, 0, 0), 2, legendcolor);
-      scale_ruler(canvasbufmetid, mins['quality'], maxs['quality'], 'v', 2, graphcolor);
-      scale_ruler(canvasbufmetid, mins['inefficiency'], maxs['inefficiency'], 'h', 2, graphcolor, 1);
+      scale_ruler(canvasbufmetid, mins['quality'], maxs['quality'], 'v', 2, graphcolor, 'Quality');
+      scale_ruler(canvasbufmetid, mins['inefficiency'], maxs['inefficiency'], 'h', 2, graphcolor, 1, 'Inefficiency');
 
 
       console.log('plotting graph')

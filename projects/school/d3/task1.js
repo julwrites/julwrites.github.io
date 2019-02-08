@@ -23,22 +23,23 @@ register_task(() => {
     console.log('generating graph artifacts')
 
     line(canvasbufid, new Pos(canvasbufid, 0, legendheight - 0.025, 0), new Pos(canvasbufid, 1, legendheight - 0.025, 0), 2, legendcolor);
-    text(canvasbufid, new Pos(canvasbufid, 0, legendheight, 0), 'left', legendsize, legendcolor, 'Buffer Configuration: ' + buf);
+    text(canvasbufid, new Pos(canvasbufid, 0, legendheight, 0), 'left', 0, legendsize, legendcolor, 'Buffer Configuration: ' + buf);
     axis(canvasbufid, new Pt(0, 0, 0), 2, legendcolor);
-    scale_ruler(canvasbufid, mins['quality'], maxs['quality'], 'v', 2, graphcolor);
+    scale_ruler(canvasbufid, mins['quality'], maxs['quality'], 'v', 2, graphcolor, 'Quality');
+    type_ruler(canvasbufid, types['method'], 'h', 2, graphcolor);
 
     console.log('plotting graph')
 
     let qualityshape = 'circle';
     let qualitycolor = '#8888FF';
     DataPoint(canvasbufid, qualityshape, new Pos(canvasbufid, 0.525, legendheight + (4 / HEIGHT), 0), pointsize, qualitycolor);
-    text(canvasbufid, new Pos(canvasbufid, 0.55, legendheight, 0), 'left', legendsize, 'black', ': Average Quality');
-    plot_group(metgroup, 'quality', canvasbufid, qualityshape, pointsize, qualitycolor);
+    text(canvasbufid, new Pos(canvasbufid, 0.55, legendheight, 0), 'left', 0, legendsize, 'black', ': Average Quality');
+    plot_group(metgroup, 'quality', canvasbufid, qualityshape, pointsize, qualitycolor, mins['quality'], scales['quality'], maxs['quality']);
 
     let changeshape = 'rect';
     let changecolor = '#FF8888';
     DataPoint(canvasbufid, changeshape, new Pos(canvasbufid, 0.775, legendheight + (4 / HEIGHT), 0), pointsize, changecolor);
-    text(canvasbufid, new Pos(canvasbufid, 0.8, legendheight, 0), 'left', legendsize, 'black', ': Number of Changes');
-    plot_group(metgroup, 'change', canvasbufid, changeshape, pointsize, changecolor);
+    text(canvasbufid, new Pos(canvasbufid, 0.8, legendheight, 0), 'left', 0, legendsize, 'black', ': Changes in Quality');
+    plot_group(metgroup, 'change', canvasbufid, changeshape, pointsize, changecolor, mins['change'], scales['change'], maxs['quality']);
   }
 });
