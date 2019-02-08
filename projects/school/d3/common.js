@@ -99,17 +99,14 @@ function draw (p) {
 }
 
 function text (n, p, o, a, s, c, t) {
-  // console.log('adding text to canvas:', n, '->', t, ': (', p.x, ',', p.y, ')');
+  console.log('adding text to canvas:', n, '->', t, ': (', p.x, ',', p.y, ')');
   n = get_canvas(n);
   d3.select(n).append('text')
-    .attr('x', p.x)
-    .attr('y', p.y)
-    .attr('z', p.z)
+    .text(t)
     .attr('font-size', s)
     .style('font-color', c)
     .style('text-anchor', o)
-    .attr('transform', 'rotate(' + a + ')')
-    .text(t);
+    .attr('transform', 'translate(' + p.x + ',' + p.y + ')rotate(' + a + ')');
 }
 
 function line (n, p, q, w, c) {
@@ -157,7 +154,8 @@ function scale_ruler (n, l, u, o, w, c, t, d) {
     text(n, new Pos(n, x1, y1, 0), 'left', 0, w * 5, c, truncate(dstep * (l + i), d));
   }
 
-  text(n, new Pos(n, (o == 'v' ? -MARGIN : 0.5), (o == 'h' ? -MARGIN : 0.5), 0), 'left', -90, w * 10, c, t);
+  console.log('generating axis title')
+  text(n, new Pos(n, (o == 'v' ? -(MARGIN * 0.1) : 0.5), (o == 'h' ? -(MARGIN * 0.5) : 0.5), 0), 'middle', (o == 'v' ? -90 : 0), w * 7.5, c, t);
 }
 
 function type_ruler (n, t, o, w, c) {

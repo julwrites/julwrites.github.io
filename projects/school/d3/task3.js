@@ -27,7 +27,7 @@ register_task(() => {
       text(canvasbufmetid, new Pos(canvasbufmetid, 0, legendheight, 0), 'left', 0, legendsize, legendcolor, 'Buffer Configuration: ' + buf + ', ' + met);
       axis(canvasbufmetid, new Pt(0, 0, 0), 2, legendcolor);
       scale_ruler(canvasbufmetid, mins['quality'], maxs['quality'], 'v', 2, graphcolor, 'Quality');
-      scale_ruler(canvasbufmetid, mins['inefficiency'], maxs['inefficiency'], 'h', 2, graphcolor, 1, 'Inefficiency');
+      scale_ruler(canvasbufmetid, mins['inefficiency'], maxs['inefficiency'], 'h', 2, graphcolor, 'Inefficiency', 1);
 
 
       console.log('plotting graph')
