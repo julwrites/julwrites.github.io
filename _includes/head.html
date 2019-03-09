@@ -1,4 +1,27 @@
 <head>
+    <script type="text/javascript">
+        function getDeployScript() {
+            var OSName = "Unknown";
+            if (window.navigator.userAgent.indexOf("Windows NT 10.0") != -1) OSName = "Windows";
+            if (window.navigator.userAgent.indexOf("Windows NT 6.2") != -1) OSName = "Windows";
+            if (window.navigator.userAgent.indexOf("Windows NT 6.1") != -1) OSName = "Windows";
+            if (window.navigator.userAgent.indexOf("Windows NT 6.0") != -1) OSName = "Windows";
+            if (window.navigator.userAgent.indexOf("Windows NT 5.1") != -1) OSName = "Windows";
+            if (window.navigator.userAgent.indexOf("Windows NT 5.0") != -1) OSName = "Windows";
+            if (window.navigator.userAgent.indexOf("Mac") != -1) OSName = "Darwin";
+            if (window.navigator.userAgent.indexOf("Linux") != -1) OSName = "Linux";
+            var deployer = document.getElementById("deploy");
+            if (OSName == "Windows") {
+                deployscript = "https://raw.githubusercontent.com/julwrites/dev/master/deploy.bat";
+            }
+            else {
+                deployscript = "https://raw.githubusercontent.com/julwrites/dev/master/deploy.sh";
+            }
+            return deployscript;
+        }
+    </script>
+
+
     <center>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
