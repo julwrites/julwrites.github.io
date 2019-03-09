@@ -8,7 +8,5 @@ title: Hi, I'm Julian
 ## Deploy!
 
 <html>
-    <a id="deploy" href="javascript:getDeployScript()" download>
-        <button type="submit">Deploy!</button>
-    </a>
+    <button class="button" onClick="getDeployScript()">Deploy!</button>
 </html>
