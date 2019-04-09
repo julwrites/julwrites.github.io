@@ -7,7 +7,7 @@ title: Hebrews
 
 ## Summary Outline
 
-1. Son of God
+1. [Son of God](https://docs.google.com/document/d/1c51oOT5fdAZW3Qo77qjEot-elb9eTfyzRYECo0IyCxI/edit?usp=sharing)
 2. Salvation of God
 3. Family of God
 4. Sabbath of God
@@ -15,7 +15,7 @@ title: Hebrews
 6. Blessing of God
 7. Perfect in God
 8. Covenant of God
-9. Cleansed by God
+9.  Cleansed by God
 10. Confidence from God
 11. Trust in God
 12. Discipline of God
