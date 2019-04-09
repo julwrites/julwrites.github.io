@@ -13,6 +13,9 @@ title: Hebrews
 ### Key Verse
     Hebrews 12:1 - 3
 
+### Key Lessons
+    Jesus has finished the work of God; now we share the victory of God
+
 ## Summary Outline
 
 1. [ Son of God ](https://docs.google.com/document/d/1c51oOT5fdAZW3Qo77qjEot-elb9eTfyzRYECo0IyCxI/edit?usp=sharing)
@@ -52,6 +55,3 @@ Therefore we endure the [Discipline of God](https://docs.google.com/document/d/1
     - Called to [Trust in God](https://docs.google.com/document/d/19imBcFZVaUpWcYy9ItNMLlCjB51tzATapZ-zJj2IisM/edit?usp=sharing)
   - Receiving the [Discipline of God](https://docs.google.com/document/d/1y7yiE2e364d84jP9v6iFWTrts-LxG8z9EKaOgU9XUNY/edit?usp=sharing)
 - We the [People of God](https://docs.google.com/document/d/1fI9p9bAXxteWhA5W7oMebO_q-xRe7zkpCPwEsb9AmtM/edit?usp=sharing)
-
-### Key Lessons
-- 
