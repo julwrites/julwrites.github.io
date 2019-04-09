@@ -32,17 +32,17 @@ Therefore we endure the **Discipline of God**, so that having identified with Ch
 
 ### Chiastic Summary
 - Christ the **Son of God**
-    - Bearing the **Salvation of God**
-      - Calls us **Family of God**
-        - Hoping for **Sabbath of God**
-          - Eternally **High Priest of God**
-            - Bearing the **Blessings of God**
-              - Now **Perfect in God**
-            - Receiving the **Covenant of God**
-          - Eternally **Cleansed by God**
-        - Holding to **Confidence from God**
-      - Called to **Trust in God**
-    - Receiving the **Discipline of God**
+  - Bearing the **Salvation of God**
+    - Calls us **Family of God**
+      - Hoping for **Sabbath of God**
+        - Eternally **High Priest of God**
+          - Bearing the **Blessings of God**
+            - Now **Perfect in God**
+          - Receiving the **Covenant of God**
+        - Eternally **Cleansed by God**
+      - Holding to **Confidence from God**
+    - Called to **Trust in God**
+  - Receiving the **Discipline of God**
 - We the **People of God**
 
 ### Key Lessons
