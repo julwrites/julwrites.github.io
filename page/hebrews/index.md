@@ -1,9 +1,17 @@
 --- 
 layout: page 
-title: Hebrews - Faith in God
+title: Hebrews
 ---
 
 # {{ page.title }}
+
+## Overview
+
+### Title 
+    Jesus: God with us
+
+### Key Verse
+    Hebrews 12:1 - 3
 
 ## Summary Outline
 
