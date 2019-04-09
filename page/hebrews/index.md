@@ -1,3 +1,10 @@
+--- 
+layout: default 
+title: Hebrews
+---
+
+# {{ page.title }}
+
 ## Summary Outline
 
 1. Son of God
