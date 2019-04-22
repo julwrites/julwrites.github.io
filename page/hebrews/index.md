@@ -14,7 +14,9 @@ title: Hebrews
     Hebrews 12:1 - 3
 
 ### Key Lessons
-    Jesus has finished the work of God; now we share the victory of God
+- Jesus has finished the work of God; now we share the victory of God
+- Just as Jesus intercedes for us, He also calls us to intercede for others
+
 
 ## Summary Outline
 
