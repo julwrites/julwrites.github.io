@@ -17,5 +17,8 @@
     "license": "MIT",
     "devDependencies": {
         "shadow-cljs": "^2.8.39"
+    },
+    "dependencies": {
+        "react": "^16.8.6"
     }
 }

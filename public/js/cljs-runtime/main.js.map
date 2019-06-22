@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.cljs"],"mappings":";;;AAGA,AAACA,AAASC","names":["js/alert","app.main/Hi!!!"],"sourcesContent":["(ns app.main\r\n  (:require [\"fs\" :as fs]))\r\n\r\n(js/alert Hi!!!)"]}
