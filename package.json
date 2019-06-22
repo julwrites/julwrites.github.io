@@ -4,13 +4,18 @@
     "description": "tehj.org",
     "main": "index.js",
     "scripts": {
-        "build": "",
-        "test": ""
+        "build": "shadow-cljs compile app",
+        "watch": "shadow-cljs watch app",
+        "repl": "shadow-cljs cljs-repl app",
+        "publish": "shadow-cljs release app"
     },
     "repository": {
         "type": "git",
         "url": "github.com/julwrites/julwrites.github.io"
     },
     "author": "Julwrites",
-    "license": "MIT"
+    "license": "MIT",
+    "devDependencies": {
+        "shadow-cljs": "^2.8.39"
+    }
 }

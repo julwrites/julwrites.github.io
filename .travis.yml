@@ -10,4 +10,4 @@ jobs:
     - stage: install
       script: npm install
     - stage: build
-      script: npm build
+      script: npm run build
