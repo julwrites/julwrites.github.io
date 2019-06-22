@@ -1,0 +1,64 @@
+<head>
+    <script type="text/javascript">
+        function httpGet(url, callback) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function () {
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                    callback(xmlHttp.responseText);
+            }
+            xmlHttp.open("GET", url, true); // true for asynchronous 
+            xmlHttp.send(null);
+        }
+
+        function save(filename, data) {
+            var blob = new Blob([data], { type: 'text/csv' });
+            if (window.navigator.msSaveOrOpenBlob) {
+                window.navigator.msSaveBlob(blob, filename);
+            }
+            else {
+                var elem = window.document.createElement('a');
+                elem.href = window.URL.createObjectURL(blob);
+                elem.download = filename;
+                document.body.appendChild(elem);
+                elem.click();
+                document.body.removeChild(elem);
+            }
+        }
+
+        function getDeployScript() {
+            var OSName = "Unknown";
+            if (window.navigator.userAgent.indexOf("Windows NT 10.0") != -1) OSName = "Windows";
+            if (window.navigator.userAgent.indexOf("Windows NT 6.2") != -1) OSName = "Windows";
+            if (window.navigator.userAgent.indexOf("Windows NT 6.1") != -1) OSName = "Windows";
+            if (window.navigator.userAgent.indexOf("Windows NT 6.0") != -1) OSName = "Windows";
+            if (window.navigator.userAgent.indexOf("Windows NT 5.1") != -1) OSName = "Windows";
+            if (window.navigator.userAgent.indexOf("Windows NT 5.0") != -1) OSName = "Windows";
+            if (window.navigator.userAgent.indexOf("Mac") != -1) OSName = "Darwin";
+            if (window.navigator.userAgent.indexOf("Linux") != -1) OSName = "Linux";
+            var deploylink = ''
+            var deployname = ''
+            if (OSName == "Windows") {
+                deploylink = "https://raw.githubusercontent.com/julwrites/dev/master/deploy.bat";
+                deployname = 'deploy.bat'
+            }
+            else {
+                deploylink = "https://raw.githubusercontent.com/julwrites/dev/master/deploy.sh";
+                deployname = 'deploy.sh'
+            }
+
+            httpGet(deploylink, (data) => {
+                save(deployname, data);
+            })
+        }
+    </script>
+
+
+    <center>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="{{ " /css/main.css " | prepend: site.baseurl }}">
+    </center>
+</head>
