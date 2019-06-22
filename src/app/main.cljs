@@ -5,7 +5,7 @@
     [:div
         [:p "I am component"]])
 
-(defn render [] 
+(defn render [component] 
     (r/render [component] 
         (.-body js/document)))
 
@@ -13,4 +13,4 @@
   (println "Code updated."))
 
 (defn main! []
-  (println "App loaded!"))
+  (render (component)))

@@ -7,11 +7,11 @@
  ; "app" is the build-id, in running "shadow-cljs compile app"
  :builds {:app {:target :browser ; compile code that loads in a browser
                 :output-dir "target/"
-                :asset-path "." ; assets loaded from index.html are based on path "/js"
-                ; "main.js" is the name for the bundle entry
+                :asset-path "." ; assets loaded from index.html are based on path ""
                 :modules {:main {:init-fn app.main/main!}}
+                ; "main.js" is the name for the bundle entry
                 ; function app.main.main! is called when page loads
-                :release {:output-dir "dist/"
+                :release {:output-dir "app/"
                             :module-hash-names 8
                             :build-options {:manifest-name "assets.edn"}}
                 ; release writes the bundled stuff to /dist

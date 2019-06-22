@@ -4,9 +4,10 @@
     "description": "tehj.org",
     "main": "index.js",
     "scripts": {
-        "build": "shadow-cljs compile app",
-        "watch": "shadow-cljs watch app",
-        "repl": "shadow-cljs cljs-repl app",
+        "postinstall": "cp assets/index.html target/index.html",
+        "build": "shadow-cljs compile app && cp assets/index.html target/index.html",
+        "watch": "shadow-cljs watch app && cp assets/index.html target/index.html",
+        "postpublish": "cp assets/index.html app/index.html",
         "publish": "shadow-cljs release app"
     },
     "repository": {
