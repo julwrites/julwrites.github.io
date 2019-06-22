@@ -1,4 +1,6 @@
 _site/
-
+target
 node_modules
 package-lock.json
+.shadow-cljs
+.nrepl-port
