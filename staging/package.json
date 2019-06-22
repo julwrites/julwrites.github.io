@@ -1,0 +1,16 @@
+{
+    "name": "tehj.org",
+    "version": "1.0.0",
+    "description": "tehj.org",
+    "main": "index.js",
+    "scripts": {
+        "build": "",
+        "test": ""
+    },
+    "repository": {
+        "type": "git",
+        "url": "github.com/julwrites/julwrites.github.io"
+    },
+    "author": "Julwrites",
+    "license": "MIT"
+}
