@@ -54,7 +54,7 @@ a {
   padding: 5%;
 }
 img {
-  width: 25%;
+  width: 50%;
   height: auto;
 }
 </style>
