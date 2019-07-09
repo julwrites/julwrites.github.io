@@ -52,6 +52,10 @@ li {
 a {
   color: #42b983;
 }
+img {
+  width: 30%;
+  height: auto;
+}
 </style>
 
 
