@@ -1,13 +1,13 @@
 <template>
   <div class="resume">
     <object
-      data="https://julwrites.github.io/files/resume/Resume_Julian_Teh.pdf#zoom=Fit"
+      data="@/assets/resume/Resume_Julian_Teh.pdf#zoom=Fit"
       type="application/pdf"
       style="width:100%;height:75vw;"
       typemustmatch
     >
       <a class="link" href="https://resume.tehj.org">
-        <img class="img-icon" src="/files/images/resume.png" alt="Resume" />
+        <img class="img-icon" src="@/assets/images/resume.png" alt="Resume" />
       </a>
     </object>
   </div>
