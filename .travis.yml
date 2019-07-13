@@ -11,5 +11,8 @@ deploy:
  skip_cleanup: true
  github_token: $GITHUB_TOKEN
  local_dir: dist
+ target_branch: master
+ keep_history: true
+ fqdn: www.tehj.org
  on:
-   branch: master
+   branch: develop
