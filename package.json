@@ -9,10 +9,10 @@
         "gui": "vue ui"
     },
     "dependencies": {
+        "@types/pdfjs-dist": "^2.0.1",
         "core-js": "^2.6.5",
         "vue": "^2.6.10",
         "vue-class-component": "^7.0.2",
-        "vue-pdf": "^4.0.7",
         "vue-property-decorator": "^8.1.0",
         "vue-router": "^3.0.3",
         "vue-template-loader": "^1.0.0",
