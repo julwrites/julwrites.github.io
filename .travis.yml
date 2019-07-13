@@ -4,17 +4,7 @@ node_js:
 
 cache: npm
 
-# Safelist
-branches:
-  only:
-    - master
-
-jobs:
-  include:
-    - stage: install
-      script: npm install
-    - stage: build
-      script: npm run build
+script: npm install & npm run build
 
 deploy:
   provider: pages
