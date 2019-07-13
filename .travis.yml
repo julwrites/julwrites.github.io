@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+  - "node"
+
+cache: npm
+
+# Safelist
+branches:
+  only:
+    - master
+
+jobs:
+  include:
+    - stage: install
+      script: npm install
+    - stage: build
+      script: npm run build
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: dist
+  on:
+    branch: master
