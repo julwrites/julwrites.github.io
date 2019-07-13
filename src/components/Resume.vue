@@ -32,7 +32,7 @@ export default class Resume extends Vue {
   public pdfFindController: any;
   private _renderText: boolean = true;
   private _pdf: PDFDocumentProxy | any;
-  private src: string = "@/assets/resume/Resume_Julian_Teh.pdf";
+  private src: string = "/assets/resume/Resume_Julian_Teh.pdf";
 
   mounted() {
     PDFJS.workerSrc = PDFJSWorker;
