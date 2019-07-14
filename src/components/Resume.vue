@@ -1,49 +1,23 @@
 <template>
   <div class="resume" id="resume">
-    <link rel="stylesheet" href="@/../node_modules/pdfjs-dist/web/pdf_viewer.css" />
-    <a href="https://resume.tehj.org">
-      <img src="@/assets/images/resume.png" />
-    </a>
+    <object
+      data="http://www.tehj.org/assets/resume/Resume_Julian_Teh.pdf#zoom=Fit"
+      type="application/pdf"
+      style="width:75vw;height:75vw;"
+      typemustmatch
+    >
+      <a class="link" href="https://resume.tehj.org">
+        <img class="img-icon" src="@/assets/images/resume.png" alt="Resume" />
+      </a>
+    </object>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
-import {
-  PDFJS,
-  PDFDocumentProxy,
-  PDFViewerParams,
-  PDFPromise
-} from "pdfjs-dist";
-
 @Component
-export default class Resume extends Vue {
-  private src: string = "/assets/resume/Resume_Julian_Teh.pdf";
-
-  mounted() {
-    const loadingTask: any = (PDFJS as any).getDocument({ url: this.src });
-
-    (<PDFPromise<PDFDocumentProxy>>loadingTask.promise).then(
-      (pdf: PDFDocumentProxy) => {
-        let container: HTMLElement = <HTMLElement>(
-          (<any>document.getElementById("resume"))
-        );
-
-        const pdfOptions: PDFViewerParams = {
-          container: container
-        };
-
-        PDFJS.PDFSinglePageViewer(pdfOptions);
-      },
-      (error: any) => {
-        console.log(error);
-      }
-    );
-  }
-
-  destroy() {}
-}
+export default class Resume extends Vue {}
 </script>
 
 
