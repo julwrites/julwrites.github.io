@@ -6,6 +6,18 @@
       <router-link to="/projects">Projects</router-link>
     </div>
     <router-view />
+    <br />
+    <div>
+      <a href="https://git.tehj.org">
+        <img class="footer-thumbnail" src="@/assets/images/github.png" />
+      </a>
+      <a href="https://job.tehj.org">
+        <img class="footer-thumbnail" src="@/assets/images/linkedin.png" />
+      </a>
+      <a href="https://mail.tehj.org">
+        <img class="footer-thumbnail" src="@/assets/images/email.png" />
+      </a>
+    </div>
   </div>
 </template>
 
@@ -15,8 +27,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #0b233ab2;
 }
+
 #nav {
   padding: 30px;
 }
@@ -28,6 +41,19 @@
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #547aa08c;
+}
+
+a {
+  color: #2c3e50;
+  padding: 5%;
+}
+
+div {
+  border-color: #547aa08c;
+}
+
+.footer-thumbnail {
+  width: 25pt;
 }
 </style>
