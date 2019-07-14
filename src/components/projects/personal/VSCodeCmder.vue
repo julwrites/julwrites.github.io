@@ -1,26 +1,32 @@
 <template>
   <div class="vscodecmder">
-    <h2>VSCodeCmder</h2>
-    <p>I use Visual Studio Code quite a bit, and I found that one thing I wanted to do was to navigate around my file system without needing to touch my mouse.</p>
+    <h3>VSCodeCmder</h3>
 
-    <a href="https://github.com/julwrites/vscodecmder">Code</a>
+    <img class="thumbnail" src="@/assets/images/vscodecmder.jpg" v-on:click="showModal()" />
 
-    <a href="https://marketplace.visualstudio.com/items?itemName=Julwrites.codecmder">Try it out!</a>
+    <Modal v-if="isModalVisible()" v-on:close="hideModal()">
+      <div slot="header">VSCodeCmder</div>
+      <div slot="body">
+        <img src="@/assets/images/vscodecmder.jpg" width="25%" height="auto" />
+        <p>I use Visual Studio Code quite a bit, and I found that one thing I wanted to do was to navigate around my file system without needing to touch my mouse.</p>
+
+        <a href="https://github.com/julwrites/vscodecmder">Code</a>
+
+        <a
+          href="https://marketplace.visualstudio.com/items?itemName=Julwrites.codecmder"
+        >Try it out!</a>
+      </div>
+      <div slot="footer" />
+    </Modal>
   </div>
 </template>
 
 <script lang='ts'>
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component } from "vue-property-decorator";
+import Project from "@/components/projects/common/Project.vue";
+import Modal from "@/components/common/Modal.vue";
 
-@Component
-export default class VSCodeCmder extends Vue {}
+@Component({ components: { Modal } })
+export default class VSCodeCmder extends Project {}
 </script>
-
-<!-- Add 'scoped' attribute to limit CSS to this component only -->
-<style scoped>
-a {
-  color: #42b983;
-  padding: 5%;
-}
-</style>
 
