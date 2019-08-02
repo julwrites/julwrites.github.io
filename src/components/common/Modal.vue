@@ -47,6 +47,7 @@ export default class Modal extends Vue {}
 }
 
 .modal-container {
+  display: table;
   width: 80%;
   margin: 0px auto;
   padding: 20px 30px;

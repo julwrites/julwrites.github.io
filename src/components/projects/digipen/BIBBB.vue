@@ -1,11 +1,12 @@
 <template>
   <div class="bibbb">
-    <h3>BIBBB</h3>
+    <h2>BIBBB</h2>
 
     <img class="thumbnail" src="@/assets/images/BIBBB_1.jpg" v-on:click="showModal()" />
 
     <Modal v-show="isModalVisible()" v-on:close="hideModal()">
       <div slot="header">BIBBB</div>
+
       <div slot="body">
         <p>A puzzle game where the player has to get the boxer from one end of the level to the other using only the boxes in that level</p>
 
@@ -16,8 +17,6 @@
           <li>Visual Effects Programming including selection indicators, gravity and magnet forces.</li>
         </ul>
 
-        <a href="http://games.digipen.edu/games/bibbb">Try it out!</a>
-
         <div class="gallery-container">
           <img class="gallery-img" src="@/assets/images/BIBBB_1.jpg" />
           <img class="gallery-img" src="@/assets/images/BIBBB_2.jpg" />
@@ -25,7 +24,12 @@
           <img class="gallery-img" src="@/assets/images/BIBBB_4.jpg" />
         </div>
       </div>
-      <div slot="footer" />
+
+      <div slot="footer">
+        <a href="http://games.digipen.edu/games/bibbb">
+          <img class="footer-thumbnail" src="@/assets/images/digipen.png" />
+        </a>
+      </div>
     </Modal>
   </div>
 </template>

@@ -6,6 +6,7 @@
 
     <Modal v-show="isModalVisible()" v-on:close="hideModal()">
       <div slot="header">Short Circuit</div>
+
       <div slot="body">
         <p>A fast paced third person shooter where the player traverses 8 floors of a robot-overrun facility using his skill, gun, and some nifty grenades</p>
 
@@ -21,8 +22,6 @@
           <li>Visual Effects Programming including electricity, lasers, explosions, and teleporting.</li>
         </ul>
 
-        <a href="http://games.digipen.edu/games/shortcircuit">Try it out!</a>
-
         <div class="gallery-container">
           <img class="gallery-img" src="@/assets/images/ShortCircuit_1.jpg" />
           <img class="gallery-img" src="@/assets/images/ShortCircuit_2.jpg" />
@@ -31,7 +30,12 @@
           <img class="gallery-img" src="@/assets/images/ShortCircuit_5.jpg" />
         </div>
       </div>
-      <div slot="footer" />
+
+      <div slot="footer">
+        <a href="http://games.digipen.edu/games/shortcircuit">
+          <img class="footer-thumbnail" src="@/assets/images/digipen.png" />
+        </a>
+      </div>
     </Modal>
   </div>
 </template>

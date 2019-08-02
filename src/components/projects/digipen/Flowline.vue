@@ -6,6 +6,7 @@
 
     <Modal v-show="isModalVisible()" v-on:close="hideModal()">
       <div slot="header">Flowline</div>
+
       <div slot="body">
         <p>A top-down puzzle game where the player creates flowlines by drawing on the screen to clear 15 levels</p>
 
@@ -17,8 +18,6 @@
           <li>Visual Effects Programming including Vector Field path, line of sight indicator and portal effects.</li>
         </ul>
 
-        <a href="http://games.digipen.edu/games/flowline">Try it out!</a>
-
         <div class="gallery-container">
           <img class="gallery-img" src="@/assets/images/Flowline_1.jpg" />
           <img class="gallery-img" src="@/assets/images/Flowline_2.jpg" />
@@ -27,7 +26,12 @@
           <img class="gallery-img" src="@/assets/images/Flowline_5.jpg" />
         </div>
       </div>
-      <div slot="footer" />
+
+      <div slot="footer">
+        <a href="http://games.digipen.edu/games/flowline">
+          <img class="footer-thumbnail" src="@/assets/images/digipen.png" />
+        </a>
+      </div>
     </Modal>
   </div>
 </template>
