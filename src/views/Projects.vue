@@ -25,6 +25,10 @@ img {
   width: 25%;
   height: auto;
 }
+.gallery-container {
+  display: gr;
+  grid-auto-flow: column;
+}
 .modal-container {
   display: grid;
   grid-auto-flow: column;

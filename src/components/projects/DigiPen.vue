@@ -22,3 +22,11 @@ import ShortCircuit from "@/components/projects/digipen/ShortCircuit.vue"; // @ 
 @Component({ components: { BIBBB, Flowline, ShortCircuit } })
 export default class DigiPen extends Vue {}
 </script>
+
+<style>
+.digipen .thumbnail {
+  height: 10vw;
+  width: auto;
+}
+</style>
+

@@ -1,21 +1,27 @@
 <template>
   <div class="biblicabot">
-    <h3>Biblicabot</h3>
+    <h2>Biblicabot</h2>
 
     <img class="thumbnail" src="@/assets/images/biblicabot.png" v-on:click="showModal()" />
 
     <Modal v-show="isModalVisible()" v-on:close="hideModal()">
       <div slot="header">Biblicabot</div>
+
       <div slot="body">
         <img src="@/assets/images/biblicabot.png" width="auto" height="auto" />
 
         <p>I use Telegram as a chat application, and when I found out that I could write bots, I thought it would be useful to have a bot that helped people to more easily access the Bible and related materials.</p>
-
-        <a href="https://github.com/julwrites/biblicabot">Code</a>
-
-        <a href="https://telegram.me/biblica_bot">Try it out!</a>
       </div>
-      <div slot="footer" />
+
+      <div slot="footer">
+        <a href="https://telegram.me/biblica_bot">
+          <img class="footer-thumbnail" src="@/assets/images/telegram.png" />
+        </a>
+
+        <a href="https://github.com/julwrites/biblicabot">
+          <img class="footer-thumbnail" src="@/assets/images/github.png" />
+        </a>
+      </div>
     </Modal>
   </div>
 </template>
