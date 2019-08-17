@@ -28,7 +28,6 @@ img {
 .gallery-img {
   width: 75%;
   height: auto;
-  cursor: grab;
 }
 .gallery-container {
   display: grid;

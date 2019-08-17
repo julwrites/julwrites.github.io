@@ -6,8 +6,7 @@
       </div>
 
       <div>
-        <h2>Personal</h2>
-        <p>Hi, I am a Singaporean boy who loves Christ, Computer Science, Martial Arts and Music</p>
+        <p>I am a Singaporean boy who loves Christ, Computer Science, Martial Arts and Music</p>
       </div>
     </div>
 
