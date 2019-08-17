@@ -22,12 +22,16 @@
 </template>
 
 <style>
+body {
+  background-color: #90a0b0;
+}
+
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: "Fira Code", "Hasklig", "Iosevka", Helvetica;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #0b233ab2;
+  color: #2c3e50;
 }
 
 #nav {
@@ -41,16 +45,12 @@
 }
 
 #nav a.router-link-exact-active {
-  color: #547aa08c;
+  color: #5c6e80;
 }
 
 a {
   color: #2c3e50;
   padding: 5%;
-}
-
-div {
-  border-color: #547aa08c;
 }
 
 .footer-thumbnail {

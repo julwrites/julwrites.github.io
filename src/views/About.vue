@@ -1,10 +1,15 @@
 <template>
   <div class="about">
-    <h1>Julian Teh</h1>
-    <img class="img-profile" src="@/assets/images/me.jpg" />
+    <div class="profile">
+      <div>
+        <img class="img-profile" src="@/assets/images/me.jpg" />
+      </div>
 
-    <h2>Personal</h2>
-    <p>Hi, I am a Singaporean boy who loves Christ, Computer Science, Martial Arts and Music</p>
+      <div>
+        <h2>Personal</h2>
+        <p>Hi, I am a Singaporean boy who loves Christ, Computer Science, Martial Arts and Music</p>
+      </div>
+    </div>
 
     <h2>Work</h2>
     <p>Software Engineer - Autodesk Asia</p>
@@ -25,8 +30,14 @@ export default class About extends Vue {}
 </script>
 
 <style scoped>
+.profile {
+  display: grid;
+  grid-auto-flow: column;
+  vertical-align: middle;
+}
+
 .img-profile {
-  width: 25%;
+  width: 50%;
   height: auto;
 }
 </style>

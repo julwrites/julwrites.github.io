@@ -25,16 +25,18 @@ img {
   width: 25%;
   height: auto;
 }
+.gallery-img {
+  width: 75%;
+  height: auto;
+  cursor: grab;
+}
 .gallery-container {
-  display: gr;
+  display: grid;
   grid-auto-flow: column;
 }
 .modal-container {
   display: grid;
   grid-auto-flow: column;
-  border-width: 1px;
-  border-style: solid;
-  border-color: black;
   vertical-align: middle;
 }
 .thumbnail {
