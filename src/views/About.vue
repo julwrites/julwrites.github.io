@@ -2,7 +2,7 @@
   <div class="about">
     <div class="profile">
       <div>
-        <img class="img-profile" src="@/assets/images/me.jpg" />
+        <img class="img-profile" src="@/assets/images/me.png" />
       </div>
 
       <div>
