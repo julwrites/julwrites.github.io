@@ -4,7 +4,9 @@
       <div class="modal-wrapper">
         <div class="modal-container" @click="$emit('close')">
           <div class="modal-header">
-            <slot name="header">default header</slot>
+            <h3>
+              <slot name="header">default header</slot>
+            </h3>
           </div>
 
           <div class="modal-body">
@@ -51,7 +53,7 @@ export default class Modal extends Vue {}
   width: 80%;
   margin: 0px auto;
   padding: 20px 30px;
-  background-color: #fff;
+  background-color: #a0b0c0;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
@@ -60,7 +62,6 @@ export default class Modal extends Vue {}
 
 .modal-header h3 {
   margin-top: 0;
-  color: #42b983;
 }
 
 .modal-body {
