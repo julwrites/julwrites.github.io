@@ -8,13 +8,13 @@
     <router-view />
     <br />
     <div>
-      <a href="https://git.tehj.org">
+      <a href="https://git.tehj.io">
         <img class="footer-thumbnail" src="@/assets/images/github.png" />
       </a>
-      <a href="https://job.tehj.org">
+      <a href="https://job.tehj.io">
         <img class="footer-thumbnail" src="@/assets/images/linkedin.png" />
       </a>
-      <a href="https://mail.tehj.org">
+      <a href="https://mail.tehj.io">
         <img class="footer-thumbnail" src="@/assets/images/email.png" />
       </a>
     </div>

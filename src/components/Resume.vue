@@ -1,12 +1,12 @@
 <template>
   <div class="resume" id="resume">
     <object
-      data="http://www.tehj.org/assets/resume/Resume_Julian_Teh.pdf#zoom=Fit"
+      data="http://www.tehj.io/assets/resume/Resume_Julian_Teh.pdf#zoom=Fit"
       type="application/pdf"
       style="width:75vw;height:75vw;"
       typemustmatch
     >
-      <a class="link" href="https://resume.tehj.org">
+      <a class="link" href="https://resume.tehj.io">
         <img class="img-icon" src="@/assets/images/resume.png" alt="Resume" />
       </a>
     </object>
