@@ -6,6 +6,7 @@
 \usepackage{xcolor}
 \usepackage{amsmath}
 \usepackage{titlesec}
+\usepackage{multicol}
 
 \pagenumbering{gobble}
 
@@ -23,6 +24,7 @@
 \newcommand{\cvlist}[1]{\vspace{-12pt}\small \textcolor{item_color}{\begin{itemize}#1\end{itemize}}}
 \newcommand{\cvli}[1]{\vspace{-4pt} \item{#1}}
 \newcommand{\cvline}[0]{\noindent\rule{19cm}{0.4pt}}
+\newcommand{\cvcols}[2]{\vspace{-24pt}\begin{multicols}{2} #1 \columnbreak #2 \end{multicols}\vspace{-24pt}}
 
 \newcommand{\link}[2]{\textcolor{link_color}{\href{#1}{#2}}}
 \newcommand{\position}[1]{\vspace{-4pt} \textsl{\footnotesize #1}\\}
@@ -44,44 +46,35 @@
 
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
   \textbf{\Large Julian Teh} 
-  \reference{\link{http://tehj.io/}{tehj.io}}
   &
+  Page
+  \reference{\link{http://tehj.io/}{tehj.io}}
+  $|$
   Email
   \reference{\link{mailto:mail@tehj.io}{mail@tehj.io}}
   $|$
-  Mobile
-  \reference{+65 96614104}
-  $|$
   Location
-  \reference{Singapore}
+  \reference{\link{https://binged.it/2V7eKPO}{Singapore}}
 \end{tabular*}
 
 \cvline
 
 \cvtitle{Profile}
-\cvhead{Summary}
-    \cvlist{
-        \cvli{I love creating things and making them better}
-        \cvli{I love to share knowledge and help others}
-    }
 
-\cvhead{Skills}
-    \cvlist{
-        \cvli{Programming (C++, Python, Javascript) \qualifier{2012 - Present}}
-        \cvli{Teaching and Mentoring \qualifier{2009 - Present}}
-    }
-
-\cvhead{Experience with}
-\cvlist{
-    \cvli{User Interaction/User Experience}
-    \cvli{Software Engineering Practices}
-    \cvli{Computer Graphics}
+\cvcols{
+    \cvhead{Summary}
+        \cvlist{
+            \cvli{I love creating things and making them better}
+            \cvli{I love to share knowledge and help others}
+        }
+}{
+\cvitem{For more detail, please visit my page at \link{https://www.tehj.io}{tehj.io}}
 }
 
 \cvline
 
 \cvtitle{Experience}
-    \cvhead{Autodesk \qualifier{2015 - Present}}
+    \cvhead{Autodesk \qualifier{Jan 2015 - Present}}
     \cvlist{
         \cvli{
             \cvhead{Sr. Software Engineer, Solution Lead}
@@ -93,14 +86,14 @@
         \cvli{
             \cvhead{Software Engineer}
             \cvlist{
-                \cvli{Implemented CI/CD pipeline for ReCap Photo}
+                \cvli{Worked closely with Build Engineers to implement CI/CD framework for ReCap Photo}
+                \cvli{Worked closely with UI/UX Designers to implement User Interaction on Desktop and VR}
                 \cvli{Led the design and implementation of an improved UI framework for ReCap Photo} 
-                \cvli{Worked with UI/UX personnel to define and implement designs}
             }
         }
     }
 
-    \cvhead{Digipen Institute of Technology \qualifier{2013 - 2015}}
+    \cvhead{Digipen Institute of Technology \qualifier{Sep 2013 - Aug 2015}}
     \cvlist{
         \cvli{
             \cvhead{Teaching Assistant}
@@ -111,10 +104,30 @@
         }
     }
 
+\vspace{12pt}
+
+\cvcols{
+    \cvhead{Skills}
+    \cvlist{
+        \cvli{Programming (C, C++98/11, Python, Javascript)}
+        \cvli{Teaching/Mentoring}
+        \cvli{Software Engineering}
+    }
+}{
+    \cvhead{Knowledge}
+    \cvlist{
+        \cvli{UI/UX}
+        \cvli{Computer Graphics}
+        \cvli{Machine Learning}
+    }
+}
+
+\vspace{4pt}
+
 \cvline
 
 \cvtitle{Education}
-    \cvhead{National University of Singapore \qualifier{2017 - 2019}}
+    \cvhead{National University of Singapore \qualifier{Jan 2017 - Jul 2019}}
     \cvlist{
         \cvli{
             \cvhead{M.Comp in Computer Science}
@@ -124,7 +137,8 @@
             }
         }
     }
-    \cvhead{DigiPen Institute of Technology \qualifier{2012 - 2015}}
+
+    \cvhead{DigiPen Institute of Technology \qualifier{Sep 2012 - Aug 2015}}
     \cvlist{
         \cvli{
             \cvhead{B.Sc in Computer Science in Real-Time Interactive Simulation}

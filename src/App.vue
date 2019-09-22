@@ -23,7 +23,7 @@
 
 <style>
 body {
-  background-color: #90a0b0;
+  background-color: #ffffff;
 }
 
 #app {

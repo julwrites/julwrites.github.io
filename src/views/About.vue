@@ -3,15 +3,15 @@
     <div class="profile">
       <div>
         <img class="img-profile" src="@/assets/images/me.png" />
-      </div>
 
-      <div>
-        <p>I am a Singaporean boy who loves Christ, Computer Science, Martial Arts and Music</p>
+        <p>I love Christ</p>
+        <p>I love creating things</p>
+        <p>I love blessing people</p>
       </div>
     </div>
 
     <h2>Work</h2>
-    <p>Software Engineer - Autodesk Asia</p>
+    <p>Senior Software Engineer - Autodesk</p>
     <Resume />
   </div>
 </template>
@@ -36,7 +36,7 @@ export default class About extends Vue {}
 }
 
 .img-profile {
-  width: 50%;
+  width: 25%;
   height: auto;
 }
 </style>
