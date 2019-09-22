@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.3.15)  22 SEP 2019 01:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.3.15)  22 SEP 2019 23:14
 entering extended mode
 **c:/Users/Julian/julwrites/julwrites.github.io/public/assets/resume/Resume_Julian_Teh.tex
 (c:/Users/Julian/julwrites/julwrites.github.io/public/assets/resume/Resume_Julian_Teh.tex
@@ -204,83 +204,131 @@ Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
 \titlewidth=\dimen118
 \titlewidthlast=\dimen119
 \titlewidthfirst=\dimen120
+) ("C:\Program Files\MiKTeX 2.9\tex/latex/tools\multicol.sty"
+Package: multicol 2018/11/09 v1.8u multicolumn formatting (FMi)
+\c@tracingmulticols=\count110
+\mult@box=\box30
+\multicol@leftmargin=\dimen121
+\c@unbalance=\count111
+\c@collectmore=\count112
+\doublecol@number=\count113
+\multicoltolerance=\count114
+\multicolpretolerance=\count115
+\full@width=\dimen122
+\page@free=\dimen123
+\premulticols=\dimen124
+\postmulticols=\dimen125
+\multicolsep=\skip50
+\multicolbaselineskip=\skip51
+\partial@page=\box31
+\last@line=\box32
+\maxbalancingoverflow=\dimen126
+\mult@rightbox=\box33
+\mult@grightbox=\box34
+\mult@gfirstbox=\box35
+\mult@firstbox=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\@tempa=\box51
+\@tempa=\box52
+\@tempa=\box53
+\c@columnbadness=\count116
+\c@finalcolumnbadness=\count117
+\last@try=\dimen127
+\multicolovershoot=\dimen128
+\multicolundershoot=\dimen129
+\mult@nat@firstbox=\box54
+\colbreak@box=\box55
+\mc@col@check@num=\count118
 ) (c:/Users\Julian\julwrites\julwrites.github.io\public\assets\resume\Resume_Julian_Teh.aux)
 \openout1 = `Resume_Julian_Teh.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
-LaTeX Font Info:    ... okay on input line 43.
-\AtBeginShipoutBox=\box30
-Package hyperref Info: Link coloring OFF on input line 43.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 45.
+LaTeX Font Info:    ... okay on input line 45.
+\AtBeginShipoutBox=\box56
+Package hyperref Info: Link coloring OFF on input line 45.
  ("C:\Program Files\MiKTeX 2.9\tex/latex/hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
  ("C:\Program Files\MiKTeX 2.9\tex/generic/oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count110
+\c@section@level=\count119
 )
-LaTeX Info: Redefining \ref on input line 43.
-LaTeX Info: Redefining \pageref on input line 43.
-LaTeX Info: Redefining \nameref on input line 43.
+LaTeX Info: Redefining \ref on input line 45.
+LaTeX Info: Redefining \pageref on input line 45.
+LaTeX Info: Redefining \nameref on input line 45.
  (c:/Users\Julian\julwrites\julwrites.github.io\public\assets\resume\Resume_Julian_Teh.out) (c:/Users\Julian\julwrites\julwrites.github.io\public\assets\resume\Resume_Julian_Teh.out)
 \@outlinefile=\write3
 \openout3 = `Resume_Julian_Teh.out'.
 
  (C:\Users\Julian\AppData\Roaming\MiKTeX\2.9\tex/context/base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count111
-\scratchdimen=\dimen121
-\scratchbox=\box31
-\nofMPsegments=\count112
-\nofMParguments=\count113
+\scratchcounter=\count120
+\scratchdimen=\dimen130
+\scratchbox=\box57
+\nofMPsegments=\count121
+\nofMParguments=\count122
 \everyMPshowfont=\toks21
-\MPscratchCnt=\count114
-\MPscratchDim=\dimen122
-\MPnumerator=\count115
-\makeMPintoPDFobject=\count116
+\MPscratchCnt=\count123
+\MPscratchDim=\dimen131
+\MPnumerator=\count124
+\makeMPintoPDFobject=\count125
 \everyMPtoPDFconversion=\toks22
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 66.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 72.
  ("C:\Program Files\MiKTeX 2.9\tex/latex/base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 66.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 139.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 72.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 153.
  [1
 
 {C:/Users/Julian/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 139.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 153.
  (c:/Users\Julian\julwrites\julwrites.github.io\public\assets\resume\Resume_Julian_Teh.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 139.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 139.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 153.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 153.
 Package rerunfilecheck Info: File `Resume_Julian_Teh.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 139.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 153.
  ) 
 Here is how much of TeX's memory you used:
- 6015 strings out of 492946
- 86213 string characters out of 3135524
- 185173 words of memory out of 3000000
- 9883 multiletter control sequences out of 15000+200000
- 10420 words of font info for 38 fonts, out of 3000000 for 9000
+ 6135 strings out of 492946
+ 88056 string characters out of 3135524
+ 190936 words of memory out of 3000000
+ 10000 multiletter control sequences out of 15000+200000
+ 10067 words of font info for 37 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  28i,9n,35p,301b,325s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on c:/Users\Julian\julwrites\julwrites.github.io\public\assets\resume\Resume_Julian_Teh.pdf (1 page, 98328 bytes).
+Output written on c:/Users\Julian\julwrites\julwrites.github.io\public\assets\resume\Resume_Julian_Teh.pdf (1 page, 99235 bytes).
 PDF statistics:
- 48 PDF objects out of 1000 (max. 8388607)
+ 50 PDF objects out of 1000 (max. 8388607)
  2 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

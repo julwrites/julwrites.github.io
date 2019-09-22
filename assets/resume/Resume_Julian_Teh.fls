@@ -52,6 +52,8 @@ INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty
 INPUT C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty
 INPUT C:\Users\Julian\AppData\Roaming\MiKTeX\2.9\tex\latex\titlesec\titlesec.sty
 INPUT C:\Users\Julian\AppData\Roaming\MiKTeX\2.9\tex\latex\titlesec\titlesec.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty
+INPUT C:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty
 INPUT c:\Users\Julian\julwrites\julwrites.github.io\public\assets\resume\Resume_Julian_Teh.aux
 INPUT c:\Users\Julian\julwrites\julwrites.github.io\public\assets\resume\Resume_Julian_Teh.aux
 OUTPUT c:\Users\Julian\julwrites\julwrites.github.io\public\assets\resume\Resume_Julian_Teh.aux
@@ -90,9 +92,8 @@ INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmr17.tfm
 INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd
 INPUT C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd
-INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmsl10.tfm
-INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmsl9.tfm
 INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmsl12.tfm
+INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmsl9.tfm
 INPUT C:\Program Files\MiKTeX 2.9\fonts\tfm\public\cm\cmbx10.tfm
 INPUT C:\Users\Julian\AppData\Local\MiKTeX\2.9\pdftex\config\pdftex.map
 INPUT c:\Users\Julian\julwrites\julwrites.github.io\public\assets\resume\Resume_Julian_Teh.aux
