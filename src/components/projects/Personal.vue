@@ -16,6 +16,6 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 import VSCodeCmder from "@/components/projects/personal/VSCodeCmder.vue";
 import ScriptureBot from "@/components/projects/personal/ScriptureBot.vue";
 
-@Component({ components: { VSCodeCmder, BiblicaBot } })
+@Component({ components: { VSCodeCmder, ScriptureBot } })
 export default class Personal extends Vue {}
 </script>
