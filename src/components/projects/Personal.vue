@@ -6,7 +6,7 @@
     </div>
     <div class="modal-container">
       <VSCodeCmder />
-      <BiblicaBot />
+      <ScriptureBot />
     </div>
   </div>
 </template>
@@ -14,7 +14,7 @@
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
 import VSCodeCmder from "@/components/projects/personal/VSCodeCmder.vue";
-import BiblicaBot from "@/components/projects/personal/BiblicaBot.vue";
+import ScriptureBot from "@/components/projects/personal/ScriptureBot.vue";
 
 @Component({ components: { VSCodeCmder, BiblicaBot } })
 export default class Personal extends Vue {}

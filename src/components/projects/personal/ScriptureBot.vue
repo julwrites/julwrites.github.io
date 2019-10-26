@@ -1,24 +1,24 @@
 <template>
-  <div class="biblicabot">
-    <h2>Biblicabot</h2>
+  <div class="scripturebot">
+    <h2>ScriptureBot</h2>
 
-    <img class="thumbnail" src="@/assets/images/biblicabot.png" v-on:click="showModal()" />
+    <img class="thumbnail" src="@/assets/images/scripturebot.png" v-on:click="showModal()" />
 
     <Modal v-show="isModalVisible()" v-on:close="hideModal()">
-      <div slot="header">Biblicabot</div>
+      <div slot="header">ScriptureBot</div>
 
       <div slot="body">
-        <img src="@/assets/images/biblicabot.png" width="auto" height="auto" />
+        <img src="@/assets/images/scripturebot.png" width="auto" height="auto" />
 
         <p>I use Telegram as a chat application, and when I found out that I could write bots, I thought it would be useful to have a bot that helped people to more easily access the Bible and related materials.</p>
       </div>
 
       <div slot="footer">
-        <a href="https://telegram.me/biblica_bot">
+        <a href="https://telegram.me/scripture_bot">
           <img class="footer-thumbnail" src="@/assets/images/telegram.png" />
         </a>
 
-        <a href="https://github.com/julwrites/biblicabot">
+        <a href="https://github.com/julwrites/scripturebot">
           <img class="footer-thumbnail" src="@/assets/images/github.png" />
         </a>
       </div>
@@ -32,6 +32,6 @@ import Project from "@/components/projects/common/Project.vue";
 import Modal from "@/components/common/Modal.vue";
 
 @Component({ components: { Modal } })
-export default class BiblicaBot extends Project {}
+export default class ScriptureBot extends Project {}
 </script>
 
