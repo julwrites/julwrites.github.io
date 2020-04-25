@@ -1,7 +1,7 @@
 <template>
   <div class="resume" id="resume">
     <object
-      data="http://www.tehj.io/assets/resume/Resume_Julian_Teh.pdf#zoom=Fit"
+      data="https://www.tehj.io/assets/resume/Resume_Julian_Teh.pdf#zoom=Fit"
       type="application/pdf"
       style="width:75vw;height:75vw;"
       typemustmatch
