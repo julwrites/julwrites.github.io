@@ -1,3 +1,8 @@
 [
-    "26_04_20_Markdown_Blog"
+    {
+        "id": "26_04_20_Markdown_Blog",
+        "date": "26 April 2020",
+        "title": "Adding a Markdown blog to my Vue + TS site",
+        "desc": "I wanted to add a static, markdown-based blog component to my site, just for me to do write-ups on things I think are interesting enough for me to want to consolidate my knowledge on them and keep them around (not just in my head)."
+    }
 ]

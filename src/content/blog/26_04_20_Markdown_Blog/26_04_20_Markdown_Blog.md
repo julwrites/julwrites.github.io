@@ -1,4 +1,4 @@
-## Added a Markdown blog to my Vue + TS site
+# Adding a Markdown blog to my Vue + TS site
 
 So I've been a C++ application developer for 7 years, and despite my forays into the web stack, I cannot say I'm an expert at it. Nonetheless, I had gone through the process of creating my landing page in plain HTML/CSS, followed by Github Pages in Jekyll, and then finally utilizing VueJS. 
 
@@ -10,6 +10,12 @@ So a little more research later, here we are. I found a great walkthrough by [Ye
 
 Since I was using TypeScript instead of JavaScript, once I got an initial implementation hacked together I had to work out how to get it to run with TypeScript. Doing this I discovered a few things:
 
-1. Although JSON import is now supported past Typescript 2.9, it imports as an Object, and Typescript does not allow you to retrieve from an Object using a string (in general, I realize, Typescript restricts such behavior so you must use Map instead, which is more well defined). This was a bit of a problem, since the original implementation utilized strings to automatically retrieve the blog sections and define their children. I had to do some work to pull out the sections and simplify the JSON so that it would read a single string for each entry, while also allowing me to easily extend the blog without messing with `router.ts`.
+## 1. Using a JSON import was tricky in TypeScript. 
+
+ Although JSON import is now supported past Typescript 2.9, it imports as an Object, and Typescript does not allow you to retrieve from an Object using a string (in general, I realize, Typescript restricts such behavior so you must use Map instead, which is more well defined). This was a bit of a problem, since the original implementation utilized strings to automatically retrieve the blog sections and define their children. I had to do some work to pull out the sections and simplify the JSON so that it would read a single string for each entry, while also allowing me to easily extend the blog without messing with `router.ts`
+
+ I ended up with a `contents.ts` file which had the job of pulling in any of the requisitie content pages and then exporting them so that `router.ts` coult pick them up for routing. 
+
+ ![contents.ts](./contents_ts.png)
 
 The plan is to start populating this blog every once in awhile with exposition on technical things, or documentation on my mini-projects, just as a way for me to force myself to consolidate my knowledge and keep track of it.

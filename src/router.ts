@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
 
-import { Blog } from './content/contents';
+import { Content } from './content/contents';
 
 Vue.use(Router);
 
@@ -23,6 +23,6 @@ export default new Router({
       name: 'projects',
       component: () => import('./views/Projects.vue'),
     },
-    ...Blog
+    ...Content
   ],
 });
