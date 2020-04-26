@@ -12,10 +12,18 @@ Since I was using TypeScript instead of JavaScript, once I got an initial implem
 
 ## 1. Using a JSON import was tricky in TypeScript. 
 
- Although JSON import is now supported past Typescript 2.9, it imports as an Object, and Typescript does not allow you to retrieve from an Object using a string (in general, I realize, Typescript restricts such behavior so you must use Map instead, which is more well defined). This was a bit of a problem, since the original implementation utilized strings to automatically retrieve the blog sections and define their children. I had to do some work to pull out the sections and simplify the JSON so that it would read a single string for each entry, while also allowing me to easily extend the blog without messing with `router.ts`
+Although JSON import is now supported past Typescript 2.9, it imports as an Object, and Typescript does not allow you to retrieve from an Object using a string (in general, I realize, Typescript restricts such behavior so you must use Map instead, which is more well defined). This was a bit of a problem, since the original implementation utilized strings to automatically retrieve the blog sections and define their children. I had to do some work to pull out the sections and simplify the JSON so that it would read a single string for each entry, while also allowing me to easily extend the blog without messing with `router.ts`
 
- I ended up with a `contents.ts` file which had the job of pulling in any of the requisitie content pages and then exporting them so that `router.ts` coult pick them up for routing. 
+I ended up with a `contents.ts` file which had the job of pulling in any of the requisitie content pages and then exporting them so that `router.ts` coult pick them up for routing. 
 
- ![contents.ts](./contents_ts.png)
+![contents.ts](./contents_ts.png)
 
-The plan is to start populating this blog every once in awhile with exposition on technical things, or documentation on my mini-projects, just as a way for me to force myself to consolidate my knowledge and keep track of it.
+## 2. Setting up a Contents page
+
+I'm pretty new to web technology, so it was a lot of searching and trial and error to get all the routes correctly linked up. I discovered that `this.$router` could be correctly called in one context and gave me the correct router path, but somehow... failed to do the same when I tried to use it to route the abstracts to my actual blog post. 
+
+It also took a while to re-work the JSON parsing code that [Yev](https://dev.to/vycoder/creating-a-simple-blog-using-vue-with-markdown-2omd) had used in JavaScript into a more strictly typed format that TypeScript would accept. 
+
+Anyway~ 
+
+Moving forward, the plan is to start populating this blog every once in awhile with exposition on technical things, or documentation on my mini-projects (like this one), just as a way for me to force myself to consolidate my knowledge and keep track of it.
