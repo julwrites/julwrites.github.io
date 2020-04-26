@@ -22,6 +22,7 @@ export const Content = Array.from(contents.keys()).map(( section ) => {
     const posts = entries.map(( entry ) => {
         return {
             path: entry.id,
+            name: entry.id,
             title: entry.title,
             date: entry.date,
             desc: entry.desc,
