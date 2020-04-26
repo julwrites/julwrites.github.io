@@ -2,6 +2,8 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
 
+import { Content } from './content/contents';
+
 Vue.use(Router);
 
 export default new Router({
@@ -20,6 +22,7 @@ export default new Router({
       path: '/projects',
       name: 'projects',
       component: () => import('./views/Projects.vue'),
-    }
+    },
+    ...Content
   ],
 });

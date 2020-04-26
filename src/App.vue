@@ -50,7 +50,7 @@ body {
 
 a {
   color: #2c3e50;
-  padding: 5%;
+  margin: 5%;
 }
 
 .footer-thumbnail {
