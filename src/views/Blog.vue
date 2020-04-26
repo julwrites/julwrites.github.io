@@ -1,7 +1,14 @@
 <template>
   <div class="blog">
+    <router-link
+      to="/blog"
+      tag="a"
+      class="back"
+      v-show="this.$router.currentRoute.path !== '/blog'"
+    >
+      <img class="footer-thumbnail" src="@/assets/images/backarrow.png" />
+    </router-link>
     <router-view />
-    <router-link to="/" tag="a" class="back">&laquo; Back</router-link>
   </div>
 </template>
 
