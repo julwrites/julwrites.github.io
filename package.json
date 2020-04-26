@@ -25,6 +25,8 @@
         "@vue/cli-plugin-babel": "^3.9.0",
         "@vue/cli-plugin-typescript": "^3.9.0",
         "@vue/cli-service": "^4.2.3",
+        "node-sass": "^4.14.0",
+        "sass-loader": "^8.0.2",
         "typescript": "^3.5.3",
         "vue-template-compiler": "^2.6.10",
         "vue2-slideout-panel": "^2.2.3"
