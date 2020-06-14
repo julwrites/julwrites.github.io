@@ -1,5 +1,5 @@
 <template>
-  <div class="shortcircuit">
+  <div class="modal-thumbnail">
     <h2>Short Circuit</h2>
 
     <img class="thumbnail" src="@/assets/images/ShortCircuit_1.jpg" v-on:click="showModal()" />

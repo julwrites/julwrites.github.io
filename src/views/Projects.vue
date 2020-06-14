@@ -33,6 +33,8 @@ img {
   display: grid;
   grid-auto-flow: column;
 }
+.modal-thumbnail {
+}
 .modal-container {
   display: grid;
   grid-auto-flow: column;
@@ -42,5 +44,10 @@ img {
   width: 25%;
   height: auto;
   cursor: grab;
+
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--black);
+  border-radius: 5px;
 }
 </style>

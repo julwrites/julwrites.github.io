@@ -1,5 +1,5 @@
 <template>
-  <div class="bibbb">
+  <div class="modal-thumbnail">
     <h2>BIBBB</h2>
 
     <img class="thumbnail" src="@/assets/images/BIBBB_1.jpg" v-on:click="showModal()" />

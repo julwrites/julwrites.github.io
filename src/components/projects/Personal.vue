@@ -19,3 +19,4 @@ import ScriptureBot from "@/components/projects/personal/ScriptureBot.vue";
 @Component({ components: { VSCodeCmder, ScriptureBot } })
 export default class Personal extends Vue {}
 </script>
+

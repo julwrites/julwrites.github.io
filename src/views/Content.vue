@@ -6,13 +6,13 @@
       class="back"
       v-show="this.$router.currentRoute.path !== '/blog'"
     >
-      <img class="thumbnail" src="@/assets/images/backarrow.png" />
+      <img class="thumbnail" src="@/assets/images/dark/backarrow.png" />
     </router-link>
 
     <router-view v-show="this.$router.currentRoute.path !== '/blog'" />
 
     <div v-for="(section, index) in entries" :key="index" class="group">
-      <h2 class="center">{{section.name}}</h2>
+      <h1 class="center">{{section.name}}</h1>
       <div class="section" v-for="(entry) in section.children" :key="entry">
         <div class="entry" v-on:click="$router.push({name: `${entry.name}`})">
           <h3>{{entry.title}}</h3>
@@ -37,6 +37,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.entry {
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--grey);
+  border-radius: 5px;
+
+  padding: 10px;
+}
 .content {
   max-width: 50vw;
   margin: auto;
@@ -45,7 +53,7 @@ export default {
 .subtitle {
   font-style: italic;
   font-size: 1rem;
-  color: #47487f;
+  color: var(--primary-font);
 }
 .entry {
   cursor: grab;
@@ -57,15 +65,15 @@ export default {
 /deep/ {
   h1 {
     font-size: 2rem;
-    color: #42b883;
+    color: var(--primary-font);
   }
   h2 {
     font-size: 1.5rem;
-    color: #35495e;
+    color: var(--secondary-font);
   }
   h3 {
     font-size: 1.25rem;
-    color: #35495e;
+    color: var(--tiertary-font);
   }
   img {
     width: 100%;

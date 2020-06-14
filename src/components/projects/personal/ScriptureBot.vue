@@ -1,5 +1,5 @@
 <template>
-  <div class="scripturebot">
+  <div class="modal-thumbnail">
     <h2>ScriptureBot</h2>
 
     <img class="thumbnail" src="@/assets/images/scripturebot.png" v-on:click="showModal()" />
@@ -15,11 +15,11 @@
 
       <div slot="footer">
         <a href="https://telegram.me/scripture_bot">
-          <img class="footer-thumbnail" src="@/assets/images/telegram.png" />
+          <img class="footer-thumbnail" src="@/assets/images/dark/telegram.png" />
         </a>
 
         <a href="https://github.com/julwrites/scripturebot">
-          <img class="footer-thumbnail" src="@/assets/images/github.png" />
+          <img class="footer-thumbnail" src="@/assets/images/dark/github.png" />
         </a>
       </div>
     </Modal>
