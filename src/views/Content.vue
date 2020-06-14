@@ -57,11 +57,11 @@ export default {
 /deep/ {
   h1 {
     font-size: 2rem;
-    color: #42b883;
+    color: #92f8f3;
   }
   h2 {
     font-size: 1.5rem;
-    color: #35495e;
+    color: #95a9be;
   }
   h3 {
     font-size: 1.25rem;

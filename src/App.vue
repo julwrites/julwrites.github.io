@@ -23,7 +23,7 @@
 
 <style>
 body {
-  background-color: #ffffff;
+  background-color: #2c3e50;
 }
 
 #app {
@@ -31,7 +31,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #d0d0d0;
 }
 
 #nav {
@@ -41,15 +41,15 @@ body {
 #nav a {
   padding: 1%;
   font-weight: bold;
-  color: #2c3e50;
+  color: #d0d0d0;
 }
 
 #nav a.router-link-exact-active {
-  color: #5c6e80;
+  color: #acbed0;
 }
 
 a {
-  color: #2c3e50;
+  color: #d0d0d0;
   margin: 5%;
 }
 
