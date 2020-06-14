@@ -4,9 +4,7 @@
       <div>
         <img class="img-profile" src="@/assets/images/me.png" />
 
-        <p>I love Christ</p>
-        <p>I love creating things</p>
-        <p>I love blessing people</p>
+        <p>Love Christ, Create Things, Bless People, Speak Truth</p>
       </div>
     </div>
 
@@ -38,5 +36,10 @@ export default class About extends Vue {}
 .img-profile {
   width: 25%;
   height: auto;
+
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--black);
+  border-radius: 5px;
 }
 </style>

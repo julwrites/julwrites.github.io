@@ -1,5 +1,5 @@
 <template>
-  <div class="vscodecmder">
+  <div class="modal-thumbnail">
     <h2>VSCodeCmder</h2>
 
     <img class="thumbnail" src="@/assets/images/vscodecmder.jpg" v-on:click="showModal()" />
@@ -14,11 +14,11 @@
 
       <div slot="footer">
         <a href="https://marketplace.visualstudio.com/items?itemName=Julwrites.codecmder">
-          <img class="footer-thumbnail" src="@/assets/images/vscode.png" />
+          <img class="footer-thumbnail" src="@/assets/images/dark/vscode.png" />
         </a>
 
         <a href="https://github.com/julwrites/vscodecmder">
-          <img class="footer-thumbnail" src="@/assets/images/github.png" />
+          <img class="footer-thumbnail" src="@/assets/images/dark/github.png" />
         </a>
       </div>
     </Modal>

@@ -53,11 +53,15 @@ export default class Modal extends Vue {}
   width: 80%;
   margin: 0px auto;
   padding: 20px 30px;
-  background-color: #a0b0c0;
-  border-radius: 2px;
+  background-color: var(--secondary-background);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
   font-family: Helvetica, Arial, sans-serif;
+
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--blue);
+  border-radius: 5px;
 }
 
 .modal-header h3 {

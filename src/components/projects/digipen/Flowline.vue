@@ -1,5 +1,5 @@
 <template>
-  <div class="flowline">
+  <div class="modal-thumbnail">
     <h2>Flowline</h2>
 
     <img class="thumbnail" src="@/assets/images/Flowline_1.jpg" v-on:click="showModal()" />
