@@ -77,10 +77,10 @@ export default class App extends Vue {
   --secondary-font: var(--regent-st-blue);
   --tiertary-font: var(--nepal);
 
-  --primary-borders: var(--oxford-blue);
-  --secondary-borders: var(--mirage-2);
+  --primary-border: var(--oxford-blue);
+  --secondary-border: var(--mirage-2);
 
-  --shadows: var(--woodsmoke);
+  --shadow: var(--woodsmoke);
 }
 
 .light-theme {
@@ -92,10 +92,10 @@ export default class App extends Vue {
   --secondary-font: var(--oxford-blue);
   --tiertary-font: var(--oxford-blue);
 
-  --primary-borders: var(--white);
-  --secondary-borders: var(--mirage-2);
+  --primary-border: var(--white);
+  --secondary-border: var(--mirage-2);
 
-  --shadows: var(--black);
+  --shadow: var(--black);
 }
 
 body {

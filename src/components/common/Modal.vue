@@ -60,7 +60,7 @@ export default class Modal extends Vue {}
 
   border-style: solid;
   border-width: 1px;
-  border-color: var(--blue);
+  border-color: var(--primary-border);
   border-radius: 5px;
 }
 

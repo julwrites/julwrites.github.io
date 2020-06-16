@@ -24,6 +24,11 @@ export default class Projects extends Vue {}
 img {
   width: 25%;
   height: auto;
+
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--secondary-border);
+  border-radius: 5px;
 }
 .gallery-img {
   width: 75%;
