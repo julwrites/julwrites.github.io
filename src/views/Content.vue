@@ -31,8 +31,8 @@ export default {
   computed: {
     entries() {
       return Content;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -40,7 +40,7 @@ export default {
 .entry {
   border-style: solid;
   border-width: 1px;
-  border-color: var(--grey);
+  border-color: var(--secondary-border);
   border-radius: 5px;
 
   padding: 10px;
@@ -82,7 +82,7 @@ export default {
   }
   pre {
     overflow-x: auto;
-    background-color: #35495e;
+    background-color: var(--secondary-background);
     color: white;
     border-radius: 0.3rem;
     padding: 1rem;

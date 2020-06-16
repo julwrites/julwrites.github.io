@@ -20,8 +20,8 @@ import Resume from "@/components/Resume.vue"; // @ is an alias to /src
 
 @Component({
   components: {
-    Resume
-  }
+    Resume,
+  },
 })
 export default class About extends Vue {}
 </script>
@@ -39,7 +39,7 @@ export default class About extends Vue {}
 
   border-style: solid;
   border-width: 1px;
-  border-color: var(--black);
+  border-color: var(--primary-border);
   border-radius: 5px;
 }
 </style>

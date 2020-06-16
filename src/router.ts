@@ -1,28 +1,28 @@
-import Vue from 'vue';
-import Router from 'vue-router';
-import Home from './views/Home.vue';
+import Vue from "vue";
+import Router from "vue-router";
+import Home from "./views/Home.vue";
 
-import { Content } from './content/contents';
+import { Content } from "./content/contents";
 
 Vue.use(Router);
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'home',
+      path: "/",
+      name: "home",
       component: Home,
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('./views/About.vue'),
+      path: "/about",
+      name: "about",
+      component: () => import("./views/About.vue"),
     },
     {
-      path: '/projects',
-      name: 'projects',
-      component: () => import('./views/Projects.vue'),
+      path: "/projects",
+      name: "projects",
+      component: () => import("./views/Projects.vue"),
     },
-    ...Content
+    ...Content,
   ],
 });
