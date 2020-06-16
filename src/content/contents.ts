@@ -4,16 +4,16 @@ const contents = new Map();
 contents.set("blog", BlogContents);
 
 interface Entry {
-    id: string,
-    title: string,
-    date: string,
-    desc: string,
+    id: string;
+    title: string;
+    date: string;
+    desc: string;
 }
 
-function TitleCase(str: String) {
-  return str.toLowerCase().split(' ').map(function(word) {
+function TitleCase(str: string) {
+  return str.toLowerCase().split(" ").map((word) => {
     return word.replace(word[0], word[0].toUpperCase());
-  }).join(' ');
+  }).join(" ");
 }
 
 export const Content = Array.from(contents.keys()).map(( section ) => {

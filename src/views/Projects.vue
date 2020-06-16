@@ -14,8 +14,8 @@ import DigiPen from "@/components/projects/DigiPen.vue"; // @ is an alias to /sr
 @Component({
   components: {
     Personal,
-    DigiPen
-  }
+    DigiPen,
+  },
 })
 export default class Projects extends Vue {}
 </script>
@@ -24,6 +24,11 @@ export default class Projects extends Vue {}
 img {
   width: 25%;
   height: auto;
+
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--secondary-border);
+  border-radius: 5px;
 }
 .gallery-img {
   width: 75%;
@@ -47,7 +52,7 @@ img {
 
   border-style: solid;
   border-width: 1px;
-  border-color: var(--black);
+  border-color: var(--primary-border);
   border-radius: 5px;
 }
 </style>
