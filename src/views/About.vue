@@ -2,7 +2,7 @@
   <div class="about">
     <div class="profile">
       <div>
-        <img class="img-profile" src="@/assets/images/me.png" />
+        <img class="img-profile" v-bind:src="photo" />
 
         <p>Love Christ, Create Things, Bless People, Speak Truth</p>
       </div>
@@ -23,7 +23,12 @@ import Resume from "@/components/Resume.vue"; // @ is an alias to /src
     Resume,
   },
 })
-export default class About extends Vue {}
+
+export default class About extends Vue {
+  get photo() {
+    return require('@/assets/images/me_' + Math.floor(Math.random() * 3) + '.jpg');
+  }
+}
 </script>
 
 <style scoped>
