@@ -2,7 +2,7 @@
   <div class="modal-thumbnail">
     <h2>BIBBB</h2>
 
-    <img class="thumbnail" src="@/assets/images/BIBBB_1.jpg" v-on:click="showModal()" />
+    <img class="thumbnail" src="@/assets/images/projects/BIBBB_1.jpg" v-on:click="showModal()" />
 
     <Modal v-show="isModalVisible()" v-on:close="hideModal()">
       <div slot="header">BIBBB</div>
@@ -18,16 +18,16 @@
         </ul>
 
         <div class="gallery-container">
-          <img class="gallery-img" src="@/assets/images/BIBBB_1.jpg" />
-          <img class="gallery-img" src="@/assets/images/BIBBB_2.jpg" />
-          <img class="gallery-img" src="@/assets/images/BIBBB_3.jpg" />
-          <img class="gallery-img" src="@/assets/images/BIBBB_4.jpg" />
+          <img class="gallery-img" src="@/assets/images/projects/BIBBB_1.jpg" />
+          <img class="gallery-img" src="@/assets/images/projects/BIBBB_2.jpg" />
+          <img class="gallery-img" src="@/assets/images/projects/BIBBB_3.jpg" />
+          <img class="gallery-img" src="@/assets/images/projects/BIBBB_4.jpg" />
         </div>
       </div>
 
       <div slot="footer">
         <a href="http://games.digipen.edu/games/bibbb">
-          <img class="footer-thumbnail" src="@/assets/images/digipen.png" />
+          <img class="footer-thumbnail" src="@/assets/images/projects/digipen.png" />
         </a>
       </div>
     </Modal>

@@ -2,7 +2,7 @@
   <div class="modal-thumbnail">
     <h2>Flowline</h2>
 
-    <img class="thumbnail" src="@/assets/images/Flowline_1.jpg" v-on:click="showModal()" />
+    <img class="thumbnail" src="@/assets/images/projects/Flowline_1.jpg" v-on:click="showModal()" />
 
     <Modal v-show="isModalVisible()" v-on:close="hideModal()">
       <div slot="header">Flowline</div>
@@ -19,17 +19,17 @@
         </ul>
 
         <div class="gallery-container">
-          <img class="gallery-img" src="@/assets/images/Flowline_1.jpg" />
-          <img class="gallery-img" src="@/assets/images/Flowline_2.jpg" />
-          <img class="gallery-img" src="@/assets/images/Flowline_3.jpg" />
-          <img class="gallery-img" src="@/assets/images/Flowline_4.jpg" />
-          <img class="gallery-img" src="@/assets/images/Flowline_5.jpg" />
+          <img class="gallery-img" src="@/assets/images/projects/Flowline_1.jpg" />
+          <img class="gallery-img" src="@/assets/images/projects/Flowline_2.jpg" />
+          <img class="gallery-img" src="@/assets/images/projects/Flowline_3.jpg" />
+          <img class="gallery-img" src="@/assets/images/projects/Flowline_4.jpg" />
+          <img class="gallery-img" src="@/assets/images/projects/Flowline_5.jpg" />
         </div>
       </div>
 
       <div slot="footer">
         <a href="http://games.digipen.edu/games/flowline">
-          <img class="footer-thumbnail" src="@/assets/images/digipen.png" />
+          <img class="footer-thumbnail" src="@/assets/images/projects/digipen.png" />
         </a>
       </div>
     </Modal>

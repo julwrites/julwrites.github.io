@@ -2,13 +2,13 @@
   <div class="modal-thumbnail">
     <h2>ScriptureBot</h2>
 
-    <img class="thumbnail" src="@/assets/images/scripturebot.png" v-on:click="showModal()" />
+    <img class="thumbnail" src="@/assets/images/projects/scripturebot.png" v-on:click="showModal()" />
 
     <Modal v-show="isModalVisible()" v-on:close="hideModal()">
       <div slot="header">ScriptureBot</div>
 
       <div slot="body">
-        <img src="@/assets/images/scripturebot.png" width="auto" height="auto" />
+        <img src="@/assets/images/projects/scripturebot.png" width="auto" height="auto" />
 
         <p>I use Telegram as a chat application, and when I found out that I could write bots, I thought it would be useful to have a bot that helped people to more easily access the Bible and related materials.</p>
       </div>

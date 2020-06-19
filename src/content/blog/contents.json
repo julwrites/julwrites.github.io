@@ -1,8 +1,11 @@
-[
-    {
-        "id": "26_04_20_Markdown_Blog",
-        "date": "26 April 2020",
-        "title": "Adding a Markdown blog to my Vue + TS site",
-        "desc": "I wanted to add a static, markdown-based blog component to my site, just for me to do write-ups on things I think are interesting enough for me to want to consolidate my knowledge on them and keep them around (not just in my head)."
-    }
-]
+[{
+  "id": "2020_06_19_Golang_Bot",
+  "date": "19 June 2020",
+  "title": "Re-writing my Telegram Bot in Golang",
+  "desc": "I had originally written a Telegram Bot in Python 2, but seeing as Python 2 was sunsetted, I decided to re-write it in Golang as a way to learn the language"
+}, {
+  "id": "2020_04_26_Markdown_Blog",
+  "date": "26 April 2020",
+  "title": "Adding a Markdown blog to my Vue + TS site",
+  "desc": "I wanted to add a static, markdown-based blog component to my site, just for me to do write-ups on things I think are interesting enough for me to want to consolidate my knowledge on them and keep them around (not just in my head)."
+}]

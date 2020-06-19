@@ -7,7 +7,7 @@
       typemustmatch
     >
       <a class="link" href="https://resume.tehj.io">
-        <img class="img-icon" src="@/assets/images/resume.png" alt="Resume" />
+        <img class="img-icon" src="@/assets/images/alt/resume.png" alt="Resume" />
       </a>
     </object>
   </div>
