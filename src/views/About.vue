@@ -20,13 +20,12 @@ import Resume from "@/components/Resume.vue"; // @ is an alias to /src
 
 @Component({
   components: {
-    Resume,
-  },
+    Resume
+  }
 })
-
 export default class About extends Vue {
   get photo() {
-    return require('@/assets/images/me_' + Math.floor(Math.random() * 3) + '.jpg');
+    return require("@/assets/images/photos/" + Math.floor(Math.random() * 3) + ".jpg");
   }
 }
 </script>

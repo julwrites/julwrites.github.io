@@ -2,7 +2,7 @@
   <div class="modal-thumbnail">
     <h2>Short Circuit</h2>
 
-    <img class="thumbnail" src="@/assets/images/ShortCircuit_1.jpg" v-on:click="showModal()" />
+    <img class="thumbnail" src="@/assets/images/projects/ShortCircuit_1.jpg" v-on:click="showModal()" />
 
     <Modal v-show="isModalVisible()" v-on:close="hideModal()">
       <div slot="header">Short Circuit</div>
@@ -23,17 +23,17 @@
         </ul>
 
         <div class="gallery-container">
-          <img class="gallery-img" src="@/assets/images/ShortCircuit_1.jpg" />
-          <img class="gallery-img" src="@/assets/images/ShortCircuit_2.jpg" />
-          <img class="gallery-img" src="@/assets/images/ShortCircuit_3.jpg" />
-          <img class="gallery-img" src="@/assets/images/ShortCircuit_4.jpg" />
-          <img class="gallery-img" src="@/assets/images/ShortCircuit_5.jpg" />
+          <img class="gallery-img" src="@/assets/images/projects/ShortCircuit_1.jpg" />
+          <img class="gallery-img" src="@/assets/images/projects/ShortCircuit_2.jpg" />
+          <img class="gallery-img" src="@/assets/images/projects/ShortCircuit_3.jpg" />
+          <img class="gallery-img" src="@/assets/images/projects/ShortCircuit_4.jpg" />
+          <img class="gallery-img" src="@/assets/images/projects/ShortCircuit_5.jpg" />
         </div>
       </div>
 
       <div slot="footer">
         <a href="http://games.digipen.edu/games/shortcircuit">
-          <img class="footer-thumbnail" src="@/assets/images/digipen.png" />
+          <img class="footer-thumbnail" src="@/assets/images/projects/digipen.png" />
         </a>
       </div>
     </Modal>

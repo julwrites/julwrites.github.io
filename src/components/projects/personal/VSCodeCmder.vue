@@ -2,13 +2,13 @@
   <div class="modal-thumbnail">
     <h2>VSCodeCmder</h2>
 
-    <img class="thumbnail" src="@/assets/images/vscodecmder.jpg" v-on:click="showModal()" />
+    <img class="thumbnail" src="@/assets/images/projects/vscodecmder.jpg" v-on:click="showModal()" />
 
     <Modal v-if="isModalVisible()" v-on:close="hideModal()">
       <div slot="header">VSCodeCmder</div>
 
       <div slot="body">
-        <img src="@/assets/images/vscodecmder.jpg" width="25%" height="auto" />
+        <img src="@/assets/images/projects/vscodecmder.jpg" width="25%" height="auto" />
         <p>I use Visual Studio Code quite a bit, and I found that one thing I wanted to do was to navigate around my file system without needing to touch my mouse.</p>
       </div>
 
