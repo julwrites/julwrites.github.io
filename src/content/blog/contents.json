@@ -1,4 +1,9 @@
 [{
+  "id": "2020_08_07_Fedora_Server",
+  "date": "07 August 2020",
+  "title": "Setting up a Fedora Server",
+  "desc": "I received back an old laptop from a mentee recently (he had gotten his own laptop) and decided that this would be a good opportunity to try my hand at some Linux Server administration"
+}, {
   "id": "2020_06_19_Golang_Bot",
   "date": "19 June 2020",
   "title": "Re-writing my Telegram Bot in Golang",
