@@ -34,6 +34,10 @@ Now armed with this knowledge, I installed `cockpit.storaged`, rebooted the serv
 ![Storage.png](./Storage.png)
 ![VM.png](./VM.png)
 
+Creating the VM was a little tricky due to storage. It turns out that the Virtual Machine Storage Pool was expecting `XFS` type storage, and that a Storage Volume had to be created within the Storage Pool before the VM could be created. With that up, however, it was a cinch to get a Virtual Machine workstation up and running and streaming on Cockpit. Very cool.
+
+![VMSuccess.png](./VMSuccess.png)
+
 In short, on top of my fedora server set up, I had to install the following packages:
 - Wifi device:
   - `dnf install wpa_supplicant`
