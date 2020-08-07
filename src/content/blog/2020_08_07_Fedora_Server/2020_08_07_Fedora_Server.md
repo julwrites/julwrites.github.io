@@ -12,7 +12,9 @@ Then the hiccups began.
 
 First wifi wouldn't work, and I spent one night figuring out why that would be the case, running `ncmli` again and again to attempt to enable it or find the AP. Eventually it came down to this; I didn't have `wpa_supplicant` installed (Which I found as an [issue](https://bugzilla.redhat.com/show_bug.cgi?id=1756488) in the Bug list of Fedora Server 31), and so it was not able to enable the wifi device.
 
-So I connected it via Ethernet cable, finished the install, installed `wpa_supplicant`, and a [few steps later](https://cockpit-project.org/running.html) I had Cockpit started up and connecting.
+So I connected it via Ethernet cable, finished the install, installed `wpa_supplicant`, enabled and started `iwd.service` and `wpa_supplicant.service`, and connected to the wifi using `nmcli device wifi connect ...`.
+
+A [few steps later](https://cockpit-project.org/running.html) I had Cockpit started up and connecting on wifi as well as ethernet.
 
 ![CockpitLogin.png](./CockpitLogin.png)
 ![Cockpit.png](./Cockpit.png)
