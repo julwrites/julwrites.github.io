@@ -23,6 +23,25 @@ It was pretty sleek, to be honest, and I was quite impressed at how much I could
 
 ![Terminal.png](./Terminal.png)
 
-Then I attempted to create a Virtual Machine, thinking that I could try running a desktop VM on it, and expose it for use. I was getting pretty impressed at how easy it was to [create and launch a VM in Cockpit](https://fedoramagazine.org/create-virtual-machines-with-cockpit-in-fedora/) when... I hadn't partitioned my disk properly. Naturally, this meant that my virtual disk couldn't be allocated, and when I attempted to `fdisk` away the problem... I `fdisk`-ed away my partition. One reboot later, I was back to square one.
+Then I attempted to create a Virtual Machine, thinking that I could try running a desktop VM on it, and expose it for use. I was getting pretty impressed at how easy it was to [create and launch a VM in Cockpit](https://fedoramagazine.org/create-virtual-machines-with-cockpit-in-fedora/) when... I didn't have space? It seemed that there was a problem with the drive management on my machine. Naturally, this meant that my virtual disk couldn't be allocated, and when I attempted to `fdisk` away the problem... I `fdisk`-ed away my partition. One reboot later, I was back to square one.
 
+... One reinstall later ...
 
+I started looking around my terminal to try and figure out what exactly was missing. Cockpit did recognize my disk with the correct size, but it wasn't listing it as a drive to be used. Some `lsblk` and searching later, I found out the problem; I needed to [create a new logical volume](https://fedoramagazine.org/storage-management-with-cockpit/) which Fedora had not allocated for when automatically partitioning my drive.
+
+Now armed with this knowledge, I installed `cockpit.storaged`, rebooted the server, and now I could create a new logical volume. I created this, mounted it onto `/dev/vmvol`, and created a new storage pool for Virtual Machines.
+
+![Storage.png](./Storage.png)
+![VM.png](./VM.png)
+
+In short, on top of my fedora server set up, I had to install the following packages:
+- Wifi device:
+  - `dnf install wpa_supplicant`
+  - `systemctl enable iwd.service --now`
+  - `systemctl enable wpa_supplicant.service --now`
+  - `nmcli device wifi connect <SSID> password <PW>`
+- Storage:
+  - `dnf install cockpit.storaged`
+- Virtual Machines:
+  - `dnf install libvirt cockpit-machines`
+  - `systemctl enable libvirtd --now`
