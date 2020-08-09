@@ -38,6 +38,15 @@ Creating the VM was a little tricky due to storage. It turns out that the Virtua
 
 ![VMSuccess.png](./VMSuccess.png)
 
+This worked decently, and I was able to install Ubuntu in a VM on the server, boot it up, and access it both through Cockpit's VNC viewer as well as directly from my desktop VNC viewer.
+
+I then decided to host a [code-server](https://github.com/cdr/code-server) in a Docker container, and quickly discovered that Fedora 32 didn't yet have support for docker. Some searching around later, and I found out how to get it working [using Moby](https://fedoramagazine.org/docker-and-fedora-32/) which was basically to first remove docker, then install `moby-engine` with `docker-compose`. This got Docker up and running, although - since Fedora 32 didn't support it yet - with no cockpit support, which was a bit of a bummer.
+
+Both as a stopgap measure, and also as a way of exploring, I decided to install [Portainer](https://portainer.io), which could be installed as a Docker container in my server, and manage other docker containers; seemed like a good alternative. It was quite easy to [set up Portainer](https://www.linuxuprising.com/2019/05/portainer-web-based-docker-gui-for.html), now that I had Docker up and running, and the web dashboard was quickly available.
+
+![Portainer.png](./Portainer.png)
+![PortainerConsole.png](./PortainerConsole.png)
+
 In short, on top of my fedora server set up, I had to install the following packages:
 - Wifi device:
   - `dnf install wpa_supplicant`
@@ -49,3 +58,9 @@ In short, on top of my fedora server set up, I had to install the following pack
 - Virtual Machines:
   - `dnf install libvirt cockpit-machines`
   - `systemctl enable libvirtd --now`
+- Docker:
+  - `dnf remove docker-*`
+  - `dnf config-manager --disable docker-*`
+  - `grubby --update-kernal=ALL --args="systemd.unified_cgroup_hierarchy=0"`
+  - `dnf install moby-engine docker-compose`
+  - `systemctl enable docker --now`
