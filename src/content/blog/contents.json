@@ -1,5 +1,11 @@
 [
     {
+        "id": "2020_08_16_Nginx_Server",
+        "date": "16 August 2020",
+        "title": "Setting up Nginx Reverse Proxy to Custom Domain",
+        "desc": "Now that Code Server was up, I wanted to be able to access it from anywhere, so I used nginx to enable access from my custom domain"
+    },
+    {
         "id": "2020_08_15_Code_Server",
         "date": "15 August 2020",
         "title": "Setting up Code Server on Fedora Server",
