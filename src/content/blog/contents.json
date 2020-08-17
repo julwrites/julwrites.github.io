@@ -1,5 +1,11 @@
 [
     {
+        "id": "2020_08_16_Code_Server_Extra",
+        "date": "18 August 2020",
+        "title": "Internet and storage for my code-server",
+        "desc": "I had to do some extra steps to get storage attached and internet enabled for my code-server docker instance"
+    },
+    {
         "id": "2020_08_16_Nginx_Server",
         "date": "16 August 2020",
         "title": "Setting up Nginx Reverse Proxy to Custom Domain",
