@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+        function getRedirectTag() {
+            var params = getUrlVars();
+            return params["tag"];
+        }
+        function redirect() {
+            var tag = getRedirectTag();
+            var location = "";
+            switch (tag) {
+                case "git":
+                    location = "https://github.com/julwrites/"
+                    break;
+                case "job":
+                    location = "https://sg.linkedin.com/in/julwrites"
+                    break;
+                case "resume":
+                    location = "https://www.tehj.io/assets/resume/Resume_Julian_Teh.pdf"
+                    break;
+            }
+            console.log(location);
+        }
+        window.onload = redirect();
+    </script>
+</head>
+
+</html>

@@ -1,0 +1,169 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[empty]{fullpage}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{titlesec}
+\usepackage{multicol}
+
+\pagenumbering{gobble}
+
+\definecolor{section_color}{RGB}{0, 64, 64}
+\definecolor{subsection_color}{RGB}{0, 128, 128}
+\definecolor{subsubsection_color}{RGB}{128, 128, 128}
+\definecolor{item_color}{RGB}{64, 64, 64}
+\definecolor{link_color}{RGB}{0, 128, 128}
+
+% Sections formatting
+
+\newcommand{\cvtitle}[1]{\huge\raggedright \textcolor{section_color}{#1}\\}
+\newcommand{\cvhead}[1]{\large\raggedright \textcolor{subsection_color}{#1}\\}
+\newcommand{\cvitem}[1]{\hspace{14pt} \small\raggedright \textcolor{item_color}{#1}\\}
+\newcommand{\cvlist}[1]{\vspace{-12pt}\small \textcolor{item_color}{\begin{itemize}#1\end{itemize}}}
+\newcommand{\cvli}[1]{\vspace{-4pt} \item{#1}}
+\newcommand{\cvline}[0]{\noindent\rule{19cm}{0.4pt}}
+\newcommand{\cvcols}[2]{\vspace{-24pt}\begin{multicols}{2} #1 \columnbreak #2 \end{multicols}\vspace{-24pt}}
+
+\newcommand{\link}[2]{\textcolor{link_color}{\href{#1}{#2}}}
+\newcommand{\position}[1]{\vspace{-4pt} \textsl{\footnotesize #1}\\}
+\newcommand{\qualifier}[1]{\hfill \textsl{\footnotesize #1}}
+\newcommand{\reference}[1]{\texttt{\small $\rightarrow$ #1}}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\begin{document}
+
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+    \textbf{\Large Julian Teh}
+    &
+    Page
+    \reference{\link{http://tehj.io/}{tehj.io}}
+    $|$
+    Email
+    \reference{\link{mailto:mail@tehj.io}{mail@tehj.io}}
+    $|$
+    Location
+    \reference{\link{https://binged.it/2V7eKPO}{Singapore}}
+\end{tabular*}
+
+\cvline
+
+\cvtitle{Profile \qualifier{Love to create things, bless people and provide insight}}
+
+\cvcols{
+    \cvhead{Skills}
+    \cvlist{
+        \cvli{C/C$_{++}$, Python, Javascript/Typescript, Go}
+        \cvli{Agile/Scrum Methodology}
+        \cvli{Teaching/Mentoring/Program Design}
+    }
+}{
+    \cvhead{Knowledge}
+    \cvlist{
+        \cvli{Software Architecture/System Design}
+        \cvli{UI/UX/Information Visualization}
+        \cvli{Artificial Intelligence/Machine Learning}
+        \cvli{Computer Graphics}
+    }
+}
+
+\vspace{2pt}
+
+\cvline
+
+\cvtitle{Work Experience}
+
+\cvhead{Screening Eagle Technologies \qualifier{C++ CV/ML Software Engineer (Dec 2020 - Present)}}
+\cvlist{
+    \cvli{Software Engineer for \textit{Special Projects Team}}
+}
+
+\cvhead{Autodesk - Delivery \qualifier{Sr. Software Engineer, Solution Lead, Engineering Practices Lead (Jun 2018 - Dec 2020) }}
+\cvlist{
+    \cvli{Engineering Practices Lead for \textit{Autodesk Delivery Team}
+        \vspace{12pt}
+        \cvlist{
+            \cvli{Champion for SWD Best Practices}
+            \cvli{Champion for CI/CD Best Practices}
+            \cvli{Member of DevOps guild}
+        }
+    }
+    \cvli{Key contributor in design and implementation of \textit{Autodesk On-Demand Install Service}
+        \vspace{12pt}
+        \cvlist{
+            \cvli{Designed \& implemented Install Coordinator (C$_{++}$)}
+            \cvli{Designed \& implemented Unit Test (GTest) and Component Test frameworks (Robot)}
+            \cvli{Contributed to Install UI and UI workflows (Electron \& ReactJS)}
+        }
+    }
+}
+
+\cvhead{Autodesk - Memento/ReCap Photo \qualifier{Software Engineer (Jan 2015 - Jun 2018)}}
+\cvlist{
+    \cvli{Designed \& implemented a CI/CD framework for Jenkins Pipeline Shared Library (Python)}
+    \cvli{Key contributor in design and implementation of \textit{Autodesk ReCap Photo}
+        \vspace{12pt}
+        \cvlist{
+            \cvli{Designed \& refactored UI framework and 3D manipulation tools (C$_{++}$)}
+            \cvli{Collaborated with UX to build UI workflows for Desktop and VR (C$_{++}$ \& QT)}
+        }
+    }
+}
+
+\cvtitle{Volunteer Experience}
+
+\cvhead{School of Science and Technology \qualifier{SST Inc. Mentor (June 2019 - Present)}}
+\cvlist{
+    \cvli{Co-created and conducted programme to engage alumni}
+    \cvli{Mentored SST Inc. Executive Committee on technical and management skills}
+}
+
+\cvhead{The Navteens Singapore \qualifier{Mentor/Trainer (Dec 2009 - Present)}}
+\cvlist{
+    \cvli{Mentored individuals for personal holistic growth}
+    \cvli{Taught Bible-centered mentoring skills as part of a youth training program}
+}
+
+\cvhead{Boys Brigade Singapore \qualifier{Volunteer/Officer (Jan 2005 - Apr 2019)}}
+\cvlist{
+    \cvli{Taught Boys about Bible-based character values}
+    \cvli{Taught visual programming to Boys}
+}
+
+\vspace{-12pt}
+
+\cvline
+
+\cvtitle{Education}
+\cvhead{National University of Singapore \qualifier{Jan 2017 - Jul 2019}}
+\cvlist{
+    \cvli{
+        \cvhead{M.Comp in Computer Science}
+    }
+}
+
+\cvhead{DigiPen Institute of Technology \qualifier{Sep 2012 - Aug 2015}}
+\cvlist{
+    \cvli{
+        \cvhead{B.Sc in Computer Science in Real-Time Interactive Simulation}
+        \cvlist{
+            \cvli{Teaching Assistant}
+            \cvli{Tools Programmer, \link{http://games.digipen.edu/games/shortcircuit}{Short Circuit}}
+            \cvli{Gameplay Programmer, \link{http://games.digipen.edu/games/flowline}{Flowline}}
+            \cvli{Technical Lead, \link{http://games.digipen.edu/games/bibbb}{BIBBB}}
+        }
+    }
+}
+
+\end{document}
