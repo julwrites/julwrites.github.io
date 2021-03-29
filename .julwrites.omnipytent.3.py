@@ -9,4 +9,4 @@ def serve(ctx):
 
 @task
 def gui(ctx):
-    TERMINAL_PANEL('npm', 'run', 'gui')
+    TERMINAL_PANEL('elm', 'reactor')
