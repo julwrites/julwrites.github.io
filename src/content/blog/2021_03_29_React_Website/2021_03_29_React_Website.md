@@ -15,13 +15,17 @@ We soon settled on the following tech stack:
 
 - React/TS with Next.js, hosted on [Vercel](https://vercel.com)
 - [Heroku PostgreSQL](https://www.heroku.com/postgres) (Hobby tier) accessed through [Prisma](https://www.prisma.io/)
+- [Paper-css](https://github.com/cognitom/paper-css) for print sizing
 - Youtube Live for livestreaming
 - Facebook Page for live event updates and gallery
 
-This worked out pretty well; following a couple of tutorials and getting some help from a friend to learn how to use React, I was soon on my way to being able to develop more or less independently and make any tweaks necessary for data updates or layout changes. 
+This worked out pretty well; following a couple of tutorials and getting some help from a friend to learn how to use React, I was soon on my way to being able to develop more or less independently and make any tweaks necessary for data updates or layout changes.
 
-It was quite eye-opening to work with both Server-Side Rendering through `GetServerSideProps` as well as Client-side `useEffect`, `useState` and the React `.tsx` syntax for HTML manipulation. It was even more eye-opening to work with Prisma's API, and realizing that it would only run on server-side calls (as well as how to make these calls from the Client-side). 
+![Invite.png](./Invite.png)
+![Livestream.png](./Livestream.png)
 
-This turned out to be even more useful as we considered how we would conduct the church ceremony and dinner reception, and realized that having a website would enable us the flexibility of hosting our own streams, games, activities, gallery, and so on. This would make it easier to do a wedding that needed social distancing, while including more people. 
+It was quite eye-opening to work with both Server-Side Rendering through `GetServerSideProps` as well as Client-side `useEffect`, `useState` and the React `.tsx` syntax for HTML manipulation. It was even more eye-opening to work with Prisma's API, and realizing that it would only run on server-side calls (as well as how to make these calls from the Client-side).
+
+This turned out to be even more useful as we considered how we would conduct the church ceremony and dinner reception, and realized that having a website would enable us the flexibility of hosting our own streams, games, activities, gallery, and so on. This would make it easier to do a wedding that needed social distancing, while including more people, especially family and friends overseas who were not able to join us.
 
 Overall this was a very enriching experience - and a wonderfully useful use case - that helped me grow in my knowledge and skill in Web development
