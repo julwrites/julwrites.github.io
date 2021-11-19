@@ -3,12 +3,11 @@ module Main exposing (..)
 -- We are using Elm-UI as the base UI framework, which exposes Element
 
 import Browser
-import Element exposing (Element, alignRight, centerY, el, fill, link, padding, rgb255, row, spacing, text, width)
+import Element exposing (Color, Element, alignRight, centerX, el, fill, link, padding, rgb255, row, spacing, text, width)
 import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
 import Element.Input as Input
-import Html exposing (Html, pre)
 import Http
 
 
@@ -27,6 +26,27 @@ type alias Model =
 
 type Msg
     = NoOp
+
+
+type alias Theme =
+    { borderColor : Color
+    , backgroundColor : Color
+    , fontColor : Color
+    , padding : Int
+    , menuSpacing : Int
+    , contentSpacing : Int
+    }
+
+
+siteTheme : Theme
+siteTheme =
+    { borderColor = rgb255 0 0 0
+    , backgroundColor = rgb255 34 44 60
+    , fontColor = rgb255 255 255 255
+    , padding = 30
+    , menuSpacing = 80
+    , contentSpacing = 30
+    }
 
 
 init : Flags -> ( Model, Cmd Msg )
@@ -62,7 +82,9 @@ view _ =
     , body =
         [ Element.layout
             -- The list of attributes
-            []
+            [ Background.color siteTheme.backgroundColor
+            , Font.color siteTheme.fontColor
+            ]
             -- The layout's element; remember, elm-ui adopts a 1 child policy
             -- Elements of the resulting model
             landing
@@ -72,7 +94,8 @@ view _ =
 
 landing : Element msg
 landing =
-    Element.column []
+    Element.column
+        [ centerX, spacing siteTheme.contentSpacing, padding siteTheme.padding ]
         [ menu
         , blurb
         , footer
@@ -82,7 +105,7 @@ landing =
 menu : Element msg
 menu =
     Element.row
-        []
+        [ centerX, spacing siteTheme.menuSpacing ]
         [ Element.el [] (Element.text "About")
         , Element.text "Projects"
         , Element.text "Blog"
@@ -92,8 +115,8 @@ menu =
 blurb : Element msg
 blurb =
     Element.column
-        []
-        [ Element.el [] (text "Hi, I'm Julian")
+        [ centerX ]
+        [ Element.el [ Font.size 40 ] (text "Hi, I'm Julian")
         , Element.el [] (text "Welcome to my domain")
         ]
 
@@ -101,7 +124,7 @@ blurb =
 footer : Element msg
 footer =
     Element.row
-        []
+        [ centerX, spacing siteTheme.menuSpacing ]
         [ Element.link []
             { url = "https://github.com/julwrites", label = Element.text "Github" }
         , Element.link []
