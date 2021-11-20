@@ -32,6 +32,7 @@ type alias Theme =
     { borderColor : Color
     , backgroundColor : Color
     , fontColor : Color
+    , fontFamily : List Font.Font
     , padding : Int
     , menuSpacing : Int
     , footerSpacing : Int
@@ -44,6 +45,7 @@ siteTheme =
     { borderColor = rgb255 0 0 0
     , backgroundColor = rgb255 34 44 60
     , fontColor = rgb255 255 255 255
+    , fontFamily = [ Font.typeface "Tahoma", Font.sansSerif ]
     , padding = 30
     , menuSpacing = 80
     , footerSpacing = 150
@@ -86,6 +88,7 @@ view _ =
             -- The list of attributes
             [ Background.color siteTheme.backgroundColor
             , Font.color siteTheme.fontColor
+            , Font.family siteTheme.fontFamily
             ]
             -- The layout's element; remember, elm-ui adopts a 1 child policy
             -- Elements of the resulting model
@@ -118,8 +121,8 @@ blurb : Element msg
 blurb =
     Element.column
         [ centerX, spacing siteTheme.contentSpacing ]
-        [ Element.el [ Font.size 40 ] (text "Hi, I'm Julian")
-        , Element.el [] (text "Welcome to my domain")
+        [ Element.el [ centerX, Font.size 40, Font.medium ] (text "Hi, I'm Julian")
+        , Element.el [ centerX ] (text "Welcome to my domain")
         ]
 
 
