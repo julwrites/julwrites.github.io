@@ -45,7 +45,7 @@ siteTheme =
     { borderColor = rgb255 0 0 0
     , backgroundColor = rgb255 34 44 60
     , fontColor = rgb255 255 255 255
-    , fontFamily = [ Font.typeface "Tahoma", Font.sansSerif ]
+    , fontFamily = [ Font.external { name = "Belligerent Madness", url = "https://allfont.net/allfont.css?fonts=belligerent-madness" }, Font.sansSerif ]
     , padding = 30
     , menuSpacing = 80
     , footerSpacing = 150

@@ -9,6 +9,10 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Install, Build, Test 🔧 # This runs a series of commands as if building a live version of the project
+      - name: Install 🔧 # This runs a series of commands as if building a live version of the project
+        run: |
+          yarn global add elm
+
+      - name: Build 🔧 # This runs a series of commands as if building a live version of the project
         run: |
           elm make src/Main.elm
