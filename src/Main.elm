@@ -1,14 +1,24 @@
 module Main exposing (..)
 
 -- We are using Elm-UI as the base UI framework, which exposes Element
+-- Importing modules to make up this webpage
 
+import About
 import Browser
-import Element exposing (Color, Element, alignRight, centerX, el, fill, height, link, padding, px, rgb255, row, spacing, text, width)
+import Browser.Navigation as Nav
+import Element exposing (Element, centerX, padding, spacing, text)
 import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
 import Element.Input as Input
+import Floating
+import Home
+import Html exposing (..)
+import Html.Attributes exposing (..)
 import Http
+import Theme as Theme
+import Url
+import Url.Parser exposing ((</>), Parser, int, map, oneOf, s, string)
 
 
 
@@ -16,63 +26,56 @@ import Http
 -- Note: main must be of type Html, Svg or Programs
 
 
-type alias Flags =
-    {}
-
-
 type alias Model =
-    ()
-
-
-type Msg
-    = NoOp
-
-
-type alias Theme =
-    { borderColor : Color
-    , backgroundColor : Color
-    , fontColor : Color
-    , fontFamily : List Font.Font
-    , padding : Int
-    , menuSpacing : Int
-    , footerSpacing : Int
-    , contentSpacing : Int
+    { key : Nav.Key
+    , url : Url.Url
     }
 
 
-siteTheme : Theme
-siteTheme =
-    { borderColor = rgb255 0 0 0
-    , backgroundColor = rgb255 34 44 60
-    , fontColor = rgb255 255 255 255
-    , fontFamily = [ Font.external { name = "Belligerent Madness", url = "https://allfont.net/allfont.css?fonts=belligerent-madness" }, Font.sansSerif ]
-    , padding = 30
-    , menuSpacing = 80
-    , footerSpacing = 150
-    , contentSpacing = 30
-    }
+type Route
+    = Topic String
+    | Blog Int
+    | User String
+    | Comment String Int
 
 
-main : Program Flags Model Msg
+main : Program () Model Msg
 main =
-    Browser.document
+    Browser.application
         { init = init
         , view = view
         , update = update
         , subscriptions = subscriptions
+        , onUrlChange = UrlChanged
+        , onUrlRequest = LinkClicked
         }
 
 
-init : Flags -> ( Model, Cmd Msg )
-init _ =
-    ( (), Cmd.none )
+init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
+init flags url key =
+    ( Model key url, Cmd.none )
+
+
+type Msg
+    = LinkClicked Browser.UrlRequest
+    | UrlChanged Url.Url
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        NoOp ->
-            ( model, Cmd.none )
+        LinkClicked urlRequest ->
+            case urlRequest of
+                Browser.Internal url ->
+                    ( model, Nav.pushUrl model.key (Url.toString url) )
+
+                Browser.External href ->
+                    ( model, Nav.load href )
+
+        UrlChanged url ->
+            ( { model | url = url }
+            , Cmd.none
+            )
 
 
 subscriptions : Model -> Sub Msg
@@ -80,65 +83,41 @@ subscriptions model =
     Sub.none
 
 
+
+-- As an application, we now need to multiplex in view based on the model value
+
+
 view : Model -> Browser.Document Msg
-view _ =
+view model =
     { title = "tehj.io"
     , body =
         [ Element.layout
             -- The list of attributes
-            [ Background.color siteTheme.backgroundColor
-            , Font.color siteTheme.fontColor
-            , Font.family siteTheme.fontFamily
+            [ Background.color Theme.siteTheme.backgroundColor
+            , Font.color Theme.siteTheme.fontColor
+            , Font.family Theme.siteTheme.fontFamily
             ]
             -- The layout's element; remember, elm-ui adopts a 1 child policy
             -- Elements of the resulting model
-            landing
+            (page model)
         ]
     }
 
 
-landing : Element msg
-landing =
+page : Model -> Element msg
+page model =
     Element.column
-        [ centerX, spacing siteTheme.contentSpacing, padding siteTheme.padding ]
-        [ menu
-        , blurb
-        , footer
+        [ centerX, spacing Theme.siteTheme.contentSpacing, padding Theme.siteTheme.padding ]
+        [ Floating.menu
+        , body model
+        , Floating.footer
         ]
 
 
-menu : Element msg
-menu =
-    Element.row
-        [ centerX, spacing siteTheme.menuSpacing ]
-        [ Element.text "About"
-        , Element.text "Projects"
-        , Element.text "Blog"
-        ]
+body : Model -> Element msg
+body model =
+    if model.url.path == "/about" then
+        About.body
 
-
-blurb : Element msg
-blurb =
-    Element.column
-        [ centerX, spacing siteTheme.contentSpacing ]
-        [ Element.el [ centerX, Font.size 40, Font.medium ] (text "Hi, I'm Julian")
-        , Element.el [ centerX ] (text "Welcome to my domain")
-        ]
-
-
-footer : Element msg
-footer =
-    Element.row
-        [ centerX, spacing siteTheme.footerSpacing ]
-        [ iconLink { url = "https://github.com/julwrites", src = "assets/images/dark/github.png", description = "Github" }
-        , iconLink
-            { url = "https://linkedin.com/in/julwrites", src = "assets/images/dark/linkedin.png", description = "LinkedIn" }
-        , iconLink
-            { url = "mail@tehj.io", src = "assets/images/dark/email.png", description = "Email" }
-        ]
-
-
-iconLink : { url : String, src : String, description : String } -> Element msg
-iconLink def =
-    Element.link []
-        { url = def.url, label = Element.image [ Element.width (px 33), Element.height (px 33) ] { src = def.src, description = def.description } }
+    else
+        Home.blurb
