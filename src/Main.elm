@@ -3,16 +3,13 @@ module Main exposing (..)
 -- We are using Elm-UI as the base UI framework, which exposes Element
 -- Importing modules to make up this webpage
 
-import About
 import Browser
 import Browser.Navigation as Nav
-import Element exposing (Element, centerX, padding, spacing, text)
+import Element exposing (Color, Element, alignRight, centerX, el, fill, height, link, padding, px, rgb255, row, spacing, text, width)
 import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
 import Element.Input as Input
-import Floating
-import Home
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Http
@@ -108,16 +105,86 @@ page : Model -> Element msg
 page model =
     Element.column
         [ centerX, spacing Theme.siteTheme.contentSpacing, padding Theme.siteTheme.padding ]
-        [ Floating.menu
+        [ menu
         , body model
-        , Floating.footer
+        , footer
         ]
 
 
 body : Model -> Element msg
 body model =
     if model.url.path == "/about" then
-        About.body
+        about
 
     else
-        Home.blurb
+        blurb
+
+
+
+--------------------------------------------------
+-- Floating elements
+
+
+menu : Element msg
+menu =
+    Element.row
+        [ centerX, spacing Theme.siteTheme.menuSpacing ]
+        [ Element.link []
+            { url = "/about"
+            , label = Element.text "About"
+            }
+        , Element.text "Projects"
+        , Element.text "Blog"
+        ]
+
+
+footer : Element msg
+footer =
+    Element.row
+        [ centerX, spacing Theme.siteTheme.footerSpacing ]
+        [ iconLink { url = "https://github.com/julwrites", src = "assets/images/dark/github.png", description = "Github" }
+        , iconLink
+            { url = "https://linkedin.com/in/julwrites", src = "assets/images/dark/linkedin.png", description = "LinkedIn" }
+        , iconLink
+            { url = "mail@tehj.io", src = "assets/images/dark/email.png", description = "Email" }
+        ]
+
+
+iconLink : { url : String, src : String, description : String } -> Element msg
+iconLink def =
+    Element.link []
+        { url = def.url, label = Element.image [ Element.width (px 33), Element.height (px 33) ] { src = def.src, description = def.description } }
+
+
+
+--------------------------------------------------
+-- Home page
+
+
+blurb : Element msg
+blurb =
+    Element.column
+        [ centerX, spacing Theme.siteTheme.contentSpacing ]
+        [ Element.el [ centerX, Font.size 40, Font.medium ] (Element.text "Hi, I'm Julian")
+        , Element.el [ centerX ] (Element.text "Welcome to my domain")
+        ]
+
+
+
+--------------------------------------------------
+-- About page
+
+
+about : Element msg
+about =
+    Element.column
+        [ centerX, spacing Theme.siteTheme.contentSpacing ]
+        [ profilePhoto
+        , Element.el [] (Element.text "Love Christ, Create Things, Bless People, Speak Truth")
+        ]
+
+
+profilePhoto : Element msg
+profilePhoto =
+    -- Element.el [] (Element.image [] { src = "assets/images/photos/" ++ String.fromInt (Random.int 0 2) ++ ".png", description = "Personal Photo" })
+    Element.el [] (Element.image [] { src = "assets/images/photos/2.jpg", description = "Personal Photo" })
