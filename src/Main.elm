@@ -7,9 +7,8 @@ import Browser
 import Browser.Navigation as Nav
 import Element exposing (Color, Element, alignRight, centerX, el, fill, height, link, padding, px, rgb255, row, spacing, text, width)
 import Element.Background as Background
-import Element.Border as Border
 import Element.Font as Font
-import Element.Input as Input
+import Element.Region as Region
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Http
@@ -116,6 +115,12 @@ body model =
     if model.url.path == "/about" then
         about
 
+    else if model.url.path == "/projects" then
+        projects
+
+    else if model.url.path == "/blog" then
+        blog
+
     else
         blurb
 
@@ -128,13 +133,23 @@ body model =
 menu : Element msg
 menu =
     Element.row
-        [ centerX, spacing Theme.siteTheme.menuSpacing ]
+        [ Region.navigation, centerX, spacing Theme.siteTheme.menuSpacing ]
         [ Element.link []
+            { url = "/"
+            , label = Element.text "Home"
+            }
+        , Element.link []
             { url = "/about"
             , label = Element.text "About"
             }
-        , Element.text "Projects"
-        , Element.text "Blog"
+        , Element.link []
+            { url = "/projects"
+            , label = Element.text "Projects"
+            }
+        , Element.link []
+            { url = "/blog"
+            , label = Element.text "Blog"
+            }
         ]
 
 
@@ -172,7 +187,7 @@ blurb =
 
 
 --------------------------------------------------
--- About page
+-- about page
 
 
 about : Element msg
@@ -181,10 +196,61 @@ about =
         [ centerX, spacing Theme.siteTheme.contentSpacing ]
         [ profilePhoto
         , Element.el [] (Element.text "Love Christ, Create Things, Bless People, Speak Truth")
+        , Element.row [ centerX, Element.spacing 10 ]
+            [ Element.el [ Region.heading 2, centerX, Font.size 30, Font.medium ] (Element.text "Work I've done:")
+            , Element.download []
+                { url = "assets/resume/Resume_Julian_Teh.pdf"
+                , label = Element.image [ Element.width (px 33), Element.height (px 33) ] { src = "assets/images/dark/download.png", description = "Resume" }
+                }
+            ]
         ]
 
 
 profilePhoto : Element msg
 profilePhoto =
-    -- Element.el [] (Element.image [] { src = "assets/images/photos/" ++ String.fromInt (Random.int 0 2) ++ ".png", description = "Personal Photo" })
-    Element.el [] (Element.image [] { src = "assets/images/photos/2.jpg", description = "Personal Photo" })
+    Element.image [ Element.height (px 512) ] { src = "assets/images/photos/2.jpg", description = "Personal Photo" }
+
+
+
+--------------------------------------------------
+-- project page
+
+
+projects : Element msg
+projects =
+    Element.column
+        [ centerX, spacing Theme.siteTheme.contentSpacing ]
+        [ Element.el [ Region.heading 2, centerX, Font.size 30, Font.medium ] (Element.text "Personal Projects")
+        , Element.el [ centerX ] (Element.text "As part of a constant effort to learn, I take up little hobby projects in my spare time")
+        , Element.row [ centerX, Element.spacing 50, Element.spaceEvenly ]
+            [ thumbnailLink { url = "https://github.com/julwrites/vscodecmder", src = "assets/images/projects/vscodecmder.jpg", description = "VSCodeCmder" }
+            , thumbnailLink { url = "https://github.com/julwrites/ScriptureBot", src = "assets/images/projects/scripturebot.png", description = "ScriptureBot" }
+            ]
+        , Element.el [ Region.heading 2, centerX, Font.size 30, Font.medium ] (Element.text "DigiPen Projects")
+        , Element.el [ centerX ] (Element.text "During my time in DigiPen, we developed several games")
+        , Element.row [ centerX, Element.spacing 50, Element.spaceEvenly ]
+            [ thumbnailLink { url = "http://games.digipen.edu/games/bibbb", src = "assets/images/projects/BIBBB_1.jpg", description = "BIBBB" }
+            , thumbnailLink { url = "http://games.digipen.edu/games/flowline", src = "assets/images/projects/Flowline_1.jpg", description = "Flowline" }
+            , thumbnailLink { url = "http://games.digipen.edu/games/shortcircuit", src = "assets/images/projects/ShortCircuit_1.jpg", description = "Short Circuit" }
+            ]
+        ]
+
+
+thumbnailLink : { url : String, src : String, description : String } -> Element msg
+thumbnailLink def =
+    Element.link [ Element.paddingXY 32 0 ]
+        { url = def.url, label = Element.image [ Element.height (px 128) ] { src = def.src, description = def.description } }
+
+
+
+--------------------------------------------------
+-- blog page
+
+
+blog : Model -> Element msg
+blog model =
+    -- We need to determine the blog post url; if none, display the post list
+    -- Otherwise grab the correct markdown file and run Markdown.toHtml https://package.elm-lang.org/packages/elm-explorations/markdown/latest/
+    Element.column
+        [ centerX, spacing Theme.siteTheme.contentSpacing ]
+        []
