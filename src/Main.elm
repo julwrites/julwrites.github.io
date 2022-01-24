@@ -14,7 +14,8 @@ import Html.Attributes exposing (..)
 import Http
 import Theme as Theme
 import Url
-import Url.Parser exposing ((</>), Parser, int, map, oneOf, s, string)
+import Url.Parser exposing ((</>), (<?>), Parser, int, map, oneOf, s, string, top)
+import Url.Parser.Query as Query
 
 
 
@@ -26,13 +27,6 @@ type alias Model =
     { key : Nav.Key
     , url : Url.Url
     }
-
-
-type Route
-    = Topic String
-    | Blog Int
-    | User String
-    | Comment String Int
 
 
 main : Program () Model Msg
@@ -110,22 +104,72 @@ page model =
         ]
 
 
+type Route
+    = Home
+    | About
+    | Projects
+    | Blog
+    | BlogPost String
+      -- | BlogQuery (Maybe String)
+    | NotFound
+
+
+route : Parser (Route -> a) a
+route =
+    oneOf
+        [ Url.Parser.map Home top
+        , Url.Parser.map About (Url.Parser.s "about")
+        , Url.Parser.map Projects (Url.Parser.s "projects")
+        , Url.Parser.map Blog (Url.Parser.s "blog")
+        , Url.Parser.map BlogPost (Url.Parser.s "blog" </> Url.Parser.string)
+
+        -- , Url.Parser.map BlogQuery (Url.Parser.s "blog" <?> Query.string "q")
+        ]
+
+
+routeUrl : String -> Route
+routeUrl string =
+    case Url.fromString string of
+        Nothing ->
+            NotFound
+
+        Just url ->
+            Maybe.withDefault NotFound (Url.Parser.parse route url)
+
+
 body : Model -> Element msg
 body model =
-    if model.url.path == "/about" then
-        about
+    case routeUrl (Url.toString model.url) of
+        Home ->
+            blurb
 
-    else if model.url.path == "/projects" then
-        projects
+        About ->
+            about
 
-    else if model.url.path == "/blog" then
-        blog
+        Projects ->
+            projects
 
-    else
-        blurb
+        Blog ->
+            blog
+
+        BlogPost post ->
+            blogPost post
+
+        --         BlogQuery query ->
+        --             blog query
+        NotFound ->
+            Element.el [ centerX, Font.size 40, Font.medium ] (Element.text "Sorry, I haven't made this page")
 
 
 
+--     if model.url.path == "/about" then
+--         about
+--     else if model.url.path == "/projects" then
+--         projects
+--     else if Url.Parser.parse route model.url.path then
+--         blog
+--     else
+--         blurb
 --------------------------------------------------
 -- Floating elements
 
@@ -220,19 +264,21 @@ projects : Element msg
 projects =
     Element.column
         [ centerX, spacing Theme.siteTheme.contentSpacing ]
-        [ Element.el [ Region.heading 2, centerX, Font.size 30, Font.medium ] (Element.text "Personal Projects")
-        , Element.el [ centerX ] (Element.text "As part of a constant effort to learn, I take up little hobby projects in my spare time")
-        , Element.row [ centerX, Element.spacing 50, Element.spaceEvenly ]
-            [ thumbnailLink { url = "https://github.com/julwrites/vscodecmder", src = "assets/images/projects/vscodecmder.jpg", description = "VSCodeCmder" }
-            , thumbnailLink { url = "https://github.com/julwrites/ScriptureBot", src = "assets/images/projects/scripturebot.png", description = "ScriptureBot" }
-            ]
-        , Element.el [ Region.heading 2, centerX, Font.size 30, Font.medium ] (Element.text "DigiPen Projects")
+        [ Element.el [ Region.heading 2, centerX, Font.size 30, Font.medium ] (Element.text "DigiPen Projects")
         , Element.el [ centerX ] (Element.text "During my time in DigiPen, we developed several games")
         , Element.row [ centerX, Element.spacing 50, Element.spaceEvenly ]
             [ thumbnailLink { url = "http://games.digipen.edu/games/bibbb", src = "assets/images/projects/BIBBB_1.jpg", description = "BIBBB" }
             , thumbnailLink { url = "http://games.digipen.edu/games/flowline", src = "assets/images/projects/Flowline_1.jpg", description = "Flowline" }
             , thumbnailLink { url = "http://games.digipen.edu/games/shortcircuit", src = "assets/images/projects/ShortCircuit_1.jpg", description = "Short Circuit" }
             ]
+        , Element.el [ Region.heading 2, centerX, Font.size 30, Font.medium ] (Element.text "Personal Projects")
+        , Element.el [ centerX ] (Element.text "As part of a constant effort to learn, I take up little hobby projects in my spare time")
+        , Element.row [ centerX, Element.spacing 50, Element.spaceEvenly ]
+            [ thumbnailLink { url = "https://github.com/julwrites/vscodecmder", src = "assets/images/projects/vscodecmder.jpg", description = "VSCodeCmder" }
+            , thumbnailLink { url = "https://github.com/julwrites/ScriptureBot", src = "assets/images/projects/scripturebot.png", description = "ScriptureBot" }
+            ]
+
+        -- TODO: Add in the dev blog down here
         ]
 
 
@@ -247,10 +293,18 @@ thumbnailLink def =
 -- blog page
 
 
-blog : Model -> Element msg
-blog model =
-    -- We need to determine the blog post url; if none, display the post list
-    -- Otherwise grab the correct markdown file and run Markdown.toHtml https://package.elm-lang.org/packages/elm-explorations/markdown/latest/
+blog : Element msg
+blog =
+    -- TODO: Grep the post json to create the post list
+    Element.column
+        [ centerX, spacing Theme.siteTheme.contentSpacing ]
+        [ Element.el [ centerX ] (Element.text "This blog serves for me to write my thoughts on various things")
+        ]
+
+
+blogPost : String -> Element msg
+blogPost post =
+    -- TODO: Grab the correct markdown file and run Markdown.toHtml https://package.elm-lang.org/packages/elm-explorations/markdown/latest/
     Element.column
         [ centerX, spacing Theme.siteTheme.contentSpacing ]
         []
