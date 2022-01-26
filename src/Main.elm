@@ -3,15 +3,16 @@ module Main exposing (..)
 -- We are using Elm-UI as the base UI framework, which exposes Element
 -- Importing modules to make up this webpage
 
+import Blog
 import Browser
 import Browser.Navigation as Nav
-import Element exposing (Color, Element, alignRight, centerX, el, fill, height, link, padding, px, rgb255, row, spacing, text, width)
+import Element exposing (Color, Element)
 import Element.Background as Background
+import Element.Border as Border
 import Element.Font as Font
 import Element.Region as Region
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Http
 import Theme as Theme
 import Url
 import Url.Parser exposing ((</>), (<?>), Parser, int, map, oneOf, s, string, top)
@@ -97,7 +98,7 @@ view model =
 page : Model -> Element msg
 page model =
     Element.column
-        [ centerX, spacing Theme.siteTheme.contentSpacing, padding Theme.siteTheme.padding ]
+        [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing, Element.padding Theme.siteTheme.padding ]
         [ menu
         , body model
         , footer
@@ -158,7 +159,7 @@ body model =
         --         BlogQuery query ->
         --             blog query
         NotFound ->
-            Element.el [ centerX, Font.size 40, Font.medium ] (Element.text "Sorry, I haven't made this page")
+            Element.el [ Element.centerX, Font.size 40, Font.medium ] (Element.text "Sorry, I haven't made this page")
 
 
 
@@ -177,7 +178,7 @@ body model =
 menu : Element msg
 menu =
     Element.row
-        [ Region.navigation, centerX, spacing Theme.siteTheme.menuSpacing ]
+        [ Region.navigation, Element.centerX, Element.spacing Theme.siteTheme.menuSpacing ]
         [ Element.link []
             { url = "/"
             , label = Element.text "Home"
@@ -200,7 +201,7 @@ menu =
 footer : Element msg
 footer =
     Element.row
-        [ centerX, spacing Theme.siteTheme.footerSpacing ]
+        [ Element.centerX, Element.spacing Theme.siteTheme.footerSpacing ]
         [ iconLink { url = "https://github.com/julwrites", src = "assets/images/dark/github.png", description = "Github" }
         , iconLink
             { url = "https://linkedin.com/in/julwrites", src = "assets/images/dark/linkedin.png", description = "LinkedIn" }
@@ -212,7 +213,7 @@ footer =
 iconLink : { url : String, src : String, description : String } -> Element msg
 iconLink def =
     Element.link []
-        { url = def.url, label = Element.image [ Element.width (px 33), Element.height (px 33) ] { src = def.src, description = def.description } }
+        { url = def.url, label = Element.image [ Element.width (Element.px 33), Element.height (Element.px 33) ] { src = def.src, description = def.description } }
 
 
 
@@ -223,9 +224,9 @@ iconLink def =
 blurb : Element msg
 blurb =
     Element.column
-        [ centerX, spacing Theme.siteTheme.contentSpacing ]
-        [ Element.el [ centerX, Font.size 40, Font.medium ] (Element.text "Hi, I'm Julian")
-        , Element.el [ centerX ] (Element.text "Welcome to my domain")
+        [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing ]
+        [ Element.el [ Element.centerX, Font.size 40, Font.medium ] (Element.text "Hi, I'm Julian")
+        , Element.el [ Element.centerX ] (Element.text "Welcome to my domain")
         ]
 
 
@@ -237,14 +238,14 @@ blurb =
 about : Element msg
 about =
     Element.column
-        [ centerX, spacing Theme.siteTheme.contentSpacing ]
+        [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing ]
         [ profilePhoto
         , Element.el [] (Element.text "Love Christ, Create Things, Bless People, Speak Truth")
-        , Element.row [ centerX, Element.spacing 10 ]
-            [ Element.el [ Region.heading 2, centerX, Font.size 30, Font.medium ] (Element.text "Work I've done:")
+        , Element.row [ Element.centerX, Element.spacing 10 ]
+            [ Element.el [ Region.heading 2, Element.centerX, Font.size 30, Font.medium ] (Element.text "Work I've done:")
             , Element.download []
                 { url = "assets/resume/Resume_Julian_Teh.pdf"
-                , label = Element.image [ Element.width (px 33), Element.height (px 33) ] { src = "assets/images/dark/download.png", description = "Resume" }
+                , label = Element.image [ Element.width (Element.px 33), Element.height (Element.px 33) ] { src = "assets/images/dark/download.png", description = "Resume" }
                 }
             ]
         ]
@@ -252,7 +253,7 @@ about =
 
 profilePhoto : Element msg
 profilePhoto =
-    Element.image [ Element.height (px 512) ] { src = "assets/images/photos/2.jpg", description = "Personal Photo" }
+    Element.image [ Element.height (Element.px 512) ] { src = "assets/images/photos/2.jpg", description = "Personal Photo" }
 
 
 
@@ -263,17 +264,17 @@ profilePhoto =
 projects : Element msg
 projects =
     Element.column
-        [ centerX, spacing Theme.siteTheme.contentSpacing ]
-        [ Element.el [ Region.heading 2, centerX, Font.size 30, Font.medium ] (Element.text "DigiPen Projects")
-        , Element.el [ centerX ] (Element.text "During my time in DigiPen, we developed several games")
-        , Element.row [ centerX, Element.spacing 50, Element.spaceEvenly ]
+        [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing ]
+        [ Element.el [ Region.heading 2, Element.centerX, Font.size 30, Font.medium ] (Element.text "DigiPen Projects")
+        , Element.el [ Element.centerX ] (Element.text "During my time in DigiPen, we developed several games")
+        , Element.row [ Element.centerX, Element.spacing 50, Element.spaceEvenly ]
             [ thumbnailLink { url = "http://games.digipen.edu/games/bibbb", src = "assets/images/projects/BIBBB_1.jpg", description = "BIBBB" }
             , thumbnailLink { url = "http://games.digipen.edu/games/flowline", src = "assets/images/projects/Flowline_1.jpg", description = "Flowline" }
             , thumbnailLink { url = "http://games.digipen.edu/games/shortcircuit", src = "assets/images/projects/ShortCircuit_1.jpg", description = "Short Circuit" }
             ]
-        , Element.el [ Region.heading 2, centerX, Font.size 30, Font.medium ] (Element.text "Personal Projects")
-        , Element.el [ centerX ] (Element.text "As part of a constant effort to learn, I take up little hobby projects in my spare time")
-        , Element.row [ centerX, Element.spacing 50, Element.spaceEvenly ]
+        , Element.el [ Region.heading 2, Element.centerX, Font.size 30, Font.medium ] (Element.text "Personal Projects")
+        , Element.el [ Element.centerX ] (Element.text "As part of a constant effort to learn, I take up little hobby projects in my spare time")
+        , Element.row [ Element.centerX, Element.spacing 50, Element.spaceEvenly ]
             [ thumbnailLink { url = "https://github.com/julwrites/vscodecmder", src = "assets/images/projects/vscodecmder.jpg", description = "VSCodeCmder" }
             , thumbnailLink { url = "https://github.com/julwrites/ScriptureBot", src = "assets/images/projects/scripturebot.png", description = "ScriptureBot" }
             ]
@@ -285,7 +286,7 @@ projects =
 thumbnailLink : { url : String, src : String, description : String } -> Element msg
 thumbnailLink def =
     Element.link [ Element.paddingXY 32 0 ]
-        { url = def.url, label = Element.image [ Element.height (px 128) ] { src = def.src, description = def.description } }
+        { url = def.url, label = Element.image [ Element.height (Element.px 128) ] { src = def.src, description = def.description } }
 
 
 
@@ -293,12 +294,32 @@ thumbnailLink def =
 -- blog page
 
 
+postBlurb : Blog.Post -> Element msg
+postBlurb postDetail =
+    Element.link []
+        { url = "/blog/" ++ postDetail.id
+        , label =
+            Element.column []
+                [ Element.row [ Element.spacing 20 ]
+                    [ Element.el [ Font.size 20 ] (Element.text postDetail.title)
+                    , Element.el [ Font.size 15 ] (Element.text postDetail.date)
+                    ]
+                , Element.paragraph [ Font.size 15 ] [ Element.text postDetail.desc ]
+                ]
+        }
+
+
+blogContents : Element msg
+blogContents =
+    Element.column [ Element.centerX, Element.spacing 20, Element.width (Element.fill |> Element.maximum 800) ] (List.map postBlurb Blog.contents)
+
+
 blog : Element msg
 blog =
-    -- TODO: Grep the post json to create the post list
     Element.column
-        [ centerX, spacing Theme.siteTheme.contentSpacing ]
-        [ Element.el [ centerX ] (Element.text "This blog serves for me to write my thoughts on various things")
+        [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing ]
+        [ Element.el [ Element.centerX ] (Element.text "This blog serves for me to write my thoughts on various things")
+        , blogContents
         ]
 
 
@@ -306,5 +327,5 @@ blogPost : String -> Element msg
 blogPost post =
     -- TODO: Grab the correct markdown file and run Markdown.toHtml https://package.elm-lang.org/packages/elm-explorations/markdown/latest/
     Element.column
-        [ centerX, spacing Theme.siteTheme.contentSpacing ]
+        [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing ]
         []
