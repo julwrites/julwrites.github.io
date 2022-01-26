@@ -14,7 +14,9 @@ import Element.Region as Region
 import File
 import Html exposing (..)
 import Html.Attributes exposing (..)
+import Http
 import Markdown
+import Task
 import Theme as Theme
 import Url
 import Url.Parser exposing ((</>), (<?>), Parser, int, map, oneOf, s, string, top)
@@ -29,6 +31,7 @@ import Url.Parser.Query as Query
 type alias Model =
     { key : Nav.Key
     , url : Url.Url
+    , text : String
     }
 
 
@@ -46,12 +49,13 @@ main =
 
 init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url key =
-    ( Model key url, Cmd.none )
+    ( Model key url "", Cmd.none )
 
 
 type Msg
     = LinkClicked Browser.UrlRequest
     | UrlChanged Url.Url
+    | HttpText (Result Http.Error String)
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -60,7 +64,22 @@ update msg model =
         LinkClicked urlRequest ->
             case urlRequest of
                 Browser.Internal url ->
-                    ( model, Nav.pushUrl model.key (Url.toString url) )
+                    case routeUrl (Url.toString url) of
+                        BlogPostLoader postId ->
+                            case Url.fromString ("/blog" ++ postId) of
+                                Nothing ->
+                                    ( model, Cmd.none )
+
+                                Just postUrl ->
+                                    ( { model | url = postUrl }
+                                    , Http.get
+                                        { url = "/blog/" ++ postId ++ "/" ++ postId ++ ".md"
+                                        , expect = Http.expectString HttpText
+                                        }
+                                    )
+
+                        _ ->
+                            ( model, Nav.pushUrl model.key (Url.toString url) )
 
                 Browser.External href ->
                     ( model, Nav.load href )
@@ -69,6 +88,14 @@ update msg model =
             ( { model | url = url }
             , Cmd.none
             )
+
+        HttpText result ->
+            case result of
+                Ok fullText ->
+                    ( { model | text = fullText }, Nav.pushUrl model.key (Url.toString model.url) )
+
+                Err _ ->
+                    ( model, Cmd.none )
 
 
 subscriptions : Model -> Sub Msg
@@ -112,6 +139,7 @@ type Route
     | About
     | Projects
     | Blog
+    | BlogPostLoader String
     | BlogPost String
       -- | BlogQuery (Maybe String)
     | NotFound
@@ -124,6 +152,7 @@ route =
         , Url.Parser.map About (Url.Parser.s "about")
         , Url.Parser.map Projects (Url.Parser.s "projects")
         , Url.Parser.map Blog (Url.Parser.s "blog")
+        , Url.Parser.map BlogPostLoader (Url.Parser.s "blogloader" </> Url.Parser.string)
         , Url.Parser.map BlogPost (Url.Parser.s "blog" </> Url.Parser.string)
 
         -- , Url.Parser.map BlogQuery (Url.Parser.s "blog" <?> Query.string "q")
@@ -154,6 +183,9 @@ body model =
 
         Blog ->
             blog
+
+        BlogPostLoader postId ->
+            blogPost postId
 
         BlogPost post ->
             blogPost post
@@ -299,7 +331,7 @@ thumbnailLink def =
 postBlurb : Blog.Post -> Element msg
 postBlurb postDetail =
     Element.link []
-        { url = "/blog/" ++ postDetail.id
+        { url = "/blogloader/" ++ postDetail.id
         , label =
             Element.column []
                 [ Element.row [ Element.spacing 20 ]
@@ -325,10 +357,34 @@ blog =
         ]
 
 
+
+-- resolveBlogMd : Http.Response String -> Result x a
+-- resolveBlogMd response =
+--     if String.length Http.body response == 0 then
+--         Err "No response"
+--     else
+--         Ok response
+-- blogPostLoaded : Http.Resolver x a
+-- blogPostLoaded =
+--     Http.stringResolver resolveBlogMd
+-- blogPostLoader : String -> Cmd Msg
+-- blogPostLoader postId =
+--     Task.perform HttpText
+--         (Http.task
+--             { method = "GET"
+--             , headers = []
+--             , url = "/blog/" ++ postId ++ "/" ++ postId ++ ".md"
+--             , body = Http.emptyBody
+--             , resolver = blogPostLoaded
+--             , timeout = Nothing
+--             }
+--         )
+
+
 blogPost : String -> Element msg
-blogPost postId =
-    -- TODO: Grab the correct markdown file and run Markdown.toHtml https://package.elm-lang.org/packages/elm-explorations/markdown/latest/
+blogPost post =
     Element.column
         [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing ]
         [ Element.link [] { url = "/blog", label = Element.text "back" }
+        , Element.text post
         ]
