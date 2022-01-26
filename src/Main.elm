@@ -11,8 +11,10 @@ import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
 import Element.Region as Region
+import File
 import Html exposing (..)
 import Html.Attributes exposing (..)
+import Markdown
 import Theme as Theme
 import Url
 import Url.Parser exposing ((</>), (<?>), Parser, int, map, oneOf, s, string, top)
@@ -324,8 +326,9 @@ blog =
 
 
 blogPost : String -> Element msg
-blogPost post =
+blogPost postId =
     -- TODO: Grab the correct markdown file and run Markdown.toHtml https://package.elm-lang.org/packages/elm-explorations/markdown/latest/
     Element.column
         [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing ]
-        []
+        [ Element.link [] { url = "/blog", label = Element.text "back" }
+        ]
