@@ -10,6 +10,7 @@ import Element exposing (Color, Element)
 import Element.Background as Background
 import Element.Border as Border
 import Element.Font as Font
+import Element.Input as Input
 import Element.Region as Region
 import File
 import Html exposing (..)
@@ -19,6 +20,7 @@ import Markdown
 import Task
 import Theme as Theme
 import Url
+import Url.Builder
 import Url.Parser exposing ((</>), (<?>), Parser, int, map, oneOf, s, string, top)
 import Url.Parser.Query as Query
 
@@ -58,28 +60,53 @@ type Msg
     | HttpText (Result Http.Error String)
 
 
+type Route
+    = Home
+    | About
+    | Projects
+    | BlogPost String
+      -- | BlogQuery (Maybe String)
+    | NotFound
+
+
+route : Parser (Route -> a) a
+route =
+    oneOf
+        [ Url.Parser.map Home top
+        , Url.Parser.map About (Url.Parser.s "about")
+        , Url.Parser.map Projects (Url.Parser.s "projects")
+        , Url.Parser.map BlogPost (Url.Parser.s "blog" </> Url.Parser.string)
+
+        -- , Url.Parser.map BlogQuery (Url.Parser.s "blog" <?> Query.string "q")
+        ]
+
+
+routeUrl : String -> Route
+routeUrl string =
+    case Url.fromString string of
+        Nothing ->
+            NotFound
+
+        Just url ->
+            Maybe.withDefault NotFound (Url.Parser.parse route url)
+
+
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
         LinkClicked urlRequest ->
             case urlRequest of
                 Browser.Internal url ->
-                    case routeUrl (Url.toString url) of
-                        BlogPostLoader postId ->
-                            case Url.fromString ("/blog" ++ postId) of
-                                Nothing ->
-                                    ( model, Cmd.none )
-
-                                Just postUrl ->
-                                    ( { model | url = postUrl }
-                                    , Http.get
-                                        { url = "/blog/" ++ postId ++ "/" ++ postId ++ ".md"
-                                        , expect = Http.expectString HttpText
-                                        }
-                                    )
-
-                        _ ->
-                            ( model, Nav.pushUrl model.key (Url.toString url) )
+                    -- case routeUrl (Url.toString url) of
+                    --     BlogPost postId ->
+                    --         ( model
+                    --         , Http.get
+                    --             { url = Url.Builder.relative [ "blog", postId, postId ++ ".md" ] []
+                    --             , expect = Http.expectString HttpText
+                    --             }
+                    --         )
+                    --     _ ->
+                    ( model, Nav.pushUrl model.key (Url.toString url) )
 
                 Browser.External href ->
                     ( model, Nav.load href )
@@ -134,41 +161,6 @@ page model =
         ]
 
 
-type Route
-    = Home
-    | About
-    | Projects
-    | Blog
-    | BlogPostLoader String
-    | BlogPost String
-      -- | BlogQuery (Maybe String)
-    | NotFound
-
-
-route : Parser (Route -> a) a
-route =
-    oneOf
-        [ Url.Parser.map Home top
-        , Url.Parser.map About (Url.Parser.s "about")
-        , Url.Parser.map Projects (Url.Parser.s "projects")
-        , Url.Parser.map Blog (Url.Parser.s "blog")
-        , Url.Parser.map BlogPostLoader (Url.Parser.s "blogloader" </> Url.Parser.string)
-        , Url.Parser.map BlogPost (Url.Parser.s "blog" </> Url.Parser.string)
-
-        -- , Url.Parser.map BlogQuery (Url.Parser.s "blog" <?> Query.string "q")
-        ]
-
-
-routeUrl : String -> Route
-routeUrl string =
-    case Url.fromString string of
-        Nothing ->
-            NotFound
-
-        Just url ->
-            Maybe.withDefault NotFound (Url.Parser.parse route url)
-
-
 body : Model -> Element msg
 body model =
     case routeUrl (Url.toString model.url) of
@@ -181,14 +173,8 @@ body model =
         Projects ->
             projects
 
-        Blog ->
-            blog
-
-        BlogPostLoader postId ->
-            blogPost postId
-
-        BlogPost post ->
-            blogPost post
+        BlogPost postId ->
+            blogPost model postId
 
         --         BlogQuery query ->
         --             blog query
@@ -197,14 +183,6 @@ body model =
 
 
 
---     if model.url.path == "/about" then
---         about
---     else if model.url.path == "/projects" then
---         projects
---     else if Url.Parser.parse route model.url.path then
---         blog
---     else
---         blurb
 --------------------------------------------------
 -- Floating elements
 
@@ -224,10 +202,6 @@ menu =
         , Element.link []
             { url = "/projects"
             , label = Element.text "Projects"
-            }
-        , Element.link []
-            { url = "/blog"
-            , label = Element.text "Blog"
             }
         ]
 
@@ -312,8 +286,8 @@ projects =
             [ thumbnailLink { url = "https://github.com/julwrites/vscodecmder", src = "assets/images/projects/vscodecmder.jpg", description = "VSCodeCmder" }
             , thumbnailLink { url = "https://github.com/julwrites/ScriptureBot", src = "assets/images/projects/scripturebot.png", description = "ScriptureBot" }
             ]
-
-        -- TODO: Add in the dev blog down here
+        , Element.el [ Region.heading 2, Element.centerX, Font.size 30, Font.medium ] (Element.text "Dev Blog")
+        , devBlog
         ]
 
 
@@ -323,15 +297,10 @@ thumbnailLink def =
         { url = def.url, label = Element.image [ Element.height (Element.px 128) ] { src = def.src, description = def.description } }
 
 
-
---------------------------------------------------
--- blog page
-
-
-postBlurb : Blog.Post -> Element msg
-postBlurb postDetail =
+devBlogPostBlurb : Blog.Post -> Element msg
+devBlogPostBlurb postDetail =
     Element.link []
-        { url = "/blogloader/" ++ postDetail.id
+        { url = "/blog/" ++ postDetail.id
         , label =
             Element.column []
                 [ Element.row [ Element.spacing 20 ]
@@ -343,21 +312,23 @@ postBlurb postDetail =
         }
 
 
-blogContents : Element msg
-blogContents =
-    Element.column [ Element.centerX, Element.spacing 20, Element.width (Element.fill |> Element.maximum 800) ] (List.map postBlurb Blog.contents)
+devBlogContents : Element msg
+devBlogContents =
+    Element.column [ Element.centerX, Element.spacing 20, Element.width (Element.fill |> Element.maximum 800) ] (List.map devBlogPostBlurb Blog.contents)
 
 
-blog : Element msg
-blog =
+devBlog : Element msg
+devBlog =
     Element.column
         [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing ]
-        [ Element.el [ Element.centerX ] (Element.text "This blog serves for me to write my thoughts on various things")
-        , blogContents
+        [ Element.el [] (Element.text "This blog serves as a project log for myself")
+        , devBlogContents
         ]
 
 
 
+--------------------------------------------------
+-- blog page
 -- resolveBlogMd : Http.Response String -> Result x a
 -- resolveBlogMd response =
 --     if String.length Http.body response == 0 then
@@ -381,10 +352,26 @@ blog =
 --         )
 
 
-blogPost : String -> Element msg
-blogPost post =
+loadMd : String -> Element msg
+loadMd post =
+    Element.html (Markdown.toHtml [] post)
+
+
+blogPost : Model -> String -> Element msg
+blogPost model postId =
     Element.column
         [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing ]
-        [ Element.link [] { url = "/blog", label = Element.text "back" }
-        , Element.text post
+        [ Element.link [] { url = "/projects", label = Element.text "back" }
+
+        -- , Input.button []
+        --     { onPress =
+        --         Just
+        --             (Http.get
+        --                 { url = Url.Builder.relative [ "blog", postId, postId ++ ".md" ] []
+        --                 , expect = Http.expectString HttpText
+        --                 }
+        --             )
+        --     , label = Element.text "Read more..."
+        --     }
+        , loadMd model.text
         ]
