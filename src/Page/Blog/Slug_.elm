@@ -15,6 +15,7 @@ import Page exposing (Page, StaticPayload)
 import Pages.PageUrl exposing (PageUrl)
 import Pages.Url
 import Shared
+import TailwindMarkdownRenderer
 import Theme
 import View exposing (View)
 
@@ -104,15 +105,34 @@ view :
     -> View Msg
 view maybeUrl sharedModel static =
     { title = "tehj.io"
-    , body = Element.text static.data
+    , body =
+        Element.column [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing ]
+            [ Element.link [ Element.centerX ]
+                { url = "/projects", label = Element.text "back" }
+            , Element.column [ Element.centerX ]
+                (List.map
+                    (\renderedHtml -> Element.wrappedRow [] [ Element.html renderedHtml ])
+                    (renderMd static.data)
+                )
+            ]
     }
 
 
+renderMd : Data -> List (Html msg)
+renderMd staticData =
+    staticData
+        |> Markdown.Parser.parse
+        |> Result.mapError deadEndsToString
+        |> Result.andThen
+            (\ast ->
+                Markdown.Renderer.render
+                    Markdown.Renderer.defaultHtmlRenderer
+                    ast
+            )
+        |> Result.withDefault []
 
--- , body =
---     Markdown.Renderer.render
---         Markdown.Renderer.defaultHtmlRenderer
---         (Markdown.Parser.parse
---             static.data
---         )
--- }
+
+deadEndsToString deadEnds =
+    deadEnds
+        |> List.map Markdown.Parser.deadEndToString
+        |> String.join "\n"

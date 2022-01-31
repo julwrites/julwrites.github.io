@@ -3,7 +3,7 @@ module Blog exposing (Post, contents)
 
 contents =
     [ Post
-        "2020_08_16_Code_Server"
+        "2020_08_18_Code_Server_Extra"
         "18 August 2020"
         "Internet and storage for my code-server"
         "I had to do some extra steps to get storage attached and internet enabled for my code-server docker instance"
