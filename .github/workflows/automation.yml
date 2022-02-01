@@ -10,8 +10,10 @@ jobs:
           persist-credentials: false
 
       - name: Install 🔧 # This runs a series of commands as if building a live version of the project
+        uses: uses: jorelali/setup-elm@v3
+        with:
+          elm-version: 0.19.1
         run: |
-          yarn global add elm
           yarn global add elm-pages
           yarn
 
