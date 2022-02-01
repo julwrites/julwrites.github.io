@@ -29466,6 +29466,28 @@ var $dillonkearns$elm_markdown$Markdown$Renderer$render = F2(
 			A2($dillonkearns$elm_markdown$Markdown$Renderer$renderHelper, renderer, ast));
 	});
 var $mdgriffith$elm_ui$Element$Font$bold = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$fontWeight, $mdgriffith$elm_ui$Internal$Style$classes.bold);
+var $mdgriffith$elm_ui$Internal$Model$Colored = F3(
+	function (a, b, c) {
+		return {$: 'Colored', a: a, b: b, c: c};
+	});
+var $mdgriffith$elm_ui$Internal$Flag$bgColor = $mdgriffith$elm_ui$Internal$Flag$flag(8);
+var $mdgriffith$elm_ui$Internal$Model$formatColorClass = function (_v0) {
+	var red = _v0.a;
+	var green = _v0.b;
+	var blue = _v0.c;
+	var alpha = _v0.d;
+	return $mdgriffith$elm_ui$Internal$Model$floatClass(red) + ('-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(green) + ('-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(blue) + ('-' + $mdgriffith$elm_ui$Internal$Model$floatClass(alpha))))));
+};
+var $mdgriffith$elm_ui$Element$Background$color = function (clr) {
+	return A2(
+		$mdgriffith$elm_ui$Internal$Model$StyleClass,
+		$mdgriffith$elm_ui$Internal$Flag$bgColor,
+		A3(
+			$mdgriffith$elm_ui$Internal$Model$Colored,
+			'bg-' + $mdgriffith$elm_ui$Internal$Model$formatColorClass(clr),
+			'background-color',
+			clr));
+};
 var $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$HCode = function (a) {
 	return {$: 'HCode', a: a};
 };
@@ -30954,42 +30976,6 @@ var $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$View$fragmentView = func
 				$elm$html$Html$text(text)
 			]));
 };
-var $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$View$lineView = F3(
-	function (start, index, _v0) {
-		var fragments = _v0.fragments;
-		var highlight = _v0.highlight;
-		return A2(
-			$elm$html$Html$div,
-			_List_fromArray(
-				[
-					$elm$html$Html$Attributes$classList(
-					_List_fromArray(
-						[
-							_Utils_Tuple2('elmsh-line', true),
-							_Utils_Tuple2(
-							'elmsh-hl',
-							_Utils_eq(
-								highlight,
-								$elm$core$Maybe$Just($pablohirafuji$elm_syntax_highlight$SyntaxHighlight$Line$Normal))),
-							_Utils_Tuple2(
-							'elmsh-add',
-							_Utils_eq(
-								highlight,
-								$elm$core$Maybe$Just($pablohirafuji$elm_syntax_highlight$SyntaxHighlight$Line$Add))),
-							_Utils_Tuple2(
-							'elmsh-del',
-							_Utils_eq(
-								highlight,
-								$elm$core$Maybe$Just($pablohirafuji$elm_syntax_highlight$SyntaxHighlight$Line$Del)))
-						])),
-					A2(
-					$elm$html$Html$Attributes$attribute,
-					'data-elmsh-lc',
-					$elm$core$String$fromInt(start + index))
-				]),
-			A2($elm$core$List$map, $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$View$fragmentView, fragments));
-	});
-var $elm$html$Html$pre = _VirtualDom_node('pre');
 var $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$View$toInlineHtml = function (lines) {
 	return A2(
 		$elm$html$Html$code,
@@ -31034,82 +31020,79 @@ var $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$View$toInlineHtml = func
 				},
 				lines)));
 };
-var $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$View$toBlockHtml = F2(
-	function (maybeStart, lines) {
-		if (maybeStart.$ === 'Nothing') {
-			return A2(
-				$elm$html$Html$pre,
-				_List_fromArray(
-					[
-						$elm$html$Html$Attributes$class('elmsh')
-					]),
-				_List_fromArray(
-					[
-						$pablohirafuji$elm_syntax_highlight$SyntaxHighlight$View$toInlineHtml(lines)
-					]));
-		} else {
-			var start = maybeStart.a;
-			return A2(
-				$elm$html$Html$pre,
-				_List_fromArray(
-					[
-						$elm$html$Html$Attributes$class('elmsh')
-					]),
-				$elm$core$List$singleton(
-					A2(
-						$elm$html$Html$code,
-						_List_Nil,
-						A2(
-							$elm$core$List$indexedMap,
-							$pablohirafuji$elm_syntax_highlight$SyntaxHighlight$View$lineView(start),
-							lines))));
-		}
-	});
-var $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$toBlockHtml = F2(
-	function (maybeStart, _v0) {
-		var lines = _v0.a;
-		return A2($pablohirafuji$elm_syntax_highlight$SyntaxHighlight$View$toBlockHtml, maybeStart, lines);
-	});
+var $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$toInlineHtml = function (_v0) {
+	var lines = _v0.a;
+	return $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$View$toInlineHtml(lines);
+};
 var $author$project$ElmUIMarkdownRenderer$codeBlock = function (details) {
 	return A2(
-		$elm$core$Result$withDefault,
+		$mdgriffith$elm_ui$Element$el,
+		_List_fromArray(
+			[
+				$mdgriffith$elm_ui$Element$centerX,
+				$mdgriffith$elm_ui$Element$Background$color(
+				A3($mdgriffith$elm_ui$Element$rgb255, 54, 54, 70)),
+				$mdgriffith$elm_ui$Element$width(
+				A2($mdgriffith$elm_ui$Element$maximum, 800, $mdgriffith$elm_ui$Element$fill)),
+				$mdgriffith$elm_ui$Element$padding(10)
+			]),
 		A2(
-			$mdgriffith$elm_ui$Element$paragraph,
-			_List_Nil,
-			_List_fromArray(
-				[
-					$mdgriffith$elm_ui$Element$text(details.body)
-				])),
-		A2(
-			$elm$core$Result$map,
-			$mdgriffith$elm_ui$Element$html,
+			$elm$core$Result$withDefault,
+			A2(
+				$mdgriffith$elm_ui$Element$paragraph,
+				_List_Nil,
+				_List_fromArray(
+					[
+						$mdgriffith$elm_ui$Element$text(details.body)
+					])),
 			A2(
 				$elm$core$Result$map,
-				$pablohirafuji$elm_syntax_highlight$SyntaxHighlight$toBlockHtml(
-					$elm$core$Maybe$Just(1)),
-				$pablohirafuji$elm_syntax_highlight$SyntaxHighlight$elm(details.body))));
+				function (block) {
+					return A2(
+						$mdgriffith$elm_ui$Element$paragraph,
+						_List_Nil,
+						_List_fromArray(
+							[
+								$mdgriffith$elm_ui$Element$html(block)
+							]));
+				},
+				A2(
+					$elm$core$Result$map,
+					$pablohirafuji$elm_syntax_highlight$SyntaxHighlight$toInlineHtml,
+					$pablohirafuji$elm_syntax_highlight$SyntaxHighlight$elm(details.body)))));
 };
-var $mdgriffith$elm_ui$Internal$Model$Colored = F3(
-	function (a, b, c) {
-		return {$: 'Colored', a: a, b: b, c: c};
-	});
-var $mdgriffith$elm_ui$Internal$Flag$bgColor = $mdgriffith$elm_ui$Internal$Flag$flag(8);
-var $mdgriffith$elm_ui$Internal$Model$formatColorClass = function (_v0) {
-	var red = _v0.a;
-	var green = _v0.b;
-	var blue = _v0.c;
-	var alpha = _v0.d;
-	return $mdgriffith$elm_ui$Internal$Model$floatClass(red) + ('-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(green) + ('-' + ($mdgriffith$elm_ui$Internal$Model$floatClass(blue) + ('-' + $mdgriffith$elm_ui$Internal$Model$floatClass(alpha))))));
-};
-var $mdgriffith$elm_ui$Element$Background$color = function (clr) {
+var $mdgriffith$elm_ui$Internal$Flag$fontColor = $mdgriffith$elm_ui$Internal$Flag$flag(14);
+var $mdgriffith$elm_ui$Element$Font$color = function (fontColor) {
 	return A2(
 		$mdgriffith$elm_ui$Internal$Model$StyleClass,
-		$mdgriffith$elm_ui$Internal$Flag$bgColor,
+		$mdgriffith$elm_ui$Internal$Flag$fontColor,
 		A3(
 			$mdgriffith$elm_ui$Internal$Model$Colored,
-			'bg-' + $mdgriffith$elm_ui$Internal$Model$formatColorClass(clr),
-			'background-color',
-			clr));
+			'fc-' + $mdgriffith$elm_ui$Internal$Model$formatColorClass(fontColor),
+			'color',
+			fontColor));
+};
+var $author$project$ElmUIMarkdownRenderer$codeSpan = function (content) {
+	return A2(
+		$mdgriffith$elm_ui$Element$paragraph,
+		_List_fromArray(
+			[
+				$mdgriffith$elm_ui$Element$Font$color(
+				A3($mdgriffith$elm_ui$Element$rgb255, 224, 224, 224))
+			]),
+		_List_fromArray(
+			[
+				A2(
+				$elm$core$Result$withDefault,
+				$mdgriffith$elm_ui$Element$text(content),
+				A2(
+					$elm$core$Result$map,
+					$mdgriffith$elm_ui$Element$html,
+					A2(
+						$elm$core$Result$map,
+						$pablohirafuji$elm_syntax_highlight$SyntaxHighlight$toInlineHtml,
+						$pablohirafuji$elm_syntax_highlight$SyntaxHighlight$elm(content))))
+			]));
 };
 var $mdgriffith$elm_ui$Element$Font$semiBold = A2($mdgriffith$elm_ui$Internal$Model$Class, $mdgriffith$elm_ui$Internal$Flag$fontWeight, $mdgriffith$elm_ui$Internal$Style$classes.textSemiBold);
 var $author$project$ElmUIMarkdownRenderer$heading = function (_v0) {
@@ -31173,6 +31156,29 @@ var $author$project$ElmUIMarkdownRenderer$heading = function (_v0) {
 	}
 };
 var $mdgriffith$elm_ui$Element$Font$italic = $mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.italic);
+var $author$project$ElmUIMarkdownRenderer$oList = F2(
+	function (startingIndex, items) {
+		return A2(
+			$mdgriffith$elm_ui$Element$column,
+			_List_fromArray(
+				[
+					$mdgriffith$elm_ui$Element$padding(15)
+				]),
+			A2(
+				$elm$core$List$indexedMap,
+				F2(
+					function (i, itemBlocks) {
+						return A2(
+							$mdgriffith$elm_ui$Element$paragraph,
+							_List_Nil,
+							A2(
+								$elm$core$List$cons,
+								$mdgriffith$elm_ui$Element$text(
+									$elm$core$String$fromInt(i + 1) + '. '),
+								itemBlocks));
+					}),
+				items));
+	});
 var $dillonkearns$elm_markdown$Markdown$HtmlRenderer$HtmlRenderer = function (a) {
 	return {$: 'HtmlRenderer', a: a};
 };
@@ -31266,10 +31272,6 @@ var $dillonkearns$elm_markdown$Markdown$Html$oneOf = function (decoders) {
 				}),
 			unwrappedDecoders));
 };
-var $mdgriffith$elm_ui$Element$rgb = F3(
-	function (r, g, b) {
-		return A4($mdgriffith$elm_ui$Internal$Model$Rgba, r, g, b, 1);
-	});
 var $mdgriffith$elm_ui$Element$Font$strike = $mdgriffith$elm_ui$Internal$Model$htmlClass($mdgriffith$elm_ui$Internal$Style$classes.strike);
 var $mdgriffith$elm_ui$Element$InternalColumn = function (a) {
 	return {$: 'InternalColumn', a: a};
@@ -31468,24 +31470,33 @@ var $mdgriffith$elm_ui$Element$table = F2(
 				data: config.data
 			});
 	});
+var $author$project$ElmUIMarkdownRenderer$uList = function (items) {
+	return A2(
+		$mdgriffith$elm_ui$Element$column,
+		_List_fromArray(
+			[
+				$mdgriffith$elm_ui$Element$padding(15)
+			]),
+		A2(
+			$elm$core$List$map,
+			function (item) {
+				var children = item.b;
+				return A2(
+					$mdgriffith$elm_ui$Element$paragraph,
+					_List_Nil,
+					A2(
+						$elm$core$List$cons,
+						$mdgriffith$elm_ui$Element$text('- '),
+						children));
+			},
+			items));
+};
 var $author$project$ElmUIMarkdownRenderer$renderer = {
 	blockQuote: $mdgriffith$elm_ui$Element$paragraph(
 		_List_fromArray(
 			[$mdgriffith$elm_ui$Element$Font$italic])),
 	codeBlock: $author$project$ElmUIMarkdownRenderer$codeBlock,
-	codeSpan: function (content) {
-		return A2(
-			$mdgriffith$elm_ui$Element$paragraph,
-			_List_fromArray(
-				[
-					$mdgriffith$elm_ui$Element$Background$color(
-					A3($mdgriffith$elm_ui$Element$rgb, 226, 0, 124))
-				]),
-			_List_fromArray(
-				[
-					$mdgriffith$elm_ui$Element$text(content)
-				]));
-	},
+	codeSpan: $author$project$ElmUIMarkdownRenderer$codeSpan,
 	emphasis: function (content) {
 		return A2(
 			$mdgriffith$elm_ui$Element$paragraph,
@@ -31523,29 +31534,7 @@ var $author$project$ElmUIMarkdownRenderer$renderer = {
 					url: destination
 				});
 		}),
-	orderedList: F2(
-		function (startingIndex, items) {
-			return A2(
-				$mdgriffith$elm_ui$Element$column,
-				_List_fromArray(
-					[
-						$mdgriffith$elm_ui$Element$padding(15)
-					]),
-				A2(
-					$elm$core$List$indexedMap,
-					F2(
-						function (i, itemBlocks) {
-							return A2(
-								$mdgriffith$elm_ui$Element$paragraph,
-								_List_Nil,
-								A2(
-									$elm$core$List$cons,
-									$mdgriffith$elm_ui$Element$text(
-										$elm$core$String$fromInt(i + 1) + '. '),
-									itemBlocks));
-						}),
-					items));
-		}),
+	orderedList: $author$project$ElmUIMarkdownRenderer$oList,
 	paragraph: $mdgriffith$elm_ui$Element$paragraph(_List_Nil),
 	strikethrough: function (children) {
 		return A2(
@@ -31599,27 +31588,7 @@ var $author$project$ElmUIMarkdownRenderer$renderer = {
 				$mdgriffith$elm_ui$Element$padding(10)
 			]),
 		_List_Nil),
-	unorderedList: function (items) {
-		return A2(
-			$mdgriffith$elm_ui$Element$column,
-			_List_fromArray(
-				[
-					$mdgriffith$elm_ui$Element$padding(15)
-				]),
-			A2(
-				$elm$core$List$map,
-				function (item) {
-					var children = item.b;
-					return A2(
-						$mdgriffith$elm_ui$Element$paragraph,
-						_List_Nil,
-						A2(
-							$elm$core$List$cons,
-							$mdgriffith$elm_ui$Element$text('- '),
-							children));
-				},
-				items));
-	}
+	unorderedList: $author$project$ElmUIMarkdownRenderer$uList
 };
 var $author$project$Page$Blog$Slug_$renderMd = function (staticData) {
 	return A2(
@@ -32401,17 +32370,6 @@ var $author$project$Shared$update = F2(
 					$elm$core$Platform$Cmd$none);
 		}
 	});
-var $mdgriffith$elm_ui$Internal$Flag$fontColor = $mdgriffith$elm_ui$Internal$Flag$flag(14);
-var $mdgriffith$elm_ui$Element$Font$color = function (fontColor) {
-	return A2(
-		$mdgriffith$elm_ui$Internal$Model$StyleClass,
-		$mdgriffith$elm_ui$Internal$Flag$fontColor,
-		A3(
-			$mdgriffith$elm_ui$Internal$Model$Colored,
-			'fc-' + $mdgriffith$elm_ui$Internal$Model$formatColorClass(fontColor),
-			'color',
-			fontColor));
-};
 var $mdgriffith$elm_ui$Internal$Model$FontFamily = F2(
 	function (a, b) {
 		return {$: 'FontFamily', a: a, b: b};

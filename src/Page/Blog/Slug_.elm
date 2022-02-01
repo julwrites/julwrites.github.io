@@ -111,6 +111,7 @@ view maybeUrl sharedModel static =
             , Element.column [ Element.centerX, Element.spacing 20, Element.width (Element.fill |> Element.maximum sharedModel.window.width) ]
                 (renderMd static.data)
 
+            -- NOTE: For using defaultHtmlRenderer
             -- (List.map
             --     (\renderedHtml -> Element.paragraph [ Element.width (Element.fill |> Element.maximum sharedModel.window.width) ] [ Element.html renderedHtml ])
             --     (renderMd static.data)
@@ -120,6 +121,7 @@ view maybeUrl sharedModel static =
 
 
 
+-- NOTE: For using defaultHtmlRenderer
 -- renderMd : Data -> List (Html msg)
 
 
@@ -131,7 +133,7 @@ renderMd staticData =
         |> Result.andThen
             (\ast ->
                 Markdown.Renderer.render
-                    -- TODO: Replace the default Html Renderer with something that renders to Element
+                    -- NOTE: For using defaultHtmlRenderer
                     -- Markdown.Renderer.defaultHtmlRenderer
                     ElmUIMarkdownRenderer.renderer
                     ast

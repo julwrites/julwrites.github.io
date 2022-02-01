@@ -18,48 +18,14 @@ renderer =
     , text = Element.text
     , strong = \content -> Element.paragraph [ Font.bold ] content
     , emphasis = \content -> Element.paragraph [ Font.italic ] content
-    , strikethrough =
-        \children -> Element.paragraph [ Font.strike ] children
+    , strikethrough = \children -> Element.paragraph [ Font.strike ] children
     , blockQuote = Element.paragraph [ Font.italic ]
-    , codeSpan =
-        \content ->
-            Element.paragraph [ Background.color (Element.rgb 226 0 124) ]
-                [ Element.text content ]
-    , link =
-        \{ destination } body ->
-            Element.link [] { url = destination, label = Element.paragraph [] body }
+    , codeSpan = codeSpan
+    , link = \{ destination } body -> Element.link [] { url = destination, label = Element.paragraph [] body }
     , hardLineBreak = Element.row [ Element.padding 5 ] []
-    , image =
-        \image ->
-            Element.image [ Element.width (Element.fill |> Element.maximum 800) ] { src = image.src, description = image.alt }
-    , unorderedList =
-        \items ->
-            Element.column
-                [ Element.padding 15 ]
-                (items
-                    |> List.map
-                        (\item ->
-                            case item of
-                                Block.ListItem _ children ->
-                                    Element.paragraph []
-                                        (Element.text "- "
-                                            :: children
-                                        )
-                        )
-                )
-    , orderedList =
-        \startingIndex items ->
-            Element.column
-                [ Element.padding 15 ]
-                (items
-                    |> List.indexedMap
-                        (\i itemBlocks ->
-                            Element.paragraph []
-                                (Element.text (String.fromInt (i + 1) ++ ". ")
-                                    :: itemBlocks
-                                )
-                        )
-                )
+    , image = \image -> Element.image [ Element.width (Element.fill |> Element.maximum 800) ] { src = image.src, description = image.alt }
+    , unorderedList = uList
+    , orderedList = oList
     , html = Markdown.Html.oneOf []
     , codeBlock = codeBlock
     , table = \table -> Element.table [] { data = table, columns = [] }
@@ -93,9 +59,56 @@ heading { level, rawText, children } =
             Element.el [ Font.semiBold, Font.size 20 ] (Element.paragraph [] children)
 
 
+codeSpan : String -> Element.Element msg
+codeSpan content =
+    Element.paragraph [ Font.color (Element.rgb255 224 224 224) ]
+        [ SyntaxHighlight.elm content
+            |> Result.map SyntaxHighlight.toInlineHtml
+            |> Result.map Element.html
+            |> Result.withDefault (Element.text content)
+        ]
+
+
 codeBlock : { body : String, language : Maybe String } -> Element.Element msg
 codeBlock details =
-    SyntaxHighlight.elm details.body
-        |> Result.map (SyntaxHighlight.toBlockHtml (Just 1))
-        |> Result.map Element.html
-        |> Result.withDefault (Element.paragraph [] [ Element.text details.body ])
+    Element.el
+        [ Element.centerX, Background.color (Element.rgb255 54 54 70), Element.width (Element.fill |> Element.maximum 800), Element.padding 10 ]
+        (SyntaxHighlight.elm
+            details.body
+            |> Result.map SyntaxHighlight.toInlineHtml
+            -- TODO: Parse the static inline Html and actually add them as elements with correct spacing
+            |> Result.map (\block -> Element.paragraph [] [ Element.html block ])
+            |> Result.withDefault (Element.paragraph [] [ Element.text details.body ])
+        )
+
+
+uList : List (Block.ListItem (Element.Element msg)) -> Element.Element msg
+uList items =
+    Element.column
+        [ Element.padding 15 ]
+        (items
+            |> List.map
+                (\item ->
+                    case item of
+                        Block.ListItem _ children ->
+                            Element.paragraph []
+                                (Element.text "- "
+                                    :: children
+                                )
+                )
+        )
+
+
+oList : Int -> List (List (Element.Element msg)) -> Element.Element msg
+oList startingIndex items =
+    Element.column
+        [ Element.padding 15 ]
+        (items
+            |> List.indexedMap
+                (\i itemBlocks ->
+                    Element.paragraph []
+                        (Element.text (String.fromInt (i + 1) ++ ". ")
+                            :: itemBlocks
+                        )
+                )
+        )
