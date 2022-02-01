@@ -35,7 +35,7 @@ manifest : Data -> Manifest.Config
 manifest static =
     Manifest.init
         { name = "Julian Teh"
-        , description = "Personal site"
+        , description = "tehj.io"
         , startUrl = Route.Index |> Route.toPath
         , icons = []
         }
