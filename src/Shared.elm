@@ -1,5 +1,7 @@
 module Shared exposing (Data, Model, Msg(..), SharedMsg(..), template)
 
+import Browser.Dom
+import Browser.Events as Events
 import Browser.Navigation
 import DataSource
 import Element
@@ -12,9 +14,10 @@ import Pages.PageUrl exposing (PageUrl)
 import Path exposing (Path)
 import Route exposing (Route)
 import SharedTemplate exposing (SharedTemplate)
+import Task
 import Theme
 import Url
-import View exposing (View)
+import View exposing (View, iconLink)
 
 
 template : SharedTemplate Msg Model Data msg
@@ -35,6 +38,8 @@ type Msg
         , fragment : Maybe String
         }
     | SharedMsg SharedMsg
+    | OnWindowResize Int Int
+    | Viewport Browser.Dom.Viewport
 
 
 type alias Data =
@@ -46,7 +51,7 @@ type SharedMsg
 
 
 type alias Model =
-    {}
+    { window : { width : Int, height : Int } }
 
 
 init :
@@ -64,8 +69,8 @@ init :
             }
     -> ( Model, Cmd Msg )
 init navigationKey flags maybePagePath =
-    ( {}
-    , Cmd.none
+    ( { window = { width = 0, height = 0 } }
+    , Task.perform Viewport Browser.Dom.getViewport
     )
 
 
@@ -78,10 +83,16 @@ update msg model =
         SharedMsg globalMsg ->
             ( model, Cmd.none )
 
+        OnWindowResize w h ->
+            ( { model | window = { width = w, height = h } }, Cmd.none )
+
+        Viewport viewport ->
+            ( { model | window = { width = round viewport.viewport.width, height = round viewport.viewport.height } }, Cmd.none )
+
 
 subscriptions : Path -> Model -> Sub Msg
 subscriptions _ _ =
-    Sub.none
+    Events.onResize (\w h -> OnWindowResize w h)
 
 
 data : DataSource.DataSource Data
@@ -101,19 +112,21 @@ view :
     -> { body : Html msg, title : String }
 view sharedData page model toMsg pageView =
     { title = pageView.title
-    , body = templateView pageView
+    , body = templateView model pageView
     }
 
 
-templateView : View msg -> Html msg
-templateView pageView =
+templateView : Model -> View msg -> Html msg
+templateView model pageView =
     Element.layout
         [ Background.color Theme.siteTheme.backgroundColor
         , Font.color Theme.siteTheme.fontColor
         , Font.family Theme.siteTheme.fontFamily
+        , Element.padding Theme.siteTheme.padding
+        , Element.width (Element.fill |> Element.maximum model.window.width)
         ]
         (Element.column
-            [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing, Element.padding Theme.siteTheme.padding ]
+            [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing ]
             [ menu
             , pageView.body
             , footer
@@ -144,15 +157,9 @@ footer : Element.Element msg
 footer =
     Element.row
         [ Element.centerX, Element.spacing Theme.siteTheme.footerSpacing ]
-        [ iconLink { url = "https://github.com/julwrites", src = "assets/images/dark/github.png", description = "Github" }
-        , iconLink
+        [ View.iconLink [] { url = "https://github.com/julwrites", src = "assets/images/dark/github.png", description = "Github" }
+        , View.iconLink []
             { url = "https://linkedin.com/in/julwrites", src = "assets/images/dark/linkedin.png", description = "LinkedIn" }
-        , iconLink
+        , View.iconLink []
             { url = "mail@tehj.io", src = "assets/images/dark/email.png", description = "Email" }
         ]
-
-
-iconLink : { url : String, src : String, description : String } -> Element.Element msg
-iconLink def =
-    Element.link []
-        { url = def.url, label = Element.image [ Element.width (Element.px 33), Element.height (Element.px 33) ] { src = def.src, description = def.description } }

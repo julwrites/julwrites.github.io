@@ -1,4 +1,4 @@
-module View exposing (View, map, placeholder)
+module View exposing (View, iconLink, map, placeholder)
 
 import Element exposing (Element)
 
@@ -35,3 +35,9 @@ placeholder moduleName =
 
     -- , body = [ Element.text moduleName ]
     }
+
+
+iconLink : List (Element.Attribute msg) -> { url : String, src : String, description : String } -> Element.Element msg
+iconLink attrs def =
+    Element.link attrs
+        { url = def.url, label = Element.image [ Element.width (Element.px 33), Element.height (Element.px 33) ] { src = def.src, description = def.description } }

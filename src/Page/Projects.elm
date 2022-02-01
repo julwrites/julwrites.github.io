@@ -1,7 +1,8 @@
 module Page.Projects exposing (Data, Model, Msg, page)
 
-import Blog
+import Blog exposing (Post)
 import DataSource exposing (DataSource)
+import DevBlog exposing (contents)
 import Element
 import Element.Font as Font
 import Element.Region as Region
@@ -74,7 +75,7 @@ view maybeUrl sharedModel static =
     { title = "tehj.io"
     , body =
         Element.column
-            [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing ]
+            [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing, Element.width (Element.fill |> Element.maximum sharedModel.window.width) ]
             [ projectListing
             , devBlogListing
             ]
@@ -126,7 +127,8 @@ devBlogListing : Element.Element msg
 devBlogListing =
     Element.column
         [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing ]
-        [ Element.el [ Region.heading 2, Element.centerX, Font.size 30, Font.medium ] (Element.text "Dev Blog")
+        [ Element.el [ Region.heading 2, Element.centerX, Font.size 30, Font.medium ] (Element.text "Project Log")
         , Element.el [ Element.centerX ] (Element.text "As I tinker with things, I try to write down what I've done")
-        , Element.column [ Element.centerX, Element.spacing 20, Element.width (Element.fill |> Element.maximum 800) ] (List.map devBlogPostBlurb Blog.contents)
+        , Element.column [ Element.centerX, Element.spacing 20, Element.width (Element.fill |> Element.maximum 800) ]
+            (List.map devBlogPostBlurb DevBlog.contents)
         ]

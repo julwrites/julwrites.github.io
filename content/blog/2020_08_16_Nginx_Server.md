@@ -43,7 +43,7 @@ server {
 
 Next I had to make sure the firewall wasn't blocking my ports. This was fairly easy to do with Cockpit, and I was able to quickly check that the service was enabling Port access for 443.
 
-![CockpitFirewall.png](./CockpitFirewall.png)
+![CockpitFirewall.png](../assets/blog/2020_08_16_Nginx_Server/CockpitFirewall.png)
 
 Another thing to check was that SELinux wasn't blocking something that docker needed to access the network, so after some [searching](https://stackoverflow.com/questions/23948527/13-permission-denied-while-connecting-to-upstreamnginx)...
 
@@ -53,7 +53,7 @@ setsebool httpd_can_network_connect on -P
 
 Finally I found that `nginx` was running as root, but that `nginx.conf` had set the user field to `nginx` instead of `root`. Once this was toggled, access to my code server was enabled, and I could see the login page. 
 
-![CodeTehjIo.png](./CodeTehjIo.png)
+![CodeTehjIo.png](../assets/blog/2020_08_16_Nginx_Server/CodeTehjIo.png)
 
 This had one last issue, which was that while the login page displayed, and I could log in, code-server didn't load. Opening the console window showed a whole bunch of `websocket` errors, and upon some research, I found that this was because `nginx` needed to pass more [proxy header information](https://github.com/websockets/ws/issues/979#issuecomment-337934638) to docker than it was already doing (it was receiving a success code back that it didn't know how to handle)
 
@@ -69,4 +69,4 @@ location / {
 
 Once this was done, everything worked, and code-server was accessible from the browser through my custom domain. 
 
-![CodeServer.png](./CodeServer.png)
+![CodeServer.png](../assets/blog/2020_08_16_Nginx_Server/CodeServer.png)

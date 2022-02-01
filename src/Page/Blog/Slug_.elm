@@ -4,6 +4,7 @@ import DataSource exposing (DataSource)
 import DataSource.File as File
 import DataSource.Glob as Glob
 import Element
+import ElmUIMarkdownRenderer
 import Head
 import Head.Seo as Seo
 import Html exposing (..)
@@ -15,9 +16,8 @@ import Page exposing (Page, StaticPayload)
 import Pages.PageUrl exposing (PageUrl)
 import Pages.Url
 import Shared
-import TailwindMarkdownRenderer
 import Theme
-import View exposing (View)
+import View exposing (View, iconLink)
 
 
 type alias Model =
@@ -106,19 +106,24 @@ view :
 view maybeUrl sharedModel static =
     { title = "tehj.io"
     , body =
-        Element.column [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing ]
-            [ Element.link [ Element.centerX ]
-                { url = "/projects", label = Element.text "back" }
-            , Element.column [ Element.centerX ]
-                (List.map
-                    (\renderedHtml -> Element.wrappedRow [] [ Element.html renderedHtml ])
-                    (renderMd static.data)
-                )
+        Element.column [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing, Element.padding Theme.siteTheme.padding, Element.width (Element.fill |> Element.maximum sharedModel.window.width) ]
+            [ View.iconLink [ Element.alignLeft ] { url = "/projects", src = "../assets/images/dark/backarrow.png", description = "Back" }
+            , Element.column [ Element.centerX, Element.spacing 20, Element.width (Element.fill |> Element.maximum sharedModel.window.width) ]
+                (renderMd static.data)
+
+            -- (List.map
+            --     (\renderedHtml -> Element.paragraph [ Element.width (Element.fill |> Element.maximum sharedModel.window.width) ] [ Element.html renderedHtml ])
+            --     (renderMd static.data)
+            -- )
             ]
     }
 
 
-renderMd : Data -> List (Html msg)
+
+-- renderMd : Data -> List (Html msg)
+
+
+renderMd : Data -> List (Element.Element msg)
 renderMd staticData =
     staticData
         |> Markdown.Parser.parse
@@ -126,7 +131,9 @@ renderMd staticData =
         |> Result.andThen
             (\ast ->
                 Markdown.Renderer.render
-                    Markdown.Renderer.defaultHtmlRenderer
+                    -- TODO: Replace the default Html Renderer with something that renders to Element
+                    -- Markdown.Renderer.defaultHtmlRenderer
+                    ElmUIMarkdownRenderer.renderer
                     ast
             )
         |> Result.withDefault []
