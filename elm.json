@@ -18,7 +18,7 @@
             "pablohirafuji/elm-syntax-highlight": "3.4.1",
             "rtfeldman/elm-css": "17.0.5",
             "robinheghan/murmur3": "1.0.0",
-            "miniBill/elm-unicode": "1.0.2",
+            "miniBill/elm-unicode": "1.0.2"
         },
         "indirect": {
             "MartinSStewart/elm-serialize": "1.2.6",
