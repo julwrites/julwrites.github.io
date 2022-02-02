@@ -1,35 +1,15 @@
 {
-    "name": "tehj.io",
-    "version": "0.1.0",
-    "private": true,
+    "name": "julwrites.github.io",
+    "version": "2.0.0",
     "scripts": {
-        "serve": "vue-cli-service serve",
-        "build": "vue-cli-service build",
-        "lint": "vue-cli-service lint",
-        "gui": "vue ui"
-    },
-    "dependencies": {
-        "@types/pdfjs-dist": "^2.0.1",
-        "core-js": "^2.6.5",
-        "pdfjs-dist": "^2.1.266",
-        "vue": "^2.6.10",
-        "vue-class-component": "^7.0.2",
-        "vue-markdown-loader": "^2.4.1",
-        "vue-property-decorator": "^8.1.0",
-        "vue-router": "^3.0.3",
-        "vue-template-loader": "^1.0.0",
-        "vuex": "^3.0.1",
-        "webpack-stream": "^5.2.1"
+        "postinstall": "elm-tooling install",
+        "start": "elm-pages dev",
+        "build": "elm-pages build"
     },
     "devDependencies": {
-        "@types/node": "^14.0.13",
-        "@vue/cli-plugin-babel": "^3.9.0",
-        "@vue/cli-plugin-typescript": "^3.9.0",
-        "@vue/cli-service": "^4.2.3",
-        "node-sass": "^4.14.0",
-        "sass-loader": "^8.0.2",
-        "typescript": "^3.5.3",
-        "vue-template-compiler": "^2.6.10",
-        "vue2-slideout-panel": "^2.2.3"
+        "elm-optimize-level-2": "0.2.3",
+        "elm-pages": "2.1.10",
+        "elm-review": "^2.5.5",
+        "elm-tooling": "^1.4.0"
     }
 }
