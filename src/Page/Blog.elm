@@ -1,5 +1,9 @@
-module Page.About exposing (Data, Model, Msg, page)
+module Page.Blog exposing (Data, Model, Msg, page)
 
+-- This module defines the blog page
+
+import Blog exposing (Post, postBlurb)
+import Contents exposing (contents)
 import DataSource exposing (DataSource)
 import Element
 import Element.Font as Font
@@ -73,20 +77,27 @@ view maybeUrl sharedModel static =
     { title = "tehj.io"
     , body =
         Element.column
-            [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing ]
-            [ profilePhoto
-            , Element.el [] (Element.text "Love Christ, Create Things, Bless People, Speak Truth")
-            , Element.row [ Element.centerX, Element.spacing 10 ]
-                [ Element.el [ Region.heading 2, Element.centerX, Font.size 30, Font.medium ] (Element.text "Work I've done:")
-                , Element.download []
-                    { url = "assets/resume/Resume_Julian_Teh.pdf"
-                    , label = Element.image [ Element.width (Element.px 33), Element.height (Element.px 33) ] { src = "assets/images/dark/download.png", description = "Resume" }
-                    }
-                ]
+            [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing, Element.width (Element.fill |> Element.maximum sharedModel.window.width) ]
+            [ blogListing
             ]
     }
 
 
-profilePhoto : Element.Element msg
-profilePhoto =
-    Element.image [ Element.height (Element.px 512) ] { src = "assets/images/photos/2.jpg", description = "Personal Photo" }
+blogListing : Element.Element msg
+blogListing =
+    Element.column
+        [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing ]
+        [ Element.el [ Region.heading 2, Element.centerX, Font.size 30, Font.medium ] (Element.text "Project Log")
+        , Element.column [ Element.centerX, Element.spacing 20, Element.width (Element.fill |> Element.maximum 800) ]
+            (List.map
+                (\post ->
+                    case post.parent of
+                        "/blog" ->
+                            Blog.postBlurb post
+
+                        _ ->
+                            Element.none
+                )
+                Contents.contents
+            )
+        ]

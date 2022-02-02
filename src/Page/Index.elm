@@ -3,6 +3,7 @@ module Page.Index exposing (Data, Model, Msg, page)
 import DataSource exposing (DataSource)
 import Element
 import Element.Font as Font
+import Element.Region as Region
 import Head
 import Head.Seo as Seo
 import Page exposing (Page, StaticPayload)
@@ -73,7 +74,20 @@ view maybeUrl sharedModel static =
     , body =
         Element.column
             [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing ]
-            [ Element.el [ Element.centerX, Font.size 40, Font.medium ] (Element.text "Hi, I'm Julian")
-            , Element.el [ Element.centerX ] (Element.text "Welcome to my domain")
+            [ Element.column [ Element.spacing 25, Element.alignRight ]
+                [ Element.el [ Element.centerX, Font.size 40, Font.medium ] (Element.text "Hi, I'm Julian")
+                , profilePhoto [ Element.centerX ]
+                , Element.el [ Element.centerX, Font.size 25 ] (Element.text "Welcome to my domain")
+
+                -- , Element.el [ Font.size 15 ] (Element.text "Love Christ | Create Things | Bless People | Speak Truth")
+                ]
             ]
     }
+
+
+profilePhoto : List (Element.Attribute msg) -> Element.Element msg
+profilePhoto attrs =
+    Element.image (Element.width (Element.fill |> Element.maximum 256) :: attrs)
+        { src = "assets/images/photos/2.jpg"
+        , description = "Personal Photo"
+        }
