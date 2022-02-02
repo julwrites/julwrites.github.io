@@ -1,4 +1,4 @@
-module Page.Blog.Slug_ exposing (Data, Model, Msg, page)
+module Page.Projects.Slug_ exposing (Data, Model, Msg, page)
 
 import Blog
 import DataSource exposing (DataSource)
@@ -84,4 +84,4 @@ view :
     -> StaticPayload Data Blog.RouteParams
     -> View Msg
 view maybeUrl sharedModel static =
-    Blog.view maybeUrl sharedModel static "/blog"
+    Blog.view maybeUrl sharedModel static "/projects"

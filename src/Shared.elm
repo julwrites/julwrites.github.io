@@ -51,7 +51,9 @@ type SharedMsg
 
 
 type alias Model =
-    { window : { width : Int, height : Int } }
+    { window : { width : Int, height : Int }
+    , path : Path
+    }
 
 
 init :
@@ -69,7 +71,7 @@ init :
             }
     -> ( Model, Cmd Msg )
 init navigationKey flags maybePagePath =
-    ( { window = { width = 0, height = 0 } }
+    ( { window = { width = 0, height = 0 }, path = Path.join [ "/" ] }
     , Task.perform Viewport Browser.Dom.getViewport
     )
 
@@ -77,8 +79,8 @@ init navigationKey flags maybePagePath =
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        OnPageChange _ ->
-            ( model, Cmd.none )
+        OnPageChange pageChange ->
+            ( { model | path = pageChange.path }, Cmd.none )
 
         SharedMsg globalMsg ->
             ( model, Cmd.none )
@@ -127,30 +129,73 @@ templateView model pageView =
         ]
         (Element.column
             [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing ]
-            [ menu
+            [ menu model
             , pageView.body
             , footer
             ]
         )
 
 
-menu : Element.Element msg
-menu =
+menu : Model -> Element.Element msg
+menu model =
     Element.row
-        [ Region.navigation, Element.centerX, Element.spacing Theme.siteTheme.menuSpacing ]
-        [ Element.link []
-            { url = "/"
-            , label = Element.text "Home"
-            }
-        , Element.link []
-            { url = "/about"
-            , label = Element.text "About"
-            }
-        , Element.link []
-            { url = "/projects"
-            , label = Element.text "Projects"
-            }
-        ]
+        [ Font.size 15, Region.navigation, Element.centerX, Element.spacing Theme.siteTheme.menuSpacing ]
+        (filteredMenu (Path.toAbsolute model.path))
+
+
+filteredMenu : String -> List (Element.Element msg)
+filteredMenu path =
+    [ menuHome (path /= "/")
+    , Element.text "|"
+    , menuDev (path /= "/projects")
+    , Element.text "|"
+    , menuBlog (path /= "/blog")
+    ]
+
+
+menuHome : Bool -> Element.Element msg
+menuHome enabled =
+    case enabled of
+        True ->
+            Element.link []
+                { url = "/"
+                , label = Element.text "Home"
+                }
+
+        False ->
+            Element.el
+                [ Font.color Theme.siteTheme.disabledFontColor ]
+                (Element.text "Home")
+
+
+menuDev : Bool -> Element.Element msg
+menuDev enabled =
+    case enabled of
+        True ->
+            Element.link []
+                { url = "/projects"
+                , label = Element.text "Dev"
+                }
+
+        False ->
+            Element.el
+                [ Font.color Theme.siteTheme.disabledFontColor ]
+                (Element.text "Dev")
+
+
+menuBlog : Bool -> Element.Element msg
+menuBlog enabled =
+    case enabled of
+        True ->
+            Element.link []
+                { url = "/blog"
+                , label = Element.text "Blog"
+                }
+
+        False ->
+            Element.el
+                [ Font.color Theme.siteTheme.disabledFontColor ]
+                (Element.text "Blog")
 
 
 footer : Element.Element msg
@@ -162,4 +207,8 @@ footer =
             { url = "https://linkedin.com/in/julwrites", src = "assets/images/dark/linkedin.png", description = "LinkedIn" }
         , View.iconLink []
             { url = "mail@tehj.io", src = "assets/images/dark/email.png", description = "Email" }
+        , Element.download []
+            { url = "assets/resume/Resume_Julian_Teh.pdf"
+            , label = View.iconLink [] { url = "assets/resume/Resume_Julian_Teh.pdf", src = "assets/images/dark/download.png", description = "Resume" }
+            }
         ]

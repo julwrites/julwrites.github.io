@@ -10,6 +10,7 @@ type alias Theme =
     { borderColor : Color
     , backgroundColor : Color
     , fontColor : Color
+    , disabledFontColor : Color
     , fontFamily : List Font.Font
     , padding : Int
     , menuSpacing : Int
@@ -23,13 +24,14 @@ siteTheme =
     { borderColor = rgb255 0 0 0
     , backgroundColor = rgb255 34 44 60
     , fontColor = rgb255 255 255 255
+    , disabledFontColor = rgb255 128 128 128
 
     -- , fontFamily = [ Font.external { name = "The Girl Next Door", url = "https://fonts.googleapis.com/css2?family=The+Girl+Next+Door&display=swap" }, Font.sansSerif ]
     -- , fontFamily = [ Font.external { name = "Indie Flower", url = "https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" }, Font.sansSerif ]
     -- , fontFamily = [ Font.external { name = "Fuzzy Bubbles", url = "https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap" }, Font.sansSerif ]
     , fontFamily = [ Font.external { name = "Fira Sans", url = "https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" }, Font.sansSerif ]
     , padding = 30
-    , menuSpacing = 80
-    , footerSpacing = 150
+    , menuSpacing = 5
+    , footerSpacing = 30
     , contentSpacing = 30
     }
