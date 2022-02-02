@@ -21,8 +21,8 @@ jobs:
 
       - name: Install 🔧 # This runs a series of commands as if building a live version of the project
         run: |
-          npm install
+          yarn
 
       - name: Build 🔧 # This runs a series of commands as if building a live version of the project
         run: |
-          npm run build
+          yarn build
