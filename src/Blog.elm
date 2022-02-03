@@ -89,8 +89,8 @@ view :
 view maybeUrl sharedModel static parent =
     { title = "tehj.io"
     , body =
-        Element.column [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing, Element.padding Theme.siteTheme.padding, Element.width (Element.fill |> Element.maximum sharedModel.window.width) ]
-            [ View.iconLink [ Element.alignLeft ] { url = parent, src = "../assets/images/dark/backarrow.png", description = "Back" }
+        Element.column [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing, Element.width (Element.fill |> Element.maximum sharedModel.window.width) ]
+            [ View.iconLink [ Element.centerX ] { url = parent, src = "../assets/images/dark/backarrow.png", description = "Back" }
             , Element.column [ Element.centerX, Element.spacing 20, Element.width (Element.fill |> Element.maximum sharedModel.window.width) ]
                 (renderMd static.data)
 

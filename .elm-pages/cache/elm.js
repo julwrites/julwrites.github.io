@@ -19172,6 +19172,9 @@ var $author$project$Blog$Post = F5(
 	});
 var $author$project$Contents$contents = _List_fromArray(
 	[
+		A5($author$project$Blog$Post, '2022_02_02_Elm_Website', '02 February 2022', 'Re-writing my website in Elm', 'I had been interested in Functional Programming for awhile, and decided to re-write this website in Elm', '/projects'),
+		A5($author$project$Blog$Post, '2022_01_17_Redox_Keyboard_Builds', '17 January 2022', 'Building Redox Keyboards', 'My wife wanted a split keyboard, so I took the chance to learn how to build one from scratch, and two more', '/projects'),
+		A5($author$project$Blog$Post, '2022_01_07_Golang_Bot_Cloud_Run', '07 January 2022', 'Migrating my Golang Bot to Cloud Run', 'In an attempt to reduce expense and upgrade to newer technologies, I migrated my Golang bot to Google Cloud Run', '/projects'),
 		A5($author$project$Blog$Post, '2021_11_03_GLS_2021', '03 November 2021', 'GLS 2021', 'I had recently attended GLS 2021, and decided I should put notes up', '/blog'),
 		A5($author$project$Blog$Post, '2021_03_29_React_Website', '29 March 2021', 'Next.js/Vercel with React/TS website for my Wedding', 'With my wedding coming up, I wanted to take charge of my own wedding website', '/projects'),
 		A5($author$project$Blog$Post, '2020_08_18_Code_Server_Extra', '18 August 2020', 'Internet and storage for my code-server', 'I had to do some extra steps to get storage attached and internet enabled for my code-server docker instance', '/projects'),
@@ -21428,19 +21431,6 @@ var $author$project$View$iconLink = F2(
 				url: def.url
 			});
 	});
-var $mdgriffith$elm_ui$Element$padding = function (x) {
-	var f = x;
-	return A2(
-		$mdgriffith$elm_ui$Internal$Model$StyleClass,
-		$mdgriffith$elm_ui$Internal$Flag$padding,
-		A5(
-			$mdgriffith$elm_ui$Internal$Model$PaddingStyle,
-			'p-' + $elm$core$String$fromInt(x),
-			f,
-			f,
-			f,
-			f));
-};
 var $dillonkearns$elm_markdown$Markdown$Parser$problemToString = function (problem) {
 	switch (problem.$) {
 		case 'Expecting':
@@ -31119,6 +31109,19 @@ var $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$elm = A2(
 	$elm$core$Result$map($pablohirafuji$elm_syntax_highlight$SyntaxHighlight$HCode));
 var $mdgriffith$elm_ui$Internal$Model$unstyled = A2($elm$core$Basics$composeL, $mdgriffith$elm_ui$Internal$Model$Unstyled, $elm$core$Basics$always);
 var $mdgriffith$elm_ui$Element$html = $mdgriffith$elm_ui$Internal$Model$unstyled;
+var $mdgriffith$elm_ui$Element$padding = function (x) {
+	var f = x;
+	return A2(
+		$mdgriffith$elm_ui$Internal$Model$StyleClass,
+		$mdgriffith$elm_ui$Internal$Flag$padding,
+		A5(
+			$mdgriffith$elm_ui$Internal$Model$PaddingStyle,
+			'p-' + $elm$core$String$fromInt(x),
+			f,
+			f,
+			f,
+			f));
+};
 var $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$Line$Add = {$: 'Add'};
 var $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$Line$Del = {$: 'Del'};
 var $pablohirafuji$elm_syntax_highlight$SyntaxHighlight$Line$Normal = {$: 'Normal'};
@@ -31241,7 +31244,7 @@ var $author$project$ElmUIMarkdownRenderer$codeBlock = function (details) {
 		A2(
 			$elm$core$Result$withDefault,
 			A2(
-				$mdgriffith$elm_ui$Element$paragraph,
+				$mdgriffith$elm_ui$Element$wrappedRow,
 				_List_Nil,
 				_List_fromArray(
 					[
@@ -31251,7 +31254,7 @@ var $author$project$ElmUIMarkdownRenderer$codeBlock = function (details) {
 				$elm$core$Result$map,
 				function (block) {
 					return A2(
-						$mdgriffith$elm_ui$Element$paragraph,
+						$mdgriffith$elm_ui$Element$wrappedRow,
 						_List_Nil,
 						_List_fromArray(
 							[
@@ -31832,7 +31835,6 @@ var $author$project$Blog$view = F4(
 					[
 						$mdgriffith$elm_ui$Element$centerX,
 						$mdgriffith$elm_ui$Element$spacing($author$project$Theme$siteTheme.contentSpacing),
-						$mdgriffith$elm_ui$Element$padding($author$project$Theme$siteTheme.padding),
 						$mdgriffith$elm_ui$Element$width(
 						A2($mdgriffith$elm_ui$Element$maximum, sharedModel.window.width, $mdgriffith$elm_ui$Element$fill))
 					]),
@@ -31841,7 +31843,7 @@ var $author$project$Blog$view = F4(
 						A2(
 						$author$project$View$iconLink,
 						_List_fromArray(
-							[$mdgriffith$elm_ui$Element$alignLeft]),
+							[$mdgriffith$elm_ui$Element$centerX]),
 						{description: 'Back', src: '../assets/images/dark/backarrow.png', url: parent}),
 						A2(
 						$mdgriffith$elm_ui$Element$column,
@@ -33043,7 +33045,7 @@ var $author$project$Shared$menu = function (model) {
 		$mdgriffith$elm_ui$Element$row,
 		_List_fromArray(
 			[
-				$mdgriffith$elm_ui$Element$Font$size(15),
+				$mdgriffith$elm_ui$Element$Font$size(20),
 				$mdgriffith$elm_ui$Element$Region$navigation,
 				$mdgriffith$elm_ui$Element$centerX,
 				$mdgriffith$elm_ui$Element$spacing($author$project$Theme$siteTheme.menuSpacing)
