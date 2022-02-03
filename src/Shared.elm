@@ -139,7 +139,7 @@ templateView model pageView =
 menu : Model -> Element.Element msg
 menu model =
     Element.row
-        [ Font.size 15, Region.navigation, Element.centerX, Element.spacing Theme.siteTheme.menuSpacing ]
+        [ Font.size 20, Region.navigation, Element.centerX, Element.spacing Theme.siteTheme.menuSpacing ]
         (filteredMenu (Path.toAbsolute model.path))
 
 

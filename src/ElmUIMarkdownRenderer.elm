@@ -77,8 +77,8 @@ codeBlock details =
             details.body
             |> Result.map SyntaxHighlight.toInlineHtml
             -- TODO: Parse the static inline Html and actually add them as elements with correct spacing
-            |> Result.map (\block -> Element.paragraph [] [ Element.html block ])
-            |> Result.withDefault (Element.paragraph [] [ Element.text details.body ])
+            |> Result.map (\block -> Element.wrappedRow [] [ Element.html block ])
+            |> Result.withDefault (Element.wrappedRow [] [ Element.text details.body ])
         )
 
 

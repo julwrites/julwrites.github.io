@@ -5,6 +5,24 @@ import Blog exposing (Post)
 
 contents =
     [ Post
+        "2022_02_02_Elm_Website"
+        "02 February 2022"
+        "Re-writing my website in Elm"
+        "I had been interested in Functional Programming for awhile, and decided to re-write this website in Elm"
+        "/projects"
+    , Post
+        "2022_01_17_Redox_Keyboard_Builds"
+        "17 January 2022"
+        "Building Redox Keyboards"
+        "My wife wanted a split keyboard, so I took the chance to learn how to build one from scratch, and two more"
+        "/projects"
+    , Post
+        "2022_01_07_Golang_Bot_Cloud_Run"
+        "07 January 2022"
+        "Migrating my Golang Bot to Cloud Run"
+        "In an attempt to reduce expense and upgrade to newer technologies, I migrated my Golang bot to Google Cloud Run"
+        "/projects"
+    , Post
         "2021_11_03_GLS_2021"
         "03 November 2021"
         "GLS 2021"
