@@ -19172,6 +19172,7 @@ var $author$project$Blog$Post = F5(
 	});
 var $author$project$Contents$contents = _List_fromArray(
 	[
+		A5($author$project$Blog$Post, '2022_02_12_Flutter_Setup', '12 February 2022', 'Setting up Flutter', 'My wife and I had decided on Flutter for a project this year, and I was trying to set it up without Android Studio', '/projects'),
 		A5($author$project$Blog$Post, '2022_02_02_Elm_Website', '02 February 2022', 'Re-writing my website in Elm', 'I had been interested in Functional Programming for awhile, and decided to re-write this website in Elm', '/projects'),
 		A5($author$project$Blog$Post, '2022_01_17_Redox_Keyboard_Builds', '17 January 2022', 'Building Redox Keyboards', 'My wife wanted a split keyboard, so I took the chance to learn how to build one from scratch, and two more', '/projects'),
 		A5($author$project$Blog$Post, '2022_01_07_Golang_Bot_Cloud_Run', '07 January 2022', 'Migrating my Golang Bot to Cloud Run', 'In an attempt to reduce expense and upgrade to newer technologies, I migrated my Golang bot to Google Cloud Run', '/projects'),
