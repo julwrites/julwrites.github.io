@@ -5,6 +5,12 @@ import Blog exposing (Post)
 
 contents =
     [ Post
+        "2022_02_12_Flutter_Setup"
+        "12 February 2022"
+        "Setting up Flutter"
+        "My wife and I had decided on Flutter for a project this year, and I was trying to set it up without Android Studio"
+        "/projects"
+    , Post
         "2022_02_02_Elm_Website"
         "02 February 2022"
         "Re-writing my website in Elm"
