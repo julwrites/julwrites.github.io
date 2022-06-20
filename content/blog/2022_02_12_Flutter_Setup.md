@@ -8,11 +8,15 @@ Once that's done, running `flutter doctor` will tell you what you need to instal
 
 ## Setting up Flutter without Android Studio
 
-But as a Vim/Emacs user, I am much more comfortable with the command line than with an IDE now, and I really didn't want to have to figure out Android Studio along with Flutter development. Thankfully, it is possible to just get the Android SDK (aka [Android Platform Tools](https://developer.android.com/studio/#downloads)) without having to install the bloated Android Studio. So I did! 
+But as a Vim/Emacs user, I am much more comfortable with the command line than with an IDE now, and I really didn't want to have to figure out Android Studio along with Flutter development. Thankfully, it is possible to just get the [Android SDK](https://developer.android.com/studio#downloads) (along with [Android Platform Tools](https://developer.android.com/studio/releases/platform-tools)) without having to install the bloated Android Studio. So I did! 
 
-This downloaded another `.zip` file, which I promptly unzipped and dropped next to flutter, and with a bit of fiddling around while referring to a [guide](https://proandroiddev.com/how-to-setup-android-sdk-without-android-studio-6d60d0f2812a) I finally got it to work with the following folder structure:
+This downloaded another `.zip` file, which I promptly unzipped and dropped next to flutter, and with a bit of fiddling around with environment variables while referring to a [guide](https://proandroiddev.com/how-to-setup-android-sdk-without-android-studio-6d60d0f2812a) I finally got it to work with the following folder structure:
 
 ![Android SDK Cmdline Tools](../assets/blog/2022_02_12_Flutter_Setup/Android_SDK_Cmdline_Tools.png)
+
+Some things to note: 
+1. We do need to add `ANDROID_HOME` to environment variables
+2. We also need to add the `cmdline-tools` and `platform-tools` locations to `PATH`
 
 And then after running `flutter doctor` again:
 
