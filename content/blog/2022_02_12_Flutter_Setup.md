@@ -17,6 +17,13 @@ This downloaded another `.zip` file, which I promptly unzipped and dropped next 
 Some things to note: 
 1. We do need to add `ANDROID_HOME` to environment variables
 2. We also need to add the `cmdline-tools` and `platform-tools` locations to `PATH`
+3. `sdkmanager` needs to be run with the `--sdk_root=` option
+
+## An alternative
+
+Out of sheer frustration, I tried installing Android Studio, promptly regretted my decision, and uninstalled it, and discovered that it had installed the latest platform dependencies and tools in `%LOCALAPPDATA%\Android\Sdk`. Using this, I was able to re-do the installation of the command line tools just for `sdkmanager` and soon after was able to get going again. 
+
+## Back to Flutter
 
 And then after running `flutter doctor` again:
 
