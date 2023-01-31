@@ -5,6 +5,12 @@ import Blog exposing (Post)
 
 contents =
     [ Post
+        "2023_01_31_Fatherhood_Begins"
+        "31 January 2023"
+        "Fatherhood begins"
+        "Yesterday my child was born"
+        "/blog"
+    , Post
         "2022_02_12_Flutter_Setup"
         "12 February 2022"
         "Setting up Flutter"
