@@ -188,7 +188,7 @@ menuBlog enabled =
     case enabled of
         True ->
             Element.link []
-                { url = "/blog"
+                { url = "https://blog.tehj.io"
                 , label = Element.text "Blog"
                 }
 
