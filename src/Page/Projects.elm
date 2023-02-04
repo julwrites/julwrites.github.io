@@ -2,7 +2,6 @@ module Page.Projects exposing (Data, Model, Msg, page)
 
 -- This module defines the Project page
 
-import Contents exposing (contents)
 import DataSource exposing (DataSource)
 import Element
 import Element.Font as Font
