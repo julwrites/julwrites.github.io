@@ -77,7 +77,6 @@ view maybeUrl sharedModel static =
         Element.column
             [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing, Element.width (Element.fill |> Element.maximum sharedModel.window.width) ]
             [ projectListing
-            , devBlogListing
             ]
     }
 
