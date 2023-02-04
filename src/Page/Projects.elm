@@ -2,7 +2,6 @@ module Page.Projects exposing (Data, Model, Msg, page)
 
 -- This module defines the Project page
 
-import Blog exposing (Post, postBlurb)
 import Contents exposing (contents)
 import DataSource exposing (DataSource)
 import Element
@@ -110,22 +109,3 @@ thumbnailLink attrs def =
         )
         { url = def.url, label = Element.image [ Element.height (Element.px 128) ] { src = def.src, description = def.description } }
 
-
-devBlogListing : Element.Element msg
-devBlogListing =
-    Element.column
-        [ Element.centerX, Element.spacing Theme.siteTheme.contentSpacing ]
-        [ Element.el [ Region.heading 2, Element.centerX, Font.size 30, Font.medium ] (Element.text "Project Log")
-        , Element.column [ Element.centerX, Element.spacing 20, Element.width (Element.fill |> Element.maximum 800) ]
-            (List.map
-                (\post ->
-                    case post.parent of
-                        "/projects" ->
-                            Blog.postBlurb post
-
-                        _ ->
-                            Element.none
-                )
-                Contents.contents
-            )
-        ]
