@@ -15,9 +15,7 @@ import Pages.Internal.Router
 
 {-| -}
 type Route
-    = Blog__Slug_ { slug : String }
-    | Projects__Slug_ { slug : String }
-    | Blog
+    = Projects__Slug_ { slug : String }
     | Projects
     | Index
 
@@ -51,31 +49,11 @@ withoutBaseUrl path =
 {-| -}
 matchers : List (Pages.Internal.Router.Matcher Route)
 matchers =
-    [ { pattern = "^\\/blog\\/(?:([^/]+))$"
-      , toRoute = \matches ->
-      case matches of
-          [ Just slug ] ->
-              Just ( Blog__Slug_ { slug = slug } )
-          _ ->
-              Nothing
-
-  
-     }
-    , { pattern = "^\\/projects\\/(?:([^/]+))$"
+    [ { pattern = "^\\/projects\\/(?:([^/]+))$"
       , toRoute = \matches ->
       case matches of
           [ Just slug ] ->
               Just ( Projects__Slug_ { slug = slug } )
-          _ ->
-              Nothing
-
-  
-     }
-    , { pattern = "^\\/blog$"
-      , toRoute = \matches ->
-      case matches of
-          [  ] ->
-              Just Blog
           _ ->
               Nothing
 
@@ -109,12 +87,8 @@ matchers =
 routeToPath : Route -> List String
 routeToPath route =
     case route of
-        Blog__Slug_ params ->
-           List.concat [ [ "blog" ],[ params.slug ] ]
         Projects__Slug_ params ->
            List.concat [ [ "projects" ],[ params.slug ] ]
-        Blog ->
-           List.concat [ [ "blog" ] ]
         Projects ->
            List.concat [ [ "projects" ] ]
         Index ->

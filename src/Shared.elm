@@ -146,8 +146,8 @@ menu model =
 filteredMenu : String -> List (Element.Element msg)
 filteredMenu path =
     [ menuHome (path /= "/")
-    , Element.text "|"
-    , menuDev (path /= "/projects")
+    -- , Element.text "|"
+    -- , menuDev (path /= "/projects")
     , Element.text "|"
     , menuBlog (path /= "/blog")
     ]
@@ -168,19 +168,19 @@ menuHome enabled =
                 (Element.text "Home")
 
 
-menuDev : Bool -> Element.Element msg
-menuDev enabled =
-    case enabled of
-        True ->
-            Element.link []
-                { url = "/projects"
-                , label = Element.text "Dev"
-                }
+-- menuDev : Bool -> Element.Element msg
+-- menuDev enabled =
+--     case enabled of
+--         True ->
+--             Element.link []
+--                 { url = "/projects"
+--                 , label = Element.text "Dev"
+--                 }
 
-        False ->
-            Element.el
-                [ Font.color Theme.siteTheme.disabledFontColor ]
-                (Element.text "Dev")
+--         False ->
+--             Element.el
+--                 [ Font.color Theme.siteTheme.disabledFontColor ]
+--                 (Element.text "Dev")
 
 
 menuBlog : Bool -> Element.Element msg
