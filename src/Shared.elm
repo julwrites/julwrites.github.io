@@ -188,7 +188,7 @@ menuBlog enabled =
     case enabled of
         True ->
             Element.link []
-                { url = "https://blog.tehj.io"
+                { url = "https://tehj.io/blog"
                 , label = Element.text "Blog"
                 }
 
@@ -205,8 +205,6 @@ footer =
         [ View.iconLink [] { url = "https://github.com/julwrites", src = "assets/images/dark/github.png", description = "Github" }
         , View.iconLink []
             { url = "https://linkedin.com/in/julwrites", src = "assets/images/dark/linkedin.png", description = "LinkedIn" }
-        , View.iconLink []
-            { url = "mail@tehj.io", src = "assets/images/dark/email.png", description = "Email" }
         , Element.download []
             { url = "assets/resume/Resume_Julian_Teh.pdf"
             , label = View.iconLink [] { url = "assets/resume/Resume_Julian_Teh.pdf", src = "assets/images/dark/download.png", description = "Resume" }
