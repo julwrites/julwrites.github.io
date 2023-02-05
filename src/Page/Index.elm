@@ -80,9 +80,9 @@ view maybeUrl sharedModel static =
                 , Element.el [ Element.centerX, Font.size 25 ] (Element.text "Welcome to my domain")
 
                 -- , Element.el [ Font.size 15 ] (Element.text "Love Christ | Create Things | Bless People | Speak Truth")
+                , projectListing 
                 ]
             ]
-            [ projectListing
     }
 
 
