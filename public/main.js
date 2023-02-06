@@ -11779,11 +11779,11 @@ var $author$project$Main$header = A2(
 			A2(
 			$author$project$Main$iconLink,
 			_List_Nil,
-			{description: 'Blog', src: 'assets/images/dark/blog.png', url: 'https://tehj.io/blog'}),
+			{description: 'Blog', src: 'assets/images/dark/blog.png', url: 'https://www.tehj.io/blog'}),
 			A2(
 			$author$project$Main$iconLink,
 			_List_Nil,
-			{description: 'Resume', src: 'assets/images/dark/resume.png', url: 'assets/resume/Resume_Julian_Teh.pdf'})
+			{description: 'Resume', src: 'assets/images/dark/resume.png', url: 'https://raw.githubusercontent.com/julwrites/julwrites.github.io/develop/public/assets/resume/Resume_Julian_Teh.pdf'})
 		]));
 var $author$project$Main$dom = A2(
 	$mdgriffith$elm_ui$Element$column,

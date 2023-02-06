@@ -15,7 +15,7 @@ jobs:
           node-version: '16.x'
 
       - name: Elm
-        uses: jorelali/setup-elm@v3
+        uses: jorelali/setup-elm@v4
         with:
           elm-version: 0.19.1
 
