@@ -1,6 +1,8 @@
 module Main exposing (..)
 
 import Browser
+import Browser.Dom exposing (Viewport)
+import Browser.Events as Events
 import Browser.Navigation as Nav
 import Html exposing (..)
 import Html.Attributes exposing (..)
@@ -9,6 +11,7 @@ import Element exposing (..)
 import Element.Font as Font
 import Element.Border as Border
 import Element.Background as Background
+import Task
 
 -- MAIN
 
@@ -32,12 +35,18 @@ main =
 type alias Model =
   { key : Nav.Key
   , url : Url.Url
+  , window : { width : Int, height : Int }
   }
 
 
 init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url key =
-  ( Model key url, Cmd.none )
+  ( { key = key
+    , url = url
+    , window = { width = 0, height = 0 }
+    }
+  , Task.perform Viewport Browser.Dom.getViewport
+  )
 
 
 
@@ -45,26 +54,34 @@ init flags url key =
 
 
 type Msg
-  = LinkClicked Browser.UrlRequest
-  | UrlChanged Url.Url
-
+  = UrlChanged Url.Url
+  | LinkClicked Browser.UrlRequest
+  | OnWindowResize Int Int
+  | Viewport Browser.Dom.Viewport
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
   case msg of
+    UrlChanged _ -> 
+      (model, Cmd.none)
+
     LinkClicked urlRequest ->
       case urlRequest of
         Browser.Internal url ->
-          ( model, Nav.pushUrl model.key (Url.toString url) )
+          ( model
+          , Nav.pushUrl model.key (Url.toString url)
+          )
 
-        Browser.External href ->
-          ( model, Nav.load href )
+        Browser.External url ->
+          ( model
+          , Nav.load url
+          )
 
-    UrlChanged url ->
-      ( { model | url = url }
-      , Cmd.none
-      )
+    OnWindowResize w h ->
+      ( { model | window = { width = w, height = h } }, Cmd.none )
 
+    Viewport viewport ->
+      ( { model | window = { width = round viewport.viewport.width, height = round viewport.viewport.height } }, Cmd.none )
 
 
 -- SUBSCRIPTIONS
@@ -72,40 +89,40 @@ update msg model =
 
 subscriptions : Model -> Sub Msg
 subscriptions _ =
-  Sub.none
+  Events.onResize (\w h -> OnWindowResize w h)
 
 
 -- THEME
 
 type alias Theme =
-    { borderColor : Element.Color
-    , backgroundColor : Element.Color
-    , fontColor : Element.Color
-    , disabledFontColor : Element.Color
-    , fontFamily : List Font.Font
-    , padding : Int
-    , menuSpacing : Int
-    , footerSpacing : Int
-    , contentSpacing : Int
-    }
+  { borderColor : Element.Color
+  , backgroundColor : Element.Color
+  , fontColor : Element.Color
+  , disabledFontColor : Element.Color
+  , fontFamily : List Font.Font
+  , padding : Int
+  , menuSpacing : Int
+  , footerSpacing : Int
+  , contentSpacing : Int
+  }
 
 
 siteTheme : Theme
 siteTheme =
-    { borderColor = rgb255 0 0 0
-    , backgroundColor = rgb255 34 44 60
-    , fontColor = rgb255 255 255 255
-    , disabledFontColor = rgb255 128 128 128
+  { borderColor = rgb255 0 0 0
+  , backgroundColor = rgb255 34 44 60
+  , fontColor = rgb255 255 255 255
+  , disabledFontColor = rgb255 128 128 128
 
-    -- , fontFamily = [ Font.external { name = "The Girl Next Door", url = "https://fonts.googleapis.com/css2?family=The+Girl+Next+Door&display=swap" }, Font.sansSerif ]
-    -- , fontFamily = [ Font.external { name = "Indie Flower", url = "https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" }, Font.sansSerif ]
-    -- , fontFamily = [ Font.external { name = "Fuzzy Bubbles", url = "https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap" }, Font.sansSerif ]
-    , fontFamily = [ Font.external { name = "Fira Sans", url = "https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" }, Font.sansSerif ]
-    , padding = 30
-    , menuSpacing = 5
-    , footerSpacing = 30
-    , contentSpacing = 30
-    }
+  -- , fontFamily = [ Font.external { name = "The Girl Next Door", url = "https://fonts.googleapis.com/css2?family=The+Girl+Next+Door&display=swap" }, Font.sansSerif ]
+  -- , fontFamily = [ Font.external { name = "Indie Flower", url = "https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" }, Font.sansSerif ]
+  -- , fontFamily = [ Font.external { name = "Fuzzy Bubbles", url = "https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&display=swap" }, Font.sansSerif ]
+  , fontFamily = [ Font.external { name = "Fira Sans", url = "https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" }, Font.sansSerif ]
+  , padding = 30
+  , menuSpacing = 5
+  , footerSpacing = 30
+  , contentSpacing = 30
+  }
 
 
 -- VIEW
@@ -114,15 +131,15 @@ view : Model -> Browser.Document Msg
 view model =
   { title = "tehj.io"
   , body = [
-      Element.layout
-        [ Background.color siteTheme.backgroundColor
-        , Font.color siteTheme.fontColor
-        , Font.family siteTheme.fontFamily
-        , Element.padding siteTheme.padding
-        -- , Element.width (Element.fill |> Element.maximum model.window.width)
-        ]
-        dom
+    Element.layout
+      [ Background.color siteTheme.backgroundColor
+      , Font.color siteTheme.fontColor
+      , Font.family siteTheme.fontFamily
+      , Element.padding siteTheme.padding
+      -- , Element.width (Element.fill |> Element.maximum model.window.width)
       ]
+      dom
+    ]
   }
 
 
@@ -164,10 +181,10 @@ header =
       { url = "https://tehj.io/blog"
       , src = "../public/assets/images/dark/blog.png"
       , description = "Blog" }
-      -- , Element.download []
-      --     { url = "../public/assets/resume/Resume_Julian_Teh.pdf"
-      --     , label = View.iconLink [] { url = "../public/assets/resume/Resume_Julian_Teh.pdf", src = "../public/assets/images/dark/download.png", description = "Resume" }
-      --     }
+    , iconLink []
+      { url = "../public/assets/resume/Resume_Julian_Teh.pdf"
+      , src = "../public/assets/images/dark/resume.png"
+      , description = "Resume" }
     ]
 
 intro : Element Msg
@@ -177,6 +194,7 @@ intro =
   , Element.padding 10
   , Element.centerX
   , Border.color siteTheme.disabledFontColor
+  , Border.rounded 10
   , Border.width 1 ]
   [ Element.el 
     [  Font.size 40
@@ -200,38 +218,57 @@ intro =
 
 projectListing : Element msg
 projectListing =
-    Element.column
-        [ Element.spacing siteTheme.contentSpacing
-        , Element.centerX 
+  Element.column
+    [ Element.spacing siteTheme.contentSpacing
+    , Element.centerX 
+    ]
+    [ Element.el 
+      [ Element.centerX
+      , Font.size 30
+      , Font.medium 
+      ] 
+      (Element.text "Stuff I did for fun")
+    , Element.column 
+      [ Element.centerX
+      , Element.spacing 50 
+      ]
+      [ thumbnailLink [] 
+      { url = "https://github.com/julwrites/vscodecmder"
+      , src = "../public/assets/images/projects/vscodecmder.jpg"
+      , description = "VSCodeCmder" 
+      }
+      , thumbnailLink [] 
+      { url = "https://github.com/julwrites/ScriptureBot"
+      , src = "../public/assets/images/projects/scripturebot.png"
+      , description = "ScriptureBot" 
+      }
+      ]
+    , Element.el 
+        [ Element.centerX
+        , Font.size 30
+        , Font.medium 
+        ] 
+        (Element.text "Stuff I did in DigiPen")
+    , Element.column 
+        [ Element.centerX
+        , Element.spacing 50 ]
+        [ thumbnailLink [] 
+        { url = "http://games.digipen.edu/games/bibbb"
+        , src = "../public/assets/images/projects/BIBBB_1.jpg"
+        , description = "BIBBB" 
+        }
+        , thumbnailLink [] 
+        { url = "http://games.digipen.edu/games/flowline"
+        , src = "../public/assets/images/projects/Flowline_1.jpg"
+        , description = "Flowline" 
+        }
+        , thumbnailLink [] 
+        { url = "http://games.digipen.edu/games/shortcircuit"
+        , src = "../public/assets/images/projects/ShortCircuit_1.jpg"
+        , description = "Short Circuit" 
+        }
         ]
-        [ Element.el 
-          [ Element.centerX
-          , Font.size 30
-          , Font.medium 
-          ] 
-          (Element.text "Stuff I did for fun")
-        , Element.column 
-          [ Element.centerX
-          , Element.spacing 50 
-          ]
-          [ thumbnailLink [] { url = "https://github.com/julwrites/vscodecmder", src = "../public/assets/images/projects/vscodecmder.jpg", description = "VSCodeCmder" }
-          , thumbnailLink [] { url = "https://github.com/julwrites/ScriptureBot", src = "../public/assets/images/projects/scripturebot.png", description = "ScriptureBot" }
-          ]
-        , Element.el 
-            [ Element.centerX
-            , Font.size 30
-            , Font.medium 
-            ] 
-            (Element.text "Stuff I did in DigiPen")
-        , Element.column 
-            [ Element.centerX
-            , Element.spacing 50 ]
-            [ thumbnailLink [] { url = "http://games.digipen.edu/games/bibbb", src = "../public/assets/images/projects/BIBBB_1.jpg", description = "BIBBB" }
-            , thumbnailLink [] { url = "http://games.digipen.edu/games/flowline", src = "../public/assets/images/projects/Flowline_1.jpg", description = "Flowline" }
-            , thumbnailLink [] { url = "http://games.digipen.edu/games/shortcircuit", src = "../public/assets/images/projects/ShortCircuit_1.jpg", description = "Short Circuit" }
-            ]
-        ]
-
+    ]
 
 thumbnailLink : List (Element.Attribute msg) -> { url : String, src : String, description : String } -> Element msg
 thumbnailLink attrs def =
@@ -240,7 +277,6 @@ thumbnailLink attrs def =
             :: attrs
         )
         { url = def.url, label = Element.image [ Element.height (Element.px 128) ] { src = def.src, description = def.description } }
-
 
 -- COMPONENTS
 
