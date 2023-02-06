@@ -180,11 +180,11 @@ header =
       , src = "assets/images/dark/linkedin.png"
       , description = "LinkedIn" }
     , iconLink [] 
-      { url = "https://tehj.io/blog"
+      { url = "https://www.tehj.io/blog"
       , src = "assets/images/dark/blog.png"
       , description = "Blog" }
     , iconLink []
-      { url = "assets/resume/Resume_Julian_Teh.pdf"
+      { url = "https://raw.githubusercontent.com/julwrites/julwrites.github.io/develop/public/assets/resume/Resume_Julian_Teh.pdf"
       , src = "assets/images/dark/resume.png"
       , description = "Resume" }
     ]
