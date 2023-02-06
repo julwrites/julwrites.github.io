@@ -6,8 +6,10 @@ Previous iterations of this site have been, in order:
 - [Wix](https://www.wix.com/)
 - Vanilla HTML/JS
 - [Vue2/TS](https://vuejs.org/v2/guide/)
+- [Elm](https://elm-lang.org/)/[Elm-pages](https://elm-pages.com/)
 
-The current iteration is in [Elm](https://elm-lang.org/)/[Elm-pages](https://elm-pages.com/)
+
+The current iteration is in [Elm](https://elm-lang.org/) as a Web-app
 
 ## Motivations
 

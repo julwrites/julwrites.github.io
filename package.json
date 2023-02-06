@@ -4,7 +4,7 @@
     "scripts": {
         "postinstall": "elm-tooling install",
         "dev": "elm reactor",
-        "build": "elm make src/Main.elm --output=main.js"
+        "build": "elm make src/Main.elm --output=public/main.js"
     },
     "devDependencies": {
         "elm-optimize-level-2": "0.2.3",
