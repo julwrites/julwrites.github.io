@@ -62,8 +62,10 @@ type Msg
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
   case msg of
-    UrlChanged _ -> 
-      (model, Cmd.none)
+    UrlChanged url ->
+      ( { model | url = url }
+      , Cmd.none
+      )
 
     LinkClicked urlRequest ->
       case urlRequest of
