@@ -171,19 +171,19 @@ header =
     ]
     [ iconLink [] 
       { url = "https://github.com/julwrites"
-      , src = "../public/assets/images/dark/github.png"
+      , src = "assets/images/dark/github.png"
       , description = "Github" }
     , iconLink [] 
       { url = "https://linkedin.com/in/julwrites"
-      , src = "../public/assets/images/dark/linkedin.png"
+      , src = "assets/images/dark/linkedin.png"
       , description = "LinkedIn" }
     , iconLink [] 
       { url = "https://tehj.io/blog"
-      , src = "../public/assets/images/dark/blog.png"
+      , src = "assets/images/dark/blog.png"
       , description = "Blog" }
     , iconLink []
-      { url = "../public/assets/resume/Resume_Julian_Teh.pdf"
-      , src = "../public/assets/images/dark/resume.png"
+      { url = "assets/resume/Resume_Julian_Teh.pdf"
+      , src = "assets/images/dark/resume.png"
       , description = "Resume" }
     ]
 
@@ -206,7 +206,7 @@ intro =
     [ Element.width (Element.fill |> Element.maximum 256)
     , Element.centerX 
     ] 
-    { src = "../public/assets/images/photos/2.jpg"
+    { src = "assets/images/photos/2.jpg"
     , description = "Photo of me" }
   , Element.el 
     [ Font.size 25 
@@ -234,12 +234,12 @@ projectListing =
       ]
       [ thumbnailLink [] 
       { url = "https://github.com/julwrites/vscodecmder"
-      , src = "../public/assets/images/projects/vscodecmder.jpg"
+      , src = "assets/images/projects/vscodecmder.jpg"
       , description = "VSCodeCmder" 
       }
       , thumbnailLink [] 
       { url = "https://github.com/julwrites/ScriptureBot"
-      , src = "../public/assets/images/projects/scripturebot.png"
+      , src = "assets/images/projects/scripturebot.png"
       , description = "ScriptureBot" 
       }
       ]
@@ -254,17 +254,17 @@ projectListing =
         , Element.spacing 50 ]
         [ thumbnailLink [] 
         { url = "http://games.digipen.edu/games/bibbb"
-        , src = "../public/assets/images/projects/BIBBB_1.jpg"
+        , src = "assets/images/projects/BIBBB_1.jpg"
         , description = "BIBBB" 
         }
         , thumbnailLink [] 
         { url = "http://games.digipen.edu/games/flowline"
-        , src = "../public/assets/images/projects/Flowline_1.jpg"
+        , src = "assets/images/projects/Flowline_1.jpg"
         , description = "Flowline" 
         }
         , thumbnailLink [] 
         { url = "http://games.digipen.edu/games/shortcircuit"
-        , src = "../public/assets/images/projects/ShortCircuit_1.jpg"
+        , src = "assets/images/projects/ShortCircuit_1.jpg"
         , description = "Short Circuit" 
         }
         ]
