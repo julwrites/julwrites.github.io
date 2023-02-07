@@ -151,42 +151,75 @@ dom =
     [ Element.spacing siteTheme.contentSpacing
     , Element.centerX
     ]
-    [ header
-    , body
-    ]
-
-body : Element Msg
-body =
-  Element.column
-    [ Element.spacing siteTheme.contentSpacing
-    , Element.centerX
-    ]
     [ intro
+    ,  Element.el 
+      [ Element.centerX
+      , Font.size 30
+      , Font.medium 
+      ] 
+      (Element.text "Stuff I do")
+    , links
+    ,  Element.el 
+      [ Element.centerX
+      , Font.size 30
+      , Font.medium 
+      ] 
+      (Element.text "Stuff I did")
     , projectListing
-    ]
+   ]
 
-header : Element msg
-header =
+links : Element msg
+links =
   Element.row
     [ Element.spacing siteTheme.footerSpacing 
     , Element.centerX
     ]
-    [ iconLink [] 
-      { url = "https://github.com/julwrites"
-      , src = "assets/images/dark/github.png"
-      , description = "Github" }
-    , iconLink [] 
-      { url = "https://linkedin.com/in/julwrites"
-      , src = "assets/images/dark/linkedin.png"
-      , description = "LinkedIn" }
-    , iconLink [] 
-      { url = "https://www.tehj.io/blog"
-      , src = "assets/images/dark/blog.png"
-      , description = "Blog" }
-    , iconLink []
-      { url = "https://raw.githubusercontent.com/julwrites/julwrites.github.io/develop/public/assets/resume/Resume_Julian_Teh.pdf"
-      , src = "assets/images/dark/resume.png"
-      , description = "Resume" }
+    [ Element.column
+      [ Element.spacing siteTheme.footerSpacing 
+      , Element.centerX
+      , Element.padding 10
+      , Border.color siteTheme.disabledFontColor
+      , Border.rounded 10
+      , Border.width 1 
+      ]
+      [ Element.el [ Element.centerX ] ( Element.text "Work" )
+      , Element.row
+        [ Element.spacing siteTheme.footerSpacing 
+        , Element.centerX
+        ]
+        [ iconLink []
+          { url = "https://raw.githubusercontent.com/julwrites/julwrites.github.io/develop/public/../public/assets/resume/Resume_Julian_Teh.pdf"
+          , src = "../public/assets/images/dark/resume.png"
+          , description = "Resume" }
+        , iconLink [] 
+          { url = "https://linkedin.com/in/julwrites"
+          , src = "../public/assets/images/dark/linkedin.png"
+          , description = "LinkedIn" }
+        ]
+      ]
+    , Element.column
+      [ Element.spacing siteTheme.footerSpacing 
+      , Element.centerX
+      , Element.padding 10
+      , Border.color siteTheme.disabledFontColor
+      , Border.rounded 10
+      , Border.width 1 
+      ]
+      [ Element.el [ Element.centerX ] ( Element.text "Play" )
+      , Element.row
+        [ Element.spacing siteTheme.footerSpacing 
+        , Element.centerX
+        ]
+        [ iconLink [] 
+          { url = "https://github.com/julwrites"
+          , src = "../public/assets/images/dark/github.png"
+          , description = "Github" }
+        , iconLink [] 
+          { url = "https://www.tehj.io/blog"
+          , src = "../public/assets/images/dark/blog.png"
+          , description = "Blog" }
+        ]
+      ]
     ]
 
 intro : Element Msg
@@ -197,7 +230,8 @@ intro =
   , Element.centerX
   , Border.color siteTheme.disabledFontColor
   , Border.rounded 10
-  , Border.width 1 ]
+  , Border.width 1 
+  ]
   [ Element.el 
     [  Font.size 40
     , Font.medium 
@@ -208,7 +242,7 @@ intro =
     [ Element.width (Element.fill |> Element.maximum 256)
     , Element.centerX 
     ] 
-    { src = "assets/images/photos/2.jpg"
+    { src = "../public/assets/images/photos/2.jpg"
     , description = "Photo of me" }
   , Element.el 
     [ Font.size 25 
@@ -223,68 +257,74 @@ projectListing =
   Element.column
     [ Element.spacing siteTheme.contentSpacing
     , Element.centerX 
+    , Element.padding 10
+    , Border.color siteTheme.disabledFontColor
+    , Border.rounded 10
+    , Border.width 1 
     ]
-    [ Element.el 
-      [ Element.centerX
-      , Font.size 30
-      , Font.medium 
-      ] 
-      (Element.text "Stuff I did for fun")
-    , Element.column 
+    [ Element.column 
       [ Element.centerX
       , Element.spacing 50 
+      , Element.alignTop
       ]
-      [ thumbnailLink [] 
-      { url = "https://github.com/julwrites/vscodecmder"
-      , src = "assets/images/projects/vscodecmder.jpg"
-      , description = "VSCodeCmder" 
-      }
-      , thumbnailLink [] 
-      { url = "https://github.com/julwrites/ScriptureBot"
-      , src = "assets/images/projects/scripturebot.png"
-      , description = "ScriptureBot" 
-      }
-      ]
-    , Element.el 
+      [ Element.el 
         [ Element.centerX
         , Font.size 30
         , Font.medium 
         ] 
-        (Element.text "Stuff I did in DigiPen")
+        (Element.text "Self")
+      , thumbnailLink [] 
+        { url = "https://github.com/julwrites/vscodecmder"
+        , src = "../public/assets/images/projects/vscodecmder.jpg"
+        , description = "VSCodeCmder" 
+        }
+      , thumbnailLink [] 
+        { url = "https://github.com/julwrites/ScriptureBot"
+        , src = "../public/assets/images/projects/scripturebot.png"
+        , description = "ScriptureBot" 
+        }
+      ]
     , Element.column 
+      [ Element.centerX
+      , Element.spacing 50 
+      , Element.alignTop
+      ]
+      [ Element.el 
         [ Element.centerX
-        , Element.spacing 50 ]
-        [ thumbnailLink [] 
+        , Font.size 30
+        , Font.medium 
+        ] 
+        (Element.text "School")
+      , thumbnailLink [] 
         { url = "http://games.digipen.edu/games/bibbb"
-        , src = "assets/images/projects/BIBBB_1.jpg"
+        , src = "../public/assets/images/projects/BIBBB_1.jpg"
         , description = "BIBBB" 
         }
-        , thumbnailLink [] 
+      , thumbnailLink [] 
         { url = "http://games.digipen.edu/games/flowline"
-        , src = "assets/images/projects/Flowline_1.jpg"
+        , src = "../public/assets/images/projects/Flowline_1.jpg"
         , description = "Flowline" 
         }
-        , thumbnailLink [] 
+      , thumbnailLink [] 
         { url = "http://games.digipen.edu/games/shortcircuit"
-        , src = "assets/images/projects/ShortCircuit_1.jpg"
+        , src = "../public/assets/images/projects/ShortCircuit_1.jpg"
         , description = "Short Circuit" 
         }
-        ]
+      ]
     ]
 
 thumbnailLink : List (Element.Attribute msg) -> { url : String, src : String, description : String } -> Element msg
 thumbnailLink attrs def =
-    Element.link
-        (Element.paddingXY 32 0
-            :: attrs
-        )
+    Element.newTabLink
+        ( Element.centerX :: attrs )
         { url = def.url, label = Element.image [ Element.height (Element.px 128) ] { src = def.src, description = def.description } }
 
 -- COMPONENTS
 
 iconLink : List (Element.Attribute msg) -> { url : String, src : String, description : String } -> Element msg
 iconLink attrs def =
-  Element.link attrs
+  Element.newTabLink 
+  attrs
   { url = def.url
   , label = Element.image 
     [ Element.width (Element.px 33)
