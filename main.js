@@ -11543,7 +11543,7 @@ var $author$project$Main$intro = A2(
 					A2($mdgriffith$elm_ui$Element$maximum, 256, $mdgriffith$elm_ui$Element$fill)),
 					$mdgriffith$elm_ui$Element$centerX
 				]),
-			{description: 'Photo of me', src: '../public/assets/images/photos/2.jpg'}),
+			{description: 'Photo of me', src: 'assets/images/photos/2.jpg'}),
 			A2(
 			$mdgriffith$elm_ui$Element$el,
 			_List_fromArray(
@@ -11677,11 +11677,11 @@ var $author$project$Main$links = A2(
 							A2(
 							$author$project$Main$iconLink,
 							_List_Nil,
-							{description: 'Resume', src: '../public/assets/images/dark/resume.png', url: 'https://raw.githubusercontent.com/julwrites/julwrites.github.io/develop/public/../public/assets/resume/Resume_Julian_Teh.pdf'}),
+							{description: 'Resume', src: 'assets/images/dark/resume.png', url: 'https://raw.githubusercontent.com/julwrites/julwrites.github.io/develassets/resume/Resume_Julian_Teh.pdf'}),
 							A2(
 							$author$project$Main$iconLink,
 							_List_Nil,
-							{description: 'LinkedIn', src: '../public/assets/images/dark/linkedin.png', url: 'https://linkedin.com/in/julwrites'})
+							{description: 'LinkedIn', src: 'assets/images/dark/linkedin.png', url: 'https://linkedin.com/in/julwrites'})
 						]))
 				])),
 			A2(
@@ -11714,11 +11714,11 @@ var $author$project$Main$links = A2(
 							A2(
 							$author$project$Main$iconLink,
 							_List_Nil,
-							{description: 'Github', src: '../public/assets/images/dark/github.png', url: 'https://github.com/julwrites'}),
+							{description: 'Github', src: 'assets/images/dark/github.png', url: 'https://github.com/julwrites'}),
 							A2(
 							$author$project$Main$iconLink,
 							_List_Nil,
-							{description: 'Blog', src: '../public/assets/images/dark/blog.png', url: 'https://www.tehj.io/blog'})
+							{description: 'Blog', src: 'assets/images/dark/blog.png', url: 'https://www.tehj.io/blog'})
 						]))
 				]))
 		]));
@@ -11779,11 +11779,11 @@ var $author$project$Main$projectListing = A2(
 					A2(
 					$author$project$Main$thumbnailLink,
 					_List_Nil,
-					{description: 'VSCodeCmder', src: '../public/assets/images/projects/vscodecmder.jpg', url: 'https://github.com/julwrites/vscodecmder'}),
+					{description: 'VSCodeCmder', src: 'assets/images/projects/vscodecmder.jpg', url: 'https://github.com/julwrites/vscodecmder'}),
 					A2(
 					$author$project$Main$thumbnailLink,
 					_List_Nil,
-					{description: 'ScriptureBot', src: '../public/assets/images/projects/scripturebot.png', url: 'https://github.com/julwrites/ScriptureBot'})
+					{description: 'ScriptureBot', src: 'assets/images/projects/scripturebot.png', url: 'https://github.com/julwrites/ScriptureBot'})
 				])),
 			A2(
 			$mdgriffith$elm_ui$Element$column,
@@ -11807,15 +11807,15 @@ var $author$project$Main$projectListing = A2(
 					A2(
 					$author$project$Main$thumbnailLink,
 					_List_Nil,
-					{description: 'BIBBB', src: '../public/assets/images/projects/BIBBB_1.jpg', url: 'http://games.digipen.edu/games/bibbb'}),
+					{description: 'BIBBB', src: 'assets/images/projects/BIBBB_1.jpg', url: 'http://games.digipen.edu/games/bibbb'}),
 					A2(
 					$author$project$Main$thumbnailLink,
 					_List_Nil,
-					{description: 'Flowline', src: '../public/assets/images/projects/Flowline_1.jpg', url: 'http://games.digipen.edu/games/flowline'}),
+					{description: 'Flowline', src: 'assets/images/projects/Flowline_1.jpg', url: 'http://games.digipen.edu/games/flowline'}),
 					A2(
 					$author$project$Main$thumbnailLink,
 					_List_Nil,
-					{description: 'Short Circuit', src: '../public/assets/images/projects/ShortCircuit_1.jpg', url: 'http://games.digipen.edu/games/shortcircuit'})
+					{description: 'Short Circuit', src: 'assets/images/projects/ShortCircuit_1.jpg', url: 'http://games.digipen.edu/games/shortcircuit'})
 				]))
 		]));
 var $author$project$Main$dom = A2(
