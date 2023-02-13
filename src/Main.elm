@@ -35,7 +35,7 @@ main =
 type alias Model =
   { key : Nav.Key
   , url : Url.Url
-  , window : { width : Int, height : Int }
+  -- , window : { width : Int, height : Int }
   }
 
 
@@ -43,9 +43,10 @@ init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
 init flags url key =
   ( { key = key
     , url = url
-    , window = { width = 0, height = 0 }
+    -- , window = { width = 0, height = 0 }
     }
-  , Task.perform Viewport Browser.Dom.getViewport
+  -- , Task.perform Viewport Browser.Dom.getViewport
+  , Cmd.none
   )
 
 
@@ -56,8 +57,8 @@ init flags url key =
 type Msg
   = UrlChanged Url.Url
   | LinkClicked Browser.UrlRequest
-  | OnWindowResize Int Int
-  | Viewport Browser.Dom.Viewport
+  -- | OnWindowResize Int Int
+  -- | Viewport Browser.Dom.Viewport
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
@@ -79,11 +80,11 @@ update msg model =
           , Nav.load url
           )
 
-    OnWindowResize w h ->
-      ( { model | window = { width = w, height = h } }, Cmd.none )
+--     OnWindowResize w h ->
+--       ( { model | window = { width = w, height = h } }, Cmd.none )
 
-    Viewport viewport ->
-      ( { model | window = { width = round viewport.viewport.width, height = round viewport.viewport.height } }, Cmd.none )
+--     Viewport viewport ->
+--       ( { model | window = { width = round viewport.viewport.width, height = round viewport.viewport.height } }, Cmd.none )
 
 
 -- SUBSCRIPTIONS
@@ -91,7 +92,8 @@ update msg model =
 
 subscriptions : Model -> Sub Msg
 subscriptions _ =
-  Events.onResize (\w h -> OnWindowResize w h)
+  Sub.none
+  -- Events.onResize (\w h -> OnWindowResize w h)
 
 
 -- THEME
@@ -138,7 +140,7 @@ view model =
       , Font.color siteTheme.fontColor
       , Font.family siteTheme.fontFamily
       , Element.padding siteTheme.padding
-      -- , Element.width (Element.fill |> Element.maximum model.window.width)
+      , Element.width Element.fill 
       ]
       dom
     ]
@@ -150,6 +152,9 @@ dom =
   Element.column
     [ Element.spacing siteTheme.contentSpacing
     , Element.centerX
+    , Element.width Element.fill 
+    , Element.clipY
+    , Element.scrollbarY
     ]
     [ intro
     ,  Element.el 
@@ -188,7 +193,7 @@ links =
         , Element.centerX
         ]
         [ iconLink []
-          { url = "https://raw.githubusercontent.com/julwrites/julwrites.github.io/develassets/resume/Resume_Julian_Teh.pdf"
+          { url = "https://github.com/julwrites/julwrites.github.io/raw/master/assets/resume/Resume_Julian_Teh.pdf"
           , src = "assets/images/dark/resume.png"
           , description = "Resume" }
         , iconLink [] 
