@@ -18,13 +18,13 @@
 
 % Sections formatting
 
-\newcommand{\cvtitle}[1]{\huge\raggedright \textcolor{section_color}{#1}\\}
+\newcommand{\cvtitle}[1]{\Large\raggedright \textcolor{section_color}{#1}\\}
 \newcommand{\cvhead}[1]{\large\raggedright \textcolor{subsection_color}{#1}\\}
 \newcommand{\cvitem}[1]{\hspace{14pt} \small\raggedright \textcolor{item_color}{#1}\\}
 \newcommand{\cvlist}[1]{\vspace{-12pt}\small \textcolor{item_color}{\begin{itemize}#1\end{itemize}}}
 \newcommand{\cvli}[1]{\vspace{-4pt} \item{#1}}
 \newcommand{\cvline}[0]{\noindent\rule{19cm}{0.4pt}}
-\newcommand{\cvcols}[2]{\vspace{-24pt}\begin{multicols}{2} #1 \columnbreak #2 \end{multicols}\vspace{-24pt}}
+\newcommand{\cvcols}[2]{\vspace{-14pt}\begin{multicols}{2} #1 \columnbreak #2 \end{multicols}\vspace{-24pt}}
 
 \newcommand{\link}[2]{\textcolor{link_color}{\href{#1}{#2}}}
 \newcommand{\position}[1]{\vspace{-4pt} \textsl{\footnotesize #1}\\}
@@ -59,15 +59,15 @@
 
 \cvline
 
-\cvtitle{Profile \qualifier{Love to create things, bless people and provide insight}}
+\cvtitle{Profile \qualifier{Create things, bless people and provide insight}}
 
 \cvcols{
-    \cvhead{Skills}
+    \cvhead{Proficiencies}
     \cvlist{
         \cvli{C/C$_{++}$, Python, Javascript/Typescript, Swift}
-        \cvli{Windows, Linux, MacOS, iPadOS}
-        \cvli{Agile, Scrum Methodology, Research \& Development}
-        \cvli{Teaching, Mentoring, Program Design}
+        \cvli{Neovim, VSCode, Cross-platform Development}
+        \cvli{Agile/Scrum Methodology, Research \& Development}
+        \cvli{Mentoring, Programme Design, Documentation}
     }
 }{
     \cvhead{Knowledge}
@@ -85,17 +85,19 @@
 
 \cvtitle{Work Experience}
 
-\cvhead{Screening Eagle Technologies - R\&D \qualifier{C++ CV/ML Software Engineer (Dec 2020 - Present)}}
+\cvhead{Screening Eagle Technologies - R\&D \qualifier{C++ CV/ML Software Engineer, Deputy Team Lead (Dec 2020 - Present)}}
 \cvlist{
-    \cvli{Software Engineer for \textit{Research and Development Team}
+    \cvli{Software Engineer \& Deputy Team Lead for \textit{Research and Development Team}
         \vspace{12pt}
         \cvlist{
             \cvli{Researched \& implemented various prototypes, including:}
             \vspace{16pt}
             \cvlist {
-                \cvli{iPad LiDAR 3D scanning (Swift \& C$_{++}$)}
-                \cvli{Boston Dynamics Spot control stack (Python \& ReactJS)}
+                \cvli{Photo filtering and labeling applications (Python)}
+                \cvli{Data engineering pipelines (Python)}
                 \cvli{3D Asset viewing and annotation (ReactJS)}
+                \cvli{Boston Dynamics Spot control stack (Python \& ReactJS)}
+                \cvli{iPad LiDAR 3D scanning (Swift \& C$_{++}$)}
             }
         }
     }
@@ -136,18 +138,11 @@
 \cvhead{GeeksHacking Community \qualifier{Mentor/Partner/Project Lead (June 2019 - Present)}}
 \cvlist{
     \cvli{Co-created and conducted alumni training \& engagement programme}
-    \cvlist{
-        \vspace{12pt}
-        \cvli{Trainer for SST Inc. Consultants}
-        \cvli{Mentor for SST Inc. Executive Committee}
-        \cvli{Consultant for SST Inc. companies}
-    }
 }
 
 \cvhead{The Navteens Singapore \qualifier{Mentor/Trainer (Dec 2009 - Present)}}
 \cvlist{
     \cvli{Mentored individuals for holistic growth in faith and life}
-    \cvli{Taught Bible-centered mentoring skills as part of a youth training program}
 }
 
 \cvhead{Boys Brigade Singapore \qualifier{Volunteer/Officer (Jan 2005 - Apr 2019)}}
