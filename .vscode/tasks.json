@@ -1,0 +1,12 @@
+{
+  "tasks": [
+    {
+      "name": "Build Resume LaTeX",
+      "cmd": "latexmk -pdf ${file}",
+      "cwd": "${config_dir}/../public/assets/resume",
+      "tags": ["build"],
+      "close_on_exit": false,
+      "count": 2
+    }
+  ]
+}
