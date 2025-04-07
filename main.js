@@ -11457,11 +11457,11 @@ var $author$project$Main$projectListing = A2(
 					A2(
 					$author$project$Main$thumbnailLink,
 					_List_Nil,
-					{description: 'VSCodeCmder', src: 'assets/images/projects/vscodecmder.jpg', url: 'https://github.com/julwrites/vscodecmder'}),
+					{description: 'ScriptureBot', src: 'assets/images/projects/scripturebot.png', url: 'https://github.com/julwrites/ScriptureBot'}),
 					A2(
 					$author$project$Main$thumbnailLink,
 					_List_Nil,
-					{description: 'ScriptureBot', src: 'assets/images/projects/scripturebot.png', url: 'https://github.com/julwrites/ScriptureBot'})
+					{description: 'Cash-Register', src: 'assets/images/projects/cashregister.jpg', url: 'https://github.com/julwrites/cash-register'})
 				])),
 			A2(
 			$mdgriffith$elm_ui$Element$column,
