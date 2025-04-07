@@ -279,14 +279,14 @@ projectListing =
         ] 
         (Element.text "Self")
       , thumbnailLink [] 
-        { url = "https://github.com/julwrites/vscodecmder"
-        , src = "assets/images/projects/vscodecmder.jpg"
-        , description = "VSCodeCmder" 
-        }
-      , thumbnailLink [] 
         { url = "https://github.com/julwrites/ScriptureBot"
         , src = "assets/images/projects/scripturebot.png"
         , description = "ScriptureBot" 
+        }
+      , thumbnailLink [] 
+        { url = "https://github.com/julwrites/cash-register"
+        , src = "assets/images/projects/cashregister.jpg"
+        , description = "Cash-Register" 
         }
       ]
     , Element.column 
