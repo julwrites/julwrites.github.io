@@ -1,1 +1,6 @@
 @import './shared.css';
+
+/* Ensure styles are properly loaded in production */
+:root {
+  --loaded: true;
+}

@@ -1,7 +1,8 @@
-@import '../../../styles/shared.css';
+/* Import shared styles with a more reliable path */
+@import url('/src/styles/shared.css');
 
 /* Additional blog-specific styles */
-content {
+content, article {
   line-height: 1.6;
 }
 
