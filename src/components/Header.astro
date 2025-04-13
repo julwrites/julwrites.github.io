@@ -1,0 +1,22 @@
+---
+---
+
+<header>
+  <h2>Julian Teh</h2>
+  <nav>
+    <a href="/" class={Astro.url.pathname === '/' ? 'active' : ''}>Home</a>
+    <a href="/projects" class={Astro.url.pathname.startsWith('/projects') ? 'active' : ''}>Projects</a>
+    <a href="/blog" class={Astro.url.pathname.startsWith('/blog') ? 'active' : ''}>Blog</a>
+    <a href="https://github.com/julwrites" target="_blank">GitHub</a>
+  </nav>
+</header>
+
+<style>
+  header {
+    margin-bottom: 2em;
+  }
+  
+  h2 {
+    margin: 0.5em 0;
+  }
+</style>

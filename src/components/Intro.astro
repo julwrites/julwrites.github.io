@@ -1,7 +1,7 @@
 ---
 ---
 
-<section class="intro">
+<section class="intro card">
   <h1>Hi, I'm Julian</h1>
   <img src="/assets/images/photos/2.jpg" alt="Photo of me" />
   <p>Welcome to my domain</p>
@@ -13,27 +13,26 @@
     flex-direction: column;
     align-items: center;
     gap: var(--content-spacing);
-    padding: 10px;
-    border: 1px solid var(--disabled-font-color);
-    border-radius: 10px;
     margin: 0 auto;
+    text-align: center;
   }
 
   h1 {
-    font-size: 40px;
-    font-weight: 500;
+    font-size: 2.5rem;
+    font-weight: 700;
     margin: 0;
-    text-align: center;
   }
 
   img {
     max-width: 256px;
     width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
 
   p {
-    font-size: 25px;
+    font-size: 1.5rem;
     margin: 0;
-    text-align: center;
+    color: var(--accent-color);
   }
 </style>

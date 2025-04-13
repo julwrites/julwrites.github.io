@@ -1,0 +1,23 @@
+---
+import Links from './Links.astro';
+---
+
+<footer>
+  <Links />
+  <p>&copy; {new Date().getFullYear()} Julian Teh. All rights reserved.</p>
+</footer>
+
+<style>
+  footer {
+    margin-top: 2em;
+    padding-top: 1em;
+    border-top: 1px solid var(--disabled-font-color);
+    text-align: center;
+  }
+  
+  p {
+    color: var(--disabled-font-color);
+    font-size: 0.9em;
+    margin-top: 1em;
+  }
+</style>
