@@ -2,7 +2,7 @@
   "name": "julwrites.github.io",
   "version": "2.0.0",
   "type": "module",
-  "packageManager": "pnpm@8.15.4",
+  "packageManager": "pnpm@latest",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
