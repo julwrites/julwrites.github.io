@@ -26,11 +26,11 @@ So my new plan for this update of Hackie was two things:
 
 The first part was not so hard, but very tedious. I basically had to wind the wires around each other before soldering them, which was very cumbersome and such fine work. 
 
-![WiringCloseUp.jpeg](/blog/assets/blog/2024_11_19_Redox_Handwire_v3/WiringCloseUp.jpeg)
+![WiringCloseUp.jpeg](/assets/blog/2024_11_19_Redox_Handwire_v3/WiringCloseUp.jpeg)
 
 I also decided to do all the rows at once, which would sit closer to the plate, and therefore could be done first.
 
-![WiringRows.jpeg](/blog/assets/blog/2024_11_19_Redox_Handwire_v3/WiringRows.jpeg)
+![WiringRows.jpeg](/assets/blog/2024_11_19_Redox_Handwire_v3/WiringRows.jpeg)
 
 I don't know if this will solve all the problems, but I do expect to get fewer of the same sort of issue arising from loose solder.
 
@@ -40,11 +40,11 @@ I figured the best place to put the microcontroller would be inside the case. Th
 
 In the end I decided I would just melt a channel into the case, since it was a 3D Printed case. 
 
-![MicrocontrollerNewSlot.jpeg](/blog/assets/blog/2024_11_19_Redox_Handwire_v3/MicrocontrollerNewSlot.jpeg)
+![MicrocontrollerNewSlot.jpeg](/assets/blog/2024_11_19_Redox_Handwire_v3/MicrocontrollerNewSlot.jpeg)
 
 This turned out okay, and the microcontroller could sit almost flush to the case.
 
-![MicrocontrollerCloseUp.jpeg](/blog/assets/blog/2024_11_19_Redox_Handwire_v3/MicrocontrollerCloseUp.jpeg)
+![MicrocontrollerCloseUp.jpeg](/assets/blog/2024_11_19_Redox_Handwire_v3/MicrocontrollerCloseUp.jpeg)
 
 This wasn't the prettiest, but it was quite easily doable, and it worked. 
 
@@ -52,7 +52,7 @@ This wasn't the prettiest, but it was quite easily doable, and it worked.
 
 So finally I finished all the wiring! This round was a lot neater than previous rounds. I decided to mix wires this time, instead of using only single core wires. Instead, I used some Ribbon cables for connections between the keyboard matrix and the microcontroller, which lent a lot more flexibility when the case is closed.
 
-![FinishedWiring.jpeg](/blog/assets/blog/2024_11_19_Redox_Handwire_v3/FinishedWiring.jpeg)
+![FinishedWiring.jpeg](/assets/blog/2024_11_19_Redox_Handwire_v3/FinishedWiring.jpeg)
 
 ## Some trouble with QMK
 

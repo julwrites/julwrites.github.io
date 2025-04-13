@@ -17,11 +17,11 @@ Just to keep things simple, I decided I would make [tehj.io](https://tehj.io) a 
 
 Astro was impressively easy to set up, even easier than React perhaps. It also came with a template for a blog website, which was not too hard to tweak to my purposes. I have yet to do any styling on it, but for now it is useable, and I wanted to get some momentum on writing, so that will come later.
 
-![Astro Build](/blog/assets/blog/2023_02_09_Multi_Page_Application_Elm_Astro/Astro_Build.png)
+![Astro Build](/assets/blog/2023_02_09_Multi_Page_Application_Elm_Astro/Astro_Build.png)
 
 The resulting website would have two sets of post folders, and all the assets would be contained in Github just like in my previous blog, so I wouldn't have to manage a separate CMS. For me, this is fine, but if I ever wanted more security around my posts, or other editing capabilities, I would probably do an integration with a headless CMS.
 
-![Blog Page](/blog/assets/blog/2023_02_09_Multi_Page_Application_Elm_Astro/Blog_Page.png)
+![Blog Page](/assets/blog/2023_02_09_Multi_Page_Application_Elm_Astro/Blog_Page.png)
 
 ## Github Pages and Subdomain
 
@@ -31,7 +31,7 @@ The problem was, I hoped to put it under two separate subdomains; `www.tehj.io` 
 
 At first I tried to directly set up the CNAME, like I did with the original website, but it turns out that this isn't possible with pages.
 
-![Subdomain Issue](/blog/assets/blog/2023_02_09_Multi_Page_Application_Elm_Astro/Subdomain_Issue.png)
+![Subdomain Issue](/assets/blog/2023_02_09_Multi_Page_Application_Elm_Astro/Subdomain_Issue.png)
 
 So in the end I just set up my Github project page as is, and removed the CNAME binding, instead allowing it to be a URL redirect; i.e. `blog.tehj.io` just redirects to `tehj.io/blog`, which Github pages handles for me.
 
@@ -43,11 +43,11 @@ This took longer than I care to admit, because I am not an Elm expert, and I hav
 
 I am ashamed to say that it took me way longer than it should have to realize that the full page was rendering on mobile because I had forgotten to set the `scrollbarY` and `clipY` attributes, which meant the landing page ended up like this.
 
-![Landing Page Mobile](/blog/assets/blog/2023_02_09_Multi_Page_Application_Elm_Astro/Landing_Page_Mobile.png)
+![Landing Page Mobile](/assets/blog/2023_02_09_Multi_Page_Application_Elm_Astro/Landing_Page_Mobile.png)
 
 After adding that, the rest of it was fairly straightforward, and my landing page - albeit a rather rough looking one - was good to go.
 
-![Landing Page Mobile Fixed](/blog/assets/blog/2023_02_09_Multi_Page_Application_Elm_Astro/Landing_Page_Mobile_Fixed.png)
+![Landing Page Mobile Fixed](/assets/blog/2023_02_09_Multi_Page_Application_Elm_Astro/Landing_Page_Mobile_Fixed.png)
 
 Overall, I think this wasn't too bad. It was really cool to see how easy it is to set up a new simple website, and I might do more in the future for other sorts of purposes, but this was a nice use of some of my paternity leave. 
 

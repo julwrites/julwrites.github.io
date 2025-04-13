@@ -28,7 +28,7 @@ dr_mode=otg
 
 The same Github issue mentioned `dtoverlay=vc4-kms-v3d`, which in my case was already set. 
 
-![Successful Test Image!](/blog/assets/blog/2023_07_01_Raspberry_Pi_USB_Camera/libcamera_test.png)
+![Successful Test Image!](/assets/blog/2023_07_01_Raspberry_Pi_USB_Camera/libcamera_test.png)
 
 Now this led to the next problem; although running the script now seemed successful, it wasn't connecting on any of the USB ports. So it was time to look at `uvc-gadget`. And this is where I got stuck, no matter how many times I changed the boot config, or enabled the settings, the camera wouldn't connect to my Mac Mini.
 
