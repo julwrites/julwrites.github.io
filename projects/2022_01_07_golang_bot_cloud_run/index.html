@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Julian Teh's personal website"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;700&display=swap" rel="stylesheet"><title>Migrating my Golang Bot to Google Cloud Run | tehj.io</title><link rel="stylesheet" href="/_astro/_slug_.e14127aa.css" />
+<style>main[data-astro-cid-5uq7evlv]{max-width:800px;margin:0 auto;padding:0 1rem}article[data-astro-cid-5uq7evlv]{margin-bottom:4rem}h1[data-astro-cid-5uq7evlv]{font-size:2.5rem;margin-bottom:.5rem}.date[data-astro-cid-5uq7evlv]{margin-bottom:2rem;color:#666}.updated[data-astro-cid-5uq7evlv]{margin-top:.5rem;font-style:italic}.hero-image[data-astro-cid-5uq7evlv]{width:100%;height:auto;border-radius:8px;margin-bottom:2rem}.content[data-astro-cid-5uq7evlv]{line-height:1.6}.content[data-astro-cid-5uq7evlv] h2{margin-top:2rem;margin-bottom:1rem;font-size:1.8rem}.content[data-astro-cid-5uq7evlv] h3{margin-top:1.5rem;margin-bottom:.75rem;font-size:1.5rem}.content[data-astro-cid-5uq7evlv] p{margin-bottom:1rem}.content[data-astro-cid-5uq7evlv] img{max-width:100%;height:auto;border-radius:4px}.content[data-astro-cid-5uq7evlv] pre{padding:1rem;border-radius:4px;overflow-x:auto;margin:1rem 0}@media (prefers-color-scheme: dark){.date[data-astro-cid-5uq7evlv]{color:#aaa}}
+</style></head> <body> <div class="container"> <header data-astro-cid-3ef6ksr2> <div class="header-content" data-astro-cid-3ef6ksr2> <h2 data-astro-cid-3ef6ksr2>Julian Teh</h2> <nav data-astro-cid-3ef6ksr2> <a href="/" class="" data-astro-cid-3ef6ksr2>Home</a> <a href="/projects" class="active" data-astro-cid-3ef6ksr2>Projects</a> <a href="/blog" class="" data-astro-cid-3ef6ksr2>Blog</a> <a href="https://github.com/julwrites" target="_blank" data-astro-cid-3ef6ksr2>GitHub</a> </nav> </div> </header>  <main>  <main data-astro-cid-5uq7evlv> <article data-astro-cid-5uq7evlv> <h1 data-astro-cid-5uq7evlv>Migrating my Golang Bot to Google Cloud Run</h1> <div class="date" data-astro-cid-5uq7evlv> <time datetime="2022-01-07T00:00:00.000Z" data-astro-cid-5uq7evlv> January 7, 2022 </time>  </div> <img src="/blog/assets/blog/2022_01_07_Golang_Bot_Cloud_Run/Cloud_Run.png" alt="Hero image for Migrating my Golang Bot to Google Cloud Run" class="hero-image" data-astro-cid-5uq7evlv> <div class="content" data-astro-cid-5uq7evlv> <p>Prior to this, I had hosted my Telegram Bot on Google Cloud App Engine, and this had worked decently well - for years, I might add - until recently I did a routine check on my bill statements and discovered that I had a $3 charge from Google.</p>
+<p>Now, $3 isn’t a lot, and it wasn’t a problem for me to pay for it, but the fact that my bot’s usage of compute power had broken the free barrier for the first time in years was either a very happy thing, or a troubling one.</p>
+<p>Turns out, it was the latter.</p>
+<p>I was getting a failing request that would repeat every 5 minutes, and while this wasn’t enough to bring down the service, it was certainly enough to cost more in terms of compute time.</p>
+<p>After some discussion with a friend, I decided that I should do two things:</p>
+<ol>
+<li>Fix the failing request, which would prevent this repeated message issue</li>
+<li>Migrate to Google Cloud Run, which would reduce cost if it did re-occur</li>
+</ol>
+<h2 id="1-go-modules">1. Go Modules</h2>
+<p>My last update to this repository had been a few years ago, when Go had not yet developed a mature package ecosystem (even now this seems contentious).</p>
+<p>But since I wanted to containerize it, it was useful to also use a package management system rather than pulling the latest github repository of any dependency I wanted. If nothing else, this allowed me to selectively update dependencies, or freeze them to prevent any deployment surprises.</p>
+<p>A quick <code>go mod init</code> followed by <code>go mod tidy</code> sufficed.</p>
+<h2 id="2-containerization">2. Containerization</h2>
+<p>Google Cloud Run uses containers to spin up a serverless instance, which then dies after the request has been handled. As such, I needed to containerize my solution - i.e. Dockerize.</p>
+<p>Using a template for a Go module deployment, I modified the necessary files and built the container with little issue.</p>
+<p>I had to do a little trick to include my secrets file into the image, which was just to copy the <code>secrets.yaml</code> from the build directory into the container, and then deploy the container.</p>
+<p>Since I never pushed the <code>secrets.yaml</code> to Github, this was technically pretty safe, and I was okay with this approach so far.</p>
+<h2 id="3-google-artifact-registry">3. Google Artifact Registry</h2>
+<p>I didn’t have GCloud CLI on my device, so I had to get that installed and set up.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span>gcloud config set project ${PROJECT_NAME}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>echo $CI_SERVICE_KEY > key.json</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>gcloud auth activate-service-account \</span></span>
+<span class="line"><span>  $CI_SERVICE_ACCOUNT --key-file=key.json</span></span>
+<span class="line"><span>  </span></span>
+<span class="line"><span>gcloud auth configure-docker \</span></span>
+<span class="line"><span>  "${ARTIFACT_REGISTRY_REGION}-docker.pkg.dev" </span></span></code></pre>
+<p><img src="/blog/assets/blog/2022_01_07_Golang_Bot_Cloud_Run/Service_Accounts.png" alt="Service_Accounts.png"></p>
+<p>This wasn’t too difficult. I had to create a service account on GCloud and prepare the key, and I was able to authenticate Docker on my machine against Google Artifact Registry.</p>
+<p>Building and pushing the container was also not difficult manually.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span>docker build -f Dockerfile -t $CONTAINER_IMAGE  .</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>docker push $CONTAINER_IMAGE</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>gcloud run deploy $CLOUD_RUN_SERVICE_NAME \</span></span>
+<span class="line"><span>  --image $CONTAINER_IMAGE \</span></span>
+<span class="line"><span>  --region $CLOUD_RUN_SERVICE_REGION</span></span></code></pre>
+<p>It was pretty easy to verify these processes succeeded, just by checking the Artifact Registry and Cloud Run panels respectively.</p>
+<p><img src="/blog/assets/blog/2022_01_07_Golang_Bot_Cloud_Run/Artifact_Registry.png" alt="Artifact_Registry.png">
+<img src="/blog/assets/blog/2022_01_07_Golang_Bot_Cloud_Run/Cloud_Run.png" alt="Cloud_Run.png"></p>
+<p>Up to this point, I was able to manage quite decently, and the immediate issue was fixed within the day.</p>
+<p>I retired the old AppEngine version of the service, and moved on.</p>
+<h2 id="4-cicd-with-github-actions">4. CI/CD with Github Actions</h2>
+<p>Up to this point I was able to ensure security by basically running this whole process only on an authenticated device; i.e. my laptop. I needed to authenticate Github Actions to do the same thing.</p>
+<p>I quickly discovered that Github Actions did not have the same idea of ‘secure’ that I did. It took me awhile and a lot of experimentation to figure that I not only needed to have the Service Account, but also…</p>
+<ol>
+<li>To set up GCloud Auth on the project</li>
+<li>A step which I forgot, and which cost me a couple of days of debugging - to authenticate Docker with GCloud Auth</li>
+</ol>
+<p><img src="/blog/assets/blog/2022_01_07_Golang_Bot_Cloud_Run/Github_Actions.png" alt="Github_Actions.png"></p>
+<p>In the process of debugging, I also went ahead and upgraded my security method to use Google Auth’s Workload Identity Federation, following <a href="https://cloud.google.com/blog/products/identity-security/enabling-keyless-authentication-from-github-actions">this post</a>.</p>
+<p>Once those were done, it was a pretty simple process to serialize the secrets from Github Actions into the docker container, and then to run the same steps as above from Github Actions.</p> </div> </article> </main>  </main> <footer data-astro-cid-sz7xmlte> <div class="links-container" data-astro-cid-sz7xmlte> <div class="links-section" data-astro-cid-sz7xmlte> <p data-astro-cid-sz7xmlte>Connect With Me</p> <div class="icons" data-astro-cid-sz7xmlte> <a href="https://github.com/julwrites/julwrites.github.io/raw/master/assets/resume/Resume_Julian_Teh.pdf" target="_blank" title="Resume" data-astro-cid-sz7xmlte> <img src="/assets/images/dark/resume.png" alt="Resume" data-astro-cid-sz7xmlte> <span data-astro-cid-sz7xmlte>Resume</span> </a> <a href="https://linkedin.com/in/julwrites" target="_blank" title="LinkedIn" data-astro-cid-sz7xmlte> <img src="/assets/images/dark/linkedin.png" alt="LinkedIn" data-astro-cid-sz7xmlte> <span data-astro-cid-sz7xmlte>LinkedIn</span> </a> <a href="mailto:contact@tehj.io" target="_blank" title="Email" data-astro-cid-sz7xmlte> <img src="/assets/images/dark/email.png" alt="Email" data-astro-cid-sz7xmlte> <span data-astro-cid-sz7xmlte>Email</span> </a> </div> </div> </div> <p data-astro-cid-sz7xmlte>&copy; 2025 Julian Teh. All rights reserved.</p> </footer>  </div> </body></html> 
