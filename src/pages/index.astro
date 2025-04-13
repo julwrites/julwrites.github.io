@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Intro from '../components/Intro.astro';
+import Links from '../components/Links.astro';
+import ProjectListing from '../components/ProjectListing.astro';
+---
+
+<Layout title="tehj.io">
+  <main>
+    <Intro />
+    
+    <h2 class="section-title">Stuff I do</h2>
+    <Links />
+    
+    <h2 class="section-title">Stuff I did</h2>
+    <ProjectListing />
+  </main>
+</Layout>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--content-spacing);
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .section-title {
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    margin: 0;
+  }
+</style>
