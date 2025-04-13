@@ -2,7 +2,7 @@
 title: "Building an Expense Tracking System with AI Assistance"
 description: "I've been wanting to move my expense tracking onto a personal service... And AI helped me do it"
 pubDate: "August 11 2024"
-heroImage: "/blog/assets/blog/2024_08_11_AI_Built_Expense_Tracker/pwa-512x512.png"
+heroImage: "/assets/blog/2024_08_11_AI_Built_Expense_Tracker/pwa-512x512.png"
 draft: true
 ---
 

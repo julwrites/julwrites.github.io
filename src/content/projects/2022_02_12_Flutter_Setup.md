@@ -2,7 +2,7 @@
 title: "Setting up Flutter"
 description: "I wanted to try out Flutter, but without using Android Studio"
 pubDate: "Feb 12 2022"
-heroImage: "/blog/assets/blog/2022_02_12_Flutter_Setup/Flutter_Test_Drive.png"
+heroImage: "/assets/blog/2022_02_12_Flutter_Setup/Flutter_Test_Drive.png"
 ---
 
 So my wife and I had made a goal to write a small full stack app for ourselves this year, and after a bunch of deliberation we finally settled on Flutter as our front-end framework. Partly because it was up and coming, but also partly because it already supported Android, iOS, and Web, and lately it supports Windows as well. 

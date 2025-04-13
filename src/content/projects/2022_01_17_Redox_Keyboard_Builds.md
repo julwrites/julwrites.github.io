@@ -2,7 +2,7 @@
 title: "Building Redox Keyboards"
 description: "I've been using a split keyboard for some time, which I assembled using one of the cheaper kits on AliExpress, but it was time for an upgrade"
 pubDate: "Jan 17 2022"
-heroImage: "/blog/assets/blog/2022_01_17_Redox_Keyboard_Builds/Working_Prototype.jpg"
+heroImage: "/assets/blog/2022_01_17_Redox_Keyboard_Builds/Working_Prototype.jpg"
 ---
 
 I've been using a split keyboard for some time, which I assembled using one of the cheaper kits on [Aliexpress](https://www.aliexpress.com/item/33006060286.html). Some time in September 2021, my wife remarked that she also wanted a split keyboard, and that sparked in me what might be called a hacker's burning desire to build the thing. 

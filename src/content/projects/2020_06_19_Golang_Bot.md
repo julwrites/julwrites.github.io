@@ -2,7 +2,7 @@
 title: "Re-writing my Telegram Bot in Golang"
 description: "I had originally written a bot for Telegram, but wanted to re-implement it in a more future-proof manner"
 pubDate: "Jun 19 2020"
-heroImage: "/blog/assets/blog/2020_06_19_Golang_Bot/ScriptureBot.png"
+heroImage: "/assets/blog/2020_06_19_Golang_Bot/ScriptureBot.png"
 ---
 
 I had originally written a bot for Telegram (originally named Biblica Bot) which was intended to be a bot for quick reference to the bible. It had a few nifty (at least to me) features:

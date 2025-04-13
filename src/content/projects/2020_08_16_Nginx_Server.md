@@ -2,7 +2,7 @@
 title: "Setting up Nginx Reverse Proxy to Custom Domain"
 description: "Next I wanted to be able to access this from my custom domain, and therefore have a browser-based IDE available for myself anywhere with internet access"
 pubDate: "Aug 16 2022"
-heroImage: "/blog/assets/blog/2020_08_16_Nginx_Server/CodeServer.png"
+heroImage: "/assets/blog/2020_08_16_Nginx_Server/CodeServer.png"
 ---
 
 Next I wanted to be able to access this from my custom domain, and therefore have a browser-based IDE available for myself anywhere with internet access. 

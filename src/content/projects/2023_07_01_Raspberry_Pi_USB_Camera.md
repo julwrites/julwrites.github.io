@@ -2,7 +2,7 @@
 title: "Trying to make a USB Camera from Raspberry Pi 3B+"
 description: "I didn't have a camera on my Mac Mini, but I did have a Raspberry Pi and Pi Cam"
 pubDate: "July 1 2023"
-heroImage: "/blog/assets/blog/2023_07_01_Raspberry_Pi_USB_Camera/libcamera_test.png"
+heroImage: "/assets/blog/2023_07_01_Raspberry_Pi_USB_Camera/libcamera_test.jpg"
 ---
 
 So this all started after I bought a Mac Mini for personal use. I wanted a small but stable device that would plug into my existing displays and provide peak performance. And since I already had a Surface Go, this was my best option. 

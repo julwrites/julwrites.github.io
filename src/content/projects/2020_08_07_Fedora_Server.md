@@ -2,7 +2,7 @@
 title: "Setting up a Fedora Server on an old laptop"
 description: "I decided that this would be a good opportunity for me to try experimenting further with Linux administration"
 pubDate: "Aug 07 2020"
-heroImage: "/blog/assets/blog/2020_08_07_Fedora_Server/Cockpit.png"
+heroImage: "/assets/blog/2020_08_07_Fedora_Server/Cockpit.png"
 ---
 
 Several years back, I had loaned my old laptop to one of my mentees, because he didn't have his own. This year, since he was about to start University, he had gotten himself a swanky new one, and so the old laptop returned to me. Seeing as I now had an unused piece of hardware on my hands, I decided that this would be a good opportunity for me to try experimenting further with Linux administration.

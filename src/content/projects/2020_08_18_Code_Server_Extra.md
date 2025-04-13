@@ -2,7 +2,7 @@
 title: "Internet and storage for my code-server"
 description: "So... day 1 into using my new code server, I immediately found 2 problems."
 pubDate: "Aug 18 2020"
-heroImage: "/blog/assets/blog/2020_08_18_Code_Server_Extra/VolumeDenied.png"
+heroImage: "/assets/blog/2020_08_18_Code_Server_Extra/VolumeDenied.png"
 ---
 
 So... day 1 into using my new code server, I immediately found 2 problems.

@@ -2,7 +2,7 @@
 title: "Homeassistant on Kubernetes Cluster"
 description: "I wanted to implement Homeassistant at home, but... reliable"
 pubDate: "Jan 13 2023"
-heroImage: "/blog/assets/blog/2023_01_13_Homeassistant_Kubernetes/Homeassistant.png"
+heroImage: "/assets/blog/2023_01_13_Homeassistant_Kubernetes/Homeassistant.png"
 ---
 
 After moving to my new home, I decided it was time to finally implement some of that open source home automation I had repeatedly told friends and family that I wanted to. I had been using Google Home previously for most of my home automation, but I really wanted to give Homeassistant a shot since I felt I would have more control over it - plus it's always a good idea to take some information out of Google's hands. 
