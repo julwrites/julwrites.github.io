@@ -2,7 +2,7 @@
 title: "Next.js/Vercel with React/TS website for my Wedding"
 description: "As my wedding was approaching, I thought; what better way to motivate myself for a project than to build a website for my wedding?"
 pubDate: "Mar 29 2021"
-heroImage: "/blog/assets/blog/2021_03_29_React_Website/Livestream.png"
+heroImage: "/assets/blog/2021_03_29_React_Website/Livestream.png"
 ---
 
 As my wedding was approaching, I thought; what better way to motivate myself for a project than to build a website for my wedding? So I started out with the following goals:

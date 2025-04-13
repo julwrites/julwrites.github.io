@@ -2,7 +2,7 @@
 title: "Setting up PiVPN and PiHole"
 description: "I wanted more control over my network traffic, and the ability to tunnle"
 pubDate: "Feb 11 2023"
-heroImage: "/blog/assets/blog/2023_02_11_PiVPN_PiHole/PiVPN.png"
+heroImage: "/assets/blog/2023_02_11_PiVPN_PiHole/PiVPN.png"
 ---
 
 ## Pi Networking

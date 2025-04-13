@@ -2,7 +2,7 @@
 title: "Setting up Code Server using Docker on Fedora"
 description: "I wanted to get my machine to a point where I could at least launch a VM or a container with VSCode server installed"
 pubDate: "Aug 15 2020"
-heroImage: "/blog/assets/blog/2020_08_15_Code_Server/CodeServer.png"
+heroImage: "/assets/blog/2020_08_15_Code_Server/CodeServer.png"
 ---
 
 At the time of writing, Fedora 31/32 had not yet implemented enough support for `nftables`, and this was causing Docker and Podman both to run into [problems](https://fedoramagazine.org/docker-and-fedora-32/) while running or exposing their interfaces for management. While I managed to get Portainer running in my last post, it was not able to actually launch or run any docker containers through `docker-compose` and `moby`.

@@ -2,7 +2,7 @@
 title: "Re-writing my website in Elm"
 description: "I had been gaining interest in Functional Programming and its' paradigms for awhile, and looking for a small project to do with it."
 pubDate: "Feb 02 2022"
-heroImage: "/blog/assets/blog/2022_02_02_Elm_Website/Home_Page.png"
+heroImage: "/assets/blog/2022_02_02_Elm_Website/Home_Page.png"
 ---
 
 I had been gaining interest in Functional Programming and its' paradigms for awhile, and looking for a small project to do with it. 

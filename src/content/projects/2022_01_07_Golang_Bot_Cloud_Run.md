@@ -2,7 +2,7 @@
 title: "Migrating my Golang Bot to Google Cloud Run"
 description: "Prior to this, I had hosted my Telegram Bot on Google Cloud App Engine"
 pubDate: "Jan 07 2022"
-heroImage: "/blog/assets/blog/2022_01_07_Golang_Bot_Cloud_Run/Cloud_Run.png"
+heroImage: "/assets/blog/2022_01_07_Golang_Bot_Cloud_Run/Cloud_Run.png"
 ---
 
 Prior to this, I had hosted my Telegram Bot on Google Cloud App Engine, and this had worked decently well - for years, I might add - until recently I did a routine check on my bill statements and discovered that I had a $3 charge from Google. 

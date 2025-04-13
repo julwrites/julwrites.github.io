@@ -2,7 +2,7 @@
 title: "Refurbishing second-hand bicycles"
 description: "Since I moved nearer to my office, I decided to make cycling part of my commute"
 pubDate: "Feb 11 2023"
-heroImage: "/blog/assets/blog/2023_02_11_Replacing_Bicycle_Parts/Bicycles.png"
+heroImage: "/assets/blog/2023_02_11_Replacing_Bicycle_Parts/Bicycles.png"
 ---
 
 My Wife and I moved in December to our new home - which we intend to be our long-term home - and this was much nearer to my office than previously.

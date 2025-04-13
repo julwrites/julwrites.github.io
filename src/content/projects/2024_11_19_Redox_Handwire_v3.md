@@ -2,7 +2,7 @@
 title: "Redox Handwire Iteration 3"
 description: "My first two attempts turned out to be too flaky, so I tried something new"
 pubDate: "Nov 19 2024"
-heroImage: "/blog/assets/blog/2024_11_19_Redox_Handwire_v3/AssembledNoKeycaps.jpeg"
+heroImage: "/assets/blog/2024_11_19_Redox_Handwire_v3/AssembledNoKeycaps.jpeg"
 ---
 
 So, as I previously blogged about, I've been using a [ Redox Handwire keyboard build ](https://tehj.io/blog/projects/2022_01_17_redox_keyboard_builds/). 
