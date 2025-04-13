@@ -9,4 +9,10 @@ export default {
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/container-queries'),
   ],
+  // Make sure Tailwind processes all CSS files
+  safelist: [
+    {
+      pattern: /.*/,
+    },
+  ],
 }

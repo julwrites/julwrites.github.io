@@ -11,6 +11,9 @@
   --content-spacing: 30px;
   --border-radius: 10px;
   --max-width: 800px;
+  
+  /* Add a flag to check if styles are loaded */
+  --styles-loaded: true;
 }
 
 /* Media query variables */
