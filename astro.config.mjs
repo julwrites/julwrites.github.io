@@ -1,10 +1,11 @@
 import { defineConfig } from 'astro/config';
+import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
+import vue from "@astrojs/vue";
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  // Your configuration options here
   site: 'https://tehj.io',
-  integrations: [],
-  // If your blog is in a submodule, you might need additional configuration
-  // We'll address this after seeing your blog structure
+  integrations: [mdx(), sitemap(), vue(), tailwind()]
 });
