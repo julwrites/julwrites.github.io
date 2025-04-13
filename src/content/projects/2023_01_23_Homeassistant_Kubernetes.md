@@ -19,7 +19,7 @@ Since I was going to be working on Raspberry Pi's, with the exception of one old
 
 This itself was quite straightforward, and it was easy to get the control plan up, and even set up nodes. I just flashed them with Ubuntu, booted them up, and ran `sudo snap install microk8s --classic` like in the guide, and it was done. It even came with a nice little kubernetes dashboard that was pretty straightforward to [ set up ](https://microk8s.io/docs/addon-dashboard).
 
-![Kubernetes Login](/blog/assets/blog/2023_01_13_Homeassistant_Kubernetes/Kubernetes_Login.png)
+![Kubernetes Login](/assets/blog/2023_01_13_Homeassistant_Kubernetes/Kubernetes_Login.png)
 
 Adding nodes was easy as well, just running `microk8s.add-node` and the corresponding `microk8s.join` got everything linked up and ready to go. I had a little trouble with my Ethernet configurations, but that was resolved with a netplan configuration change and some router settings; apparently creating multiple networks on my Unifi router created more networking trouble than I thought it would.
 
@@ -31,7 +31,7 @@ This mean I had to create a deployment that would pull the homeassistant contain
 
 All this could be done using `kubectl apply` and the associated `.yaml` manifest. I realized a little ways into this project that I could club multiple such manifest together with a `---` separator, and it would run these in sequence; pretty convenient! 
 
-![Microk8s Kubectl Apply](/blog/assets/blog/2023_01_13_Homeassistant_Kubernetes/Microk8s_Kubectl_Apply.png)
+![Microk8s Kubectl Apply](/assets/blog/2023_01_13_Homeassistant_Kubernetes/Microk8s_Kubectl_Apply.png)
 
 This gave me a fairly simple way to try out configuration changes without too much difficulty, since I could just modify the spec file and then run `microk8s kubectl apply -f spec.yaml` and it would do all the steps necessary to spin up the containers, nodes, services, deployments, and later the provisional volumes and volume claims. Similarly to delete them, I could run the same with `microk8s kubectl delete -f spec.yaml`.
 
@@ -39,7 +39,7 @@ All this really made me aware of how much easier - not simpler - Kubernetes made
 
 With some reference to articles and guides from people who have accomplished this same thing, I was able to club together a configuration that spun up all the pieces needed for Homeassistant. 
 
-![Kubernetes Dashboard](/blog/assets/blog/2023_01_13_Homeassistant_Kubernetes/Kubernetes_Dashboard.png)
+![Kubernetes Dashboard](/assets/blog/2023_01_13_Homeassistant_Kubernetes/Kubernetes_Dashboard.png)
 
 ## Persistent Volumes
 
@@ -59,12 +59,12 @@ Ultimately I ended up creating a Persistent Volume and attaching it to the conta
 
 This allowed me to create a Persistent Volume that mapped to a volume on the Synology NAS, which I would mount on the container as `/config`. So my Homeassistant configuration, all the device definitions, settings, extensions and so on, were backed up into my Synology, which I later backed up onto OneDrive for some good old systems paranoia. 
 
-![Synology Volume](/blog/assets/blog/2023_01_13_Homeassistant_Kubernetes/Synology_Homeassistant.png)
+![Synology Volume](/assets/blog/2023_01_13_Homeassistant_Kubernetes/Synology_Homeassistant.png)
 
 ## Setting up Homeassistant
 
 Once all that was done, I now had Homeassistant running, containerized, with its configuration backed up. I tested this a couple of times by intentionally tearing down and spinning up the whole line of manifests, making sure everything spun up correctly, and then went on to connect all my home devices. 
 
-![Homeassistant Dashboard](/blog/assets/blog/2023_01_13_Homeassistant_Kubernetes/Homeassistant_Dashboard.png)
+![Homeassistant Dashboard](/assets/blog/2023_01_13_Homeassistant_Kubernetes/Homeassistant_Dashboard.png)
 
 I think this was a great learning experience for me. I am not a DevOps Engineer or a Backend Engineer, so while I have experience working with Docker containers, the rest of the IaaS stack is quite foreign to me. This gave me a nice insight into how it works, and while I'm nowhere near expert at it, I think I could get by at home.

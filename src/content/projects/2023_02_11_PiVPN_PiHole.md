@@ -9,7 +9,7 @@ heroImage: "/blog/assets/blog/2023_02_11_PiVPN_PiHole/PiVPN.png"
 
 I've been using [PiHole](https://pi-hole.net/) for awhile, and in a few configurations. At one point it was my DHCP server, and that worked quite well especially when I wasn't keen on using my ISP's router settings and wanted more control. 
 
-![PiVPN](/blog/assets/blog/2023_02_11_PiVPN_PiHole/PiVPN.png)
+![PiVPN](/assets/blog/2023_02_11_PiVPN_PiHole/PiVPN.png)
 
 But since I set up Homeassistant recently, I've been wondering about a way to access my home network remotely, so that I could still check on home without needing something like Google Home. A little googling and I found [PiVPN](https://pivpn.io/), which looked perfect. 
 
@@ -27,13 +27,13 @@ Enter Dynamic DNS! PiVPN had some guides for [Dynamic DNS setup](https://docs.pi
 
 Once that was set up, I was good to go! I just ran the commands for adding clients and generating the necessary QR Codes or config files, and got the individual clients set up. 
 
-![PiVPN Add](/blog/assets/blog/2023_02_11_PiVPN_PiHole/PiVPN_Add.png)
+![PiVPN Add](/assets/blog/2023_02_11_PiVPN_PiHole/PiVPN_Add.png)
 
 Now I can access my Homeassistant configuration remotely through the Wireguard tunnel!
 
 ## The final blow
 
-![Wifiman](/blog/assets/blog/2023_02_11_PiVPN_PiHole/Wifiman.png)
+![Wifiman](/assets/blog/2023_02_11_PiVPN_PiHole/Wifiman.png)
 
 Turns out, I was actually able to tunnel into my network using [ WifiMan ](https://wifiman.com/), since I am using a Ubiquiti router. So maybe this whole project was a little moot, but no harm having an open source option, right? 
 
