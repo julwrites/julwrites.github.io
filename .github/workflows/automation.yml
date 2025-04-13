@@ -1,6 +1,8 @@
 name: Run Build and Test Automation
 
-on: [push]
+on: 
+  push:
+    branches: [staging]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
   
