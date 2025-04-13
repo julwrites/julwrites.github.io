@@ -285,7 +285,7 @@ projectListing =
         }
       , thumbnailLink [] 
         { url = "https://github.com/julwrites/cash-register"
-        , src = "assets/images/projects/cashregister.jpg"
+        , src = "assets/images/projects/cashregister.png"
         , description = "Cash-Register" 
         }
       ]
