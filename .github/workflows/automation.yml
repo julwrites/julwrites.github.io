@@ -12,7 +12,7 @@ jobs:
       - name: Node
         uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
 
       - name: Elm
         uses: jorelali/setup-elm@v4
@@ -21,8 +21,8 @@ jobs:
 
       - name: Install 🔧 # This runs a series of commands as if building a live version of the project
         run: |
-          npm install
+          yarn install
 
       - name: Build 🔧 # This runs a series of commands as if building a live version of the project
         run: |
-          npm run build
+          yarn build

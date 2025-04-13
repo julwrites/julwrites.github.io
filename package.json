@@ -1,15 +1,26 @@
 {
-    "name": "julwrites.github.io",
-    "version": "2.0.0",
-    "scripts": {
-        "postinstall": "elm-tooling install",
-        "dev": "elm reactor",
-        "build": "elm make src/Main.elm --output=public/main.js"
-    },
-    "devDependencies": {
-        "elm-optimize-level-2": "0.2.3",
-        "elm-pages": "2.1.10",
-        "elm-review": "^2.5.5",
-        "elm-tooling": "^1.4.0"
-    }
+  "name": "julwrites.github.io",
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^3.6.0",
+    "@astrojs/mdx": "^2.0.0",
+    "@astrojs/rss": "^4.0.0",
+    "@astrojs/sitemap": "^3.0.0",
+    "@astrojs/tailwind": "^5.0.0",
+    "@astrojs/vue": "^4.0.0",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/container-queries": "^0.1.0",
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "@tailwindcss/typography": "^0.5.9",
+    "tailwindcss": "^3.3.5",
+    "vue": "^3.3.8"
+  }
 }

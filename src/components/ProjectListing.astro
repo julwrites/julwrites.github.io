@@ -1,0 +1,104 @@
+---
+---
+
+<section class="projects card">
+  <div class="project-section">
+    <h2>Hobby Projects</h2>
+    <div class="project-grid">
+      <a href="https://github.com/julwrites/ScriptureBot" target="_blank" class="project-card">
+        <img src="/assets/images/projects/scripturebot.png" alt="ScriptureBot" />
+        <span class="project-title">ScriptureBot</span>
+      </a>
+      <a href="https://github.com/julwrites/cash-register" target="_blank" class="project-card">
+        <img src="/assets/images/projects/cashregister.png" alt="Cash-Register" />
+        <span class="project-title">Cash Register</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="project-section">
+    <h2>School Projects</h2>
+    <div class="project-grid">
+      <a href="http://games.digipen.edu/games/bibbb" target="_blank" class="project-card">
+        <img src="/assets/images/projects/BIBBB_1.jpg" alt="BIBBB" />
+        <span class="project-title">BIBBB</span>
+      </a>
+      <a href="http://games.digipen.edu/games/flowline" target="_blank" class="project-card">
+        <img src="/assets/images/projects/Flowline_1.jpg" alt="Flowline" />
+        <span class="project-title">Flowline</span>
+      </a>
+      <a href="http://games.digipen.edu/games/shortcircuit" target="_blank" class="project-card">
+        <img src="/assets/images/projects/ShortCircuit_1.jpg" alt="Short Circuit" />
+        <span class="project-title">Short Circuit</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects {
+    display: flex;
+    flex-direction: column;
+    gap: var(--content-spacing);
+    margin: 0 auto;
+  }
+
+  .project-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+  }
+  
+  @media (max-width: 600px) {
+    .project-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin: 0;
+    text-align: center;
+    color: var(--accent-color);
+  }
+
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    background-color: rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+  }
+
+  .project-title {
+    font-weight: 500;
+    text-align: center;
+  }
+
+  a img {
+    height: 128px;
+    object-fit: contain;
+  }
+</style>
