@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 interface Props {
   title: string;
 }
@@ -13,37 +15,77 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Fira+Mono&display=swap" rel="stylesheet">
     <title>{title}</title>
   </head>
   <body>
-    <slot />
+    <header class="site-header">
+      <div class="container">
+        <nav>
+          <a href="/" class="site-title">tehj.io</a>
+          <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/blog">Blog</a>
+            <a href="/projects">Projects</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main class="content">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; {new Date().getFullYear()} Julian Teh. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>
 
-<style is:global>
-  :root {
-    --border-color: rgb(0, 0, 0);
-    --background-color: rgb(34, 44, 60);
-    --font-color: rgb(255, 255, 255);
-    --disabled-font-color: rgb(128, 128, 128);
-    --padding: 30px;
-    --menu-spacing: 5px;
-    --footer-spacing: 30px;
-    --content-spacing: 30px;
+<style>
+  .site-header {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--theme-border);
+    margin-bottom: 2rem;
   }
-  
-  html {
-    font-family: 'Fira Sans', sans-serif;
-    background-color: var(--background-color);
-    color: var(--font-color);
-  }
-  
-  body {
-    margin: 0;
-    padding: var(--padding);
+
+  .site-header nav {
     display: flex;
-    flex-direction: column;
-    min-height: calc(100vh - 2 * var(--padding));
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .site-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--theme-text);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .nav-links a {
+    color: var(--theme-text);
+  }
+
+  .nav-links a:hover {
+    text-decoration: underline;
+  }
+
+  .content {
+    min-height: calc(100vh - 180px);
+  }
+
+  .site-footer {
+    margin-top: 3rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--theme-border);
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-gray-500);
   }
 </style>

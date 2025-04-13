@@ -1,0 +1,122 @@
+/* Global styles */
+:root {
+  --font-fallback: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  --font-body: 'Inter', var(--font-fallback);
+  --font-mono: 'Fira Mono', monospace;
+  
+  --color-white: #fff;
+  --color-black: #000;
+  
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  
+  --color-blue-500: #3b82f6;
+  --color-blue-700: #1d4ed8;
+  
+  --content-width: 720px;
+  --content-spacing: 2rem;
+}
+
+/* Theme-specific colors */
+:root {
+  --theme-bg: var(--color-white);
+  --theme-text: var(--color-gray-800);
+  --theme-link: var(--color-blue-500);
+  --theme-link-hover: var(--color-blue-700);
+  --theme-border: var(--color-gray-200);
+  --theme-code-bg: var(--color-gray-100);
+  --theme-code-text: var(--color-gray-800);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --theme-bg: var(--color-gray-900);
+    --theme-text: var(--color-gray-100);
+    --theme-link: var(--color-blue-500);
+    --theme-link-hover: var(--color-blue-700);
+    --theme-border: var(--color-gray-700);
+    --theme-code-bg: var(--color-gray-800);
+    --theme-code-text: var(--color-gray-100);
+  }
+}
+
+/* Global styles */
+html {
+  font-family: var(--font-body);
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--theme-link);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--theme-link-hover);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+p {
+  margin: 0 0 1rem 0;
+}
+
+pre, code {
+  font-family: var(--font-mono);
+  background-color: var(--theme-code-bg);
+  color: var(--theme-code-text);
+}
+
+pre {
+  padding: 1rem;
+  border-radius: 0.25rem;
+  overflow-x: auto;
+}
+
+code {
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Container */
+.container {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
