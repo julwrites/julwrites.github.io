@@ -10,7 +10,17 @@
   --footer-spacing: 30px;
   --content-spacing: 30px;
   --border-radius: 10px;
-  --max-width: 65ch;
+  --max-width: 800px;
+}
+
+/* Media query variables */
+@media (max-width: 768px) {
+  :root {
+    --padding: 15px;
+    --menu-spacing: 5px;
+    --footer-spacing: 20px;
+    --content-spacing: 20px;
+  }
 }
 
 body {
@@ -21,6 +31,7 @@ body {
   margin: 0 auto;
   max-width: var(--max-width);
   line-height: 1.5;
+  width: calc(100% - 2 * var(--padding));
 }
 
 a {
@@ -61,9 +72,10 @@ nav {
 
 nav a {
   color: var(--font-color);
-  padding: 5px 10px;
+  padding: 8px 12px;
   border-radius: 5px;
   transition: background-color 0.2s ease;
+  white-space: nowrap;
 }
 
 nav a:hover {
@@ -74,6 +86,12 @@ nav a:hover {
 nav a.active {
   font-weight: bold;
   background-color: rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 768px) {
+  nav {
+    justify-content: center;
+  }
 }
 
 code {
