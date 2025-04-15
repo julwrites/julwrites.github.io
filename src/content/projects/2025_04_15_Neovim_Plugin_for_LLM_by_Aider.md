@@ -25,9 +25,11 @@ This was a bit unusual. It's rare to find a use case in the community which some
 
 So I created a new repository, and threw the task to Aider to create a Neovim plugin that would integrate `llm` commands with Neovim. It did really well; after a few stumbles here and there, I was able to get a working skeleton up and running. Immediately after, I got it to start writing tests, and dogfooded the plugin myself to see how it felt like. 
 
-About 30 minutes later, I had a working [llm-nvim](https://github.com/julwrites/llm-nvim) plugin, which could chat with a LLM through the `llm` tool. This was nice, and then I thought, why not go further?
+About 30 minutes later, I had a working [llm-nvim](https://github.com/julwrites/llm-nvim) plugin, which could chat with a LLM through the `llm` tool. 
 
-![llm-nvim-chat](/assets/blog/2025_04_15_Neovim_Plugin_for_LLM_by_Aider/llm-nvim-packer.png)
+![llm-nvim-chat](/assets/blog/2025_04_15_Neovim_Plugin_for_LLM_by_Aider/llm-nvim-chat.png)
+
+This was nice, and then I thought, so why not go further?
 
 2 hours in, I had a couple more things. 
 
