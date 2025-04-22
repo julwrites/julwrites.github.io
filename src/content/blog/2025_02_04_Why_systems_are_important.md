@@ -1,8 +1,8 @@
 ---
 title: "Why systems are important"
-date: ""
-draft: true
 description: "To me, systems have a certain beauty."
+pubDate: ""
+draft: true
 ---
 
 To me, systems have a certain beauty. A well-designed system is akin to art (and indeed some characterize architecture as exactly a discipline that bridges art and science).

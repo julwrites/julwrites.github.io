@@ -1,7 +1,7 @@
 ---
 title: "Leadership Thinking Time"
-date: "Dec 3 2024"
 description: "As the end of the year draws near, so does the deadline for year end reports."
+pubDate: "Dec 3 2024"
 ---
 
 As the end of the year draws near, so does the deadline for year end reports. This means a lot of the usual; reviewing the year gone by, and planning for the next year.

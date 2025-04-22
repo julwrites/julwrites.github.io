@@ -1,8 +1,8 @@
 ---
 title: "Leadership's renewal problem"
-date: ""
-draft: true
 description: "The renewal of leaders has been a particular interest of mine in recent years."
+pubDate: ""
+draft: true
 ---
 
 The renewal of leaders has been a particular interest of mine in recent years. I would like to say it is because I matured, but it is probably more motivated by having observed and participated in organizations where incumbent leaders fail to successfully replace themselves.

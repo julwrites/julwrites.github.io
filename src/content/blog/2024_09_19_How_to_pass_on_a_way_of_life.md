@@ -1,7 +1,7 @@
 ---
 title: "How to pass on a way of life"
-date: "Sep 19 2024"
 description: "Recently I had a short discussion with a friend about my fixation with systems for Christian Disciple-making (this idea of making disciples can be found in Matthew 28:19 - the Great Commission - in the Bible)"
+pubDate: "Sep 19 2024"
 ---
 
 Recently I had a short discussion with a friend about my fixation with systems for Christian Disciple-making (this idea of making disciples can be found in Matthew 28:19 - the Great Commission - in the Bible)

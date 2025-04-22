@@ -1,8 +1,8 @@
 ---
 title: "Leadership requires rest"
-date: ""
-draft: true
 description: "Many of the leaders around me are perpetually exhausted."
+pubDate: ""
+draft: true
 ---
 
 Many of the leaders around me are perpetually exhausted. This seems to be part of the burden of leadership; a leader shoulders many burdens, and a servant leader - the penultimate kind of Christian leader - shoulders even more.
