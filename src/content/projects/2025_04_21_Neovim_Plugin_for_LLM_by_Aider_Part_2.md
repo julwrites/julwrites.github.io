@@ -21,7 +21,7 @@ I restructured the code so that I have a bunch of manager windows, one for each 
 
 I also went ahead and broke up all the utilities and configuration and styles into their own common files for better code reuse. This helped a lot with how Aider handled the code later too.
 
-<video src="/assets/blog/2025_04_21_Neovim_Plugin_for_LLM_by_Aider_Part_2/llm-nvim-models-plugins-keys.mov" controls />
+<video src="/assets/blog/2025_04_21_Neovim_Plugin_for_LLM_by_Aider_Part_2/llm-nvim-models-plugins-keys.mov" controls></video>
 
 The first version last week was able to manage models, plugins and keys. The new one can also do this, but perhaps a bit more consistently. I did manage to add aliases, and also some validation checks (e.g. if you try to set a model to default which has no API Key or enabling plugin, it will tell you)
 
@@ -29,7 +29,7 @@ These were the simpler functionalities; in general it was not so complex to set 
 
 The really complicated ones were the Fragments, Schemas and Templates. 
 
-<video src="/assets/blog/2025_04_21_Neovim_Plugin_for_LLM_by_Aider_Part_2/llm-nvim-fragments.mov" controls />
+<video src="/assets/blog/2025_04_21_Neovim_Plugin_for_LLM_by_Aider_Part_2/llm-nvim-fragments.mov" controls></video>
 
 Fragments are a big one. In fact, this is the one that I had the most trouble with, because there's so many things involved in it. A fragment could be a file or a URL, it could have an alias or multiple aliases, it could be used individually or together with other fragments or selections... 
 
@@ -37,7 +37,7 @@ It also doesn't help that fragments are only found in the llm logs, and not in a
 
 Nonetheless, now llm-nvim is able to add new fragments from disk or from github, and use these flexibly in a prompt.
 
-<video src="/assets/blog/2025_04_21_Neovim_Plugin_for_LLM_by_Aider_Part_2/llm-nvim-schemas.mov" controls />
+<video src="/assets/blog/2025_04_21_Neovim_Plugin_for_LLM_by_Aider_Part_2/llm-nvim-schemas.mov" controls></video>
 
 Schemas were another really messy one. Probably on purpose, there are 5 ways to specify a schema, and I was trying to handle.. most of them, and make them human-readable. 
 
@@ -45,7 +45,7 @@ So I had to figure out how to specify a schema in a JSON or DSL, and correctly s
 
 The other thing which tripped me up is that I forgot not all models can return a structured response. So when I was testing it, I kept running up against this when trying it with Gemini, and only realized after several 'bug fixing' prompts that I was just using the wrong model.
 
-<video src="/assets/blog/2025_04_21_Neovim_Plugin_for_LLM_by_Aider_Part_2/llm-nvim-templates.mov" controls />
+<video src="/assets/blog/2025_04_21_Neovim_Plugin_for_LLM_by_Aider_Part_2/llm-nvim-templates.mov" controls></video>
 
 Templates were - despite the complexity that they can encapsulate - the easiest to implement. Partly because they are stored in a json, and so I could just directly read-write that json, and partly because it could be broken into steps where everything was kind of a choice for the user (e.g. whether to use a schema, or a fragment, etc...)
 
