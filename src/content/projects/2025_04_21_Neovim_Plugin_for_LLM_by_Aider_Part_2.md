@@ -51,13 +51,15 @@ Templates were - despite the complexity that they can encapsulate - the easiest 
 
 ## What I learned about using LLMs
 
-The usual lessons still apply:
+### The usual lessons are still relevant
 
 - Reducing context helps the LLM to focus
+
 - What you are vague about, the LLM can be creative with
+
 - Helping the LLM to break down the task helps to get it done
 
-Some new ones:
+### Some new observations
 
 1. It can often be cheaper (and faster and easier) to go in and make a small change by yourself. I found myself often asking the LLM to remove things multiple times just to realize that I could have removed that with a couple of lines change.
 
