@@ -4,8 +4,10 @@ import Layout from '../../layouts/Layout.astro';
 import BaseHead from '../../components/BaseHead.astro';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog');
+const posts = await getCollection('blog', ({data}) => { data.draft !== true });
   console.log('Building paths for blog posts:', posts.length); // Debug log
+  posts.sort((a, b) => b.data.pubData.valueOf() - a.data.pubDate.valueOf());
+
   return posts.map(post => ({
     params: { slug: post.slug },
     props: { post },
