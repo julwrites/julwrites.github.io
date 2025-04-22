@@ -1,8 +1,7 @@
 ---
-title: Scrambling for focus
-date: 2024-09-17T11:28:59.000Z
-draft: true
-description: I don't mean this to be a journal entry, but I've been feeling cognitively fragmented recently.
+title: "Scrambling for focus"
+pubDate: "Sep 17 2024"
+description: "I don't mean this to be a journal entry, but I've been feeling cognitively fragmented recently."
 ---
 
 I don't mean this to be a journal entry, but I've been feeling cognitively fragmented recently. By which I mean that my attention span is shorter, my priorities are muddled, and my focus is shattered.

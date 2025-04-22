@@ -1,8 +1,7 @@
 ---
-title: Leaders must be unreasonable
-date: 2024-11-10T16:16:52.000Z
-draft: true
-description: I did a double-take even as I was writing that title.
+title: "Leaders must be unreasonable"
+date: "Nov 10 2024"
+description: "I did a double-take even as I was writing that title."
 ---
 
 I did a double-take even as I was writing that title. It seems just controversial enough that it necessitates some additional thought, and that's why it seemed good for me to write about it. Remember, the point of these essays is to hone my thinking.

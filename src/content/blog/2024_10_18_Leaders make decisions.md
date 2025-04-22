@@ -1,8 +1,7 @@
 ---
-title: Leaders make decisions
-date: 2024-10-18T09:39:44.000Z
-draft: true
-description: Leadership means many things.
+title: "Leaders make decisions"
+date: "Oct 18 2024"
+description: "Leadership means many things."
 ---
 
 Leadership means many things. As I've learned from John Maxwell, leadership means being able to do many things well - and forming a team to help you with things you don't.
