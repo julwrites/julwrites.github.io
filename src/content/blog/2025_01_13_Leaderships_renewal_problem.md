@@ -1,7 +1,7 @@
 ---
 title: "Leadership's renewal problem"
 description: "The renewal of leaders has been a particular interest of mine in recent years."
-pubDate: ""
+pubDate: "Jan 13 2025"
 draft: true
 ---
 

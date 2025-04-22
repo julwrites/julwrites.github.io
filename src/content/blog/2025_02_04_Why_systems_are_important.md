@@ -1,7 +1,7 @@
 ---
 title: "Why systems are important"
 description: "To me, systems have a certain beauty."
-pubDate: ""
+pubDate: "Feb 4 2025"
 draft: true
 ---
 

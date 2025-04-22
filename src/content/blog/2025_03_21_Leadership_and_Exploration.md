@@ -1,7 +1,7 @@
 ---
 title: "Leadership and Exploration"
 description: "In many ways, leaders must be explorers."
-pubDate: ""
+pubDate: "Mar 21 2025"
 draft: true
 ---
 
