@@ -21,7 +21,7 @@ I restructured the code so that I have a bunch of manager windows, one for each 
 
 I also went ahead and broke up all the utilities and configuration and styles into their own common files for better code reuse. This helped a lot with how Aider handled the code later too.
 
-![llm-nvim-manager](/assets/blog/2025_04_21_Neovim_Plugin_for_LLM_by_Aider_Part_2/llm-nvim-models-plugins-keys.mov)
+<video src="/assets/blog/2025_04_21_Neovim_Plugin_for_LLM_by_Aider_Part_2/llm-nvim-models-plugins-keys.mov" controls />
 
 The first version last week was able to manage models, plugins and keys. The new one can also do this, but perhaps a bit more consistently. I did manage to add aliases, and also some validation checks (e.g. if you try to set a model to default which has no API Key or enabling plugin, it will tell you)
 
