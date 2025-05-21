@@ -21,11 +21,11 @@ The skeleton of Version 2 now serves as a reminder of the best place to start my
 
 Version 4 combined a lot of my learnings to create a new, iterative ideal:
 
-1.  Internally, the fewer soldered parts, the better; ideally, parts should be directly connected to one another and not through another wire.
-2.  TRRS requires another hole, and connectivity is sometimes a problem; USB-C would be ideal.
-3.  Frequent plugging in and out leads to loose connections; ideally, we'd have a mounted part for the microcontroller and USB-C connectors.
-4.  Low-profile keys would be nice if possible.
-5.  Wrist-rests should be touching the keyboard for easier alignment but also be large enough to encapsulate the palm.
+1)  Internally, the fewer soldered parts, the better; ideally, parts should be directly connected to one another and not through another wire.
+2)  TRRS requires another hole, and connectivity is sometimes a problem; USB-C would be ideal.
+3)  Frequent plugging in and out leads to loose connections; ideally, we'd have a mounted part for the microcontroller and USB-C connectors.
+4)  Low-profile keys would be nice if possible.
+5)  Wrist-rests should be touching the keyboard for easier alignment but also be large enough to encapsulate the palm.
 
 I already knew how to solve point 1 by Version 3, and I had some ideas on how to do this with Version 4.
 
@@ -35,24 +35,24 @@ It was point 3 that took me a while. This, in conjunction with the new USB-C, re
 
 I did some searching and found a suitable board online which would accommodate the Arduino Pro Micro that I use.
 
-![The PCB plate order from Aliexpress.](/assets/blog/2025_05_20_Redox_Handwire_v4/pcb_plate_order.jpg)
+![The PCB plate order from Aliexpress.](/assets/blog/2025_05_20_Redox_Handwire_v4/pcb_plate_order.jpeg)
 *The PCB plate I ordered from Aliexpress.*
 
 While I waited, I did some CAD work with Fusion 360 to modify the original Redox Handwire V1 case to my liking, adding tilt, reinforcing, the wider cutout, and wrist rests.
 
-![CAD model showing the reinforced plate design.](/assets/blog/2025_05_20_Redox_Handwire_v4/reinforced_plate.jpg)
+![CAD model showing the reinforced plate design.](/assets/blog/2025_05_20_Redox_Handwire_v4/reinforced_plate.jpeg)
 *The reinforced plate design in CAD.*
 
 Since I wanted low-profile switches, I also had to use low-profile hotswap sockets, which had a very slightly different positioning. This also meant that my reinforcing strips had to take these positions into account.
 
-![CAD model of the extended wrist rests.](/assets/blog/2025_05_20_Redox_Handwire_v4/extended_wristrest.jpg)
+![CAD model of the extended wrist rests.](/assets/blog/2025_05_20_Redox_Handwire_v4/extended_wristrest.png)
 *Extended wrist rests in the CAD model.*
 
 And of course, the wrist rests were extended accordingly, and I chamfered the edges for a more comfortable resting point.
 
 Once the parts came, I was able to do a test fit.
 
-![The PCB plate parts and hotmelt sockets ready for a test fit.](/assets/blog/2025_05_20_Redox_Handwire_v4/pcb_plate_hotmelt_sockets.jpg)
+![The PCB plate parts and hotmelt sockets ready for a test fit.](/assets/blog/2025_05_20_Redox_Handwire_v4/pcb_plate_hotmelt_sockets.jpeg)
 *PCB plate parts and hotmelt sockets ready for a test fit.*
 
 And there the problems began. I was off by half a millimeter in one direction or another, and it took me several tries (my mentee, who was 3D printing the parts for me, was a little incredulous to find out that I didn't have vernier calipers) to get the dimensions right.
@@ -64,17 +64,17 @@ I learn a lot through these projects, a key lesson being to think differently wh
 
 On top of fitting the PCB plate, I also had to worry about whether I had enough overhead from the PCB plate to the wiring above; if that touched, it would cause a ghost key effect, which I had seen in my Version 3.
 
-![CAD showing the socket cutout to ensure clearance.](/assets/blog/2025_05_20_Redox_Handwire_v4/socket_cutout.jpg)
+![CAD showing the socket cutout to ensure clearance.](/assets/blog/2025_05_20_Redox_Handwire_v4/socket_cutout.png)
 *Modifying the CAD for socket cutouts to ensure clearance.*
 
 So, I had to also modify the CAD design so that the microcontroller and USB-C sat below the PCB plate, giving plenty of room for the wiring above it.
 
-![The finished CAD design after multiple iterations.](/assets/blog/2025_05_20_Redox_Handwire_v4/finished_cad.jpg)
+![The finished CAD design after multiple iterations.](/assets/blog/2025_05_20_Redox_Handwire_v4/finished_cad.png)
 *The finished CAD after many revisions.*
 
 The final CAD looked like this; as you can see, this was 10 versions of changes, between very small position changes and large cutout adjustments.
 
-![Test fitting the PCB plate into the 3D printed case.](/assets/blog/2025_05_20_Redox_Handwire_v4/test_fit_pcb_plate.jpg)
+![Test fitting the PCB plate into the 3D printed case.](/assets/blog/2025_05_20_Redox_Handwire_v4/test_fit_pcb_plate.jpeg)
 *Finally, a successful test fit of the PCB plate!*
 
 Finally, all the fitting had been done, and I could move on to the actual soldering.
