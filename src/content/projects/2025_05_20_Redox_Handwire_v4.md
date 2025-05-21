@@ -40,7 +40,7 @@ I did some searching and found a suitable board online which would accommodate t
 
 While I waited, I did some CAD work with Fusion 360 to modify the original Redox Handwire V1 case to my liking, adding tilt, reinforcing, the wider cutout, and wrist rests.
 
-![CAD model showing the reinforced plate design.](/assets/blog/2025_05_20_Redox_Handwire_v4/reinforced_plate.jpeg)
+![CAD model showing the reinforced plate design.](/assets/blog/2025_05_20_Redox_Handwire_v4/reinforced_plate.png)
 *The reinforced plate design in CAD.*
 
 Since I wanted low-profile switches, I also had to use low-profile hotswap sockets, which had a very slightly different positioning. This also meant that my reinforcing strips had to take these positions into account.
