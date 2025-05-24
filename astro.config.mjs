@@ -14,7 +14,10 @@ export default defineConfig({
     sitemap(),
     vue(),
     tailwind(),
-    yeskunallumami({ id: "73173525-4cfd-4b92-a118-04a8135c2c82" }),
+    yeskunallumami({
+      endpointUrl: "https://umami.tehj.sh",
+      id: "73173525-4cfd-4b92-a118-04a8135c2c82",
+    }),
   ],
   vite: {
     optimizeDeps: {
