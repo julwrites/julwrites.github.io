@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compact Mortgage Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <h1>Compact Mortgage Calculator</h1>
+        </header>
+
+        <!-- Compact Input Form - Single Row -->
+        <div class="input-section">
+            <div class="card compact-card">
+                <div class="card__body">
+                    <form id="mortgageForm" class="compact-form">
+                        <div class="form-row-compact">
+                            <div class="form-group-compact">
+                                <label for="housingPrice" class="form-label-compact">Housing Price ($)</label>
+                                <input type="number" id="housingPrice" class="form-control-compact" value="500000" min="0" step="1000">
+                            </div>
+                            
+                            <div class="form-group-compact">
+                                <label for="loanAmount" class="form-label-compact">Loan Amount ($)</label>
+                                <input type="number" id="loanAmount" class="form-control-compact" value="400000" min="0" step="1000">
+                            </div>
+                            
+                            <div class="form-group-compact">
+                                <label for="loanYears" class="form-label-compact">Years</label>
+                                <input type="number" id="loanYears" class="form-control-compact" value="30" min="1" max="50" step="1">
+                            </div>
+                            
+                            <div class="form-group-compact">
+                                <label for="interestRate" class="form-label-compact">Rate (%)</label>
+                                <input type="number" id="interestRate" class="form-control-compact" value="6.5" min="0" max="50" step="0.01">
+                            </div>
+
+                            <div class="form-group-compact">
+                                <label for="startMonth" class="form-label-compact">Start Month</label>
+                                <select id="startMonth" class="form-control-compact">
+                                    <option value="0" selected>Jan</option>
+                                    <option value="1">Feb</option>
+                                    <option value="2">Mar</option>
+                                    <option value="3">Apr</option>
+                                    <option value="4">May</option>
+                                    <option value="5">Jun</option>
+                                    <option value="6">Jul</option>
+                                    <option value="7">Aug</option>
+                                    <option value="8">Sep</option>
+                                    <option value="9">Oct</option>
+                                    <option value="10">Nov</option>
+                                    <option value="11">Dec</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group-compact">
+                                <label for="startYear" class="form-label-compact">Year</label>
+                                <input type="number" id="startYear" class="form-control-compact" value="2024" min="2020" max="2100" step="1">
+                            </div>
+                            
+                            <div class="form-group-compact">
+                                <button type="button" id="calculateBtn" class="btn btn--primary btn--compact">
+                                    Calculate
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compact Loan Summary - Horizontal Cards -->
+        <div class="summary-section">
+            <div class="card compact-card">
+                <div class="card__body">
+                    <div class="summary-metrics-compact">
+                        <div class="metric-item-compact">
+                            <div class="metric-label-compact">Monthly Payment</div>
+                            <div id="monthlyPayment" class="metric-value-compact">$0.00</div>
+                            <div id="monthlyPaymentNote" class="metric-note-compact" style="display: none;"></div>
+                        </div>
+                        
+                        <div class="metric-item-compact">
+                            <div class="metric-label-compact">Total Interest</div>
+                            <div id="totalInterest" class="metric-value-compact">$0.00</div>
+                        </div>
+                        
+                        <div class="metric-item-compact">
+                            <div class="metric-label-compact">Total Payments</div>
+                            <div id="totalPayments" class="metric-value-compact">$0.00</div>
+                        </div>
+                        
+                        <div class="metric-item-compact">
+                            <div class="metric-label-compact">Payoff Date</div>
+                            <div id="payoffDate" class="metric-value-compact">-</div>
+                        </div>
+                    </div>
+                    
+                    <div class="extra-payment-summary-compact" id="extraPaymentSummary" style="display: none;">
+                        <div class="summary-metrics-compact">
+                            <div class="metric-item-compact savings">
+                                <div class="metric-label-compact">Interest Savings</div>
+                                <div id="interestSavings" class="metric-value-compact">$0.00</div>
+                            </div>
+                            
+                            <div class="metric-item-compact savings">
+                                <div class="metric-label-compact">Time Saved</div>
+                                <div id="timeSaved" class="metric-value-compact">0 months</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compact Recalculation Options -->
+        <div class="recalc-options-section" id="recalcOptionsSection" style="display: none;">
+            <div class="card compact-card">
+                <div class="card__body">
+                    <div class="recalc-options-compact">
+                        <div class="option-item-compact">
+                            <input type="radio" id="optionReduceTerm" name="recalcOption" value="reduceTerm" checked>
+                            <label for="optionReduceTerm" class="option-label-compact">
+                                <strong>Reduce Loan Term (Accelerated Payoff)</strong> - Keep payment same, shorten loan
+                            </label>
+                        </div>
+                        
+                        <div class="option-item-compact">
+                            <input type="radio" id="optionReducePayment" name="recalcOption" value="reducePayment">
+                            <label for="optionReducePayment" class="option-label-compact">
+                                <strong>Reduce Monthly Payment (Recast)</strong> - Keep term same, lower payments
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compact Side-by-Side Payment Sections -->
+        <div class="payments-layout-compact">
+            <!-- Monthly Repayments Table -->
+            <div class="monthly-section-compact">
+                <div class="card compact-card">
+                    <div class="card__header-compact">
+                        <h3>Monthly Repayments Schedule</h3>
+                        <button type="button" id="exportMonthlyBtn" class="btn btn--outline btn--xs">
+                            Export CSV
+                        </button>
+                    </div>
+                    <div class="card__body-compact">
+                        <div class="table-container-compact">
+                            <table id="monthlyPaymentsTable" class="payments-table-compact">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Date</th>
+                                        <th>Payment</th>
+                                        <th>Principal</th>
+                                        <th>Interest</th>
+                                        <th>Balance</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="monthlyScheduleBody">
+                                    <tr>
+                                        <td colspan="6" class="no-data">Enter loan parameters and click "Calculate" to view schedule</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Extra Payments Section -->
+            <div class="extra-section-compact">
+                <div class="card compact-card">
+                    <div class="card__header-compact">
+                        <h3>Extra Payments</h3>
+                        <button type="button" id="exportExtraBtn" class="btn btn--outline btn--xs">
+                            Export CSV
+                        </button>
+                    </div>
+                    <div class="card__body-compact">
+                        <!-- Add Extra Payment Form -->
+                        <div class="extra-payment-form-compact">
+                            <form id="extraPaymentForm" class="extra-form-compact">
+                                <div class="extra-form-row">
+                                    <select id="extraPaymentMonth" class="form-control-xs">
+                                        <option value="0">Jan</option>
+                                        <option value="1">Feb</option>
+                                        <option value="2">Mar</option>
+                                        <option value="3">Apr</option>
+                                        <option value="4">May</option>
+                                        <option value="5">Jun</option>
+                                        <option value="6">Jul</option>
+                                        <option value="7">Aug</option>
+                                        <option value="8">Sep</option>
+                                        <option value="9">Oct</option>
+                                        <option value="10">Nov</option>
+                                        <option value="11">Dec</option>
+                                    </select>
+                                    
+                                    <input type="number" id="extraPaymentYear" class="form-control-xs" value="2024" min="2020" max="2100">
+                                    
+                                    <input type="number" id="extraPaymentAmount" class="form-control-xs" min="0" step="100" placeholder="Amount">
+                                    
+                                    <button type="button" id="addExtraPayment" class="btn btn--primary btn--xs">Add</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!-- Extra Payments Table -->
+                        <div class="table-container-compact">
+                            <table id="extraPaymentsTable" class="payments-table-compact">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Amount</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="extraPaymentsBody">
+                                    <tr>
+                                        <td colspan="3" class="no-data">No extra payments added yet</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
