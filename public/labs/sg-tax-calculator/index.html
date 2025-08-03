@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singapore Income Tax Calculator 2025</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Singapore Income Tax Calculator</h1>
+            <p class="header__subtitle">Year of Assessment 2025 - For Singaporean Citizens</p>
+            <p class="header__description">Calculate your personal income tax with deductions for charitable donations, SRS contributions, and CPF top-ups.</p>
+        </header>
+
+        <div class="calculator">
+            <div class="calculator__inputs">
+                <div class="card">
+                    <div class="card__header">
+                        <h2>Income & Deductions</h2>
+                    </div>
+                    <div class="card__body">
+                        <div class="form-group">
+                            <label for="annualIncome" class="form-label">Annual Income (SGD)</label>
+                            <input type="number" id="annualIncome" class="form-control income-input" placeholder="0" min="0" step="1">
+                        </div>
+
+                        <div class="deductions-section">
+                            <h3 class="deductions-title">Tax Deductions</h3>
+                            
+                            <div class="form-group">
+                                <label for="charityDonations" class="form-label">
+                                    Charitable Donations (SGD)
+                                    <span class="tooltip" title="Donations to approved IPCs get 250% tax deduction">ℹ️</span>
+                                </label>
+                                <input type="number" id="charityDonations" class="form-control" placeholder="0" min="0" step="1">
+                                <small class="form-help">250% tax deduction (2.5 times donation amount)</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="srsContributions" class="form-label">
+                                    SRS Contributions (SGD)
+                                    <span class="tooltip" title="Supplementary Retirement Scheme contributions">ℹ️</span>
+                                </label>
+                                <input type="number" id="srsContributions" class="form-control" placeholder="0" min="0" max="15300" step="1">
+                                <small class="form-help">Maximum: $15,300 for Citizens/PRs</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cpfTopUp" class="form-label">
+                                    CPF Cash Top-ups (SGD)
+                                    <span class="tooltip" title="CPF Retirement Sum Topping-Up Scheme">ℹ️</span>
+                                </label>
+                                <input type="number" id="cpfTopUp" class="form-control" placeholder="0" min="0" max="16000" step="1">
+                                <small class="form-help">Maximum: $16,000 ($8,000 self + $8,000 family)</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calculator__results">
+                <div class="card">
+                    <div class="card__header">
+                        <h2>Tax Calculation Breakdown</h2>
+                    </div>
+                    <div class="card__body">
+                        <div class="summary-row">
+                            <span>Annual Income:</span>
+                            <span id="displayIncome">$0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Total Deductions:</span>
+                            <span id="displayDeductions">$0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Taxable Income:</span>
+                            <span id="displayTaxableIncome">$0</span>
+                        </div>
+                        
+                        <div class="tax-breakdown" id="taxBreakdown">
+                            <!-- Tax brackets will be populated here -->
+                        </div>
+                        
+                        <div class="summary-row gross-tax">
+                            <span>Gross Tax:</span>
+                            <span id="displayGrossTax">$0</span>
+                        </div>
+                        
+                        <div class="summary-row rebate">
+                            <span>Tax Rebate (60%, capped at $200):</span>
+                            <span id="displayRebate">-$0</span>
+                        </div>
+                        
+                        <div class="summary-row final-tax">
+                            <span>Final Tax Payable:</span>
+                            <span id="displayFinalTax">$0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p><strong>Disclaimer:</strong> This calculator is for reference only. Official tax calculations should be verified with IRAS. Tax rates and rules are subject to change.</p>
+            <p>Based on Income Tax rates for Year of Assessment 2025.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
