@@ -390,7 +390,7 @@ function generateAmortizationScheduleReducePayment() {
         loanData.loanYears
     );
     
-    let remainingBalance = adjustedPrincipal;
+    let remainingBalance = principal; // Start with original principal
     let totalInterest = 0;
     let originalTotalInterest = 0;
     
@@ -411,6 +411,9 @@ function generateAmortizationScheduleReducePayment() {
     let paymentNumber = 1;
     let currentDate = new Date(startDate);
     
+    // Sort extra payments by date
+    const sortedExtraPayments = [...extraPayments].sort((a, b) => a.paymentDate - b.paymentDate);
+    
     while (remainingBalance > 0.01 && paymentNumber <= loanData.loanYears * 12) {
         const interestPayment = remainingBalance * monthlyRate;
         let principalPayment = newMonthlyPayment - interestPayment;
@@ -423,6 +426,21 @@ function generateAmortizationScheduleReducePayment() {
         remainingBalance -= principalPayment;
         totalInterest += interestPayment;
         
+        // Check for extra payments in this month
+        const extraPaymentsThisMonth = sortedExtraPayments.filter(ep => 
+            ep.paymentDate.getFullYear() === currentDate.getFullYear() &&
+            ep.paymentDate.getMonth() === currentDate.getMonth()
+        );
+        
+        let totalExtraThisMonth = 0;
+        let hasExtraPayment = false;
+        
+        if (extraPaymentsThisMonth.length > 0) {
+            totalExtraThisMonth = extraPaymentsThisMonth.reduce((sum, ep) => sum + ep.amount, 0);
+            remainingBalance -= totalExtraThisMonth;
+            hasExtraPayment = true;
+        }
+        
         const payment = {
             paymentNumber,
             paymentDate: new Date(currentDate),
@@ -430,8 +448,8 @@ function generateAmortizationScheduleReducePayment() {
             principalPayment: principalPayment,
             interestPayment: interestPayment,
             remainingBalance: Math.max(0, remainingBalance),
-            extraPayment: 0,
-            hasExtraPayment: false
+            extraPayment: totalExtraThisMonth,
+            hasExtraPayment: hasExtraPayment
         };
         
         monthlyPayments.push(payment);
@@ -490,6 +508,11 @@ function updateSummaryDisplay() {
 }
 
 function calculateTimeSaved() {
+    // In "reducePayment" mode, there is no time saved since term length stays the same
+    if (recalcMode === 'reducePayment') {
+        return 0;
+    }
+    
     if (!loanData.originalPayoffDate || !loanData.currentPayoffDate) {
         return 0;
     }
