@@ -9,7 +9,7 @@ Previous iterations of this site have been, in order:
 - [Elm](https://elm-lang.org/)/[Elm-pages](https://elm-pages.com/)
 
 
-The current iteration is in [Elm](https://elm-lang.org/) as a Web-app
+The current iteration is in [Astro](https://astro.build/)
 
 ## Motivations
 
@@ -23,6 +23,14 @@ The purpose of this site have been two-fold since the beginning.
 More for myself than for any other reader;
 
 - `git clone` this repository
-- `yarn` or `npm install`
-- `yarn build` or `npm run build` to pre-render pages
-- `yarn start` or `npm run start` to start the hot-reload server
+- `pnpm install`
+- `pnpm run build` to build the site
+- `pnpm run dev` to start the hot-reload server
+
+## Running Labs Locally
+
+To run the labs locally, start the development server with `pnpm run dev`. The labs will be available at the following URLs:
+
+- [Mortgage Calculator](http://localhost:4321/labs/mortgage-calculator)
+- [Cortisol Management](http://localhost:4321/labs/cortisol-management)
+- [SG Tax Calculator](http://localhost:4321/labs/sg-tax-calculator)

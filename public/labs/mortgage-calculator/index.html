@@ -7,42 +7,42 @@
     <link rel="stylesheet" href="../shared.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-theme="dark">
     <div class="container">
         <header class="app-header">
-            <h1>Compact Mortgage Calculator</h1>
-            <button class="theme-toggle" id="theme-toggle">Toggle Dark Mode</button>
+            <h1 class="page-header">Compact Mortgage Calculator</h1>
         </header>
+        <button class="theme-toggle" id="theme-toggle">Toggle Dark Mode</button>
 
         <!-- Compact Input Form - Single Row -->
         <div class="input-section">
-            <div class="card compact-card">
+            <div class="card">
                 <div class="card__body">
                     <form id="mortgageForm" class="compact-form">
                         <div class="form-row-compact">
-                            <div class="form-group-compact">
-                                <label for="housingPrice" class="form-label-compact">Housing Price ($)</label>
-                                <input type="number" id="housingPrice" class="form-control-compact" value="500000" min="0" step="1000">
+                            <div class="form-group">
+                                <label for="housingPrice" class="form-label">Housing Price ($)</label>
+                                <input type="number" id="housingPrice" class="form-control" value="500000" min="0" step="1000">
                             </div>
                             
-                            <div class="form-group-compact">
-                                <label for="loanAmount" class="form-label-compact">Loan Amount ($)</label>
-                                <input type="number" id="loanAmount" class="form-control-compact" value="400000" min="0" step="1000">
+                            <div class="form-group">
+                                <label for="loanAmount" class="form-label">Loan Amount ($)</label>
+                                <input type="number" id="loanAmount" class="form-control" value="400000" min="0" step="1000">
                             </div>
                             
-                            <div class="form-group-compact">
-                                <label for="loanYears" class="form-label-compact">Years</label>
-                                <input type="number" id="loanYears" class="form-control-compact" value="30" min="1" max="50" step="1">
+                            <div class="form-group">
+                                <label for="loanYears" class="form-label">Years</label>
+                                <input type="number" id="loanYears" class="form-control" value="30" min="1" max="50" step="1">
                             </div>
                             
-                            <div class="form-group-compact">
-                                <label for="interestRate" class="form-label-compact">Rate (%)</label>
-                                <input type="number" id="interestRate" class="form-control-compact" value="6.5" min="0" max="50" step="0.01">
+                            <div class="form-group">
+                                <label for="interestRate" class="form-label">Rate (%)</label>
+                                <input type="number" id="interestRate" class="form-control" value="6.5" min="0" max="50" step="0.01">
                             </div>
 
-                            <div class="form-group-compact">
-                                <label for="startMonth" class="form-label-compact">Start Month</label>
-                                <select id="startMonth" class="form-control-compact">
+                            <div class="form-group">
+                                <label for="startMonth" class="form-label">Start Month</label>
+                                <select id="startMonth" class="form-control">
                                     <option value="0" selected>Jan</option>
                                     <option value="1">Feb</option>
                                     <option value="2">Mar</option>
@@ -58,12 +58,12 @@
                                 </select>
                             </div>
                             
-                            <div class="form-group-compact">
-                                <label for="startYear" class="form-label-compact">Year</label>
-                                <input type="number" id="startYear" class="form-control-compact" value="2024" min="2020" max="2100" step="1">
+                            <div class="form-group">
+                                <label for="startYear" class="form-label">Year</label>
+                                <input type="number" id="startYear" class="form-control" value="2024" min="2020" max="2100" step="1">
                             </div>
                             
-                            <div class="form-group-compact">
+                            <div class="form-group">
                                 <button type="button" id="calculateBtn" class="btn btn--primary btn--compact">
                                     Calculate
                                 </button>
@@ -76,7 +76,7 @@
 
         <!-- Compact Loan Summary - Horizontal Cards -->
         <div class="summary-section">
-            <div class="card compact-card">
+            <div class="card">
                 <div class="card__body">
                     <div class="summary-metrics-compact">
                         <div class="metric-item-compact">
@@ -120,7 +120,7 @@
 
         <!-- Compact Recalculation Options -->
         <div class="recalc-options-section" id="recalcOptionsSection" style="display: none;">
-            <div class="card compact-card">
+            <div class="card">
                 <div class="card__body">
                     <div class="recalc-options-compact">
                         <div class="option-item-compact">
@@ -145,7 +145,7 @@
         <div class="payments-layout-compact">
             <!-- Monthly Repayments Table -->
             <div class="monthly-section-compact">
-                <div class="card compact-card">
+                <div class="card">
                     <div class="card__header-compact">
                         <h3>Monthly Repayments Schedule</h3>
                         <button type="button" id="exportMonthlyBtn" class="btn btn--outline btn--xs">
@@ -178,7 +178,7 @@
 
             <!-- Extra Payments Section -->
             <div class="extra-section-compact">
-                <div class="card compact-card">
+                <div class="card">
                     <div class="card__header-compact">
                         <h3>Extra Payments</h3>
                         <button type="button" id="exportExtraBtn" class="btn btn--outline btn--xs">
@@ -239,7 +239,7 @@
         <!-- Recurring Extra Payments Section -->
         <div class="payments-layout-compact">
             <div class="extra-section-compact">
-                <div class="card compact-card">
+                <div class="card">
                     <div class="card__header-compact">
                         <h3>Recurring Extra Payments</h3>
                     </div>
@@ -286,6 +286,7 @@
         </div>
     </div>
 
+    <script src="../shared.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

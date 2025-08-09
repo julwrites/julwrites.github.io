@@ -1,201 +1,108 @@
-.infographic {
+/* Cortisol Management specific styles */
+
+.info-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-bottom: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.info-card {
+    background-color: var(--bg-color);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--card-border-color);
+}
+
+.key-term {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.infographic {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .graph-container {
-    background: var(--bg-secondary);
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 8px 30px var(--shadow);
+    flex: 3;
+    min-width: 300px;
 }
 
 .controls {
-    background: var(--bg-secondary);
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 8px 30px var(--shadow);
+    flex: 1;
+    min-width: 280px;
 }
 
 .control-group {
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid var(--border);
-}
-
-.control-group:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-}
-
-h2 {
-    color: var(--accent);
-    margin-bottom: 15px;
-    font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .slider-container {
-    margin-bottom: 15px;
-}
-
-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
 }
 
 input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
     width: 100%;
     height: 8px;
+    background: var(--card-border-color);
     border-radius: 5px;
-    background: var(--border);
     outline: none;
-    -webkit-appearance: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+}
+
+input[type="range"]:hover {
+    opacity: 1;
 }
 
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: var(--accent);
+    width: 18px;
+    height: 18px;
+    background: var(--primary-color);
     cursor: pointer;
+    border-radius: 50%;
 }
 
 input[type="range"]::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: var(--accent);
+    width: 18px;
+    height: 18px;
+    background: var(--primary-color);
     cursor: pointer;
-}
-
-.value-display {
-    display: inline-block;
-    background: var(--bg-primary);
-    padding: 4px 10px;
-    border-radius: 15px;
-    font-weight: bold;
-    margin-left: 10px;
-    color: var(--accent);
-}
-
-.info-panel {
-    background: var(--bg-secondary);
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 8px 30px var(--shadow);
-    margin-bottom: 30px;
-}
-
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.info-card {
-    background: var(--bg-primary);
-    border-radius: 10px;
-    padding: 15px;
-    border-left: 4px solid var(--accent);
-}
-
-.info-card h3 {
-    color: var(--accent);
-    margin-bottom: 10px;
-}
-
-.cortisol-status {
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 20px;
-    display: inline-block;
-    margin-top: 10px;
-}
-
-.healthy {
-    background: var(--cortisol-light);
-    color: var(--healthy-color);
-}
-
-.warning {
-    background: var(--cortisol-light);
-    color: var(--warning-color);
-}
-
-.key-term {
-    font-weight: bold;
-    color: var(--accent);
+    border-radius: 50%;
 }
 
 .cortisol-curve {
-    stroke: var(--cortisol-color);
-    stroke-width: 3;
+    stroke: var(--primary-color);
+    stroke-width: 2.5;
     fill: none;
 }
 
 .healthy-curve {
-    stroke: var(--healthy-color);
-    stroke-width: 2;
-    stroke-dasharray: 5,5;
+    stroke: var(--secondary-color);
+    stroke-width: 1.5;
+    stroke-dasharray: 4,4;
     fill: none;
 }
 
-.axis {
-    stroke: var(--text-secondary);
-    stroke-width: 1;
-}
-
-.axis-label {
-    fill: var(--text-secondary);
-    font-size: 12px;
-}
-
 .grid-line {
-    stroke: var(--border);
-    stroke-width: 1;
-    stroke-dasharray: 2,2;
+    stroke: var(--card-border-color);
+    stroke-width: 0.5;
 }
 
-.time-marker {
-    fill: var(--text-secondary);
-    font-size: 12px;
-}
-
-.cortisol-level {
-    fill: var(--text-secondary);
-    font-size: 12px;
-}
-
-.legend {
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
-}
-
-.legend-item {
-    display: flex;
-    align-items: center;
-    margin: 0 15px;
-}
-
-.legend-color {
-    width: 20px;
-    height: 3px;
-    margin-right: 8px;
+.axis, .time-marker, .cortisol-level {
+    stroke: var(--secondary-color);
+    font-size: 0.75rem;
 }
 
 @media (max-width: 768px) {
     .infographic {
-        grid-template-columns: 1fr;
-    }
-    
-    h1 {
-        font-size: 1.8rem;
+        flex-direction: column;
     }
 }
