@@ -276,200 +276,162 @@ function generateAmortizationScheduleOriginal() {
 
 function generateAmortizationScheduleReduceTerm() {
     console.log('Generating schedule with reduced term (accelerated payoff)');
-    
+
+    // First, generate the original schedule to get the baseline
+    generateAmortizationScheduleOriginal();
+    loanData.originalTotalInterest = loanData.currentTotalInterest;
+    loanData.originalPayoffDate = loanData.currentPayoffDate;
+
     const principal = loanData.loanAmount;
     const monthlyRate = loanData.interestRate / 100 / 12;
     const monthlyPayment = loanData.monthlyPayment; // Keep original payment
-    
+
     let remainingBalance = principal;
     let totalInterest = 0;
-    let originalTotalInterest = 0;
     
     monthlyPayments = [];
-    
-    // Calculate original total interest for comparison
-    let origBalance = principal;
-    for (let i = 1; i <= loanData.loanYears * 12; i++) {
-        const origInterest = origBalance * monthlyRate;
-        const origPrincipal = monthlyPayment - origInterest;
-        if (origPrincipal > origBalance) break;
-        origBalance -= origPrincipal;
-        originalTotalInterest += origInterest;
-    }
-    
-    // Create start date
+
     const startDate = new Date(loanData.startYear, loanData.startMonth, 1);
     let paymentNumber = 1;
     let currentDate = new Date(startDate);
-    
-    // Sort extra payments by date
+
     const sortedExtraPayments = [...extraPayments].sort((a, b) => a.paymentDate - b.paymentDate);
-    
-    while (remainingBalance > 0.01 && paymentNumber <= loanData.loanYears * 12 + 120) {
+
+    while (remainingBalance > 0.01 && paymentNumber < 1000) { // Safety break
+        // Check for extra payments for the current month
+        const extraPaymentsThisMonth = sortedExtraPayments.filter(ep =>
+            ep.paymentDate.getFullYear() === currentDate.getFullYear() &&
+            ep.paymentDate.getMonth() === currentDate.getMonth()
+        );
+
+        let totalExtraThisMonth = 0;
+        if (extraPaymentsThisMonth.length > 0) {
+            totalExtraThisMonth = extraPaymentsThisMonth.reduce((sum, ep) => sum + ep.amount, 0);
+        }
+
         const interestPayment = remainingBalance * monthlyRate;
         let principalPayment = monthlyPayment - interestPayment;
-        
-        // Handle final payment
+
+        // Apply extra payment to principal
+        principalPayment += totalExtraThisMonth;
+
         if (principalPayment > remainingBalance) {
             principalPayment = remainingBalance;
         }
         
+        if ((monthlyPayment + totalExtraThisMonth) > remainingBalance + interestPayment) {
+            principalPayment = remainingBalance;
+        }
+
+
         remainingBalance -= principalPayment;
         totalInterest += interestPayment;
-        
-        // Check for extra payments in this month
-        const extraPaymentsThisMonth = sortedExtraPayments.filter(ep => 
-            ep.paymentDate.getFullYear() === currentDate.getFullYear() &&
-            ep.paymentDate.getMonth() === currentDate.getMonth()
-        );
-        
-        let totalExtraThisMonth = 0;
-        let hasExtraPayment = false;
-        
-        if (extraPaymentsThisMonth.length > 0) {
-            totalExtraThisMonth = extraPaymentsThisMonth.reduce((sum, ep) => sum + ep.amount, 0);
-            
-            // Apply extra payment to remaining balance
-            if (totalExtraThisMonth > remainingBalance) {
-                totalExtraThisMonth = remainingBalance;
-            }
-            remainingBalance -= totalExtraThisMonth;
-            hasExtraPayment = true;
-        }
-        
+
         const payment = {
             paymentNumber,
             paymentDate: new Date(currentDate),
-            monthlyPayment: principalPayment + interestPayment,
+            monthlyPayment: monthlyPayment,
             principalPayment: principalPayment,
             interestPayment: interestPayment,
             remainingBalance: Math.max(0, remainingBalance),
             extraPayment: totalExtraThisMonth,
-            hasExtraPayment: hasExtraPayment
+            hasExtraPayment: totalExtraThisMonth > 0
         };
-        
+
         monthlyPayments.push(payment);
-        
-        // Break if loan is paid off
+
         if (remainingBalance <= 0.01) {
             break;
         }
-        
+
         paymentNumber++;
         currentDate.setMonth(currentDate.getMonth() + 1);
-        
-        // Prevent infinite loops
-        if (paymentNumber > 1000) break;
     }
-    
-    // Update loan data
-    loanData.originalTotalInterest = originalTotalInterest;
+
     loanData.currentTotalInterest = totalInterest;
-    loanData.originalPayoffDate = new Date(loanData.startYear + loanData.loanYears, loanData.startMonth, 1);
-    loanData.currentPayoffDate = monthlyPayments.length > 0 ? 
+    loanData.currentPayoffDate = monthlyPayments.length > 0 ?
         monthlyPayments[monthlyPayments.length - 1].paymentDate : null;
 }
 
 function generateAmortizationScheduleReducePayment() {
     console.log('Generating schedule with reduced payment (recast)');
-    
+
+    // First, generate the original schedule to get the baseline
+    generateAmortizationScheduleOriginal();
+    loanData.originalTotalInterest = loanData.currentTotalInterest;
+    loanData.originalPayoffDate = loanData.currentPayoffDate;
+
     const principal = loanData.loanAmount;
     const monthlyRate = loanData.interestRate / 100 / 12;
-    const originalMonthlyPayment = loanData.monthlyPayment;
-    
-    // Calculate total extra payments
-    const totalExtraPayments = extraPayments.reduce((sum, ep) => sum + ep.amount, 0);
-    
-    // Calculate new principal after applying all extra payments immediately
-    const adjustedPrincipal = Math.max(0, principal - totalExtraPayments);
-    
-    // Calculate new monthly payment based on adjusted principal
-    const newMonthlyPayment = calculateMonthlyPayment(
-        adjustedPrincipal,
-        loanData.interestRate,
-        loanData.loanYears
-    );
-    
-    let remainingBalance = principal; // Start with original principal
+    let monthlyPayment = loanData.monthlyPayment;
+
+    let remainingBalance = principal;
     let totalInterest = 0;
-    let originalTotalInterest = 0;
-    
+    let remainingYears = loanData.loanYears;
+
     monthlyPayments = [];
-    
-    // Calculate original total interest for comparison
-    let origBalance = principal;
-    for (let i = 1; i <= loanData.loanYears * 12; i++) {
-        const origInterest = origBalance * monthlyRate;
-        const origPrincipal = originalMonthlyPayment - origInterest;
-        if (origPrincipal > origBalance) break;
-        origBalance -= origPrincipal;
-        originalTotalInterest += origInterest;
-    }
-    
-    // Create start date
+
     const startDate = new Date(loanData.startYear, loanData.startMonth, 1);
     let paymentNumber = 1;
     let currentDate = new Date(startDate);
-    
-    // Sort extra payments by date
+
     const sortedExtraPayments = [...extraPayments].sort((a, b) => a.paymentDate - b.paymentDate);
-    
-    while (remainingBalance > 0.01 && paymentNumber <= loanData.loanYears * 12) {
+
+    while (remainingBalance > 0.01 && paymentNumber < 1000) { // Safety break
+        // Check for extra payments for the current month
+        const extraPaymentsThisMonth = sortedExtraPayments.filter(ep =>
+            ep.paymentDate.getFullYear() === currentDate.getFullYear() &&
+            ep.paymentDate.getMonth() === currentDate.getMonth()
+        );
+
+        let totalExtraThisMonth = 0;
+        if (extraPaymentsThisMonth.length > 0) {
+            totalExtraThisMonth = extraPaymentsThisMonth.reduce((sum, ep) => sum + ep.amount, 0);
+            remainingBalance -= totalExtraThisMonth;
+
+            // Recalculate the monthly payment for the remainder of the loan
+            const remainingLoanTermInYears = (loanData.loanYears * 12 - paymentNumber) / 12;
+            if (remainingLoanTermInYears > 0) {
+                monthlyPayment = calculateMonthlyPayment(remainingBalance, loanData.interestRate, remainingLoanTermInYears);
+                loanData.recastMonthlyPayment = monthlyPayment;
+            }
+        }
+
         const interestPayment = remainingBalance * monthlyRate;
-        let principalPayment = newMonthlyPayment - interestPayment;
-        
-        // Handle final payment
-        if (principalPayment > remainingBalance) {
+        let principalPayment = monthlyPayment - interestPayment;
+
+        if (principalPayment > remainingBalance || monthlyPayment > remainingBalance + interestPayment) {
             principalPayment = remainingBalance;
+            monthlyPayment = remainingBalance + interestPayment;
         }
         
         remainingBalance -= principalPayment;
         totalInterest += interestPayment;
-        
-        // Check for extra payments in this month
-        const extraPaymentsThisMonth = sortedExtraPayments.filter(ep => 
-            ep.paymentDate.getFullYear() === currentDate.getFullYear() &&
-            ep.paymentDate.getMonth() === currentDate.getMonth()
-        );
-        
-        let totalExtraThisMonth = 0;
-        let hasExtraPayment = false;
-        
-        if (extraPaymentsThisMonth.length > 0) {
-            totalExtraThisMonth = extraPaymentsThisMonth.reduce((sum, ep) => sum + ep.amount, 0);
-            remainingBalance -= totalExtraThisMonth;
-            hasExtraPayment = true;
-        }
-        
+
         const payment = {
             paymentNumber,
             paymentDate: new Date(currentDate),
-            monthlyPayment: principalPayment + interestPayment,
+            monthlyPayment: monthlyPayment,
             principalPayment: principalPayment,
             interestPayment: interestPayment,
             remainingBalance: Math.max(0, remainingBalance),
             extraPayment: totalExtraThisMonth,
-            hasExtraPayment: hasExtraPayment
+            hasExtraPayment: totalExtraThisMonth > 0
         };
-        
+
         monthlyPayments.push(payment);
-        
-        // Break if loan is paid off
+
         if (remainingBalance <= 0.01) {
             break;
         }
-        
+
         paymentNumber++;
         currentDate.setMonth(currentDate.getMonth() + 1);
     }
-    
-    // Update loan data
-    loanData.originalTotalInterest = originalTotalInterest;
+
     loanData.currentTotalInterest = totalInterest;
-    loanData.originalPayoffDate = new Date(loanData.startYear + loanData.loanYears, loanData.startMonth, 1);
-    loanData.currentPayoffDate = monthlyPayments.length > 0 ? 
+    loanData.currentPayoffDate = monthlyPayments.length > 0 ?
         monthlyPayments[monthlyPayments.length - 1].paymentDate : null;
-    loanData.recastMonthlyPayment = newMonthlyPayment;
 }
 
 function updateSummaryDisplay() {
@@ -478,7 +440,7 @@ function updateSummaryDisplay() {
     const totalPayments = loanData.loanAmount + loanData.currentTotalInterest;
     
     // Update summary values - show different payment amounts based on mode
-    if (extraPayments.length > 0 && recalcMode === 'reducePayment') {
+    if (extraPayments.length > 0 && recalcMode === 'reducePayment' && loanData.recastMonthlyPayment > 0) {
         document.getElementById('monthlyPayment').textContent = formatCurrency(loanData.recastMonthlyPayment);
         document.getElementById('monthlyPaymentNote').textContent = `(Reduced from ${formatCurrency(loanData.monthlyPayment)})`;
         document.getElementById('monthlyPaymentNote').style.display = 'block';
