@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="../shared.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-theme="dark">
     <div class="container">
         <header class="header">
-            <h1>Singapore Income Tax Calculator</h1>
+            <h1 class="page-header">Singapore Income Tax Calculator</h1>
             <p class="header__subtitle">Year of Assessment 2025 - For Singaporean Citizens</p>
             <p class="header__description">Calculate your personal income tax with deductions for charitable donations, SRS contributions, and CPF top-ups.</p>
-            <button class="theme-toggle" id="theme-toggle">Toggle Dark Mode</button>
         </header>
+        <button class="theme-toggle" id="theme-toggle">Toggle Dark Mode</button>
 
         <div class="calculator">
             <div class="calculator__inputs">
@@ -110,6 +110,7 @@
         </footer>
     </div>
 
+    <script src="../shared.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

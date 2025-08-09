@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="../shared.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-theme="dark">
     <div class="container">
         <header>
-            <h1>Cortisol Management Interactive Infographic</h1>
-            <button class="theme-toggle" id="theme-toggle">Toggle Dark Mode</button>
+            <h1 class="page-header">Cortisol Management Interactive Infographic</h1>
         </header>
+        <button class="theme-toggle" id="theme-toggle">Toggle Dark Mode</button>
 
-        <div class="info-panel">
+        <div class="card">
             <h2>Understanding Your Cortisol Rhythm</h2>
             <p>Cortisol is a <span class="key-term">circadian hormone</span> that follows a predictable daily pattern. It peaks shortly after waking to provide energy and alertness, then gradually declines throughout the day, reaching its lowest point around midnight. This rhythm is crucial for:</p>
             
@@ -39,7 +39,7 @@
         </div>
 
         <div class="infographic">
-            <div class="graph-container">
+            <div class="card graph-container">
                 <h2>Your Cortisol Rhythm</h2>
                 <svg id="cortisol-graph" width="100%" height="400" viewBox="0 0 800 400">
                     <!-- Grid lines -->
@@ -74,7 +74,7 @@
                 <div class="cortisol-status" id="cortisol-status">Healthy Rhythm</div>
             </div>
             
-            <div class="controls">
+            <div class="card controls">
                 <h2>Lifestyle Parameters</h2>
                 
                 <div class="control-group">
@@ -103,7 +103,7 @@
                 
                 <div class="control-group">
                     <h2>Stress & Recovery</h2>
-                    <div class.slider-container">
+                    <div class="slider-container">
                         <label>Daily Stress Level (1-10): <span class="value-display" id="stress-level-value">3</span></label>
                         <input type="range" id="stress-level" min="1" max="10" value="3">
                     </div>
@@ -115,7 +115,7 @@
             </div>
         </div>
         
-        <div class="info-panel">
+        <div class="card">
             <h2>Key Insights from the Research</h2>
             <blockquote>
                 <p><strong>Cortisol is not merely a stress hormone—it's a circadian energy regulator.</strong> The 24-hour rhythm of cortisol is more important than its absolute level. A healthy pattern shows a robust morning spike followed by a gradual decline throughout the day.</p>
@@ -133,6 +133,7 @@
         </div>
     </div>
 
+    <script src="../shared.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

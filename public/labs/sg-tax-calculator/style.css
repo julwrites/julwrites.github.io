@@ -1,300 +1,55 @@
-/* Custom styles for Singapore Income Tax Calculator */
-
-.header {
-  text-align: center;
-  padding: var(--space-32) 0;
-  margin-bottom: var(--space-32);
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-teal-700) 100%);
-  color: var(--color-white);
-  border-radius: var(--radius-lg);
-  margin-left: calc(-1 * var(--space-16));
-  margin-right: calc(-1 * var(--space-16));
-  margin-top: calc(-1 * var(--space-16));
-}
-
-.header h1 {
-  color: var(--color-white);
-  margin-bottom: var(--space-8);
-  font-size: var(--font-size-4xl);
-}
+/* SG Tax Calculator specific styles */
 
 .header__subtitle {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-medium);
-  margin-bottom: var(--space-8);
-  opacity: 0.9;
-}
-
-.header__description {
-  font-size: var(--font-size-base);
-  opacity: 0.8;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: var(--line-height-normal);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
 .calculator {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-32);
-  margin-bottom: var(--space-32);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
 }
 
-@media (max-width: 768px) {
-  .calculator {
-    grid-template-columns: 1fr;
-    gap: var(--space-24);
-  }
-  
-  .header {
-    padding: var(--space-24) var(--space-16);
-  }
-  
-  .header h1 {
-    font-size: var(--font-size-3xl);
-  }
-}
-
-.calculator__inputs,
-.calculator__results {
-  min-height: 600px;
-}
-
-.income-input {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
-  padding: var(--space-16);
-  border: 2px solid var(--color-primary);
-  background-color: rgba(var(--color-teal-500-rgb), 0.05);
-}
-
-.income-input:focus {
-  border-color: var(--color-primary-hover);
-  box-shadow: var(--focus-ring);
-}
-
-.deductions-section {
-  margin-top: var(--space-24);
-  padding-top: var(--space-24);
-  border-top: 1px solid var(--color-border);
-}
-
-.deductions-title {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  margin-bottom: var(--space-16);
-  color: var(--color-primary);
-}
-
-.tooltip {
-  cursor: help;
-  margin-left: var(--space-4);
-  opacity: 0.7;
-  font-size: var(--font-size-sm);
-}
-
-.tooltip:hover {
-  opacity: 1;
-}
-
-.form-help {
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-xs);
-  margin-top: var(--space-4);
-  display: block;
+.calculator__inputs, .calculator__results {
+    flex: 1;
+    min-width: 300px;
 }
 
 .summary-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--space-12) 0;
-  border-bottom: 1px solid var(--color-border);
-  font-size: var(--font-size-base);
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--card-border-color);
 }
 
 .summary-row:last-child {
-  border-bottom: none;
-}
-
-.summary-row span:first-child {
-  font-weight: var(--font-weight-medium);
-}
-
-.summary-row span:last-child {
-  font-weight: var(--font-weight-semibold);
-  font-family: var(--font-family-mono);
-}
-
-.gross-tax {
-  border-top: 2px solid var(--color-border);
-  border-bottom: 2px solid var(--color-border);
-  margin-top: var(--space-16);
-  padding-top: var(--space-16);
-  padding-bottom: var(--space-16);
-  font-weight: var(--font-weight-semibold);
-}
-
-.gross-tax span {
-  font-size: var(--font-size-lg);
-}
-
-.rebate span:last-child {
-  color: var(--color-success);
+    border-bottom: none;
 }
 
 .final-tax {
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  margin: var(--space-16) calc(-1 * var(--space-16));
-  padding: var(--space-16) var(--space-16);
-  border-radius: var(--radius-base);
-  border: none;
-  font-size: var(--font-size-lg);
-}
-
-.final-tax span {
-  font-weight: var(--font-weight-bold);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-color);
 }
 
 .tax-breakdown {
-  margin: var(--space-16) 0;
+    margin: 1rem 0;
 }
 
 .tax-bracket {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--space-8) var(--space-12);
-  margin-bottom: var(--space-4);
-  background-color: rgba(var(--color-teal-500-rgb), 0.05);
-  border-radius: var(--radius-sm);
-  border-left: 3px solid var(--color-primary);
-  font-size: var(--font-size-sm);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    color: var(--secondary-color);
+    padding: 0.25rem 0;
 }
 
-.tax-bracket__description {
-  flex: 1;
-}
-
-.tax-bracket__amount {
-  font-family: var(--font-family-mono);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-primary);
-}
-
-.tax-bracket--zero {
-  opacity: 0.6;
-  border-left-color: var(--color-text-secondary);
-}
-
-.tax-bracket--zero .tax-bracket__amount {
-  color: var(--color-text-secondary);
-}
-
-.footer {
-  background-color: var(--color-surface);
-  padding: var(--space-24);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-border);
-  margin-top: var(--space-32);
-  text-align: center;
-}
-
-.footer p {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-8);
-}
-
-.footer p:last-child {
-  margin-bottom: 0;
-  font-weight: var(--font-weight-medium);
-}
-
-/* Enhancements for better UX */
-.form-control:invalid {
-  border-color: var(--color-error);
-}
-
-.calculator__inputs .card {
-  position: sticky;
-  top: var(--space-16);
-}
-
-/* Loading state for calculations */
-.calculating {
-  opacity: 0.6;
-  pointer-events: none;
-}
-
-/* Number formatting */
-.currency {
-  font-family: var(--font-family-mono);
-}
-
-/* Enhanced visual hierarchy */
-.card__header h2 {
-  color: var(--color-primary);
-  font-size: var(--font-size-2xl);
-}
-
-/* Responsive improvements */
-@media (max-width: 640px) {
-  .summary-row {
-    font-size: var(--font-size-sm);
-    padding: var(--space-8) 0;
-  }
-  
-  .tax-bracket {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-4);
-  }
-  
-  .tax-bracket__amount {
-    align-self: flex-end;
-  }
-}
-
-/* Animation for smooth updates */
-.summary-row span:last-child,
-.tax-bracket__amount {
-  transition: all var(--duration-normal) var(--ease-standard);
-}
-
-/* Focus improvements */
-.form-control:focus {
-  transform: translateY(-1px);
-  box-shadow: var(--focus-ring), var(--shadow-sm);
-}
-
-/* Print styles */
-@media print {
-  .header {
-    background: none;
-    color: var(--color-text);
-  }
-  
-  .calculator {
-    grid-template-columns: 1fr;
-  }
-  
-  .calculator__inputs {
-    display: none;
-  }
-}
-
-/* Final polish */
-.container {
-  max-width: 1200px;
-}
-
-.card {
-  transition: all var(--duration-normal) var(--ease-standard);
-}
-
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+@media (max-width: 768px) {
+    .calculator {
+        flex-direction: column;
+    }
 }
