@@ -1,281 +1,201 @@
-:root {
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8f9fa;
-            --text-primary: #333333;
-            --text-secondary: #666666;
-            --accent: #4a6fa5;
-            --accent-light: #6c8cbf;
-            --border: #e0e0e0;
-            --shadow: rgba(0, 0, 0, 0.1);
-            --cortisol-color: #e63946;
-            --cortisol-light: #ffccd5;
-            --healthy-color: #2a9d8f;
-            --warning-color: #e76f51;
-        }
+.infographic {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
 
-        [data-theme="dark"] {
-            --bg-primary: #1a1a2e;
-            --bg-secondary: #16213e;
-            --text-primary: #f8f9fa;
-            --text-secondary: #d1d1d1;
-            --accent: #6c8cbf;
-            --accent-light: #4a6fa5;
-            --border: #2d3561;
-            --shadow: rgba(0, 0, 0, 0.3);
-            --cortisol-color: #e76f51;
-            --cortisol-light: #ff9a76;
-            --healthy-color: #2a9d8f;
-            --warning-color: #e63946;
-        }
+.graph-container {
+    background: var(--bg-secondary);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 30px var(--shadow);
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+.controls {
+    background: var(--bg-secondary);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 30px var(--shadow);
+}
 
-        body {
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            transition: all 0.3s ease;
-            line-height: 1.6;
-        }
+.control-group {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border);
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+.control-group:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border);
-        }
+h2 {
+    color: var(--accent);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
 
-        h1 {
-            color: var(--accent);
-            font-size: 2.2rem;
-        }
+.slider-container {
+    margin-bottom: 15px;
+}
 
-        .theme-toggle {
-            background: var(--accent);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
 
-        .theme-toggle:hover {
-            background: var(--accent-light);
-            transform: translateY(-2px);
-        }
+input[type="range"] {
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: var(--border);
+    outline: none;
+    -webkit-appearance: none;
+}
 
-        .infographic {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+}
 
-        .graph-container {
-            background: var(--bg-secondary);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 8px 30px var(--shadow);
-        }
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--accent);
+    cursor: pointer;
+}
 
-        .controls {
-            background: var(--bg-secondary);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 8px 30px var(--shadow);
-        }
+.value-display {
+    display: inline-block;
+    background: var(--bg-primary);
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-weight: bold;
+    margin-left: 10px;
+    color: var(--accent);
+}
 
-        .control-group {
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border);
-        }
+.info-panel {
+    background: var(--bg-secondary);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 30px var(--shadow);
+    margin-bottom: 30px;
+}
 
-        .control-group:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
 
-        h2 {
-            color: var(--accent);
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
+.info-card {
+    background: var(--bg-primary);
+    border-radius: 10px;
+    padding: 15px;
+    border-left: 4px solid var(--accent);
+}
 
-        .slider-container {
-            margin-bottom: 15px;
-        }
+.info-card h3 {
+    color: var(--accent);
+    margin-bottom: 10px;
+}
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
+.cortisol-status {
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 10px;
+}
 
-        input[type="range"] {
-            width: 100%;
-            height: 8px;
-            border-radius: 5px;
-            background: var(--border);
-            outline: none;
-            -webkit-appearance: none;
-        }
+.healthy {
+    background: var(--cortisol-light);
+    color: var(--healthy-color);
+}
 
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--accent);
-            cursor: pointer;
-        }
+.warning {
+    background: var(--cortisol-light);
+    color: var(--warning-color);
+}
 
-        input[type="range"]::-moz-range-thumb {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--accent);
-            cursor: pointer;
-        }
+.key-term {
+    font-weight: bold;
+    color: var(--accent);
+}
 
-        .value-display {
-            display: inline-block;
-            background: var(--bg-primary);
-            padding: 4px 10px;
-            border-radius: 15px;
-            font-weight: bold;
-            margin-left: 10px;
-            color: var(--accent);
-        }
+.cortisol-curve {
+    stroke: var(--cortisol-color);
+    stroke-width: 3;
+    fill: none;
+}
 
-        .info-panel {
-            background: var(--bg-secondary);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 8px 30px var(--shadow);
-            margin-bottom: 30px;
-        }
+.healthy-curve {
+    stroke: var(--healthy-color);
+    stroke-width: 2;
+    stroke-dasharray: 5,5;
+    fill: none;
+}
 
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
+.axis {
+    stroke: var(--text-secondary);
+    stroke-width: 1;
+}
 
-        .info-card {
-            background: var(--bg-primary);
-            border-radius: 10px;
-            padding: 15px;
-            border-left: 4px solid var(--accent);
-        }
+.axis-label {
+    fill: var(--text-secondary);
+    font-size: 12px;
+}
 
-        .info-card h3 {
-            color: var(--accent);
-            margin-bottom: 10px;
-        }
+.grid-line {
+    stroke: var(--border);
+    stroke-width: 1;
+    stroke-dasharray: 2,2;
+}
 
-        .cortisol-status {
-            font-weight: bold;
-            padding: 5px 10px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-top: 10px;
-        }
+.time-marker {
+    fill: var(--text-secondary);
+    font-size: 12px;
+}
 
-        .healthy {
-            background: var(--cortisol-light);
-            color: var(--healthy-color);
-        }
+.cortisol-level {
+    fill: var(--text-secondary);
+    font-size: 12px;
+}
 
-        .warning {
-            background: var(--cortisol-light);
-            color: var(--warning-color);
-        }
+.legend {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
 
-        .key-term {
-            font-weight: bold;
-            color: var(--accent);
-        }
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin: 0 15px;
+}
 
-        .cortisol-curve {
-            stroke: var(--cortisol-color);
-            stroke-width: 3;
-            fill: none;
-        }
+.legend-color {
+    width: 20px;
+    height: 3px;
+    margin-right: 8px;
+}
 
-        .healthy-curve {
-            stroke: var(--healthy-color);
-            stroke-width: 2;
-            stroke-dasharray: 5,5;
-            fill: none;
-        }
-
-        .axis {
-            stroke: var(--text-secondary);
-            stroke-width: 1;
-        }
-
-        .axis-label {
-            fill: var(--text-secondary);
-            font-size: 12px;
-        }
-
-        .grid-line {
-            stroke: var(--border);
-            stroke-width: 1;
-            stroke-dasharray: 2,2;
-        }
-
-        .time-marker {
-            fill: var(--text-secondary);
-            font-size: 12px;
-        }
-
-        .cortisol-level {
-            fill: var(--text-secondary);
-            font-size: 12px;
-        }
-
-        .legend {
-            display: flex;
-            justify-content: center;
-            margin-top: 15px;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            margin: 0 15px;
-        }
-
-        .legend-color {
-            width: 20px;
-            height: 3px;
-            margin-right: 8px;
-        }
-
-        @media (max-width: 768px) {
-            .infographic {
-                grid-template-columns: 1fr;
-            }
-            
-            h1 {
-                font-size: 1.8rem;
-            }
-        }
+@media (max-width: 768px) {
+    .infographic {
+        grid-template-columns: 1fr;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+}
