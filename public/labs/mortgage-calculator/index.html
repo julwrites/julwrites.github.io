@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Compact Mortgage Calculator</title>
+    <link rel="stylesheet" href="../shared.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header class="app-header">
             <h1>Compact Mortgage Calculator</h1>
+            <button class="theme-toggle" id="theme-toggle">Toggle Dark Mode</button>
         </header>
 
         <!-- Compact Input Form - Single Row -->
@@ -225,6 +227,55 @@
                                 <tbody id="extraPaymentsBody">
                                     <tr>
                                         <td colspan="3" class="no-data">No extra payments added yet</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recurring Extra Payments Section -->
+        <div class="payments-layout-compact">
+            <div class="extra-section-compact">
+                <div class="card compact-card">
+                    <div class="card__header-compact">
+                        <h3>Recurring Extra Payments</h3>
+                    </div>
+                    <div class="card__body-compact">
+                        <!-- Add Recurring Extra Payment Form -->
+                        <div class="extra-payment-form-compact">
+                            <form id="recurringExtraPaymentForm" class="extra-form-compact">
+                                <div class="extra-form-row">
+                                    <input type="number" id="recurringExtraPaymentAmount" class="form-control-xs" min="0" step="100" placeholder="Amount">
+                                    <select id="recurringExtraPaymentFrequency" class="form-control-xs">
+                                        <option value="monthly">Monthly</option>
+                                        <option value="quarterly">Quarterly</option>
+                                        <option value="annually">Annually</option>
+                                    </select>
+                                    <input type="month" id="recurringExtraPaymentStartDate" class="form-control-xs" value="2024-01">
+                                    <input type="month" id="recurringExtraPaymentEndDate" class="form-control-xs" value="2025-01">
+                                    <button type="button" id="addRecurringExtraPayment" class="btn btn--primary btn--xs">Add</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Recurring Extra Payments Table -->
+                        <div class="table-container-compact">
+                            <table id="recurringExtraPaymentsTable" class="payments-table-compact">
+                                <thead>
+                                    <tr>
+                                        <th>Amount</th>
+                                        <th>Frequency</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recurringExtraPaymentsBody">
+                                    <tr>
+                                        <td colspan="5" class="no-data">No recurring extra payments added yet</td>
                                     </tr>
                                 </tbody>
                             </table>

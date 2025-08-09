@@ -1,3 +1,15 @@
+// Theme toggle functionality
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+themeToggle.addEventListener('click', () => {
+    if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+    } else {
+        body.setAttribute('data-theme', 'dark');
+    }
+});
+
 // Compact Enhanced Mortgage Calculator Application - Fixed Version
 let mortgageCalculator;
 
@@ -19,6 +31,7 @@ const loanData = {
 
 // Extra payments array
 let extraPayments = [];
+let recurringExtraPayments = [];
 let monthlyPayments = [];
 let recalcMode = 'reduceTerm';
 
@@ -36,6 +49,9 @@ function initializeCalculator() {
     
     // Set up extra payment listeners
     setupExtraPaymentListeners();
+
+    // Set up recurring extra payment listeners
+    setupRecurringExtraPaymentListeners();
     
     // Set up export listeners
     setupExportListeners();
@@ -131,6 +147,106 @@ function setupExtraPaymentListeners() {
     }
 }
 
+function setupRecurringExtraPaymentListeners() {
+    const addBtn = document.getElementById('addRecurringExtraPayment');
+    if (addBtn) {
+        addBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            addRecurringExtraPayment();
+        });
+    }
+}
+
+function addRecurringExtraPayment() {
+    const amountInput = document.getElementById('recurringExtraPaymentAmount');
+    const frequencySelect = document.getElementById('recurringExtraPaymentFrequency');
+    const startDateInput = document.getElementById('recurringExtraPaymentStartDate');
+    const endDateInput = document.getElementById('recurringExtraPaymentEndDate');
+    
+    const amount = parseFloat(amountInput.value);
+    const frequency = frequencySelect.value;
+    const startDate = startDateInput.value;
+    const endDate = endDateInput.value;
+    
+    if (!amount || amount <= 0) {
+        alert('Please enter a valid recurring extra payment amount');
+        amountInput.focus();
+        return;
+    }
+    
+    if (!startDate || !endDate) {
+        alert('Please enter a valid start and end date');
+        return;
+    }
+    
+    if (new Date(startDate) > new Date(endDate)) {
+        alert('Start date cannot be after the end date');
+        return;
+    }
+    
+    const recurringPayment = {
+        amount,
+        frequency,
+        startDate,
+        endDate
+    };
+    
+    recurringExtraPayments.push(recurringPayment);
+    
+    amountInput.value = '';
+    
+    calculateMortgage();
+}
+
+function removeRecurringExtraPayment(index) {
+    if (index >= 0 && index < recurringExtraPayments.length) {
+        if (confirm('Remove this recurring extra payment?')) {
+            recurringExtraPayments.splice(index, 1);
+            calculateMortgage();
+        }
+    }
+}
+
+function updateRecurringExtraPaymentsDisplay() {
+    const tbody = document.getElementById('recurringExtraPaymentsBody');
+    if (!tbody) return;
+    
+    tbody.innerHTML = '';
+    
+    if (recurringExtraPayments.length === 0) {
+        const row = tbody.insertRow();
+        const cell = row.insertCell();
+        cell.colSpan = 5;
+        cell.className = 'no-data';
+        cell.textContent = 'No recurring extra payments added yet';
+        return;
+    }
+    
+    recurringExtraPayments.forEach((payment, index) => {
+        const row = tbody.insertRow();
+        
+        row.insertCell().textContent = formatCurrency(payment.amount);
+        row.insertCell().textContent = payment.frequency;
+        row.insertCell().textContent = payment.startDate;
+        row.insertCell().textContent = payment.endDate;
+        
+        const actionsCell = row.insertCell();
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = '×';
+        removeBtn.className = 'remove-payment-btn';
+        removeBtn.type = 'button';
+        removeBtn.title = 'Remove this recurring extra payment';
+        
+        removeBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            removeRecurringExtraPayment(index);
+        });
+        
+        actionsCell.appendChild(removeBtn);
+    });
+}
+
 function setupExportListeners() {
     const monthlyBtn = document.getElementById('exportMonthlyBtn');
     if (monthlyBtn) {
@@ -213,6 +329,7 @@ function calculateMortgage() {
     updateSummaryDisplay();
     updateMonthlyPaymentsDisplay();
     updateExtraPaymentsDisplay();
+    updateRecurringExtraPaymentsDisplay();
     
     console.log('Mortgage calculation complete');
 }
@@ -309,6 +426,20 @@ function generateAmortizationScheduleReduceTerm() {
             totalExtraThisMonth = extraPaymentsThisMonth.reduce((sum, ep) => sum + ep.amount, 0);
         }
 
+        recurringExtraPayments.forEach(rep => {
+            const start = new Date(rep.startDate);
+            const end = new Date(rep.endDate);
+            if (currentDate >= start && currentDate <= end) {
+                if (rep.frequency === 'monthly') {
+                    totalExtraThisMonth += rep.amount;
+                } else if (rep.frequency === 'quarterly' && (currentDate.getMonth() - start.getMonth()) % 3 === 0) {
+                    totalExtraThisMonth += rep.amount;
+                } else if (rep.frequency === 'annually' && currentDate.getMonth() === start.getMonth()) {
+                    totalExtraThisMonth += rep.amount;
+                }
+            }
+        });
+
         const interestPayment = remainingBalance * monthlyRate;
         let principalPayment = monthlyPayment - interestPayment;
 
@@ -387,6 +518,23 @@ function generateAmortizationScheduleReducePayment() {
         let totalExtraThisMonth = 0;
         if (extraPaymentsThisMonth.length > 0) {
             totalExtraThisMonth = extraPaymentsThisMonth.reduce((sum, ep) => sum + ep.amount, 0);
+        }
+
+        recurringExtraPayments.forEach(rep => {
+            const start = new Date(rep.startDate);
+            const end = new Date(rep.endDate);
+            if (currentDate >= start && currentDate <= end) {
+                if (rep.frequency === 'monthly') {
+                    totalExtraThisMonth += rep.amount;
+                } else if (rep.frequency === 'quarterly' && (currentDate.getMonth() - start.getMonth()) % 3 === 0) {
+                    totalExtraThisMonth += rep.amount;
+                } else if (rep.frequency === 'annually' && currentDate.getMonth() === start.getMonth()) {
+                    totalExtraThisMonth += rep.amount;
+                }
+            }
+        });
+
+        if (totalExtraThisMonth > 0) {
             remainingBalance -= totalExtraThisMonth;
 
             // Recalculate the monthly payment for the remainder of the loan
@@ -440,7 +588,7 @@ function updateSummaryDisplay() {
     const totalPayments = loanData.loanAmount + loanData.currentTotalInterest;
     
     // Update summary values - show different payment amounts based on mode
-    if (extraPayments.length > 0 && recalcMode === 'reducePayment' && loanData.recastMonthlyPayment > 0) {
+    if ((extraPayments.length > 0 || recurringExtraPayments.length > 0) && recalcMode === 'reducePayment' && loanData.recastMonthlyPayment > 0) {
         document.getElementById('monthlyPayment').textContent = formatCurrency(loanData.recastMonthlyPayment);
         document.getElementById('monthlyPaymentNote').textContent = `(Reduced from ${formatCurrency(loanData.monthlyPayment)})`;
         document.getElementById('monthlyPaymentNote').style.display = 'block';
@@ -456,7 +604,7 @@ function updateSummaryDisplay() {
     
     // Show extra payment summary if there are extra payments
     const extraSummary = document.getElementById('extraPaymentSummary');
-    if (extraPayments.length > 0) {
+    if (extraPayments.length > 0 || recurringExtraPayments.length > 0) {
         const interestSavings = loanData.originalTotalInterest - loanData.currentTotalInterest;
         const timeSaved = calculateTimeSaved();
         
