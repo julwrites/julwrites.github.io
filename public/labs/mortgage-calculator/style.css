@@ -1312,3 +1312,7 @@ select.form-control-xs {
 [data-color-scheme="light"] select.form-control-xs {
   background-image: var(--select-caret-light);
 }
+
+.extra-form-row {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
