@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Four Temperaments Quiz</title>
+    <link rel="stylesheet" href="../shared.css">
+</head>
+<body data-theme="dark">
+    <div class="container">
+        <!-- Welcome Section -->
+        <section id="welcome-section" class="section">
+            <div class="welcome-content">
+                <h1 class="main-title">Four Temperaments Quiz</h1>
+                <p class="subtitle">Discover your unique personality blend through the ancient wisdom of temperament theory</p>
+                
+                <div class="temperament-grid">
+                    <div class="temperament-card sanguine">
+                        <div class="temperament-icon">🌟</div>
+                        <h3>Sanguine</h3>
+                        <p>The Social Optimist</p>
+                    </div>
+                    <div class="temperament-card choleric">
+                        <div class="temperament-icon">⚡</div>
+                        <h3>Choleric</h3>
+                        <p>The Natural Leader</p>
+                    </div>
+                    <div class="temperament-card melancholic">
+                        <div class="temperament-icon">🎨</div>
+                        <h3>Melancholic</h3>
+                        <p>The Thoughtful Perfectionist</p>
+                    </div>
+                    <div class="temperament-card phlegmatic">
+                        <div class="temperament-icon">🕊️</div>
+                        <h3>Phlegmatic</h3>
+                        <p>The Peaceful Mediator</p>
+                    </div>
+                </div>
+
+                <div class="welcome-description">
+                    <p>This quiz consists of 30 questions designed to help you understand your temperament profile. Each question offers four choices that correspond to different temperament traits. Your results will show your primary and secondary temperaments along with detailed insights.</p>
+                </div>
+
+                <button class="btn btn--primary btn--lg" onclick="startQuiz()">Start Quiz</button>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz-section" class="section hidden">
+            <div class="quiz-header">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <span class="progress-text" id="progress-text">Question 1 of 30</span>
+                </div>
+                <button class="theme-toggle" id="theme-toggle">Toggle Dark Mode</button>
+            </div>
+
+            <div class="question-container">
+                <h2 class="question-number" id="question-number">Question 1</h2>
+                <h3 class="question-text" id="question-text"></h3>
+                
+                <div class="answers-container" id="answers-container">
+                    <button class="answer-btn" data-temperament="sanguine" onclick="selectAnswer('sanguine')">
+                        <span class="answer-label">A</span>
+                        <span class="answer-text" id="answer-a"></span>
+                    </button>
+                    <button class="answer-btn" data-temperament="choleric" onclick="selectAnswer('choleric')">
+                        <span class="answer-label">B</span>
+                        <span class="answer-text" id="answer-b"></span>
+                    </button>
+                    <button class="answer-btn" data-temperament="melancholic" onclick="selectAnswer('melancholic')">
+                        <span class="answer-label">C</span>
+                        <span class="answer-text" id="answer-c"></span>
+                    </button>
+                    <button class="answer-btn" data-temperament="phlegmatic" onclick="selectAnswer('phlegmatic')">
+                        <span class="answer-label">D</span>
+                        <span class="answer-text" id="answer-d"></span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results-section" class="section hidden">
+            <div class="results-content">
+                <h1 class="results-title">Your Temperament Profile</h1>
+                <p class="results-subtitle">Here's your unique personality blend based on your responses</p>
+
+                <div class="results-grid">
+                    <div class="result-card" id="result-sanguine">
+                        <div class="result-header">
+                            <h3>Sanguine</h3>
+                            <div class="result-score">
+                                <span class="score-number" id="sanguine-score">0</span>
+                                <span class="score-percentage" id="sanguine-percentage">0%</span>
+                            </div>
+                        </div>
+                        <div class="result-bar">
+                            <div class="result-fill sanguine-fill" id="sanguine-fill"></div>
+                        </div>
+                        <div class="result-rank" id="sanguine-rank"></div>
+                    </div>
+
+                    <div class="result-card" id="result-choleric">
+                        <div class="result-header">
+                            <h3>Choleric</h3>
+                            <div class="result-score">
+                                <span class="score-number" id="choleric-score">0</span>
+                                <span class="score-percentage" id="choleric-percentage">0%</span>
+                            </div>
+                        </div>
+                        <div class="result-bar">
+                            <div class="result-fill choleric-fill" id="choleric-fill"></div>
+                        </div>
+                        <div class="result-rank" id="choleric-rank"></div>
+                    </div>
+
+                    <div class="result-card" id="result-melancholic">
+                        <div class="result-header">
+                            <h3>Melancholic</h3>
+                            <div class="result-score">
+                                <span class="score-number" id="melancholic-score">0</span>
+                                <span class="score-percentage" id="melancholic-percentage">0%</span>
+                            </div>
+                        </div>
+                        <div class="result-bar">
+                            <div class="result-fill melancholic-fill" id="melancholic-fill"></div>
+                        </div>
+                        <div class="result-rank" id="melancholic-rank"></div>
+                    </div>
+
+                    <div class="result-card" id="result-phlegmatic">
+                        <div class="result-header">
+                            <h3>Phlegmatic</h3>
+                            <div class="result-score">
+                                <span class="score-number" id="phlegmatic-score">0</span>
+                                <span class="score-percentage" id="phlegmatic-percentage">0%</span>
+                            </div>
+                        </div>
+                        <div class="result-bar">
+                            <div class="result-fill phlegmatic-fill" id="phlegmatic-fill"></div>
+                        </div>
+                        <div class="result-rank" id="phlegmatic-rank"></div>
+                    </div>
+                </div>
+
+                <div class="temperament-details" id="temperament-details">
+                    <!-- Detailed descriptions will be populated here -->
+                </div>
+
+                <div class="results-actions">
+                    <button class="btn btn--secondary btn--lg" onclick="restartQuiz()">Take Quiz Again</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="../shared.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
