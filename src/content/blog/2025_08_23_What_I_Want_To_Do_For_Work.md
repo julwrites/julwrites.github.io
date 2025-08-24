@@ -1,4 +1,8 @@
-
+---
+title: "What I want to do for work"
+description: "I recently read Sean Goedecke's blog on this, and it was very insightful and also thought-provoking for myself"
+pubDate: "Aug 23 2025"
+---
 
 I was inspired by [Sean Geodecke's post](https://www.seangoedecke.com/my-engineering-values-2025/) to write something similar. Not that I am looking for a job, but it seems like a good exercise to do regularly, as part of shaping my own career. 
 
