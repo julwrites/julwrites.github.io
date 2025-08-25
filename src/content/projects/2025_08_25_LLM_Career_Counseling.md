@@ -55,7 +55,7 @@ As you can see, Open-WebUI gives me a really convenient capability to swap throu
 
 Now, I'm not going to show the whole conversation (that might be too much sensitive information to share), but here's some learnings I took away from the experience. 
 
-1. LLMs are getting _really_ good at professional-quality work
+### 1. LLMs are getting _really_ good at professional-quality work
 
 I know this has been said by many people and in many different ways. I'm neither an AI Optimist nor an AI Pessimist; I'm just pragmatic. This entire exercise cost me only ~$0.2, even with all the top of the line models, and they gave me advice and pushed me to think about things at a level of a professional coach. 
 
@@ -63,7 +63,7 @@ That's not to say there won't be a need for coaches; I might argue that you want
 
 *You could - and probably should - try it out*
 
-2. LLMs are heavily context-dependent
+### 2. LLMs are heavily context-dependent
 
 This entire exercise was only effective because I took the time to think, talk, and translate all the possibilities in the cloud of consciousness into something I could write down in less than 1000 words. This is what I fed into the LLM, and the ask was basically to help me test my own thinking. 
 
@@ -71,17 +71,21 @@ If I was to simply go to the LLM and start the conversation with 'I'm not sure w
 
 *You really need to provide, and manage context when working with a LLM.*
 
-3. Different LLMs do have different 'thoughts'
+### 3. Different LLMs do have different 'thoughts'
 
 This whole observation about vagueness is only excacerbated by the fact that each LLM seems to have a 'mind of its own'. So, it is a little bit like choosing a coach then, or an assistant or team member. And you do kind of want to be careful who you choose, even if the switching cost is low. 
 
 It's really hard to give these a name right now, but here's a little impression blurb for each. 
 
-- GPT 5 feels like a professional, high-functioning individual
-- Claude 4.1 feels like a friendly, capable assistant
-- Gemini 2.5 Pro feels like a highly technical colleague
-- Deepseek Reasoner feels like a cultured, logical elder
-- Grok 4 feels like a talkative, flowery storyteller
+GPT 5 feels like a professional, high-functioning individual
+
+Claude 4.1 feels like a friendly, capable assistant
+
+Gemini 2.5 Pro feels like a highly technical colleague
+
+Deepseek Reasoner feels like a cultured, logical elder
+
+Grok 4 feels like a talkative, flowery storyteller
 
 All 5 of them stayed on topic and all except Grok 4 converged on the task completion within 3-4 iterations (Grok 4 kept asking more iterative refinement questions). 
 
