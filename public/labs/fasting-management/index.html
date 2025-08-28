@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Lifestyle Changes Affect Your Health</title>
+    <link rel="stylesheet" href="../shared.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+    <div class="container">
+        <header>
+            <h1 class="page-header">How Timing Your Meals Affects Your Health</h1>
+            <button class="theme-toggle" id="theme-toggle">🌙</button>
+        </header>
+
+        <div class="card">
+            <h2>Key Metrics</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>Eating Window Duration</h3>
+                    <p>The number of hours per day you consume all your calories. Shorter windows (8-10 hours) are linked to better health outcomes.</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Time of First Meal</h3>
+                    <p>When you start your eating window. Aligning this with your body's natural cortisol rhythm (higher in the morning) can improve hormone balance.</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Daily Caloric Intake</h3>
+                    <p>The total number of calories you consume. While timing is crucial, caloric balance still drives weight loss or gain.</p>
+                </div>
+            </div>
+            <div class="controls-container">
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="eating-window">Daily Eating Window:</label>
+                        <input type="range" id="eating-window" min="4" max="20" value="12">
+                        <div class="value-display" id="eating-window-value">12 hours</div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="first-meal">Time of First Meal:</label>
+                        <input type="range" id="first-meal" min="6" max="14" value="8">
+                        <div class="value-display" id="first-meal-value">8:00 AM</div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="caloric-intake">Daily Caloric Intake:</label>
+                        <input type="range" id="caloric-intake" min="1000" max="3000" value="2000" step="100">
+                        <div class="value-display" id="caloric-intake-value">2000 calories</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Health Indicators</h2>
+            <div class="indicators-grid">
+                <div class="indicator-card" id="weight-loss-card">
+                    <h3>Weight/Fat Loss Potential</h3>
+                    <p id="weight-loss-indicator">Moderate</p>
+                    <p class="indicator-blurb">This indicator estimates your potential for weight and fat loss based on your eating window, caloric intake, and meal timing. A shorter window and a caloric deficit will increase your potential.</p>
+                </div>
+                <div class="indicator-card" id="hormone-health-card">
+                    <h3>Hormone & Mood Health</h3>
+                    <p id="hormone-health-indicator">Stable</p>
+                    <p class="indicator-blurb">This indicator reflects how your eating schedule aligns with your body's natural hormone rhythms. Eating earlier in the day and avoiding large meals before bed can improve hormone balance and mood.</p>
+                </div>
+                <div class="indicator-card" id="organ-health-card">
+                    <h3>Organ Health</h3>
+                    <p id="organ-health-indicator">Good</p>
+                    <p class="indicator-blurb">This indicator shows how your eating pattern affects your organs, particularly your liver. A longer fasting period gives your organs a chance to rest and repair.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Visualizing Your Eating Schedule</h2>
+            <div class="timeline-container">
+                <div class="timeline">
+                    <div class="timeline-track">
+                        <div class="eating-window-bar" id="eating-window-bar"></div>
+                    </div>
+                    <div class="time-labels"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Experiment and Explore</h2>
+            <p>Your body is unique. Use this tool to understand the principles, then experiment to find what works best for you. Track these metrics for 10 days, making gradual changes and observing your energy and mood.</p>
+        </div>
+    </div>
+
+    <script src="../shared.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

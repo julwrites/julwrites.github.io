@@ -1,0 +1,120 @@
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.control-group {
+    flex: 1;
+    min-width: 250px;
+}
+
+.value-display {
+    text-align: center;
+    font-weight: 600;
+    margin-top: 5px;
+    color: var(--primary-color);
+}
+
+.metrics-grid, .indicators-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.metric-card, .indicator-card {
+    background: var(--card-bg-color);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--card-border-color);
+}
+
+.metric-card h3, .indicator-card h3 {
+    margin-bottom: 10px;
+    color: var(--text-color);
+    font-size: 1.1rem;
+}
+
+.metric-card p, .indicator-card p {
+    font-size: 1rem;
+    color: var(--secondary-color);
+}
+
+.indicator-card p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.indicator-card .indicator-blurb {
+    font-size: 0.9rem;
+    font-weight: normal;
+    text-align: left;
+    margin-top: 15px;
+}
+
+.indicator-card.optimal {
+    border-left: 4px solid var(--success-color);
+}
+
+.indicator-card.good {
+    border-left: 4px solid var(--info-color);
+}
+
+.indicator-card.moderate {
+    border-left: 4px solid var(--warning-color);
+}
+
+.indicator-card.disrupted {
+    border-left: 4px solid var(--danger-color);
+}
+
+.controls-container {
+    margin-top: 20px;
+}
+
+.timeline-container {
+    padding: 20px 0;
+}
+
+.timeline {
+    position: relative;
+    width: 100%;
+}
+
+.timeline-track {
+    width: 100%;
+    height: 50px;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    opacity: 0.3;
+}
+
+.eating-window-bar {
+    position: absolute;
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    top: 0;
+}
+
+.time-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    color: var(--text-color);
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+@media (max-width: 768px) {
+    .metrics-grid, .indicators-grid {
+        grid-template-columns: 1fr;
+    }
+}
