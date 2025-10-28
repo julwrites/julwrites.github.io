@@ -17,23 +17,23 @@ Now, I should just be letting these students work on the project on their own, a
 
 I figured, I could do a little prototype of my own, and motivated by the impending doom of my play console app (which I paid $25 good dollars for!), I decided to quickly do up a prototype that I could launch on the Play Store. 
 
-![Google Play Warning](assets/blog/2025_10_28_NFC_Tag_App/google_play_warning.png)
+![Google Play Warning](/assets/blog/2025_10_28_NFC_Tag_App/google_play_warning.png)
 
 More to the point, I have recently learned that I can connect Claude Code and Codex CLI to Deepseek, which means I can get the CLI experience of the best coding agent, with the price of the cheapest top tier model right now. This. Is. Great. 
 
-![Claude Code](assets/blog/2025_10_28_NFC_Tag_App/claude_code.png)
+![Claude Code](/assets/blog/2025_10_28_NFC_Tag_App/claude_code.png)
 
 And this does pretty well too, at least while working on a small app like this. I was able to get tag reading up fairly quickly with a few rounds of prompting. Tag writing was a bit tricky because the models kept assuming the wrong usage of the NDEF library, and kept removing it instead of properly integrating it. 
 
-![Claude Code Working](assets/blog/2025_10_28_NFC_Tag_App/claude_code_working.png)
+![Claude Code Working](/assets/blog/2025_10_28_NFC_Tag_App/claude_code_working.png)
 
 Styling and review and documentation was a breeze, of course. 
 
-![Codex](assets/blog/2025_10_28_NFC_Tag_App/codex.png)
+![Codex](/assets/blog/2025_10_28_NFC_Tag_App/codex.png)
 
 I tried the same experiment too with Codex CLI, which I heard was even better for connecting with third party models.
 
-![Codex Working](assets/blog/2025_10_28_NFC_Tag_App/codex_working.png)
+![Codex Working](/assets/blog/2025_10_28_NFC_Tag_App/codex_working.png)
 
 It did pretty well too, but then of course it is the same underlying model. 
 
@@ -43,7 +43,7 @@ Honestly, the Flutter app wasn't much of a leaerning. I could have done this on 
 
 What was interesting was doing this with a whole new ecosystem of tools and on an unfamiliar platform. I'm mostly used to deploying desktop or web apps, but not so much mobile apps. 
 
-![Google Play Console](assets/blog/2025_10_28_NFC_Tag_App/google_play_console.png)
+![Google Play Console](/assets/blog/2025_10_28_NFC_Tag_App/google_play_console.png)
 
 The Google Play Console was surprisingly comprehensive. I say surprisingly in comparison to what it requires to host a web app or desktop app, which often is almost no checks! This required me to fill out a whole questionnaire on my app, what it did, whether it was safe for kids, whether I stole data, or sold data, or even stored data... 
 
