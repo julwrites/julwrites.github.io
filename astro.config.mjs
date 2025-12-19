@@ -15,7 +15,7 @@ export default defineConfig({
     vue(),
     tailwind(),
     yeskunallumami({
-      endpointUrl: "https://umami.tehj.sh",
+      endpointUrl: "https://umami.tehj.io",
       id: "73173525-4cfd-4b92-a118-04a8135c2c82",
     }),
   ],
