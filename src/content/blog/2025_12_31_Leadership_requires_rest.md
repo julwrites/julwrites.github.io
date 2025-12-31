@@ -2,7 +2,6 @@
 title: "Leadership requires rest"
 description: "Many of the leaders around me are perpetually exhausted."
 pubDate: "Dec 31 2025"
-draft: true
 ---
 
 ## Leaders are inevitably exhausted
