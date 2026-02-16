@@ -10,9 +10,5 @@ export default {
     require('@tailwindcss/container-queries'),
   ],
   // Make sure Tailwind processes all CSS files
-  safelist: [
-    {
-      pattern: /.*/,
-    },
-  ],
+  safelist: [],
 }
