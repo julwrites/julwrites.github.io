@@ -3,11 +3,20 @@ title: "Maximizing Jules"
 description: "Exploring the autonomous frontier with Google Jules and AI Pro."
 pubDate: "2026-02-17"
 tags: ["AI", "Google Jules", "Automation", "Productivity"]
+heroImage: "/assets/blog/2026_02_19_Maxing_Google_Jules/jules_new_session.png"
+
 ---
 
 Late last year, I managed to get onto the 3-month beta for Google AI Pro. It was one of those "see what’s possible" moments that engineering minds can't resist. After the beta ended, the utility was clear enough that I transitioned into a full subscription. Now, the challenge—and the fun—is in **maximizing** that investment.
 
+
 The center of this exploration isn't just the large context window or the multimodal capabilities; it's **Google Jules**, the autonomous task agent. 
+
+## What can Jules do?
+
+![Jules Session Options](/assets/blog/2026_02_19_Maxing_Google_Jules/jules_session_options.png)
+
+
 
 ## The Search for Autonomy
 
