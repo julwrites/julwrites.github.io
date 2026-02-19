@@ -42,15 +42,25 @@ For starters, being able to tell your computer to go fix itself is a big deal. I
 
 2. AI has way more stamina than me
 
-It is actually very fatiguing to have to keep up with an AI assistant. I know this from work, but to bring it into my personal messaging... It was fun for the first hour, and then became quickly obvious that it would essentially demand my attention incessantly if I wasn't careful. It will wait indefinitely for me to respond, of course, but there is a kind of mental load that comes with an unread message sitting and waiting for you. 
+It is actually very tiring to have to keep up with an AI assistant. I know this from work, but to bring it into my personal messaging was... well, fun for the first hour. And then it became quickly obvious that it would essentially demand my attention incessantly if I wasn't careful. 
+
+It will wait indefinitely for me to respond, of course, but there is a kind of mental load that comes with an unread message sitting and waiting for you, and I'm the kind of guy who just can't stand having unread messages. 
 
 ![OpenClaw Heartbeat](/assets/blog/2026_02_20_Trying_OpenClaw/openclaw_heartbeat.png)
 
 I ended up setting very specific times and tasks for it to run. Things like reading news reports and checking stock tickers to give me a daily update. 
 
+3. AI is not me
+
 Perhaps more useful was the ability to help me with content creation. I asked it to help me write more and better, and it suggested creating a content calendar, and it would help me even draft the content if I gave it ideas and/or nudges. 
 
-In the end, I pretty much re-wrote this entire article by hand, so maybe it wasn't super useful, but it was a pretty good facsimile of my writing, and a pretty good kick in the pants to myself. 
+So I tried asking OpenClaw to write this article! And it did, with very little prompting from me, and therefore with many, many assumptions...
+
+In the end, I pretty much re-wrote this entire article by hand, so maybe it wasn't super useful for content creation (if I care about having a personal style of writing). 
+
+What was useful was having it act as an editorial agent; to prompt me to jot down my thoughts, to move forward on a draft, to post on schedule, and also to catch my writing mistakes.
+
+Rather than saying it lowered the bar, it's more like it helped me move from just thinking about it to actually doing something, and that is quite the chasm to cross at times.
 
 ## What's next?
 
