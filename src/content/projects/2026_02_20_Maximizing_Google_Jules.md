@@ -12,11 +12,11 @@ Perfect. I hadn't really finished experimenting with Google Jules, and I could s
 
 ## A quick house tour
 
-![Jules Sesion Option](/assets/blog/2026_02_20_Maximizing_Google_Jules/jules_session_options.png)
+![Jules Session Option](/assets/blog/2026_02_20_Maximizing_Google_Jules/jules_session_options.png)
 
-Before we get into it, a quick tour of Jules. Jules is essentially a sandbox that can run AI which you can instruct, and it has incrementally been outfitted with a couple of nice features. (During the beta, it was really bare bones; you had the session options, the chat, and you could create a branch on Github; that was it. Superb MVP discipline, if I may say so).
+Before we get into it, a quick tour of Jules. Jules is essentially a sandbox that can run AI which you can instruct, and it has incrementally been outfitted with a couple of nice features. (During the beta, it was really bare bones; you had the session options, the chat, and you could create a branch on GitHub; that was it. Superb MVP discipline, if I may say so).
 
-It has internet access, can pull your Github repository on launching the task, and can do some searches. And it can create a branch or a PR on Github after it finishes the task. 
+It has internet access, can pull your GitHub repository on launching the task, and can do some searches. And it can create a branch or a PR on GitHub after it finishes the task. 
 
 ![Jules Environment](/assets/blog/2026_02_20_Maximizing_Google_Jules/jules_environment.png)
 
@@ -28,9 +28,9 @@ There's a couple of MCPs too, and some other plugins which are slowly being popu
 
 ![Jules CI Fixer](/assets/blog/2026_02_20_Maximizing_Google_Jules/jules_cifixer.png)
 
-This one was quite new, and honestly one of the best new additions. Jules doesn't always get the task right the first time, and your CI/CD is there to catch it. For awhile I was going back and forth between Github and Jules to prompt it to fix linting, tests, etc... 
+This one was quite new, and honestly one of the best new additions. Jules doesn't always get the task right the first time, and your CI/CD is there to catch it. For a while I was going back and forth between GitHub and Jules to prompt it to fix linting, tests, etc... 
 
-Now they've integrated this check into Jules, the rate of successful PRs is way higher. (It also burned through my Github Actions limit on my private repositories, but that's another story)
+Now they've integrated this check into Jules, the rate of successful PRs is way higher. (It also burned through my GitHub Actions limit on my private repositories, but that's another story)
 
 ## Jules was a new paradigm
 
@@ -47,7 +47,7 @@ Jules made it possible to start interacting on tasks, and even getting them done
 Within just months, I was able to build a bunch of things with Jules:
 
 - [Discipleship Journal](https://github.com/julwrites/discipleship-journal): A new project which I conceived from discussion with my mentor. Built from scratch with about 90% of the code written by Jules. I handled the deployment (8%) and pulled in [Claude Code](https://claude.ai/code) with [Deepseek](https://deepseek.com/) for the 2% where Jules hit a wall.
-- [BibleAI API](https://github.com/julwrites/BibleAIAPI): Along with doing the Discipleship Journal, I thoght it appropriate to decouple commonly usesd functionality from [ScriptureBot](https://github.com/julwrites/scripturebot), and migrate this over to a new GCP account for billing. This wasn't super big, but I had to do some manual testing to make sure the API was to my liking. Otherwise, 80% of the code was done by Jules.
+- [BibleAI API](https://github.com/julwrites/BibleAIAPI): Along with doing the Discipleship Journal, I thought it appropriate to decouple commonly used functionality from [ScriptureBot](https://github.com/julwrites/scripturebot), and migrate this over to a new GCP account for billing. This wasn't super big, but I had to do some manual testing to make sure the API was to my liking. Otherwise, 80% of the code was done by Jules.
 - [Agent-Harness](https://github.com/julwrites/agent-harness): was another little thing I thought of when I was bootstrapping yet another AI-assisted project, and thought... why can't this be more repeatable?
 - [WebWiki](https://github.com/julwrites/webwiki): I've been a Vimwiki user for years, but the problem has always been using it on mobile or on my work device. So why not make a way to access it?
 
