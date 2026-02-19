@@ -1,45 +1,47 @@
 ---
 title: "Maximizing Jules"
-description: "Exploring the autonomous frontier with Google Jules and AI Pro."
-pubDate: "2026-02-17"
-tags: ["AI", "Google Jules", "Automation", "Productivity"]
+description: "Throwing tasks at the wall: How Google Jules changed my project paradigm from speed to stamina."
+pubDate: "2026-02-19"
+tags: ["AI", "Google Jules", "Automation", "Engineering"]
 heroImage: "/assets/blog/2026_02_19_Maxing_Google_Jules/jules_new_session.png"
-
 ---
 
-Late last year, I managed to get onto the 3-month beta for Google AI Pro. It was one of those "see what’s possible" moments that engineering minds can't resist. After the beta ended, the utility was clear enough that I transitioned into a full subscription. Now, the challenge—and the fun—is in **maximizing** that investment.
+Late last year, I signed up to beta test [Google Jules](https://blog.google/technology/ai/google-gemini-jules-autonomous-agent/), which came with a three-month "all-access pass" to Google AI Pro. It was the perfect playground for an engineer: a high-powered autonomous agent and three months to see exactly what would happen if I let it drive.
 
+What I found wasn't necessarily a speed boost, but a total shift in how I approach project architecture—a paradigm I've come to think of as "throwing tasks at the wall to see what sticks."
 
-The center of this exploration isn't just the large context window or the multimodal capabilities; it's **Google Jules**, the autonomous task agent. 
+## The Experiment Log: Breadth over Speed
 
-## What can Jules do?
+The common narrative for AI is that it makes you faster. In my experience with Jules, that’s not quite right. In fact, some of these projects took *more* effort than doing them manually because I was managing the agent's output. 
 
-![Jules Session Options](/assets/blog/2026_02_19_Maxing_Google_Jules/jules_session_options.png)
+But Jules gave me something I didn't have before: **Stamina.** 
 
+I was able to explore an incredible breadth of projects concurrently that would have been mentally exhausting otherwise:
 
+*   **[Discipleship Journal](https://github.com/julwrites/discipleship-journal)**: Built this from scratch with about 90% of the effort handled by Jules. I handled the deployment (8%) and pulled in [Claude Code](https://claude.ai/code) for a final 2% of polish where Jules hit a wall.
+*   **[BibleAI API](https://github.com/julwrites/BibleAIAPI)**: I tasked Jules with the heavy lifting of decoupling this from [ScriptureBot](https://github.com/julwrites/scripturebot). About 80% of the code restructuring was done autonomously.
+*   **[Agent-Harness](https://github.com/julwrites/agent-harness)** and **[WebWiki](https://github.com/julwrites/webwiki)**: Developed these tools from the ground up to standardize how I manage agents and personal data.
 
-## The Search for Autonomy
+Jules didn't make me a "10x coder" in terms of minutes saved per line, but it allowed me to maintain ten different "fronts" of development at once.
 
-For years, we’ve used AI as a fancy autocomplete or a sophisticated search engine. But Jules represents a shift toward true autonomy. It’s not just about asking a question; it’s about assigning a mission. 
+## The "Hammer and Nails" Moment
 
-I’ve started looking at maximizing Jules piece by piece. The goal is to move past simple prompts and into a workflow where I can hand off entire "loops" of work. 
+The turning point came from watching a friend build a geopolitical tracker using Claude Code. It was an interesting approach, and I wondered if I could apply that same logic to Jules. (The old adage: when you have a powerful enough hammer, everything starts looking like a nail.)
 
-## The First Piece: Autonomous Task Loops
+If Jules could handle a complex code migration, could it handle a complex *information* migration?
 
-My first major experiment with Jules has been in delegating the "background noise" of my projects. 
-- **The Vision:** Give Jules a high-level goal—like "Audit the Bible AI API for stateless consistency"—and let it explore the codebase, identify issues, and propose a plan without me holding its hand.
-- **The Reality:** It’s a learning curve in prompt engineering and guardrail setting. To maximize Jules, you have to learn how to be a manager, not just a coder. You have to define the "soul" of the task and the success criteria clearly.
+![Jules Scheduled Task](/assets/blog/2026_02_19_Maxing_Google_Jules/jules_scheduled_task.png)
 
-## Integration with My Stack
+## Closing the Loop: Autonomous GitHub Schedules
 
-A key part of maximizing the Pro subscription is ensuring Jules isn't living in a vacuum. I’ve been working on integrating it into my existing Raspberry Pi setup (via OpenClaw). This creates a powerful hybrid:
-1.  **OpenClaw** acts as the persistent, local brain (the orchestrator).
-2.  **Google Jules** acts as the high-powered, autonomous worker that I can spin up for specific, heavy-duty tasks.
+The real "Maximizing Pro" move wasn't a single prompt, but a monthly engineering effort to build a closed loop. I wanted Jules to live where the work lives—in GitHub.
 
-## Why Bother?
+After a month of trial and error, I managed to set up a system where Jules runs on an hourly schedule. It's not just "chatting"; it's incrementally developing and updating my **[Jules-Analysis](https://github.com/julwrites/jules-analysis)** repository. 
 
-It’s easy to look at these tools as just "more tech." But for me, maximizing Jules is about reclaimed time. Every successful autonomous loop Jules runs is a loop I don’t have to process manually. 
+As long as the instructions are clear enough to prevent "model drift," it acts as a self-sustaining geopolitical tracker that builds itself while I sleep.
 
-As I explore the subsequent pieces of the Google AI Pro ecosystem—from deeper Gemini 1.5 Pro integrations to the newer reasoning models—the focus remains the same: how do I turn this paid "tool" into a self-sustaining partner in my engineering and creative life?
+## Conclusion: A New Home on the Frontier
 
-The exploration has just begun, but the frontier of autonomous agents is looking increasingly like home.
+Jules has moved me past the era of "AI as a chatbox." It’s now a scheduled, autonomous worker that enables a volume of experimentation I couldn't have sustained on my own. 
+
+The frontier of autonomous agents doesn't just feel like a science experiment anymore. It’s starting to feel like home.
