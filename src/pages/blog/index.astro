@@ -5,7 +5,6 @@ import BaseHead from '../../components/BaseHead.astro';
 
 // Get all blog posts sorted by date
 const posts = await getCollection('blog');
-console.log('Blog posts found:', posts.length); // Debug log
 const sortedPosts = posts.sort(
   (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
 );
