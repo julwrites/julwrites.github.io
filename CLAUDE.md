@@ -43,7 +43,7 @@ This is a personal portfolio and blog website built with Astro, deployed to GitH
 ## Key Directories
 
 - `src/pages/` - Astro page components
-- `src/layouts/` - Layout components (Layout.astro, BlogPost.astro)
+- `src/layouts/` - Layout components (Layout.astro)
 - `src/components/` - Reusable components (Header, Footer, Intro, Links, ProjectListing)
 - `src/styles/` - Global CSS and shared styles
 - `public/` - Static assets including labs
