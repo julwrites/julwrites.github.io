@@ -30,7 +30,11 @@ I had to set up a channel asap, and of course chose Telegram. Then I set up a mo
 
 It took a little bit of work to figure out why OpenClaw wasn't responding to my messages on Telegram (I set it up explicitly to respond to my user ID). And then, I was in business. 
 
+<<<<<<< Updated upstream:src/content/drafts/projects/2026_02_27_Foray_into_OpenClaw.md
 ![OpenClaw Pairing](/assets/blog/2026_02_27_Foray_into_OpenClaw/openclaw_pairing_telegram.png)
+=======
+![OpenClaw Pairing](/assets/blog/2026_03_06_Foray_into_OpenClaw/openclaw_pairing_telegram.png)
+>>>>>>> Stashed changes:src/content/drafts/projects/2026_03_06_Foray_into_OpenClaw.md
 
 ## Lessons Learned (So Far)
 
@@ -38,6 +42,7 @@ It took a little bit of work to figure out why OpenClaw wasn't responding to my 
 
 For starters, being able to tell your computer to go fix itself is a big deal. I had heard about this even from the creator of OpenClaw, but experiencing it is a rather different thing. 
 
+<<<<<<< Updated upstream:src/content/drafts/projects/2026_02_27_Foray_into_OpenClaw.md
 ![OpenClaw Self-fix](/assets/blog/2026_02_27_Foray_into_OpenClaw/openclaw_selffix.png)
 
 Going a step further, the whole idea of [ClawHub](https://clawhub.ai) is interesting, but obviously not the right way to expand the capabilities of OpenClaw. The reported 13% of skills that are malicious make the whole value proposition much less attractive.
@@ -47,6 +52,9 @@ But why would it need to be, if skills can simply be a good idea shared like a b
 I decided to do this; instead of getting a skill from ClawHub to work with Todoist, I instead disabled ClawHub altogether and then asked OpenClaw to use the Todoist REST API to write a skill.
 
 It one-shotted that using Gemini 3 Flash (not even Pro!). 
+=======
+![OpenClaw Self-fix](/assets/blog/2026_03_06_Foray_into_OpenClaw/openclaw_selffix.png)
+>>>>>>> Stashed changes:src/content/drafts/projects/2026_03_06_Foray_into_OpenClaw.md
 
 2. AI has way more stamina than me
 
@@ -54,7 +62,11 @@ It is actually very tiring to have to keep up with an AI assistant. I know this 
 
 It will wait indefinitely for me to respond, of course, but there is a kind of mental load that comes with an unread message sitting and waiting for you, and I'm the kind of guy who just can't stand having unread messages. 
 
+<<<<<<< Updated upstream:src/content/drafts/projects/2026_02_27_Foray_into_OpenClaw.md
 ![OpenClaw Heartbeat](/assets/blog/2026_02_27_Foray_into_OpenClaw/openclaw_heartbeat.png)
+=======
+![OpenClaw Heartbeat](/assets/blog/2026_03_06_Foray_into_OpenClaw/openclaw_heartbeat.png)
+>>>>>>> Stashed changes:src/content/drafts/projects/2026_03_06_Foray_into_OpenClaw.md
 
 I ended up setting very specific times and tasks for it to run. Things like reading news reports and checking stock tickers to give me a daily update. 
 

@@ -1,7 +1,7 @@
 ---
 title: "Leadership's renewal problem"
 description: "The renewal of leaders has been a particular interest of mine in recent years."
-pubDate: "Jan 13 2025"
+pubDate: "Mar 20 2026"
 draft: true
 ---
 
@@ -26,3 +26,13 @@ It is not a simple matter, even with the best of intentions, to identify, engage
 Can the candidate wait patiently and humbly for the incumbent leader to pass the baton?
 
 In the case that the candidate does desire your position, it is not a simple matter to make them ready while keeping them humble. The same pride that keeps an incumbent leader in power drives another to take power.
+
+## The Solution: Stewardship over Legacy
+
+Ultimately, the only variable an incumbent leader truly controls is their own willingness to let go. This requires a fundamental mindset shift—one that aligns with the highest levels of leadership: moving from a focus on **Legacy** to a focus on **Stewardship**.
+
+When we focus on legacy, we are often trying to preserve ourselves through the organization. We seek a successor who is a clone, someone who will protect what we built exactly as we built it. This creates the "loyalty paradox," where we accidentally select for compliance over capability.
+
+Stewardship, however, recognizes that the organization does not belong to the leader. A steward’s job is to prepare the "house" for the next occupant and then hand over the keys. This means accepting the risk that the next leader will do things differently. It means trusting the mission enough to let it evolve beyond our own shadow.
+
+The ultimate measure of leadership isn't what we built while we were there—it's whether what we built is healthy enough to survive our departure. Renewal isn't about finding a perfect replacement; it's about the courage to exit and the humility to trust the next steward.

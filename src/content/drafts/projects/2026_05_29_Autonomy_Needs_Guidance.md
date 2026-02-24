@@ -1,7 +1,7 @@
 ---
 title: "The Scaffolding of Autonomy"
 description: "Why I built Agent-Harness to give my AI agents a persistent brain and data locality."
-pubDate: "Apr 03 2026"
+pubDate: "May 29 2026"
 ---
 
 Not so long ago, my primary interaction with AI was through a chatbox. It was fun, novel, and great for one-off scripts, but as soon as I tried to point it at a real project, things started to get wonky. I’d start a new session, the agent would "look around," and within an hour it would be lost in the weeds—forgetting architectural decisions I’d made ten prompts ago or hallucinating files that didn't exist.
@@ -44,5 +44,5 @@ It’s the difference between "chatting with an AI" and actually **engineering w
 
 By the time I handle the manual deployment or bring in [Claude Code](https://claude.ai/code) for a final polish, the repository is already in a state of high order. The harness didn't just save me time; it saved the project's soul from the entropy of a thousand autonomous iterations.
 
-![The Harness Structure](/assets/blog/2026_04_03_The_Scaffolding_of_Autonomy/harness_structure.png)
+![The Harness Structure](/assets/blog/2026_05_29_Autonomy_Needs_Guidance/harness_structure.png)
 
