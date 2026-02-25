@@ -1,11 +1,24 @@
 ---
+import fs from 'node:fs';
+import path from 'node:path';
+
+const photosDir = path.join(process.cwd(), 'public/assets/images/photos');
+const images = fs.readdirSync(photosDir).filter(file => /\.(jpg|jpeg|png|webp)$/i.test(file));
 ---
 
 <section class="intro card">
   <h1>Hi, I'm Julian</h1>
-  <img src="/assets/images/photos/2.jpg" alt="Photo of me" />
+  <img id="intro-image" src="/assets/images/photos/2.jpg" alt="Photo of me" />
   <p>Welcome to my domain</p>
 </section>
+
+<script define:vars={{ images }}>
+  const randomImage = images[Math.floor(Math.random() * images.length)];
+  const img = document.getElementById("intro-image");
+  if (img) {
+    img.src = `/assets/images/photos/${randomImage}`;
+  }
+</script>
 
 <style>
   .intro {
