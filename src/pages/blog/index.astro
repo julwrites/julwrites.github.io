@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import { sortPostsByDate } from '../../utils/post';
 
 // Get all blog posts sorted by date
 const posts = await getCollection('blog');
