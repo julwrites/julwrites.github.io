@@ -27,6 +27,20 @@ Can the candidate wait patiently and humbly for the incumbent leader to pass the
 
 In the case that the candidate does desire your position, it is not a simple matter to make them ready while keeping them humble. The same pride that keeps an incumbent leader in power drives another to take power.
 
+## The Successor’s Paradox
+
+We often treat succession as a search for a "suitable" candidate, as if we are looking for a missing puzzle piece. But the reality of high-performance leadership introduces a fundamental paradox: the very traits that make someone a great successor also make them the most likely to leave.
+
+A truly driven successor is defined by two traits: **Passion** and **Opinion**.
+
+### 1. The Entropy of Passion
+Passion is contagious, but it is also corrosive in a mediocre environment. A driven, passionate leader cannot coexist for long with a dispassionate organization. If the quality of the organization as a whole has stagnated, the successor won't wait for the baton—they will leave to find (or build) an environment that matches their frequency. Org quality isn't just a recruiting tool; it is the "containment field" for succession.
+
+### 2. Ownership vs. Stewardship
+Strong opinions drive a leader toward **Ownership** rather than **Stewardship**. If I am opinionated about the "How" and the "Why," why would I settle for merely stewarding someone else's legacy? The successor often craves both the *authority* to act and the *autonomy* to create. 
+
+This is the ultimate test for the incumbent: Can you provide a mission so large and an alignment so deep that the successor believes starting their own organization would actually be a *step down* in impact? 
+
 ## The Solution: Stewardship over Legacy
 
 Ultimately, the only variable an incumbent leader truly controls is their own willingness to let go. This requires a fundamental mindset shift—one that aligns with the highest levels of leadership: moving from a focus on **Legacy** to a focus on **Stewardship**.
