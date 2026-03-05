@@ -38,7 +38,7 @@ In fact, the agent could also use this to update itself in a repository.
 
 It's not perfect, but this gave me quite a lot of leverage, especially when working with autonomous agents. I could spend synchronous time working on a plan together with the agent, and reviewing it, and then this would be saved in the repository itself. Then I could just dispatch tasks repeatedly. 
 
-This became the absolute lifeline for building the **[Discipleship Journal](https://github.com/julwrites/discipleship-journal)**. I used Jules to develop 90% of that project from scratch. 80% of that was probably just me re-sending the same prompt over and over again, but with the harness, Jules was able to keep track of what had been done, and what needed to be done. 
+This became the core concept that enabled the building of **[Discipleship Journal](https://github.com/julwrites/discipleship-journal)**. I used Jules to develop 90% of that project from scratch. 80% of that was probably just me re-sending the same prompt over and over again, but with the harness, Jules was able to keep track of what had been done, and what needed to be done. 
 
 Since then I've used it for so many things. In fact, all my active repositories at work and at home are now bootstrapped with this harness. 
 
@@ -62,7 +62,7 @@ docs/tasks/
 └── testing/        # Test infrastructure
 ```
 
-Each task file captures not just *what* needs to be done, but *why* it was done, *how* it was approached, and what problems were encountered. This creates a permanent, searchable record of the project's evolution.
+Each task file captures not just *what* needs to be done, but *why* it was done, *how* it was approached, and what problems were encountered. This creates a permanent, searchable record of the project's evolution, inside the project itself.
 
 Agents use `./scripts/tasks.py` to:
 - **Create tasks**: `scripts/tasks.py create features "Implement user authentication"`
@@ -95,7 +95,7 @@ The philosophy is simple: agents should be able to pick up any task and understa
 
 ### Why This Matters
 
-The harness doesn't just help agents work—it helps them work *autonomously*. When I dispatch a task to Jules (or Claude, or any other agent), I don't need to re-explain the project structure, the testing requirements, or the security boundaries. All of that is encoded in the repository itself.
+The harness doesn't just help agents work, it helps them work *autonomously*. When I dispatch a task to Jules (or Claude, or any other agent), I don't need to re-explain the project structure, the testing requirements, or the security boundaries. All of that is encoded in the repository itself.
 
 This means I can:
 - **Work asynchronously**: Plan with me, then execute while I sleep
@@ -105,4 +105,10 @@ This means I can:
 
 The harness turns a codebase from a pile of files into a **living system** that understands its own history, constraints, and goals. And because it's just Markdown, YAML, and Python scripts, it works with any model provider—no vendor lock-in, no external dependencies.
 
-This is what made building the [Discipleship Journal](https://github.com/julwrites/discipleship-journal) possible. Not because the agent was perfect, but because the system around the agent was robust enough to handle imperfection.
+## What's Next?
+
+I honestly think this is still very simplistic, especially after playing with OpenClaw and understanding that even the concept of an 'Agent Harness' can enable autonomy at a much higher level. 
+
+Maybe that will be my next goal, but for now the idea is for me to strap on the harness, and give me superpowers, not to give the agent superpowers (it already does!). 
+
+I'm also curious to see how this will evolve as we move into a world of more capable agents. Will the harness become obsolete, or will it become even more important? Let's see; things are moving really quickly now, and I hope to be able to keep up through all the chaos.
