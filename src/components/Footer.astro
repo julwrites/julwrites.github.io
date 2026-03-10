@@ -2,10 +2,10 @@
 ---
 
 <footer>
-  <div class="links-container">
-    <div class="links-section">
+  <div class="links-container flex justify-center w-full mb-6">
+    <div class="links-section flex flex-col items-center p-4 w-full max-w-[500px] bg-[var(--card-background)] rounded-[var(--border-radius)] shadow-md gap-[var(--footer-spacing)]">
       <p>Connect With Me</p>
-      <div class="icons">
+      <div class="icons flex flex-wrap justify-center gap-[var(--footer-spacing)] w-full">
         <a href="https://github.com/julwrites/julwrites.github.io/raw/main/public/assets/resume/Resume_Julian_Teh.pdf" target="_blank" title="Resume">
           <img src="/assets/images/dark/resume.png" alt="Resume" />
           <span>Resume</span>
@@ -38,34 +38,6 @@
     margin-top: 1em;
   }
   
-  .links-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 1.5em;
-  }
-
-  .links-section {
-    display: flex;
-    flex-direction: column;
-    gap: var(--footer-spacing);
-    align-items: center;
-    padding: 15px;
-    width: 100%;
-    max-width: 500px;
-    background-color: var(--card-background);
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .icons {
-    display: flex;
-    gap: var(--footer-spacing);
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-
   .icons a {
     display: flex;
     flex-direction: column;

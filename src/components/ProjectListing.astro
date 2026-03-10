@@ -1,10 +1,10 @@
 ---
 ---
 
-<section class="projects card">
-  <div class="project-section">
-    <h2>Hobby Projects</h2>
-    <div class="project-grid">
+<section class="projects card flex flex-col gap-[var(--content-spacing)] mx-auto">
+  <div class="project-section flex flex-col gap-5">
+    <h2 class="text-2xl font-medium m-0 text-center text-[var(--accent-color)]">Hobby Projects</h2>
+    <div class="project-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
       <a href="https://github.com/julwrites/llm-nvim" target="_blank" rel="noopener noreferrer" class="project-card">
         <img src="/assets/images/projects/llm-nvim.png" alt="llm-nvim" />
         <span class="project-title">llm-nvim</span>
@@ -24,9 +24,9 @@
     </div>
   </div>
 
-  <div class="project-section">
-    <h2>School Projects</h2>
-    <div class="project-grid">
+  <div class="project-section flex flex-col gap-5">
+    <h2 class="text-2xl font-medium m-0 text-center text-[var(--accent-color)]">School Projects</h2>
+    <div class="project-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       <a href="http://games.digipen.edu/games/bibbb" target="_blank" rel="noopener noreferrer" class="project-card">
         <img src="/assets/images/projects/BIBBB_1.jpg" alt="BIBBB" />
         <span class="project-title">BIBBB</span>
@@ -44,45 +44,6 @@
 </section>
 
 <style>
-  .projects {
-    display: flex;
-    flex-direction: column;
-    gap: var(--content-spacing);
-    margin: 0 auto;
-  }
-
-  .project-section {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-  }
-  
-  @media (max-width: 600px) {
-    .project-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  
-  @media (max-width: 400px) {
-    .project-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  h2 {
-    font-size: 1.8rem;
-    font-weight: 500;
-    margin: 0;
-    text-align: center;
-    color: var(--accent-color);
-  }
-
   .project-card {
     display: flex;
     flex-direction: column;
