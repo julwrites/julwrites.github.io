@@ -16,7 +16,7 @@
   --styles-loaded: true;
 }
 
-/* Media query variables */
+/* Media query variables - simplified to use responsive classes instead where possible, but kept CSS vars for easy globals */
 @media (max-width: 768px) {
   :root {
     --padding: 15px;
@@ -32,9 +32,11 @@ body {
   font-family: 'Fira Sans', sans-serif;
   padding: var(--padding);
   margin: 0 auto;
-  max-width: var(--max-width);
   line-height: 1.5;
-  width: calc(100% - 2 * var(--padding));
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 a {
@@ -91,11 +93,6 @@ nav a.active {
   background-color: rgba(255, 255, 255, 0.15);
 }
 
-@media (max-width: 768px) {
-  nav {
-    justify-content: center;
-  }
-}
 
 code {
   padding: 2px 5px;
@@ -122,4 +119,7 @@ blockquote {
   display: flex;
   flex-direction: column;
   gap: var(--content-spacing);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: 100%;
 }
