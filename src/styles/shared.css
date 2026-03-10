@@ -10,7 +10,7 @@
   --footer-spacing: 30px;
   --content-spacing: 30px;
   --border-radius: 10px;
-  --max-width: 800px;
+  --max-width: 1200px;
   
   /* Add a flag to check if styles are loaded */
   --styles-loaded: true;

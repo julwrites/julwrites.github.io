@@ -1,0 +1,44 @@
+ WARN  Cannot switch to pnpm@latest: "latest" is not a valid version
+
+> julwrites.github.io@2.0.0 dev /app
+> astro dev
+
+16:48:57 [types] Generated 1ms
+
+Auto-generating collections for folders in "src/content/" that are not defined as collections.
+This is deprecated, so you should define these collections yourself in "src/content.config.ts".
+The following collections have been auto-generated: drafts
+
+16:48:58 [content] Syncing content
+16:48:58 [content] Astro config changed
+16:48:58 [content] Clearing content store
+16:48:59 [content] Synced content
+
+ astro  v5.7.4 ready in 2847 ms
+
+┃ Local    http://localhost:4321/
+┃ Network  use --host to expose
+
+16:48:59 watching for file changes...
+Browserslist: browsers data (caniuse-lite) is 11 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+16:49:11 [200] / 582ms
+16:49:13 [200] /projects/ 162ms
+Blog posts found: 20
+16:49:14 [200] /blog/ 16ms
+16:49:15 [200] /labs/ 6ms
+16:53:51 [watch] /src/styles/global.css
+16:53:51 [watch] src/styles/shared.css
+16:54:14 [200] / 48ms
+16:54:15 [200] /projects/ 17ms
+Blog posts found: 20
+16:54:17 [200] /blog/ 13ms
+16:54:18 [200] /labs/ 6ms
+17:01:20 [watch] /src/styles/global.css
+17:01:20 [watch] src/styles/shared.css
+17:01:45 [200] / 20ms
+17:01:46 [200] /projects/ 14ms
+Blog posts found: 20
+17:01:47 [200] /blog/ 12ms
+17:01:47 [200] /labs/ 5ms
