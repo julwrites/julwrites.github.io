@@ -33,3 +33,4 @@ pnpm-debug.log*
 elm-stuff/*
 elm-pages/*
 .aider*
+pnpm_output.log

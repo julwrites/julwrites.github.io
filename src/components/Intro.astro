@@ -6,10 +6,10 @@ const photosDir = path.join(process.cwd(), 'public/assets/images/photos');
 const images = fs.readdirSync(photosDir).filter(file => /\.(jpg|jpeg|png|webp)$/i.test(file));
 ---
 
-<section class="intro card">
-  <h1>Hi, I'm Julian</h1>
-  <img id="intro-image" src="/assets/images/photos/2.jpg" alt="Photo of me" />
-  <p>Welcome to my domain</p>
+<section class="intro card flex flex-col items-center text-center gap-6 mx-auto">
+  <h1 class="text-3xl md:text-5xl font-bold m-0">Hi, I'm Julian</h1>
+  <img id="intro-image" src="/assets/images/photos/2.jpg" alt="Photo of me" class="w-48 md:w-64 max-w-full rounded-full shadow-md" />
+  <p class="text-xl md:text-2xl m-0 text-[var(--accent-color)]">Welcome to my domain</p>
 </section>
 
 <script define:vars={{ images }}>
@@ -20,46 +20,3 @@ const images = fs.readdirSync(photosDir).filter(file => /\.(jpg|jpeg|png|webp)$/
   }
 </script>
 
-<style>
-  .intro {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--content-spacing);
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin: 0;
-  }
-
-  img {
-    max-width: 256px;
-    width: 100%;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  @media (max-width: 768px) {
-    img {
-      max-width: 200px;
-    }
-    
-    h1 {
-      font-size: 2rem;
-    }
-    
-    p {
-      font-size: 1.2rem;
-    }
-  }
-
-  p {
-    font-size: 1.5rem;
-    margin: 0;
-    color: var(--accent-color);
-  }
-</style>

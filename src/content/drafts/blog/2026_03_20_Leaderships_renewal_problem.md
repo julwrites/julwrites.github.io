@@ -41,12 +41,27 @@ Strong opinions drive a leader toward **Ownership** rather than **Stewardship**.
 
 This is the ultimate test for the incumbent: Can you provide a mission so large and an alignment so deep that the successor believes starting their own organization would actually be a *step down* in impact? 
 
+## The Servant vs. The King
+
+There is a deeper distinction that determines whether a successor stays or leaves: the posture of the incumbent leader.
+
+The Disciple-making Leader, like Christ, is a **servant to all, and not a king**.
+
+This is the ultimate anchor for the succession question. An opinionated successor will only remain in an organization where the top leader is a **Servant** who provides **Mission Gravity**, rather than a **King** who demands **Compliance**.
+
+- **The King** builds a court of loyal subjects who execute his will. He selects for compliance. The successor who is capable comes, sees the castle the King has built, and realizes they do not want to inherit the throne—they want to build their own kingdom.
+- **The Servant** builds a field where workers are welcome. He provides vision and resources, not decrees. The successor who is capable comes, sees the harvest the Servant has cultivated, and realizes that the *field* is bigger than any one worker. They stay because the mission transcends the man.
+
 ## The Solution: Stewardship over Legacy
 
 Ultimately, the only variable an incumbent leader truly controls is their own willingness to let go. This requires a fundamental mindset shift—one that aligns with the highest levels of leadership: moving from a focus on **Legacy** to a focus on **Stewardship**.
 
 When we focus on legacy, we are often trying to preserve ourselves through the organization. We seek a successor who is a clone, someone who will protect what we built exactly as we built it. This creates the "loyalty paradox," where we accidentally select for compliance over capability.
 
-Stewardship, however, recognizes that the organization does not belong to the leader. A steward’s job is to prepare the "house" for the next occupant and then hand over the keys. This means accepting the risk that the next leader will do things differently. It means trusting the mission enough to let it evolve beyond our own shadow.
+Stewardship, however, recognizes that the organization does not belong to the leader. A steward's job is to prepare the "house" for the next occupant and then hand over the keys. This means accepting the risk that the next leader will do things differently. It means trusting the mission enough to let it evolve beyond our own shadow.
 
 The ultimate measure of leadership isn't what we built while we were there—it's whether what we built is healthy enough to survive our departure. Renewal isn't about finding a perfect replacement; it's about the courage to exit and the humility to trust the next steward.
+
+---
+
+*The Disciple-making Leader, like Christ, is a servant to all, and not a king.*

@@ -38,12 +38,77 @@ In fact, the agent could also use this to update itself in a repository.
 
 It's not perfect, but this gave me quite a lot of leverage, especially when working with autonomous agents. I could spend synchronous time working on a plan together with the agent, and reviewing it, and then this would be saved in the repository itself. Then I could just dispatch tasks repeatedly. 
 
-This became the absolute lifeline for building the **[Discipleship Journal](https://github.com/julwrites/discipleship-journal)**. I used Jules to develop 90% of that project from scratch. 80% of that was probably just me re-sending the same prompt over and over again, but with the harness, Jules was able to keep track of what had been done, and what needed to be done. 
+This became the core concept that enabled the building of **[Discipleship Journal](https://github.com/julwrites/discipleship-journal)**. I used Jules to develop 90% of that project from scratch. 80% of that was probably just me re-sending the same prompt over and over again, but with the harness, Jules was able to keep track of what had been done, and what needed to be done. 
 
 Since then I've used it for so many things. In fact, all my active repositories at work and at home are now bootstrapped with this harness. 
 
 ## The Harness
 
-So, what does this harness have and do? 
+So, what does this harness have and do?
 
-<Fill up description of agent-harness>
+At its core, **agent-harness** is a lightweight, self-contained system that lives *inside* your repository. It provides three essential capabilities that transform how agents interact with your codebase:
+
+### 1. **Task Documentation System**
+
+The harness introduces a structured task tracking system using Markdown files with YAML frontmatter. Tasks are organized into categories like `foundation/`, `infrastructure/`, `domain/`, `features/`, and `testing/`.
+
+```
+docs/tasks/
+├── foundation/     # Core architecture and setup
+├── infrastructure/ # Services, adapters, platform code  
+├── domain/         # Use cases, repositories, business logic
+├── presentation/   # UI, state management
+├── features/       # End-to-end feature implementation
+└── testing/        # Test infrastructure
+```
+
+Each task file captures not just *what* needs to be done, but *why* it was done, *how* it was approached, and what problems were encountered. This creates a permanent, searchable record of the project's evolution, inside the project itself.
+
+Agents use `./scripts/tasks.py` to:
+- **Create tasks**: `scripts/tasks.py create features "Implement user authentication"`
+- **List pending work**: `scripts/tasks.py list`
+- **Find next task**: `scripts/tasks.py next`
+- **Update status**: `scripts/tasks.py update [TASK_ID] in_progress`
+- **Track context**: `scripts/tasks.py context` shows active tasks
+
+### 2. **Memory System**
+
+Long-term knowledge is stored in `docs/memories/` as structured entities. Unlike tasks (which are transient), memories persist across sessions and sprints. They capture:
+
+- Architectural decisions and their rationale
+- Domain knowledge and business rules
+- Security considerations and risk assessments
+- Entity definitions and relationships
+
+Agents use `./scripts/memory.py` to recall relevant context before starting work, ensuring they don't reinvent the wheel or forget critical constraints.
+
+### 3. **Agent Instructions (AGENTS.md)**
+
+Every repository bootstrapped with the harness includes an `AGENTS.md` file. This serves as the "system prompt" extension for AI agents, encoding:
+
+- **Workflow rules**: "If it's not documented in `docs/tasks/`, it didn't happen"
+- **Quality gates**: Run tests before requesting review
+- **Security protocols**: Check risk levels before using dangerous tools
+- **Multi-agent coordination**: How to communicate via the file-based message bus
+
+The philosophy is simple: agents should be able to pick up any task and understand *exactly* how to work within this repository's conventions without guessing.
+
+### Why This Matters
+
+The harness doesn't just help agents work, it helps them work *autonomously*. When I dispatch a task to Jules (or Claude, or any other agent), I don't need to re-explain the project structure, the testing requirements, or the security boundaries. All of that is encoded in the repository itself.
+
+This means I can:
+- **Work asynchronously**: Plan with me, then execute while I sleep
+- **Scale to multiple agents**: Different agents can pick up different tasks without stepping on each other
+- **Maintain continuity**: A task started by Jules can be continued by Claude, or by me, without loss of context
+- **Preserve institutional knowledge**: The repository becomes self-documenting
+
+The harness turns a codebase from a pile of files into a **living system** that understands its own history, constraints, and goals. And because it's just Markdown, YAML, and Python scripts, it works with any model provider—no vendor lock-in, no external dependencies.
+
+## What's Next?
+
+I honestly think this is still very simplistic, especially after playing with OpenClaw and understanding that even the concept of an 'Agent Harness' can enable autonomy at a much higher level. 
+
+Maybe that will be my next goal, but for now the idea is for me to strap on the harness, and give me superpowers, not to give the agent superpowers (it already does!). 
+
+I'm also curious to see how this will evolve as we move into a world of more capable agents. Will the harness become obsolete, or will it become even more important? Let's see; things are moving really quickly now, and I hope to be able to keep up through all the chaos.

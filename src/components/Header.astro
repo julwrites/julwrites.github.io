@@ -2,9 +2,9 @@
 ---
 
 <header>
-  <div class="header-content">
+  <div class="header-content flex flex-col md:flex-row gap-2 md:gap-0 justify-between items-center">
     <h2>Julian Teh</h2>
-    <nav>
+    <nav class="flex justify-center md:justify-end m-0">
       <a href="/" class={Astro.url.pathname === '/' ? 'active' : ''}>Home</a>
       <a href="/projects" class={Astro.url.pathname.startsWith('/projects') ? 'active' : ''}>Projects</a>
       <a href="/blog" class={Astro.url.pathname.startsWith('/blog') ? 'active' : ''}>Blog</a>
@@ -18,25 +18,7 @@
     margin-bottom: 2em;
   }
   
-  .header-content {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-  }
-  
   h2 {
     margin: 0;
-  }
-  
-  @media (min-width: 768px) {
-    .header-content {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    nav {
-      margin: 0;
-    }
   }
 </style>

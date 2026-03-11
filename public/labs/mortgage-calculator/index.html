@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,24 @@
     <link rel="stylesheet" href="../shared.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body data-theme="dark">
     <div class="container">
         <header class="app-header">
             <h1 class="page-header">Compact Mortgage Calculator</h1>
         </header>
         <button class="theme-toggle" id="theme-toggle">Toggle Dark Mode</button>
+
+        <!-- Mode Toggle -->
+        <div class="mode-toggle-compact"
+            style="display: flex; gap: 1rem; margin-bottom: 1rem; justify-content: center;">
+            <label style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem; color: var(--text-color);">
+                <input type="radio" name="calcMode" value="standard" checked> Standard Mortgage
+            </label>
+            <label style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem; color: var(--text-color);">
+                <input type="radio" name="calcMode" value="hdb"> HDB Savings Simulator
+            </label>
+        </div>
 
         <!-- Compact Input Form - Single Row -->
         <div class="input-section">
@@ -22,22 +35,26 @@
                         <div class="form-row-compact">
                             <div class="form-group">
                                 <label for="housingPrice" class="form-label">Housing Price ($)</label>
-                                <input type="number" id="housingPrice" class="form-control" value="500000" min="0" step="1000">
+                                <input type="number" id="housingPrice" class="form-control" value="500000" min="0"
+                                    step="1000">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="loanAmount" class="form-label">Loan Amount ($)</label>
-                                <input type="number" id="loanAmount" class="form-control" value="400000" min="0" step="1000">
+                                <input type="number" id="loanAmount" class="form-control" value="400000" min="0"
+                                    step="1000">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="loanYears" class="form-label">Years</label>
-                                <input type="number" id="loanYears" class="form-control" value="30" min="1" max="50" step="1">
+                                <input type="number" id="loanYears" class="form-control" value="30" min="1" max="50"
+                                    step="1">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="interestRate" class="form-label">Rate (%)</label>
-                                <input type="number" id="interestRate" class="form-control" value="6.5" min="0" max="50" step="0.01">
+                                <input type="number" id="interestRate" class="form-control" value="6.5" min="0" max="50"
+                                    step="0.01">
                             </div>
 
                             <div class="form-group">
@@ -57,28 +74,84 @@
                                     <option value="11">Dec</option>
                                 </select>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="startYear" class="form-label">Year</label>
-                                <input type="number" id="startYear" class="form-control" value="2024" min="2020" max="2100" step="1">
+                                <input type="number" id="startYear" class="form-control" value="2024" min="2020"
+                                    max="2100" step="1">
                             </div>
 
                             <div class="recalc-options-compact">
                                 <div class="option-item-compact">
-                                    <input type="radio" id="optionReduceTerm" name="recalcOption" value="reduceTerm" checked>
+                                    <input type="radio" id="optionReduceTerm" name="recalcOption" value="reduceTerm"
+                                        checked>
                                     <label for="optionReduceTerm" class="option-label-compact">
-                                        <strong>Reduce Loan Term (Accelerated Payoff)</strong> - Keep payment same, shorten loan
+                                        <strong>Reduce Loan Term (Accelerated Payoff)</strong> - Keep payment same,
+                                        shorten loan
                                     </label>
                                 </div>
-                                
+
                                 <div class="option-item-compact">
-                                    <input type="radio" id="optionReducePayment" name="recalcOption" value="reducePayment">
+                                    <input type="radio" id="optionReducePayment" name="recalcOption"
+                                        value="reducePayment">
                                     <label for="optionReducePayment" class="option-label-compact">
-                                        <strong>Reduce Monthly Payment (Recast)</strong> - Keep term same, lower payments
+                                        <strong>Reduce Monthly Payment (Recast)</strong> - Keep term same, lower
+                                        payments
                                     </label>
                                 </div>
                             </div>
-                            
+
+                        </div>
+                    </form>
+
+                    <form id="hdbForm" class="compact-form" style="display: none;">
+                        <div class="form-row-compact">
+                            <div class="form-group">
+                                <label for="hdbLoanBalance" class="form-label">Current Loan Balance ($)</label>
+                                <input type="number" id="hdbLoanBalance" class="form-control" value="547004.31" min="0"
+                                    step="1000">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="hdbMonthlyInstalment" class="form-label">Monthly Instalment ($)</label>
+                                <input type="number" id="hdbMonthlyInstalment" class="form-control" value="2740.00"
+                                    min="0" step="100">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="hdbInterestRate" class="form-label">Interest Rate (% p.a.)</label>
+                                <input type="number" id="hdbInterestRate" class="form-control" value="2.60" min="0"
+                                    max="50" step="0.01">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="hdbStartMonth" class="form-label">Current Month</label>
+                                <select id="hdbStartMonth" class="form-control">
+                                    <option value="0">Jan</option>
+                                    <option value="1">Feb</option>
+                                    <option value="2">Mar</option>
+                                    <option value="3">Apr</option>
+                                    <option value="4">May</option>
+                                    <option value="5">Jun</option>
+                                    <option value="6">Jul</option>
+                                    <option value="7">Aug</option>
+                                    <option value="8">Sep</option>
+                                    <option value="9">Oct</option>
+                                    <option value="10">Nov</option>
+                                    <option value="11">Dec</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="hdbStartYear" class="form-label">Current Year</label>
+                                <input type="number" id="hdbStartYear" class="form-control" value="2026" min="2020"
+                                    max="2100" step="1">
+                            </div>
+                        </div>
+                        <div class="hdb-info-note"
+                            style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-muted); text-align: center;">
+                            * HDB automatically applies partial capital repayments toward reducing the loan term,
+                            keeping the monthly instalment the same.
                         </div>
                     </form>
                 </div>
@@ -95,30 +168,30 @@
                             <div id="monthlyPayment" class="metric-value-compact">$0.00</div>
                             <div id="monthlyPaymentNote" class="metric-note-compact" style="display: none;"></div>
                         </div>
-                        
+
                         <div class="metric-item-compact">
                             <div class="metric-label-compact">Total Interest</div>
                             <div id="totalInterest" class="metric-value-compact">$0.00</div>
                         </div>
-                        
+
                         <div class="metric-item-compact">
                             <div class="metric-label-compact">Total Payments</div>
                             <div id="totalPayments" class="metric-value-compact">$0.00</div>
                         </div>
-                        
+
                         <div class="metric-item-compact">
                             <div class="metric-label-compact">Payoff Date</div>
                             <div id="payoffDate" class="metric-value-compact">-</div>
                         </div>
                     </div>
-                    
+
                     <div class="extra-payment-summary-compact" id="extraPaymentSummary" style="display: none;">
                         <div class="summary-metrics-compact">
                             <div class="metric-item-compact savings">
                                 <div class="metric-label-compact">Interest Savings</div>
                                 <div id="interestSavings" class="metric-value-compact">$0.00</div>
                             </div>
-                            
+
                             <div class="metric-item-compact savings">
                                 <div class="metric-label-compact">Time Saved</div>
                                 <div id="timeSaved" class="metric-value-compact">0 months</div>
@@ -153,7 +226,8 @@
                             </thead>
                             <tbody id="monthlyScheduleBody">
                                 <tr>
-                                    <td colspan="6" class="no-data">Enter loan parameters and click "Calculate" to view schedule</td>
+                                    <td colspan="6" class="no-data">Enter loan parameters and click "Calculate" to view
+                                        schedule</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -190,16 +264,18 @@
                                     <option value="10">Nov</option>
                                     <option value="11">Dec</option>
                                 </select>
-                                
-                                <input type="number" id="extraPaymentYear" class="form-control-xs" value="2024" min="2020" max="2100">
-                                
-                                <input type="number" id="extraPaymentAmount" class="form-control-xs" min="0" step="100" placeholder="Amount">
-                                
+
+                                <input type="number" id="extraPaymentYear" class="form-control-xs" value="2024"
+                                    min="2020" max="2100">
+
+                                <input type="number" id="extraPaymentAmount" class="form-control-xs" min="0" step="100"
+                                    placeholder="Amount">
+
                                 <button type="button" id="addExtraPayment" class="btn btn--primary btn--xs">Add</button>
                             </div>
                         </form>
                     </div>
-                    
+
                     <!-- Extra Payments Table -->
                     <div class="table-container-compact">
                         <table id="extraPaymentsTable" class="payments-table-compact">
@@ -228,15 +304,19 @@
                     <div class="extra-payment-form-compact">
                         <form id="recurringExtraPaymentForm" class="extra-form-compact">
                             <div class="extra-form-row">
-                                <input type="number" id="recurringExtraPaymentAmount" class="form-control-xs" min="0" step="100" placeholder="Amount">
+                                <input type="number" id="recurringExtraPaymentAmount" class="form-control-xs" min="0"
+                                    step="100" placeholder="Amount">
                                 <select id="recurringExtraPaymentFrequency" class="form-control-xs">
                                     <option value="monthly">Monthly</option>
                                     <option value="quarterly">Quarterly</option>
                                     <option value="annually">Annually</option>
                                 </select>
-                                <input type="month" id="recurringExtraPaymentStartDate" class="form-control-xs" value="2024-01">
-                                <input type="month" id="recurringExtraPaymentEndDate" class="form-control-xs" value="2025-01">
-                                <button type="button" id="addRecurringExtraPayment" class="btn btn--primary btn--xs">Add</button>
+                                <input type="month" id="recurringExtraPaymentStartDate" class="form-control-xs"
+                                    value="2024-01">
+                                <input type="month" id="recurringExtraPaymentEndDate" class="form-control-xs"
+                                    value="2025-01">
+                                <button type="button" id="addRecurringExtraPayment"
+                                    class="btn btn--primary btn--xs">Add</button>
                             </div>
                         </form>
                     </div>
@@ -268,4 +348,5 @@
     <script src="../shared.js"></script>
     <script src="app.js"></script>
 </body>
+
 </html>

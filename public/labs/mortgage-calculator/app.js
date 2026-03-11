@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let recurringExtraPayments = [];
   let monthlyPayments = [];
   let recalcMode = 'reduceTerm';
+  let calcAppMode = 'standard'; // 'standard' or 'hdb'
 
   // Initialize when DOM is ready
   initializeCalculator();
@@ -56,28 +57,49 @@ document.addEventListener('DOMContentLoaded', () => {
   function setupFormListeners() {
     console.log('Setting up form listeners...');
 
+    // Mode toggle listeners
+    const modeOptions = document.querySelectorAll('input[name="calcMode"]');
+    modeOptions.forEach(option => {
+      option.addEventListener('change', function (e) {
+        if (e.target.checked) {
+          calcAppMode = e.target.value;
+          document.getElementById('mortgageForm').style.display = calcAppMode === 'standard' ? 'block' : 'none';
+          document.getElementById('hdbForm').style.display = calcAppMode === 'hdb' ? 'block' : 'none';
+
+          const recalcSection = document.querySelector('.recalc-options-compact');
+          if (recalcSection) {
+            recalcSection.style.display = calcAppMode === 'standard' ? 'flex' : 'none';
+          }
+
+          updateLoanDataFromForm();
+          calculateMortgage();
+        }
+      });
+    });
+
     // Loan parameter inputs
-    const inputs = ['housingPrice', 'loanAmount', 'loanYears', 'interestRate', 'startMonth', 'startYear'];
+    const inputs = ['housingPrice', 'loanAmount', 'loanYears', 'interestRate', 'startMonth', 'startYear',
+      'hdbLoanBalance', 'hdbMonthlyInstalment', 'hdbInterestRate', 'hdbStartMonth', 'hdbStartYear'];
     inputs.forEach(inputId => {
       const element = document.getElementById(inputId);
       if (element) {
-        element.addEventListener('input', function() {
+        element.addEventListener('input', function () {
           updateLoanDataFromForm();
           calculateMortgage();
         });
-        element.addEventListener('change', function() {
+        element.addEventListener('change', function () {
           updateLoanDataFromForm();
           calculateMortgage();
         });
       }
     });
 
-    
+
 
     // Recalculation radio buttons - FIX: Add proper event listeners
     const recalcOptions = document.querySelectorAll('input[name="recalcOption"]');
     recalcOptions.forEach(option => {
-      option.addEventListener('change', function(e) {
+      option.addEventListener('change', function (e) {
         if (e.target.checked) {
           const oldMode = recalcMode;
           recalcMode = e.target.value;
@@ -95,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const addBtn = document.getElementById('addExtraPayment');
     if (addBtn) {
       console.log('Add button found, attaching event listener');
-      addBtn.addEventListener('click', function(e) {
+      addBtn.addEventListener('click', function (e) {
         e.preventDefault();
         console.log('Add button clicked');
         addExtraPayment();
@@ -107,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Enter key in amount field
     const amountInput = document.getElementById('extraPaymentAmount');
     if (amountInput) {
-      amountInput.addEventListener('keypress', function(e) {
+      amountInput.addEventListener('keypress', function (e) {
         if (e.key === 'Enter') {
           e.preventDefault();
           addExtraPayment();
@@ -118,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Form submission
     const form = document.getElementById('extraPaymentForm');
     if (form) {
-      form.addEventListener('submit', function(e) {
+      form.addEventListener('submit', function (e) {
         e.preventDefault();
         addExtraPayment();
       });
@@ -128,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function setupRecurringExtraPaymentListeners() {
     const addBtn = document.getElementById('addRecurringExtraPayment');
     if (addBtn) {
-      addBtn.addEventListener('click', function(e) {
+      addBtn.addEventListener('click', function (e) {
         e.preventDefault();
         addRecurringExtraPayment();
       });
@@ -138,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function setupExportListeners() {
     const monthlyBtn = document.getElementById('exportMonthlyBtn');
     if (monthlyBtn) {
-      monthlyBtn.addEventListener('click', function(e) {
+      monthlyBtn.addEventListener('click', function (e) {
         e.preventDefault();
         exportMonthlyPaymentsToCSV();
       });
@@ -146,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const extraBtn = document.getElementById('exportExtraBtn');
     if (extraBtn) {
-      extraBtn.addEventListener('click', function(e) {
+      extraBtn.addEventListener('click', function (e) {
         e.preventDefault();
         exportExtraPaymentsToCSV();
       });
@@ -156,17 +178,26 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateLoanDataFromForm() {
     console.log('Updating loan data from form...');
 
-    loanData.housingPrice = parseFloat(document.getElementById('housingPrice').value) || 0;
-    loanData.loanAmount = parseFloat(document.getElementById('loanAmount').value) || 0;
-    loanData.loanYears = parseInt(document.getElementById('loanYears').value) || 0;
-    loanData.interestRate = parseFloat(document.getElementById('interestRate').value) || 0;
-    loanData.startMonth = parseInt(document.getElementById('startMonth').value) || 0;
-    loanData.startYear = parseInt(document.getElementById('startYear').value) || 2024;
+    if (calcAppMode === 'standard') {
+      loanData.housingPrice = parseFloat(document.getElementById('housingPrice').value) || 0;
+      loanData.loanAmount = parseFloat(document.getElementById('loanAmount').value) || 0;
+      loanData.loanYears = parseInt(document.getElementById('loanYears').value) || 0;
+      loanData.interestRate = parseFloat(document.getElementById('interestRate').value) || 0;
+      loanData.startMonth = parseInt(document.getElementById('startMonth').value) || 0;
+      loanData.startYear = parseInt(document.getElementById('startYear').value) || 2024;
 
-    // Validate loan amount doesn't exceed housing price
-    if (loanData.loanAmount > loanData.housingPrice && loanData.housingPrice > 0) {
-      document.getElementById('loanAmount').value = loanData.housingPrice;
-      loanData.loanAmount = loanData.housingPrice;
+      // Validate loan amount doesn't exceed housing price
+      if (loanData.loanAmount > loanData.housingPrice && loanData.housingPrice > 0) {
+        document.getElementById('loanAmount').value = loanData.housingPrice;
+        loanData.loanAmount = loanData.housingPrice;
+      }
+    } else {
+      loanData.loanAmount = parseFloat(document.getElementById('hdbLoanBalance').value) || 0;
+      loanData.monthlyPayment = parseFloat(document.getElementById('hdbMonthlyInstalment').value) || 0;
+      loanData.interestRate = parseFloat(document.getElementById('hdbInterestRate').value) || 0;
+      loanData.startMonth = parseInt(document.getElementById('hdbStartMonth').value) || 0;
+      loanData.startYear = parseInt(document.getElementById('hdbStartYear').value) || 2024;
+      loanData.loanYears = 50; // High ceiling max limit
     }
 
     console.log('Loan data updated:', loanData);
@@ -194,23 +225,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Calculate basic monthly payment (original)
-    loanData.monthlyPayment = calculateMonthlyPayment(
-      loanData.loanAmount,
-      loanData.interestRate,
-      loanData.loanYears
-    );
+    if (calcAppMode === 'standard') {
+      loanData.monthlyPayment = calculateMonthlyPayment(
+        loanData.loanAmount,
+        loanData.interestRate,
+        loanData.loanYears
+      );
+    }
+    loanData.recastMonthlyPayment = 0;
 
     console.log('Base monthly payment:', loanData.monthlyPayment);
 
     // FIX: Generate different amortization schedules based on recalc mode
-    if (extraPayments.length > 0 || recurringExtraPayments.length > 0) {
-      if (recalcMode === 'reduceTerm') {
-        generateAmortizationScheduleReduceTerm();
-      } else {
-        generateAmortizationScheduleReducePayment();
+    if (calcAppMode === 'hdb') {
+      recalcMode = 'reduceTerm'; // HDB reduces term
+      generateAmortizationScheduleHDB(false);
+      loanData.originalTotalInterest = loanData.currentTotalInterest;
+      loanData.originalPayoffDate = loanData.currentPayoffDate;
+
+      if (extraPayments.length > 0 || recurringExtraPayments.length > 0) {
+        generateAmortizationScheduleHDB(true);
       }
     } else {
-      generateAmortizationScheduleOriginal();
+      if (extraPayments.length > 0 || recurringExtraPayments.length > 0) {
+        if (recalcMode === 'reduceTerm') {
+          generateAmortizationScheduleReduceTerm();
+        } else {
+          generateAmortizationScheduleReducePayment();
+        }
+      } else {
+        generateAmortizationScheduleOriginal();
+      }
     }
 
     // Update UI
@@ -220,6 +265,94 @@ document.addEventListener('DOMContentLoaded', () => {
     updateRecurringExtraPaymentsDisplay();
 
     console.log('Mortgage calculation complete');
+  }
+
+  function generateAmortizationScheduleHDB(applyExtra) {
+    const principal = loanData.loanAmount;
+    const monthlyRate = loanData.interestRate / 100 / 12; // Standard monthly
+    const monthlyPayment = loanData.monthlyPayment;
+
+    let remainingBalance = principal;
+    let totalInterest = 0;
+
+    monthlyPayments = [];
+
+    const startDate = new Date(loanData.startYear, loanData.startMonth, 1);
+    let paymentNumber = 1;
+    let currentDate = new Date(startDate);
+
+    const sortedExtraPayments = [...extraPayments].sort((a, b) => a.paymentDate - b.paymentDate);
+
+    while (remainingBalance > 0.01 && paymentNumber < 1000) {
+      let totalExtraThisMonth = 0;
+
+      if (applyExtra) {
+        const extraPaymentsThisMonth = sortedExtraPayments.filter(ep =>
+          ep.paymentDate.getFullYear() === currentDate.getFullYear() &&
+          ep.paymentDate.getMonth() === currentDate.getMonth()
+        );
+
+        if (extraPaymentsThisMonth.length > 0) {
+          totalExtraThisMonth = extraPaymentsThisMonth.reduce((sum, ep) => sum + ep.amount, 0);
+        }
+
+        recurringExtraPayments.forEach(rep => {
+          const start = new Date(rep.startDate);
+          const end = new Date(rep.endDate);
+          if (currentDate >= start && currentDate <= end) {
+            if (rep.frequency === 'monthly') {
+              totalExtraThisMonth += rep.amount;
+            } else if (rep.frequency === 'quarterly' && (currentDate.getMonth() - start.getMonth()) % 3 === 0) {
+              totalExtraThisMonth += rep.amount;
+            } else if (rep.frequency === 'annually' && currentDate.getMonth() === start.getMonth()) {
+              totalExtraThisMonth += rep.amount;
+            }
+          }
+        });
+      }
+
+      // HDB specific exact logic
+      // HDB uses standard Monthly Rest calculation (rate / 12)
+      const interestPayment = Math.round(remainingBalance * monthlyRate * 100) / 100;
+      let principalPayment = monthlyPayment - interestPayment;
+
+      principalPayment += totalExtraThisMonth;
+
+      if (principalPayment > remainingBalance) {
+        principalPayment = remainingBalance;
+      }
+
+      if ((monthlyPayment + totalExtraThisMonth) > remainingBalance + interestPayment) {
+        principalPayment = remainingBalance;
+      }
+
+      remainingBalance -= principalPayment;
+      totalInterest += interestPayment;
+
+      const payment = {
+        paymentNumber,
+        paymentDate: new Date(currentDate),
+        monthlyPayment: monthlyPayment,
+        principalPayment: principalPayment,
+        interestPayment: interestPayment,
+        remainingBalance: Math.max(0, remainingBalance),
+        extraPayment: totalExtraThisMonth,
+        hasExtraPayment: totalExtraThisMonth > 0
+      };
+
+      monthlyPayments.push(payment);
+
+      if (remainingBalance <= 0.01) {
+        break;
+      }
+
+      paymentNumber++;
+      currentDate.setMonth(currentDate.getMonth() + 1);
+    }
+
+    loanData.currentTotalInterest = totalInterest;
+    loanData.currentPayoffDate = monthlyPayments.length > 0 ?
+      monthlyPayments[monthlyPayments.length - 1].paymentDate : null;
   }
 
   function generateAmortizationScheduleOriginal() {
@@ -609,7 +742,7 @@ document.addEventListener('DOMContentLoaded', () => {
       removeBtn.title = 'Remove this extra payment';
 
       // FIX: Use the original index to ensure proper removal
-      removeBtn.addEventListener('click', function(e) {
+      removeBtn.addEventListener('click', function (e) {
         e.preventDefault();
         e.stopPropagation();
         console.log('Remove button clicked for index:', payment.originalIndex);
@@ -650,7 +783,7 @@ document.addEventListener('DOMContentLoaded', () => {
       removeBtn.type = 'button';
       removeBtn.title = 'Remove this recurring extra payment';
 
-      removeBtn.addEventListener('click', function(e) {
+      removeBtn.addEventListener('click', function (e) {
         e.preventDefault();
         e.stopPropagation();
         removeRecurringExtraPayment(index);
@@ -772,11 +905,9 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Removing extra payment at index:', index);
 
     if (index >= 0 && index < extraPayments.length) {
-      if (confirm('Remove this extra payment?')) {
-        extraPayments.splice(index, 1);
-        console.log('Extra payment removed. Remaining count:', extraPayments.length);
-        calculateMortgage(); // This will trigger recalculation and display update
-      }
+      extraPayments.splice(index, 1);
+      console.log('Extra payment removed. Remaining count:', extraPayments.length);
+      calculateMortgage(); // This will trigger recalculation and display update
     } else {
       console.error('Invalid index for removing extra payment:', index);
     }
@@ -784,10 +915,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function removeRecurringExtraPayment(index) {
     if (index >= 0 && index < recurringExtraPayments.length) {
-      if (confirm('Remove this recurring extra payment?')) {
-        recurringExtraPayments.splice(index, 1);
-        calculateMortgage();
-      }
+      recurringExtraPayments.splice(index, 1);
+      calculateMortgage();
     }
   }
 
@@ -904,7 +1033,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Keyboard shortcuts
-  document.addEventListener('keydown', function(e) {
+  document.addEventListener('keydown', function (e) {
     if ((e.ctrlKey || e.metaKey) && e.key === 'm') {
       e.preventDefault();
       exportMonthlyPaymentsToCSV();
