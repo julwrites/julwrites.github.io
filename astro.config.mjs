@@ -9,6 +9,7 @@ import yeskunallumami from "@yeskunall/astro-umami";
 // https://astro.build/config
 export default defineConfig({
   site: "https://tehj.io",
+  base: process.env.ASTRO_BASE || undefined,
   integrations: [
     mdx(),
     sitemap(),
