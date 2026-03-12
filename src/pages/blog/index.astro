@@ -11,11 +11,16 @@ const sortedPosts = sortPostsByDate(posts);
 
 <Layout title="Blog | tehj.io">
   <main class="flex flex-col gap-[var(--content-spacing)] max-w-[800px] w-full mx-auto px-4 sm:px-0">
-    <h1 class="text-[40px] font-medium text-center m-0 mb-8">Blog</h1>
+    <div class="flex flex-row justify-center items-center gap-4 mb-8">
+      <h1 class="text-[40px] font-medium m-0">Blog</h1>
+      <a href="/blog/rss.xml" target="_blank" title="RSS Feed" data-umami-event="rss-feed-click" data-umami-event-type="blog">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rss"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+      </a>
+    </div>
     <ul class="post-list">
       {sortedPosts.map((post) => (
         <li class="post-item">
-          <a href={`/blog/${post.slug}/`}>
+          <a href={`/blog/${post.slug}/`} data-umami-event="blog-post-click" data-umami-event-post={post.data.title}>
             <h2 class="post-title">{post.data.title}</h2>
             <p class="post-date">{new Date(post.data.pubDate).toLocaleDateString('en-US', {
               year: 'numeric',
