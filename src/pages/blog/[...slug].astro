@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
+import { getPath } from '../../utils/path';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -40,7 +41,7 @@ const { Content } = await post.render();
       </div>
       {post.data.heroImage && (
         <img 
-          src={post.data.heroImage} 
+          src={post.data.heroImage.startsWith('/') ? getPath(post.data.heroImage) : post.data.heroImage}
           alt={`Hero image for ${post.data.title}`}
           class="hero-image"
         />
