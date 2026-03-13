@@ -1,0 +1,72 @@
+---
+interface Props {
+  items: any[];
+  collection: 'blog' | 'projects';
+}
+
+const { items, collection } = Astro.props;
+---
+
+<ul class="content-list">
+  {items.map((item) => (
+    <li class="content-item">
+      <a href={`/${collection}/${item.slug}/`}>
+        <h2 class="content-title">{item.data.title}</h2>
+        <p class="content-date">{new Date(item.data.pubDate).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        })}</p>
+        <p class="content-description">{item.data.description}</p>
+      </a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  .content-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .content-item {
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 2rem;
+  }
+
+  .content-item a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .content-title {
+    font-size: 24px;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .content-date {
+    font-size: 14px;
+    color: #666;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .content-description {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .content-item {
+      border-bottom-color: #333;
+    }
+
+    .content-date {
+      color: #aaa;
+    }
+  }
+</style>
