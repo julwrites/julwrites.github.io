@@ -16,7 +16,7 @@ I realized that if I wanted an agent to work on longer-term goals, I had to give
 
 ## Like Beads, but not just for Claude
 
-I was originally inspired by Steve Yegge's work on [Beads](https://www.steveyegge.com/beads/). But as I wanted to be able to use this at work as well as at home, I wanted a system that could be adopted and adapted into *any* repository, regardless of the model provider. I'm also a great fan of no external dependencies. 
+I was originally inspired by Steve Yegge's work on [Beads](https://www.steveyegge.com/beads/), which aimed to provide persistent state and task tracking for AI. But as I wanted to be able to use this at work as well as at home, I wanted a system that could be adopted and adapted into *any* repository, regardless of the model provider. I'm also a great fan of no external dependencies. 
 
 The first intuition: I should just move documentation and task systems into the repository itself. 
 
@@ -32,21 +32,19 @@ This would allow any agent, any model provider, to take an existing repository a
 
 And for new repositories, it could be configured to prompt the user to talk through their intentions, and then bootstrap the system accordingly.
 
-In fact, the agent could also use this to update itself in a repository.
+In fact, I've found that once the initial seed is planted, the agent can use these same protocols to evolve the system itself, creating a self-optimizing workspace.
 
 ## How well does this work?
 
 It's not perfect, but this gave me quite a lot of leverage, especially when working with autonomous agents. I could spend synchronous time working on a plan together with the agent, and reviewing it, and then this would be saved in the repository itself. Then I could just dispatch tasks repeatedly. 
 
-This became the core concept that enabled the building of **[Discipleship Journal](https://github.com/julwrites/discipleship-journal)**. I used Jules to develop 90% of that project from scratch. 80% of that was probably just me re-sending the same prompt over and over again, but with the harness, Jules was able to keep track of what had been done, and what needed to be done. 
+This became the core concept that enabled the building of **[Discipleship Journal](https://github.com/julwrites/discipleship-journal)**. I used Jules to develop 90% of that project from scratch. 80% of that was probably just me re-sending the same prompt, but because the harness solved the 'amnesia' problem, Jules could pick up exactly where it left off by checking the task state in the repo. 
 
 Since then I've used it for so many things. In fact, all my active repositories at work and at home are now bootstrapped with this harness. 
 
 ## The Harness
 
-So, what does this harness have and do?
-
-At its core, **agent-harness** is a lightweight, self-contained system that lives *inside* your repository. It provides three essential capabilities that transform how agents interact with your codebase:
+So, what does this harness actually consist of? It essentially serves as the 'connective tissue' between my high-level intent and the agent’s execution. Here is the breakdown of its three core pillars:
 
 ### 1. **Task Documentation System**
 
@@ -64,7 +62,7 @@ docs/tasks/
 
 Each task file captures not just *what* needs to be done, but *why* it was done, *how* it was approached, and what problems were encountered. This creates a permanent, searchable record of the project's evolution, inside the project itself.
 
-Agents use `./scripts/tasks.py` to:
+Agents use `./scripts/tasks.py` as their primary API to:
 - **Create tasks**: `scripts/tasks.py create features "Implement user authentication"`
 - **List pending work**: `scripts/tasks.py list`
 - **Find next task**: `scripts/tasks.py next`
@@ -97,10 +95,12 @@ The philosophy is simple: agents should be able to pick up any task and understa
 
 The harness doesn't just help agents work, it helps them work *autonomously*. When I dispatch a task to Jules (or Claude, or any other agent), I don't need to re-explain the project structure, the testing requirements, or the security boundaries. All of that is encoded in the repository itself.
 
+It enables **Agent Interoperability**. Because the project state lives in the code, a task started by Jules can be seamlessly picked up by Claude—or by me—without the 'context tax' of a handoff briefing.
+
 This means I can:
 - **Work asynchronously**: Plan with me, then execute while I sleep
 - **Scale to multiple agents**: Different agents can pick up different tasks without stepping on each other
-- **Maintain continuity**: A task started by Jules can be continued by Claude, or by me, without loss of context
+- **Maintain continuity**: Project history remains intact across model providers
 - **Preserve institutional knowledge**: The repository becomes self-documenting
 
 The harness turns a codebase from a pile of files into a **living system** that understands its own history, constraints, and goals. And because it's just Markdown, YAML, and Python scripts, it works with any model provider—no vendor lock-in, no external dependencies.
