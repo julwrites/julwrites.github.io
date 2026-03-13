@@ -1,4 +1,5 @@
 ---
+import { getPath } from '../utils/path';
 ---
 
 <section class="projects card flex flex-col gap-[var(--content-spacing)] mx-auto">
@@ -6,19 +7,19 @@
     <h2 class="text-2xl font-medium m-0 text-center text-[var(--accent-color)]">Hobby Projects</h2>
     <div class="project-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
       <a href="https://github.com/julwrites/llm-nvim" target="_blank" rel="noopener noreferrer" class="project-card" data-umami-event="hobby-project-click" data-umami-event-project="llm-nvim">
-        <img src="/assets/images/projects/llm-nvim.png" alt="llm-nvim" />
+        <img src={getPath('/assets/images/projects/llm-nvim.png')} alt="llm-nvim" />
         <span class="project-title">llm-nvim</span>
       </a>
       <a href="https://github.com/julwrites/cash-register" target="_blank" rel="noopener noreferrer" class="project-card" data-umami-event="hobby-project-click" data-umami-event-project="cash-register">
-        <img src="/assets/images/projects/cashregister.png" alt="Cash-Register" />
+        <img src={getPath('/assets/images/projects/cashregister.png')} alt="Cash-Register" />
         <span class="project-title">Cash Register</span>
       </a>
       <a href="https://github.com/julwrites/discipleship-journal" target="_blank" rel="noopener noreferrer" class="project-card" data-umami-event="hobby-project-click" data-umami-event-project="discipleship-journal">
-        <img src="/assets/images/projects/discipleship-journal.png" alt="Discipleship Journal" />
+        <img src={getPath('/assets/images/projects/discipleship-journal.png')} alt="Discipleship Journal" />
         <span class="project-title">Discipleship Journal</span>
       </a>
       <a href="https://github.com/julwrites/ScriptureBot" target="_blank" rel="noopener noreferrer" class="project-card" data-umami-event="hobby-project-click" data-umami-event-project="scripturebot">
-        <img src="/assets/images/projects/scripturebot.png" alt="ScriptureBot" />
+        <img src={getPath('/assets/images/projects/scripturebot.png')} alt="ScriptureBot" />
         <span class="project-title">ScriptureBot</span>
       </a>
     </div>
@@ -28,15 +29,15 @@
     <h2 class="text-2xl font-medium m-0 text-center text-[var(--accent-color)]">School Projects</h2>
     <div class="project-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       <a href="http://games.digipen.edu/games/bibbb" target="_blank" rel="noopener noreferrer" class="project-card" data-umami-event="school-project-click" data-umami-event-project="bibbb">
-        <img src="/assets/images/projects/BIBBB_1.jpg" alt="BIBBB" />
+        <img src={getPath('/assets/images/projects/BIBBB_1.jpg')} alt="BIBBB" />
         <span class="project-title">BIBBB</span>
       </a>
       <a href="http://games.digipen.edu/games/flowline" target="_blank" rel="noopener noreferrer" class="project-card" data-umami-event="school-project-click" data-umami-event-project="flowline">
-        <img src="/assets/images/projects/Flowline_1.jpg" alt="Flowline" />
+        <img src={getPath('/assets/images/projects/Flowline_1.jpg')} alt="Flowline" />
         <span class="project-title">Flowline</span>
       </a>
       <a href="http://games.digipen.edu/games/shortcircuit" target="_blank" rel="noopener noreferrer" class="project-card" data-umami-event="school-project-click" data-umami-event-project="shortcircuit">
-        <img src="/assets/images/projects/ShortCircuit_1.jpg" alt="Short Circuit" />
+        <img src={getPath('/assets/images/projects/ShortCircuit_1.jpg')} alt="Short Circuit" />
         <span class="project-title">Short Circuit</span>
       </a>
     </div>
