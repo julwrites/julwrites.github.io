@@ -19,30 +19,25 @@ import Layout from '../../layouts/Layout.astro';
         --brand-line: #9ca3af;
 
         background-color: var(--brand-bg);
-        background-image:
-            linear-gradient(var(--brand-grid) 1px, transparent 1px),
-            linear-gradient(90deg, var(--brand-grid) 1px, transparent 1px);
+        background-image: linear-gradient(var(--brand-grid) 1px, transparent 1px), linear-gradient(90deg, var(--brand-grid) 1px, transparent 1px);
         background-size: 20px 20px;
         color: var(--brand-text);
         padding: 2rem;
         min-height: 100vh;
-        /* Tailwind classes from the original body */
         display: flex;
         align-items: center;
         justify-content: center;
-        /* Reset any conflicting styles from global.css or shared.css */
-        margin: -var(--padding); /* counteract container padding if needed, or just let it be inside */
-        border-radius: var(--border-radius);
+        margin: 0;
         transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     .branding-wrapper.dark {
-        --brand-bg: #111827; /* Tailwind gray-900 */
-        --brand-text: #f3f4f6; /* Tailwind gray-100 */
-        --brand-grid: rgba(75, 85, 99, 0.4); /* Tailwind gray-600 */
-        --brand-board-bg: rgba(31, 41, 55, 0.95); /* Tailwind gray-800 */
-        --brand-ruler: #4b5563; /* Tailwind gray-600 */
-        --brand-line: #6b7280; /* Tailwind gray-500 */
+        --brand-bg: #111827;
+        --brand-text: #f3f4f6;
+        --brand-grid: rgba(75, 85, 99, 0.4);
+        --brand-board-bg: rgba(31, 41, 55, 0.95);
+        --brand-ruler: #4b5563;
+        --brand-line: #6b7280;
     }
 
     /* Reset heading colors inside the wrapper since shared.css forces h1-h6 to white */
@@ -91,9 +86,7 @@ import Layout from '../../layouts/Layout.astro';
     }
 
     .pixel-grid {
-        background-image:
-            linear-gradient(var(--brand-grid) 1px, transparent 1px),
-            linear-gradient(90deg, var(--brand-grid) 1px, transparent 1px);
+        background-image: linear-gradient(var(--brand-grid) 1px, transparent 1px), linear-gradient(90deg, var(--brand-grid) 1px, transparent 1px);
         background-size: 8px 8px;
     }
 
@@ -267,6 +260,64 @@ import Layout from '../../layouts/Layout.astro';
                             </div>
                         </div>
                     </div>
+
+                    <div class="flex gap-12 mt-6">
+                        <!-- Color 3 -->
+                        <div class="flex gap-4">
+                            <div class="w-20 h-20 bg-[#00E5FF] border border-gray-200 dark:border-gray-700"></div>
+                            <div class="text-[10px] leading-tight flex flex-col justify-between py-1">
+                                <div>
+                                    <p class="text-sm font-semibold mb-1">Neon Cyan</p>
+                                    <p><span class="w-8 inline-block">HEX</span> 00E5FF</p>
+                                    <p><span class="w-8 inline-block">RGB</span> 0, 229, 255</p>
+                                    <p><span class="w-8 inline-block">HSL</span> 186, 100, 50</p>
+                                </div>
+                                <p class="font-bold">00E5FF</p>
+                            </div>
+                        </div>
+                        <!-- Color 4 -->
+                        <div class="flex gap-4">
+                            <div class="w-20 h-20 bg-[#222C3C] border border-gray-200 dark:border-gray-700"></div>
+                            <div class="text-[10px] leading-tight flex flex-col justify-between py-1">
+                                <div>
+                                    <p class="text-sm font-semibold mb-1">Dark Blue</p>
+                                    <p><span class="w-8 inline-block">HEX</span> 222C3C</p>
+                                    <p><span class="w-8 inline-block">RGB</span> 34, 44, 60</p>
+                                    <p><span class="w-8 inline-block">HSL</span> 217, 28, 18</p>
+                                </div>
+                                <p class="font-bold">222C3C</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-12 mt-6">
+                        <!-- Color 5 -->
+                        <div class="flex gap-4">
+                            <div class="w-20 h-20 bg-[#3273DC] border border-gray-200 dark:border-gray-700"></div>
+                            <div class="text-[10px] leading-tight flex flex-col justify-between py-1">
+                                <div>
+                                    <p class="text-sm font-semibold mb-1">Accent Blue</p>
+                                    <p><span class="w-8 inline-block">HEX</span> 3273DC</p>
+                                    <p><span class="w-8 inline-block">RGB</span> 50, 115, 220</p>
+                                    <p><span class="w-8 inline-block">HSL</span> 217, 71, 53</p>
+                                </div>
+                                <p class="font-bold">3273DC</p>
+                            </div>
+                        </div>
+                        <!-- Color 6 -->
+                        <div class="flex gap-4">
+                            <div class="w-20 h-20 bg-[#2A3547] border border-gray-200 dark:border-gray-700"></div>
+                            <div class="text-[10px] leading-tight flex flex-col justify-between py-1">
+                                <div>
+                                    <p class="text-sm font-semibold mb-1">Card Bg</p>
+                                    <p><span class="w-8 inline-block">HEX</span> 2A3547</p>
+                                    <p><span class="w-8 inline-block">RGB</span> 42, 53, 71</p>
+                                    <p><span class="w-8 inline-block">HSL</span> 217, 26, 22</p>
+                                </div>
+                                <p class="font-bold">2A3547</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="h-px bg-gray-300 dark:bg-gray-700 w-full my-8"></div>
@@ -306,6 +357,225 @@ import Layout from '../../layouts/Layout.astro';
                     </div>
                 </div>
 
+            </div>
+        </div>
+
+        <div class="h-px bg-gray-300 dark:bg-gray-700 w-full mt-12 mb-8"></div>
+
+        <!-- TYPOGRAPHY -->
+        <div class="relative w-full mb-12">
+            <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-8 absolute -top-4 left-0">TYPOGRAPHY</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8">
+                <!-- Headings -->
+                <div class="space-y-6">
+                    <div class="border-b border-gray-300 dark:border-gray-700 pb-2 mb-4">
+                        <p class="text-[10px] text-gray-500 font-semibold mb-1">HEADINGS (Fira Sans / Outfit)</p>
+                    </div>
+
+                    <div class="flex items-baseline gap-4">
+                        <div class="w-16 text-[10px] text-gray-500 text-right">H1</div>
+                        <h1 class="text-4xl font-bold">Heading 1</h1>
+                    </div>
+                    <div class="flex items-baseline gap-4">
+                        <div class="w-16 text-[10px] text-gray-500 text-right">H2</div>
+                        <h2 class="text-3xl font-semibold">Heading 2</h2>
+                    </div>
+                    <div class="flex items-baseline gap-4">
+                        <div class="w-16 text-[10px] text-gray-500 text-right">H3</div>
+                        <h3 class="text-2xl font-semibold">Heading 3</h3>
+                    </div>
+                    <div class="flex items-baseline gap-4">
+                        <div class="w-16 text-[10px] text-gray-500 text-right">H4</div>
+                        <h4 class="text-xl font-medium">Heading 4</h4>
+                    </div>
+                    <div class="flex items-baseline gap-4">
+                        <div class="w-16 text-[10px] text-gray-500 text-right">H5</div>
+                        <h5 class="text-lg font-medium">Heading 5</h5>
+                    </div>
+                </div>
+
+                <!-- Paragraphs -->
+                <div class="space-y-6">
+                    <div class="border-b border-gray-300 dark:border-gray-700 pb-2 mb-4">
+                        <p class="text-[10px] text-gray-500 font-semibold mb-1">BODY COPY</p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="text-[10px] text-gray-500">Normal / 16px</div>
+                        <p class="text-base leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="text-[10px] text-gray-500">Small / 14px</div>
+                        <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+
+                    <div class="space-y-2 mt-4 p-4 bg-gray-200 dark:bg-gray-800 rounded border-l-4 border-[#3273DC]">
+                        <div class="text-[10px] text-gray-500">Blockquote</div>
+                        <blockquote class="italic text-gray-700 dark:text-gray-300 m-0 border-0 p-0 bg-transparent">"The quick brown fox jumps over the lazy dog."</blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="h-px bg-gray-300 dark:bg-gray-700 w-full mt-12 mb-8"></div>
+
+        <!-- UI COMPONENTS -->
+        <div class="relative w-full mb-12">
+            <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-8 absolute -top-4 left-0">UI COMPONENTS</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8">
+                <!-- Interactive -->
+                <div class="space-y-8">
+                    <div class="border-b border-gray-300 dark:border-gray-700 pb-2">
+                        <p class="text-[10px] text-gray-500 font-semibold mb-1">INTERACTIVE ELEMENTS</p>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] text-gray-500 mb-3">Links</p>
+                        <div class="flex gap-6 items-center">
+                            <a href="#" class="text-[#3273DC] hover:underline" onclick="event.preventDefault()">Standard Link</a>
+                            <a href="#" class="text-[#3273DC] underline" onclick="event.preventDefault()">Hover State</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] text-gray-500 mb-3">Buttons (Simulated)</p>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <button class="bg-[#3273DC] text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors border-none cursor-pointer">Primary</button>
+                            <button class="bg-transparent border border-[#3273DC] text-[#3273DC] px-4 py-2 rounded-md hover:bg-[#3273DC] hover:text-white transition-colors cursor-pointer">Secondary</button>
+                            <button class="bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-400 px-4 py-2 rounded-md cursor-not-allowed border-none">Disabled</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] text-gray-500 mb-3">Navigation Links</p>
+                        <nav class="flex gap-2">
+                            <a href="#" class="px-3 py-2 rounded-md bg-white/10 text-brand-text font-bold" onclick="event.preventDefault()">Active</a>
+                            <a href="#" class="px-3 py-2 rounded-md text-brand-text hover:bg-white/10" onclick="event.preventDefault()">Inactive</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Containers -->
+                <div class="space-y-8">
+                    <div class="border-b border-gray-300 dark:border-gray-700 pb-2">
+                        <p class="text-[10px] text-gray-500 font-semibold mb-1">CONTAINERS</p>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] text-gray-500 mb-3">Card (Radius: 10px, Background: #2a3547)</p>
+                        <div class="bg-white dark:bg-[#2A3547] rounded-[10px] p-5 shadow-md border border-gray-200 dark:border-gray-800">
+                            <h3 class="text-lg font-bold mb-2">Card Title</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">This is standard card content. It features a subtle shadow and rounded corners as defined by <code class="bg-gray-200 dark:bg-gray-900 px-1 py-0.5 rounded text-xs">--border-radius</code>.</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] text-gray-500 mb-3">Code Block</p>
+                        <pre class="bg-gray-200 dark:bg-gray-900 p-4 rounded-md overflow-x-auto text-sm font-mono border border-gray-300 dark:border-gray-800 text-brand-text"><code>function greet() &#123;
+  console.log("Hello World");
+&#125;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="h-px bg-gray-300 dark:bg-gray-700 w-full mt-12 mb-8"></div>
+
+        <!-- SPACING & LAYOUT / ICONS -->
+        <div class="relative w-full mb-12">
+            <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-8 absolute -top-4 left-0">SPACING & LAYOUT / ICONS</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8">
+                <!-- Spacing Guides -->
+                <div>
+                    <div class="border-b border-gray-300 dark:border-gray-700 pb-2 mb-6">
+                        <p class="text-[10px] text-gray-500 font-semibold mb-1">GLOBAL SPACING VARIABLES</p>
+                    </div>
+
+                    <div class="space-y-4 font-mono text-xs">
+                        <!-- Padding -->
+                        <div class="flex items-center gap-4">
+                            <div class="w-24 text-gray-500 text-right">--padding</div>
+                            <div class="h-8 bg-[#3AFBC0]/30 border border-[#3AFBC0] flex items-center justify-center relative w-full max-w-[200px]">
+                                <span class="absolute text-[10px] font-sans">30px</span>
+                                <div class="w-[30px] h-full bg-[#3AFBC0]/50 ml-auto"></div>
+                            </div>
+                        </div>
+
+                        <!-- Content Spacing -->
+                        <div class="flex items-center gap-4">
+                            <div class="w-24 text-gray-500 text-right">--content-spacing</div>
+                            <div class="h-16 flex flex-col justify-between relative w-full max-w-[200px]">
+                                <div class="h-3 w-full bg-gray-300 dark:bg-gray-700 rounded-sm"></div>
+                                <div class="h-[30px] w-full bg-[#00E5FF]/20 border-y border-[#00E5FF] flex items-center justify-center">
+                                    <span class="text-[10px] font-sans">30px gap</span>
+                                </div>
+                                <div class="h-3 w-full bg-gray-300 dark:bg-gray-700 rounded-sm"></div>
+                            </div>
+                        </div>
+
+                        <!-- Border Radius -->
+                        <div class="flex items-center gap-4">
+                            <div class="w-24 text-gray-500 text-right">--border-radius</div>
+                            <div class="w-16 h-16 bg-gray-300 dark:bg-gray-700 rounded-[10px] border-2 border-dashed border-[#3273DC] flex items-center justify-center">
+                                <span class="text-[10px] font-sans">10px</span>
+                            </div>
+                        </div>
+
+                        <!-- Max Width -->
+                        <div class="flex items-center gap-4">
+                            <div class="w-24 text-gray-500 text-right">--max-width</div>
+                            <div class="h-6 w-full max-w-[200px] bg-gray-200 dark:bg-gray-800 border-x-2 border-[#3273DC] flex items-center justify-center relative">
+                                <div class="h-px w-full bg-[#3273DC] absolute"></div>
+                                <span class="bg-gray-200 dark:bg-gray-800 px-1 text-[10px] font-sans z-10">1200px</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Icons -->
+                <div>
+                    <div class="border-b border-gray-300 dark:border-gray-700 pb-2 mb-6">
+                        <p class="text-[10px] text-gray-500 font-semibold mb-1">STANDARD ICONOGRAPHY</p>
+                    </div>
+
+                    <div class="grid grid-cols-4 gap-6">
+                        <!-- External Link -->
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded flex items-center justify-center border border-gray-200 dark:border-gray-700 text-[#3C3C3B] dark:text-[#f3f4f6]">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            </div>
+                            <p class="text-[10px] text-gray-500 text-center">External<br>Link</p>
+                        </div>
+
+                        <!-- Github -->
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded flex items-center justify-center border border-gray-200 dark:border-gray-700 text-[#3C3C3B] dark:text-[#f3f4f6]">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <p class="text-[10px] text-gray-500 text-center">GitHub</p>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded flex items-center justify-center border border-gray-200 dark:border-gray-700 text-[#3C3C3B] dark:text-[#f3f4f6]">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                            </div>
+                            <p class="text-[10px] text-gray-500 text-center">Menu</p>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded flex items-center justify-center border border-gray-200 dark:border-gray-700 text-[#3C3C3B] dark:text-[#f3f4f6]">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <p class="text-[10px] text-gray-500 text-center">Email</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
