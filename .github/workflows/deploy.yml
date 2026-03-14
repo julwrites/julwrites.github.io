@@ -36,7 +36,7 @@ jobs:
           path: main-branch
 
       - name: Build main branch
-        if: ${{ hashFiles('main-branch') != '' }}
+        if: ${{ hashFiles('main-branch/package.json') != '' }}
         working-directory: ./main-branch
         run: |
           pnpm install
@@ -51,7 +51,7 @@ jobs:
           path: staging-branch
 
       - name: Build staging branch
-        if: ${{ hashFiles('staging-branch') != '' }}
+        if: ${{ hashFiles('staging-branch/package.json') != '' }}
         working-directory: ./staging-branch
         run: |
           pnpm install
