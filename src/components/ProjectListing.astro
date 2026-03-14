@@ -1,38 +1,43 @@
 ---
+import { getPath } from '../utils/path';
 ---
 
-<section class="projects card">
-  <div class="project-section">
-    <h2>Hobby Projects</h2>
-    <div class="project-grid">
-      <a href="https://github.com/julwrites/llm-nvim" target="_blank" class="project-card">
-        <img src="/assets/images/projects/llm-nvim.png" alt="llm-nvim" />
+<section class="projects card flex flex-col gap-[var(--content-spacing)] mx-auto">
+  <div class="project-section flex flex-col gap-5">
+    <h2 class="text-2xl font-medium m-0 text-center text-[var(--accent-color)]">Hobby Projects</h2>
+    <div class="project-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <a href="https://github.com/julwrites/llm-nvim" target="_blank" rel="noopener noreferrer" class="project-card" data-umami-event="hobby-project-click" data-umami-event-project="llm-nvim">
+        <img src={getPath('/assets/images/projects/llm-nvim.png')} alt="llm-nvim" />
         <span class="project-title">llm-nvim</span>
       </a>
-      <a href="https://github.com/julwrites/cash-register" target="_blank" class="project-card">
-        <img src="/assets/images/projects/cashregister.png" alt="Cash-Register" />
+      <a href="https://github.com/julwrites/cash-register" target="_blank" rel="noopener noreferrer" class="project-card" data-umami-event="hobby-project-click" data-umami-event-project="cash-register">
+        <img src={getPath('/assets/images/projects/cashregister.png')} alt="Cash-Register" />
         <span class="project-title">Cash Register</span>
       </a>
-      <a href="https://github.com/julwrites/ScriptureBot" target="_blank" class="project-card">
-        <img src="/assets/images/projects/scripturebot.png" alt="ScriptureBot" />
+      <a href="https://github.com/julwrites/discipleship-journal" target="_blank" rel="noopener noreferrer" class="project-card" data-umami-event="hobby-project-click" data-umami-event-project="discipleship-journal">
+        <img src={getPath('/assets/images/projects/discipleship-journal.png')} alt="Discipleship Journal" />
+        <span class="project-title">Discipleship Journal</span>
+      </a>
+      <a href="https://github.com/julwrites/ScriptureBot" target="_blank" rel="noopener noreferrer" class="project-card" data-umami-event="hobby-project-click" data-umami-event-project="scripturebot">
+        <img src={getPath('/assets/images/projects/scripturebot.png')} alt="ScriptureBot" />
         <span class="project-title">ScriptureBot</span>
       </a>
     </div>
   </div>
 
-  <div class="project-section">
-    <h2>School Projects</h2>
-    <div class="project-grid">
-      <a href="http://games.digipen.edu/games/bibbb" target="_blank" class="project-card">
-        <img src="/assets/images/projects/BIBBB_1.jpg" alt="BIBBB" />
+  <div class="project-section flex flex-col gap-5">
+    <h2 class="text-2xl font-medium m-0 text-center text-[var(--accent-color)]">School Projects</h2>
+    <div class="project-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <a href="http://games.digipen.edu/games/bibbb" target="_blank" rel="noopener noreferrer" class="project-card" data-umami-event="school-project-click" data-umami-event-project="bibbb">
+        <img src={getPath('/assets/images/projects/BIBBB_1.jpg')} alt="BIBBB" />
         <span class="project-title">BIBBB</span>
       </a>
-      <a href="http://games.digipen.edu/games/flowline" target="_blank" class="project-card">
-        <img src="/assets/images/projects/Flowline_1.jpg" alt="Flowline" />
+      <a href="http://games.digipen.edu/games/flowline" target="_blank" rel="noopener noreferrer" class="project-card" data-umami-event="school-project-click" data-umami-event-project="flowline">
+        <img src={getPath('/assets/images/projects/Flowline_1.jpg')} alt="Flowline" />
         <span class="project-title">Flowline</span>
       </a>
-      <a href="http://games.digipen.edu/games/shortcircuit" target="_blank" class="project-card">
-        <img src="/assets/images/projects/ShortCircuit_1.jpg" alt="Short Circuit" />
+      <a href="http://games.digipen.edu/games/shortcircuit" target="_blank" rel="noopener noreferrer" class="project-card" data-umami-event="school-project-click" data-umami-event-project="shortcircuit">
+        <img src={getPath('/assets/images/projects/ShortCircuit_1.jpg')} alt="Short Circuit" />
         <span class="project-title">Short Circuit</span>
       </a>
     </div>
@@ -40,45 +45,6 @@
 </section>
 
 <style>
-  .projects {
-    display: flex;
-    flex-direction: column;
-    gap: var(--content-spacing);
-    margin: 0 auto;
-  }
-
-  .project-section {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 20px;
-  }
-  
-  @media (max-width: 600px) {
-    .project-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  
-  @media (max-width: 400px) {
-    .project-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  h2 {
-    font-size: 1.8rem;
-    font-weight: 500;
-    margin: 0;
-    text-align: center;
-    color: var(--accent-color);
-  }
-
   .project-card {
     display: flex;
     flex-direction: column;

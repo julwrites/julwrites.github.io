@@ -1,0 +1,465 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="tehj.io | Brand Identity Kit" description="Brand Identity Kit for tehj.io">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style is:global>
+    /* Scope the body styles from the original HTML to a specific wrapper so we don't break the global Layout */
+    .branding-wrapper {
+        font-family: 'Outfit', sans-serif;
+        --brand-bg: #f0f3f5;
+        --brand-text: #3C3C3B;
+        --brand-grid: rgba(200, 208, 218, 0.4);
+        --brand-board-bg: rgba(248, 249, 250, 0.95);
+        --brand-ruler: #cbd5e1;
+        --brand-line: #9ca3af;
+
+        background-color: var(--brand-bg);
+        background-image:
+            linear-gradient(var(--brand-grid) 1px, transparent 1px),
+            linear-gradient(90deg, var(--brand-grid) 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: var(--brand-text);
+        padding: 2rem;
+        min-height: 100vh;
+        /* Tailwind classes from the original body */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* Reset any conflicting styles from global.css or shared.css */
+        margin: -var(--padding); /* counteract container padding if needed, or just let it be inside */
+        border-radius: var(--border-radius);
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .branding-wrapper.dark {
+        --brand-bg: #111827; /* Tailwind gray-900 */
+        --brand-text: #f3f4f6; /* Tailwind gray-100 */
+        --brand-grid: rgba(75, 85, 99, 0.4); /* Tailwind gray-600 */
+        --brand-board-bg: rgba(31, 41, 55, 0.95); /* Tailwind gray-800 */
+        --brand-ruler: #4b5563; /* Tailwind gray-600 */
+        --brand-line: #6b7280; /* Tailwind gray-500 */
+    }
+
+    /* Reset heading colors inside the wrapper since shared.css forces h1-h6 to white */
+    .branding-wrapper h1,
+    .branding-wrapper h2,
+    .branding-wrapper h3,
+    .branding-wrapper h4,
+    .branding-wrapper h5,
+    .branding-wrapper h6 {
+        color: var(--brand-text);
+        margin: 0;
+    }
+
+    .branding-wrapper p {
+        margin: 0;
+    }
+
+    .branding-board {
+        background-color: var(--brand-board-bg);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        position: relative;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Rulers overlay */
+    .branding-board::before {
+        content: '';
+        position: absolute;
+        top: 0; left: -20px; right: 0; bottom: 0;
+        border-left: 1px solid var(--brand-ruler);
+        background-image: repeating-linear-gradient(to bottom, transparent, transparent 9px, var(--brand-ruler) 9px, var(--brand-ruler) 10px);
+        background-size: 100% 100px;
+        width: 5px;
+        z-index: 10;
+    }
+    .branding-board::after {
+        content: '';
+        position: absolute;
+        top: -20px; left: 0; right: 0; bottom: 0;
+        border-top: 1px solid var(--brand-ruler);
+        background-image: repeating-linear-gradient(to right, transparent, transparent 9px, var(--brand-ruler) 9px, var(--brand-ruler) 10px);
+        background-size: 100px 100%;
+        height: 5px;
+        z-index: 10;
+    }
+
+    .pixel-grid {
+        background-image:
+            linear-gradient(var(--brand-grid) 1px, transparent 1px),
+            linear-gradient(90deg, var(--brand-grid) 1px, transparent 1px);
+        background-size: 8px 8px;
+    }
+
+    .measure-line {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .measure-line::before, .measure-line::after {
+        content: '';
+        position: absolute;
+        background-color: var(--brand-line);
+    }
+    .measure-line-x::before, .measure-line-x::after {
+        width: 1px; height: 8px; top: -4px;
+    }
+    .measure-line-x::before { left: 0; }
+    .measure-line-x::after { right: 0; }
+    .measure-line-x { border-top: 1px solid var(--brand-line); }
+
+    .measure-line-y::before, .measure-line-y::after {
+        height: 1px; width: 8px; left: -4px;
+    }
+    .measure-line-y::before { top: 0; }
+    .measure-line-y::after { bottom: 0; }
+    .measure-line-y { border-left: 1px solid var(--brand-line); }
+  </style>
+
+  <div class="branding-wrapper dark">
+    <!-- Dark Mode Toggle -->
+    <button
+      id="theme-toggle"
+      class="fixed top-4 right-4 z-50 p-2 rounded-full bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 shadow-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+      aria-label="Toggle Dark Mode"
+    >
+      <!-- Sun Icon (shows in dark mode) -->
+      <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.22 4.22a1 1 0 011.415 1.415l-.708.707a1 1 0 01-1.414-1.414l.707-.708zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm-4.22-4.22a1 1 0 01-1.415-1.415l.708-.707a1 1 0 011.414 1.414l-.707.708zM5 9a1 1 0 100 2H4a1 1 0 100-2h1zM8 10a2 2 0 100-4 2 2 0 000 4z"></path>
+        <path d="M10 16a6 6 0 100-12 6 6 0 000 12z"></path>
+      </svg>
+      <!-- Moon Icon (shows in light mode) -->
+      <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+      </svg>
+    </button>
+
+    <!-- Reusable SVG Definition for the clean logo -->
+    <svg width="0" height="0" class="hidden">
+        <defs>
+            <g id="clean-logo">
+                <!-- Vertical Stem -->
+                <line x1="50" y1="10" x2="50" y2="58" stroke="currentColor" stroke-width="6" stroke-linecap="round" />
+                <!-- Horizontal Bar -->
+                <line x1="25" y1="35" x2="75" y2="35" stroke="currentColor" stroke-width="6" stroke-linecap="round" />
+                <!-- U-Shape Bottom -->
+                <path d="M 28 65 A 22 22 0 0 0 72 65" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" />
+                <!-- Pen Nib -->
+                <path d="M 44 60 L 56 60 L 50 78 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                <circle cx="50" cy="65" r="1.5" fill="var(--brand-board-bg)" />
+                <line x1="50" y1="67" x2="50" y2="76" stroke="var(--brand-board-bg)" stroke-width="1" />
+                <!-- Active Mint Dot -->
+                <circle cx="85" cy="45" r="12" fill="#3AFBC0" />
+            </g>
+        </defs>
+    </svg>
+
+    <div class="branding-board max-w-7xl w-full border border-gray-300 dark:border-gray-700 p-8 md:p-12 text-sm">
+
+        <!-- Top Half -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+            <!-- LEFT COLUMN -->
+            <div class="space-y-12">
+
+                <!-- Primary Logo -->
+                <div class="relative">
+                    <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-8 absolute -top-4 -left-2">PRIMARY LOGO</h2>
+                    <div class="flex flex-col items-center justify-center pt-8">
+                        <!-- SVG with Vector Nodes (Illustrator Style) -->
+                        <div class="relative w-40 h-40 mb-4 text-[#3C3C3B] dark:text-[#f3f4f6]">
+                            <svg viewBox="0 0 100 100" class="w-full h-full overflow-visible">
+                                <use href="#clean-logo" />
+
+                                <!-- Vector Node Overlays to match image -->
+                                <g fill="var(--brand-board-bg)" stroke="currentColor" stroke-width="0.8">
+                                    <circle cx="50" cy="10" r="1.5" />
+                                    <circle cx="50" cy="35" r="1.5" />
+                                    <circle cx="50" cy="58" r="1.5" />
+                                    <circle cx="25" cy="35" r="1.5" />
+                                    <circle cx="75" cy="35" r="1.5" />
+                                    <circle cx="28" cy="65" r="1.5" />
+                                    <circle cx="50" cy="87" r="1.5" /> <!-- Curve control point estimate -->
+                                    <circle cx="72" cy="65" r="1.5" />
+                                    <circle cx="44" cy="60" r="1.5" />
+                                    <circle cx="56" cy="60" r="1.5" />
+                                    <circle cx="50" cy="78" r="1.5" />
+                                </g>
+                                <!-- Control handles -->
+                                <line x1="28" y1="65" x2="28" y2="55" stroke="currentColor" stroke-width="0.5" />
+                                <circle cx="28" cy="55" r="1" fill="currentColor" />
+                                <line x1="72" y1="65" x2="72" y2="55" stroke="currentColor" stroke-width="0.5" />
+                                <circle cx="72" cy="55" r="1" fill="currentColor" />
+
+                                <!-- Mint circle nodes -->
+                                <circle cx="85" cy="33" r="1" fill="none" stroke="#3AFBC0" stroke-width="0.5" />
+                                <circle cx="85" cy="57" r="1" fill="none" stroke="#3AFBC0" stroke-width="0.5" />
+                                <circle cx="73" cy="45" r="1" fill="none" stroke="#3AFBC0" stroke-width="0.5" />
+                                <circle cx="97" cy="45" r="1" fill="none" stroke="#3AFBC0" stroke-width="0.5" />
+                                <path d="M 85 33 A 12 12 0 0 1 97 45 A 12 12 0 0 1 85 57 A 12 12 0 0 1 73 45 A 12 12 0 0 1 85 33" fill="none" stroke="#3AFBC0" stroke-width="0.5" />
+                            </svg>
+                        </div>
+                        <h1 class="text-6xl font-bold tracking-tight mb-2">tehj.io</h1>
+                        <p class="text-xl font-light tracking-widest text-gray-700 dark:text-gray-300">Create . Bless . Truth</p>
+                    </div>
+                </div>
+
+                <div class="h-px bg-gray-300 dark:bg-gray-700 w-full my-8"></div>
+
+                <!-- Logotype Only -->
+                <div class="relative">
+                    <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-8 absolute -top-4 -left-2">LOGOTYPE ONLY</h2>
+                    <div class="flex items-center justify-center gap-12 pt-8">
+                        <div class="text-center">
+                            <h1 class="text-6xl font-bold tracking-tight mb-2">tehj.io</h1>
+                            <p class="text-xl font-light tracking-widest text-gray-700 dark:text-gray-300">Create . Bless . Truth</p>
+                        </div>
+                        <div class="text-[10px] text-gray-500 dark:text-gray-400 leading-relaxed border-l border-gray-300 dark:border-gray-600 pl-4">
+                            <p class="font-semibold text-gray-700 dark:text-gray-300">Typeface: Geometric Sans-Serif Regular/Light</p>
+                            <p>Size: 18pt/12pt</p>
+                            <p>Leading: 24pt</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="space-y-12 border-l border-gray-300 dark:border-gray-700 pl-12 relative">
+
+                <!-- Brand Color Palette -->
+                <div class="relative">
+                    <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-6">BRAND COLOR PALETTE</h2>
+                    <div class="flex gap-12">
+                        <!-- Color 1 -->
+                        <div class="flex gap-4">
+                            <div class="w-20 h-20 bg-[#3C3C3B] border border-gray-200 dark:border-gray-700"></div>
+                            <div class="text-[10px] leading-tight flex flex-col justify-between py-1">
+                                <div>
+                                    <p class="text-sm font-semibold mb-1">Graphite Gray</p>
+                                    <p><span class="w-8 inline-block">HEX</span> 3C3C3B</p>
+                                    <p><span class="w-8 inline-block">RGB</span> 60, 60, 59</p>
+                                    <p><span class="w-8 inline-block">CMYK</span> 67, 58, 59, 41</p>
+                                    <p><span class="w-8 inline-block">HSL</span> 60, 1, 23</p>
+                                </div>
+                                <p class="font-bold">3C3C3B</p>
+                            </div>
+                        </div>
+                        <!-- Color 2 -->
+                        <div class="flex gap-4">
+                            <div class="w-20 h-20 bg-[#3AFBC0] border border-gray-200 dark:border-gray-700"></div>
+                            <div class="text-[10px] leading-tight flex flex-col justify-between py-1">
+                                <div>
+                                    <p class="text-sm font-semibold mb-1">Active Mint</p>
+                                    <p><span class="w-8 inline-block">HEX</span> 3AFBC0</p>
+                                    <p><span class="w-8 inline-block">RGB</span> 58, 251, 192</p>
+                                    <p><span class="w-8 inline-block">CMYK</span> 56, 0, 38, 0</p>
+                                    <p><span class="w-8 inline-block">HSL</span> 161, 96, 60</p>
+                                </div>
+                                <p class="font-bold">3AFBC0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="h-px bg-gray-300 dark:bg-gray-700 w-full my-8"></div>
+
+                <!-- Favicon / Icon -->
+                <div class="relative">
+                    <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-8">FAVICON / ICON</h2>
+                    <div class="flex items-end gap-8 relative mt-12">
+                        <!-- 16x16 -->
+                        <div class="flex flex-col items-center gap-2">
+                            <svg viewBox="0 0 100 100" class="w-4 h-4 text-[#3C3C3B] dark:text-[#f3f4f6]"><use href="#clean-logo" /></svg>
+                            <p class="text-[10px] text-gray-500 dark:text-gray-400">16x16</p>
+                        </div>
+                        <!-- 32x32 -->
+                        <div class="flex flex-col items-center gap-2">
+                            <svg viewBox="0 0 100 100" class="w-8 h-8 text-[#3C3C3B] dark:text-[#f3f4f6]"><use href="#clean-logo" /></svg>
+                            <p class="text-[10px] text-gray-500 dark:text-gray-400">32x32</p>
+                        </div>
+                        <!-- 64x64 -->
+                        <div class="flex flex-col items-center gap-2">
+                            <svg viewBox="0 0 100 100" class="w-16 h-16 text-[#3C3C3B] dark:text-[#f3f4f6]"><use href="#clean-logo" /></svg>
+                            <p class="text-[10px] text-gray-500 dark:text-gray-400">64x64</p>
+                        </div>
+
+                        <!-- Zoomed Callout -->
+                        <div class="absolute right-0 bottom-6 w-32 h-32 border border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-900 pixel-grid flex items-center justify-center overflow-hidden">
+                            <svg viewBox="0 0 100 100" class="w-48 h-48 opacity-90 text-[#3C3C3B] dark:text-[#f3f4f6]"><use href="#clean-logo" /></svg>
+                            <div class="absolute bottom-1 right-1 bg-white/80 dark:bg-gray-800/80 px-1 text-[8px] font-mono text-gray-500 dark:text-gray-400">tehj.io_favicon.svg</div>
+                        </div>
+
+                        <!-- Callout connecting lines -->
+                        <svg class="absolute w-full h-full pointer-events-none top-0 left-0 -z-10" style="min-height: 150px;">
+                            <path d="M 125 50 L 220 10" stroke="var(--brand-line)" stroke-width="0.5" fill="none" />
+                            <path d="M 125 110 L 220 130" stroke="var(--brand-line)" stroke-width="0.5" fill="none" />
+                        </svg>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="h-px bg-gray-300 dark:bg-gray-700 w-full mt-12 mb-8"></div>
+
+        <!-- ASSET SPECIFICATIONS & USE CASES -->
+        <div class="relative w-full">
+            <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-8 absolute -top-4 left-0">ASSET SPECIFICATIONS & USE CASES (EXAMPLE ONLY)</h2>
+
+            <div class="flex flex-wrap lg:flex-nowrap justify-between gap-8 pt-8">
+
+                <!-- Spec 1: Logo Path -->
+                <div class="relative w-72">
+                    <p class="text-center text-[10px] text-gray-500 dark:text-gray-400 mb-4 font-semibold">SVG_LOGO_PATH</p>
+
+                    <div class="relative w-full h-40 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 flex items-center justify-center p-6">
+                        <div class="w-full h-full border border-dashed border-gray-400 dark:border-gray-600 flex flex-col items-center justify-center p-4 relative">
+                            <svg viewBox="0 0 100 100" class="w-16 h-16 mb-2 text-[#3C3C3B] dark:text-[#f3f4f6]"><use href="#clean-logo" /></svg>
+                            <h1 class="text-2xl font-bold tracking-tight">tehj.io</h1>
+                        </div>
+
+                        <!-- Measurement Annotations -->
+                        <div class="absolute -top-3 left-6 right-6 measure-line measure-line-x text-[8px] text-gray-500 dark:text-gray-400">
+                            <span class="px-1 -mt-3" style="background-color: var(--brand-bg);">250</span>
+                        </div>
+                        <div class="absolute top-6 bottom-6 -left-3 measure-line measure-line-y text-[8px] text-gray-500 dark:text-gray-400 flex items-center">
+                            <span class="py-1 -ml-6" style="background-color: var(--brand-bg);">350</span>
+                        </div>
+                        <div class="absolute -top-3 left-0 w-6 measure-line measure-line-x text-[8px] text-gray-500 dark:text-gray-400">
+                            <span class="px-1 -mt-3" style="background-color: var(--brand-bg);">10</span>
+                        </div>
+                        <div class="absolute -top-3 right-0 w-6 measure-line measure-line-x text-[8px] text-gray-500 dark:text-gray-400">
+                            <span class="px-1 -mt-3" style="background-color: var(--brand-bg);">20</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Connecting Line between Box 1 & Box 2 -->
+                <div class="hidden lg:flex items-center justify-center flex-1 relative min-w-[40px]">
+                    <div class="w-full border-t border-gray-400 dark:border-gray-600 absolute"></div>
+                    <span class="px-2 text-[8px] text-gray-500 dark:text-gray-400 z-10 -mt-4" style="background-color: var(--brand-bg);">250 paths</span>
+                    <!-- Arrow head -->
+                    <svg class="absolute right-0 w-3 h-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+
+                <!-- Spec 2: Print Layout -->
+                <div class="relative w-80">
+                    <p class="text-center text-[10px] text-gray-500 dark:text-gray-400 mb-4 font-semibold">PRINT LAYOUT_SVG</p>
+
+                    <div class="relative w-full h-40 border border-gray-300 dark:border-gray-700 bg-gray-200 dark:bg-gray-800 p-2">
+                        <div class="w-full h-full bg-white dark:bg-gray-900 flex shadow-sm">
+                            <div class="w-1/2 h-full flex flex-col items-center justify-center border-r border-gray-100 dark:border-gray-700">
+                                <svg viewBox="0 0 100 100" class="w-12 h-12 mb-1 text-[#3C3C3B] dark:text-[#f3f4f6]"><use href="#clean-logo" /></svg>
+                                <h1 class="text-xl font-bold tracking-tight">tehj.io</h1>
+                                <p class="text-[5px] font-light tracking-widest text-gray-500 mt-1">Create . Bless . Truth</p>
+                            </div>
+                            <div class="w-1/2 h-full p-4 flex flex-col gap-2 justify-center">
+                                <div class="h-3 bg-gray-300 dark:bg-gray-600 rounded-sm w-full"></div>
+                                <div class="h-1.5 bg-gray-200 dark:bg-gray-700 rounded-sm w-3/4"></div>
+                                <div class="h-1.5 bg-gray-200 dark:bg-gray-700 rounded-sm w-full"></div>
+                                <div class="h-1.5 bg-gray-200 dark:bg-gray-700 rounded-sm w-1/2"></div>
+                            </div>
+                        </div>
+
+                        <!-- Measurement Annotations -->
+                        <div class="absolute -top-3 left-0 w-2 measure-line measure-line-x text-[8px] text-gray-500 dark:text-gray-400"></div>
+                        <div class="absolute -left-3 top-0 h-2 measure-line measure-line-y text-[8px] text-gray-500 dark:text-gray-400"></div>
+                        <span class="absolute -top-5 left-1 text-[8px] text-gray-500 dark:text-gray-400">70</span>
+                        <span class="absolute top-1 -left-5 text-[8px] text-gray-500 dark:text-gray-400">40</span>
+                        <span class="absolute bottom-1 -left-5 text-[8px] text-gray-500 dark:text-gray-400">50</span>
+                    </div>
+                </div>
+
+                <!-- Connecting Line between Box 2 & Box 3 -->
+                <div class="hidden lg:flex items-center justify-center flex-1 relative min-w-[40px]">
+                    <div class="w-full border-t border-gray-400 dark:border-gray-600 absolute"></div>
+                    <span class="px-2 text-[8px] text-gray-500 dark:text-gray-400 z-10 -mt-4" style="background-color: var(--brand-bg);">File export margins</span>
+                    <!-- Arrow head -->
+                    <svg class="absolute right-0 w-3 h-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+
+                <!-- Spec 3: Web Layout -->
+                <div class="relative flex-1 min-w-[280px]">
+                    <p class="text-right text-[10px] text-gray-500 dark:text-gray-400 mb-4 font-semibold">WEB_SVG</p>
+
+                    <div class="relative w-full h-24 border border-gray-300 dark:border-gray-700 bg-gray-200 dark:bg-gray-800 p-2 mt-8">
+                        <div class="w-full h-full bg-white dark:bg-gray-900 flex items-center px-4 justify-between shadow-sm relative border border-dashed border-gray-300 dark:border-gray-600">
+                            <div class="flex items-center gap-3">
+                                <svg viewBox="0 0 100 100" class="w-8 h-8 text-[#3C3C3B] dark:text-[#f3f4f6]"><use href="#clean-logo" /></svg>
+                                <h1 class="text-xl font-bold tracking-tight">tehj.io</h1>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-8 h-2 bg-gray-300 dark:bg-gray-600 rounded-sm"></div>
+                                <div class="w-8 h-2 bg-gray-300 dark:bg-gray-600 rounded-sm"></div>
+                                <div class="w-8 h-2 bg-gray-300 dark:bg-gray-600 rounded-sm"></div>
+                            </div>
+
+                            <!-- Inner annotations -->
+                            <div class="absolute -top-4 right-1/4 text-[8px] text-gray-500 dark:text-gray-400">tehj.io_primary_logo.svg</div>
+                            <div class="absolute h-4 w-px bg-gray-400 dark:bg-gray-600 -top-2 left-6"></div>
+
+                            <div class="absolute -bottom-6 left-12 text-[8px] text-gray-500 dark:text-gray-400">tehj.io_favicon.svg</div>
+                            <div class="absolute h-4 w-px bg-gray-400 dark:bg-gray-600 -bottom-2 left-8"></div>
+                        </div>
+
+                        <!-- Measurement Annotations -->
+                        <div class="absolute -left-3 top-2 bottom-2 measure-line measure-line-y text-[8px] text-gray-500 dark:text-gray-400 flex items-center">
+                            <span class="py-1 -ml-5" style="background-color: var(--brand-bg);">200</span>
+                        </div>
+                        <div class="absolute -right-3 top-2 bottom-2 measure-line measure-line-y text-[8px] text-gray-500 dark:text-gray-400 flex items-center">
+                            <span class="py-1 -mr-5" style="background-color: var(--brand-bg);">200</span>
+                        </div>
+                        <div class="absolute top-0 right-1/3 w-6 measure-line measure-line-y text-[8px] text-gray-500 dark:text-gray-400 flex items-center">
+                             <span class="py-1 ml-2" style="background-color: var(--brand-bg);">276</span>
+                        </div>
+                        <div class="absolute bottom-0 left-1/3 w-6 measure-line measure-line-y text-[8px] text-gray-500 dark:text-gray-400 flex items-center">
+                             <span class="py-1 ml-2" style="background-color: var(--brand-bg);">120</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+  </div>
+
+  <script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const brandingWrapper = document.querySelector('.branding-wrapper');
+
+    // Default to dark mode based on class presence
+    let isDarkMode = brandingWrapper.classList.contains('dark');
+
+    // Update icons initially
+    if (isDarkMode) {
+        themeToggleLightIcon.classList.remove('hidden');
+    } else {
+        themeToggleDarkIcon.classList.remove('hidden');
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+        // Toggle wrapper class
+        brandingWrapper.classList.toggle('dark');
+
+        // Toggle icons
+        themeToggleDarkIcon.classList.toggle('hidden');
+        themeToggleLightIcon.classList.toggle('hidden');
+    });
+  </script>
+</Layout>

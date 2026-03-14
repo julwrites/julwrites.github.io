@@ -1,14 +1,15 @@
 ---
+import { getPath, isActivePath } from '../utils/path';
 ---
 
 <header>
-  <div class="header-content">
+  <div class="header-content flex flex-col md:flex-row gap-2 md:gap-0 justify-between items-center">
     <h2>Julian Teh</h2>
-    <nav>
-      <a href="/" class={Astro.url.pathname === '/' ? 'active' : ''}>Home</a>
-      <a href="/projects" class={Astro.url.pathname.startsWith('/projects') ? 'active' : ''}>Projects</a>
-      <a href="/blog" class={Astro.url.pathname.startsWith('/blog') ? 'active' : ''}>Blog</a>
-      <a href="https://github.com/julwrites" target="_blank">GitHub</a>
+    <nav class="flex justify-center md:justify-end m-0">
+      <a href={getPath('/')} class={isActivePath(Astro.url.pathname, '/', true) ? 'active' : ''} data-umami-event="nav-click" data-umami-event-nav="home">Home</a>
+      <a href={getPath('/projects')} class={isActivePath(Astro.url.pathname, '/projects') ? 'active' : ''} data-umami-event="nav-click" data-umami-event-nav="projects">Projects</a>
+      <a href={getPath('/blog')} class={isActivePath(Astro.url.pathname, '/blog') ? 'active' : ''} data-umami-event="nav-click" data-umami-event-nav="blog">Blog</a>
+      <a href="https://github.com/julwrites" target="_blank" rel="noopener noreferrer" data-umami-event="nav-click" data-umami-event-nav="github">GitHub</a>
     </nav>
   </div>
 </header>
@@ -18,25 +19,7 @@
     margin-bottom: 2em;
   }
   
-  .header-content {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-  }
-  
   h2 {
     margin: 0;
-  }
-  
-  @media (min-width: 768px) {
-    .header-content {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    nav {
-      margin: 0;
-    }
   }
 </style>

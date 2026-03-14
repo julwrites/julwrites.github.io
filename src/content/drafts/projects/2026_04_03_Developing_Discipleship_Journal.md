@@ -5,51 +5,51 @@ pubDate: "Apr 03 2026"
 tags: ["React", "PWA", "Firebase", "PostgreSQL"]
 ---
 
-I’ve been involved in discipleship and ministry for years. And in that time, I’ve seen a lot of tools, and even built some myself. I confess, most of these tools are not useful in my experience. 
+I’ve been involved in discipleship and ministry for years. In that time, I’ve seen a lot of tools and even built some myself. I confess, most of these tools aren't particularly useful in my experience. 
 
-But I'm a maker at heart, so this is just a challenge rather than a hopeless endeavor. 
+But I'm a maker at heart, so I see this less as a hopeless endeavor and more as a design challenge. 
 
-When I really thought about what tools disciples and disciple-makers *really* need, and thought through my own experience, I felt convinced that complex tools just would not work. We needed something simple, yet infinitely extensible. 
+When I really thought about what disciples and disciple-makers *really* need—distilling it through my own experience—I realized that complex tools just don't work. We need something simple, yet infinitely extensible. 
 
-There are probably many possible things we can do, but the one that I thought would be most applicable was simply a journal. 
+Among the many possibilities, the one that stood out as most essential was simply a journal. 
 
-A place to write down what you're learning, what you're struggling with, and what you're praying for. A way to engage the Scripture right in that place. And even better, a way to share that with a mentor or a small group.
+A place to write down what you're learning, what you're struggling with, and what you're praying for. A way to engage Scripture directly in that context. And even better, a way to share those insights with a mentor or a small group.
 
 ## Why a New App?
 
-I know, "another journaling app.". I wonder why, but I have not actually seen such an app, so maybe I'm just not checking the market. Or maybe I just want to make something and don't really care if it's useful to anyone else. Who knows. 
+I know, "another journaling app." I wonder if I'm just missing something in the market, or perhaps I just wanted to build something and didn't mind if it was only useful to me. 
 
-But I felt there was an opportunity here to build something interesting, and learn how to better use AI-assisted coding - now called AI Engineering, I hear - to do so. 
+Regardless, I felt there was an opportunity to build something focused and learn how to better utilize AI-assisted coding—now called AI Engineering—to bring it to life. 
 
-In fact, since I already had portions of this built in the backend, I had the extra opportunity to work on more infrastructure stuff, like migrating user data, re-launching my telegram bot on a different dev account, creating a small microservice architecture, and so on. 
+Since I already had portions of the logic in my backend, this was also an opportunity to refine my infrastructure: migrating user data, re-launching my Telegram bot on a more stable developer account, and moving toward a modular microservice architecture.
 
 ## What's the pitch?
 
-A core skill in discipleship is journaling. Some will have heard that writing helps you improve your thinking; the same is true of growing about growing in faith. Whether it is part of your daily devotions/meditations, or a journal of what you are learning, or taking notes for Bible study, we all start with some kind of journal.
+A core skill in discipleship is journaling. We often hear that writing improves thinking; the same is true for growing in faith. Whether it’s daily devotions, tracking lessons learned, or taking notes for Bible study, growth almost always begins with some form of journaling.
 
-Now, imagine writing a journal entry, highlighting a verse, doing a Bible study... and being able to pull a passage that you need into your journal. And then imagine being able to ask about it, get context, cross-references, or historical background—without you ever leaving your journal. And all this will forever be available to you. Like a regular journal, just... with more things available. 
+Imagine writing a journal entry, highlighting a thought, and being able to pull the exact Bible passage you need directly into your notes. Then, imagine being able to ask questions about it—requesting context, cross-references, or historical background—without ever leaving your journal. All of this remains permanently available to you. It's a traditional journal, but with a vastly expanded toolkit.
 
-This is not necesarily what I think everyone wants, but I think it is something that would enhance the thing that everyone needs to do. 
+This isn't necessarily a tool everyone is looking for, but I believe it enhances the one thing everyone needs to do. 
 
-I know this is usually approached as a matter of adding journaling to a Bible app, but I think that's the wrong way to approach it; a good christian may start from the Bible, but most christians - and most christians are the ones who struggle with discipleship - start without the Bible. We need a way to bring the Bible in.
+Usually, the approach is to add journaling to a Bible app. I think that's backwards. A seasoned Christian might start with the Bible, but most people—especially those struggling with discipleship—start with their daily lives. We need a way to bring the Bible to where people already are.
 
 ## The Tech Stack
 
-I decided to build this as a **Progressive Web App (PWA)** because I want it to be accessible everywhere, even offline.
+I decided to build this as a **Progressive Web App (PWA)** to ensure it’s accessible everywhere, even offline.
 *   **Frontend:** React + Vite
 *   **Backend:** Go + PostgreSQL
 *   **Auth:** Firebase
 
-Since this also involves retrieving bible passages, and I've had a long-standing telegram bot for that, I decided to reuse some of that logic by refactoring it into a separate service, so that both my bot and this new PWA could use the same backend. This also allows them to share base features, while specializing for their own interfaces. 
+Since this involves retrieving Bible passages, I refactored the logic from my long-standing Telegram bot into a standalone service. Now, both the bot and the PWA use the same backend, allowing them to share core features while specializing for their respective interfaces. 
 
-I later moved the database to TiDB after Cloud SQL burned through an entire $300 of free credits, and then some. I'm willing to pay for usage if there is usage, but I'd like to be able to avoid unnecessary costs before anyone has even started using it. 
+I eventually moved the database to TiDB after Cloud SQL burned through $300 of free credits in record time. I’m happy to pay for scale, but I’d like to keep infrastructure costs lean before the user base actually arrives.
 
 ## Fun fact
 
-I actually did very little for this project; in fact a large amount of the work was done by [Google Jules](https://jules.google/), and in fact this is one of the things that convinced me to buy a Google AI Pro subscription. What it couldn't solve, I brought to my bastardized version of Claude Code (which runs DeepSeek), or later to Antigravity (which also has Claude models), to resolve with a tighter hand. 
+I actually spent very little time on the "manual" coding for this project. A significant portion of the work was executed by [Google Jules](https://jules.google/), which was actually what convinced me to subscribe to Google AI Pro. What Jules couldn't solve, I brought to a customized version of Claude Code (running DeepSeek) or Antigravity for higher-precision refinements. 
 
 ## Next steps
 
-I'm trying to follow my own advice to others, and focus on a MVP first. After the MVP is done, then we add more features based on feedback and discussion with others who are doing disciple-making. 
+I’m trying to follow my own advice and focus on a true MVP first. Once the core experience is solid, I'll add features based on feedback from fellow disciple-makers. 
 
-So the next steps would be to add some features; bible reading plans, memory verses, social features, and then look at improving the core features in another round; e.g. adding the ability to comment inline, or to run AI on only a section and add a comment, etc... 
+The immediate roadmap includes Bible reading plans, memory verses, and basic social sharing. Eventually, I’d like to explore more granular interactions, like inline commenting or running AI analysis on specific text selections to generate deeper reflections.

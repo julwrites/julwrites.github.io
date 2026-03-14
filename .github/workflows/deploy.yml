@@ -1,10 +1,9 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Trigger the workflow every time you push to the `main` branch
-  # Using a different branch name? Replace `main` with your branch’s name
+  # Trigger the workflow every time you push to `main` or `staging`
   push:
-    branches: [ main ]
+    branches: [ main, staging ]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
   
@@ -18,15 +17,62 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
-        uses: actions/checkout@v4
-
-      - name: Install, build, and upload your site
-        uses: withastro/action@v3
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          # path: . # The root location of your Astro project inside the repository. (optional)
-          node-version: 20 # The specific version of Node that should be used to build your site. Defaults to 20. (optional)
-          package-manager: pnpm@latest # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
+          node-version: 20
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: latest
+
+      # 1. Checkout and build main
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          ref: main
+          path: main-branch
+
+      - name: Build main branch
+        if: ${{ hashFiles('main-branch/package.json') != '' }}
+        working-directory: ./main-branch
+        run: |
+          pnpm install
+          pnpm build
+
+      # 2. Checkout and build staging
+      - name: Checkout staging branch
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          ref: staging
+          path: staging-branch
+
+      - name: Build staging branch
+        if: ${{ hashFiles('staging-branch/package.json') != '' }}
+        working-directory: ./staging-branch
+        run: |
+          pnpm install
+          ASTRO_BASE=/staging pnpm build
+
+      # 3. Combine outputs
+      - name: Combine outputs
+        run: |
+          mkdir -p final-dist
+          if [ -d "main-branch/dist" ]; then
+            cp -r main-branch/dist/* final-dist/
+          fi
+          if [ -d "staging-branch/dist" ]; then
+            mkdir -p final-dist/staging
+            cp -r staging-branch/dist/* final-dist/staging/
+          fi
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./final-dist
 
   deploy:
     needs: build
