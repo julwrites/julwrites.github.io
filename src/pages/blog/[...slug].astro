@@ -61,7 +61,7 @@ const { Content } = await post.render();
 
   .date {
     margin-bottom: 2rem;
-    color: #666;
+    color: var(--disabled-font-color);
   }
 
   .updated {
@@ -107,11 +107,5 @@ const { Content } = await post.render();
     border-radius: 4px;
     overflow-x: auto;
     margin: 1rem 0;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .date {
-      color: #aaa;
-    }
   }
 </style>
