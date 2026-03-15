@@ -23,8 +23,3 @@ jobs:
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GH_TOKEN: ${{ secrets.AGENT_ACCESS_TOKEN || github.token }}
-
-  deploy:
-    needs: enable-auto-merge
-    uses: ./.github/workflows/deploy.yml
-    secrets: inherit
