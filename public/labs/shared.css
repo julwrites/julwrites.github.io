@@ -109,13 +109,14 @@ body {
 
 .btn--primary {
   color: #fff;
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
+  background-color: #3273dc;
+  border-color: #3273dc;
 }
 
 .btn--secondary {
-  background: var(--secondary-color);
-  color: var(--text-color);
+  background: transparent;
+  color: #3273dc;
+  border: 1px solid #3273dc;
 }
 
 .theme-toggle {
