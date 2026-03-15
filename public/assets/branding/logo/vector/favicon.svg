@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+    <style>
+        .brand-stroke {
+            stroke: #3C3C3B;
+        }
+        .brand-fill {
+            fill: #3C3C3B;
+        }
+        .brand-board-fill {
+            fill: #f0f3f5;
+            stroke: #f0f3f5;
+        }
+        .brand-board-stroke {
+            stroke: #f0f3f5;
+        }
+        @media (prefers-color-scheme: dark) {
+            .brand-stroke {
+                stroke: #f3f4f6;
+            }
+            .brand-fill {
+                fill: #f3f4f6;
+            }
+            .brand-board-fill {
+                fill: #111827;
+                stroke: #111827;
+            }
+            .brand-board-stroke {
+                stroke: #111827;
+            }
+        }
+    </style>
+    <g id="clean-logo">
+        <!-- Vertical Stem -->
+        <line x1="50" y1="10" x2="50" y2="58" class="brand-stroke" stroke-width="6" stroke-linecap="round" />
+        <!-- Horizontal Bar -->
+        <line x1="25" y1="35" x2="75" y2="35" class="brand-stroke" stroke-width="6" stroke-linecap="round" />
+        <!-- U-Shape Bottom (Modified into a 'j') -->
+        <path d="M 28 65 A 22 22 0 0 0 72 65 L 72 45" fill="none" class="brand-stroke" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+        <!-- Pen Nib -->
+        <path d="M 44 60 L 56 60 L 50 78 Z" class="brand-fill brand-stroke" stroke-width="2" stroke-linejoin="round" />
+        <!-- Inner cutout of pen nib -->
+        <circle cx="50" cy="65" r="1.5" class="brand-board-fill" />
+        <line x1="50" y1="67" x2="50" y2="76" class="brand-board-stroke" stroke-width="1" />
+        <!-- Active Mint Dot -->
+        <circle cx="72" cy="22" r="6" fill="#3AFBC0" />
+    </g>
+</svg>
