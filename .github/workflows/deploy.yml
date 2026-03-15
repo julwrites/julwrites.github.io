@@ -4,11 +4,6 @@ on:
   # Trigger the workflow every time you push to `main` or `staging`
   push:
     branches: [ main, staging ]
-  pull_request:
-    branches: [ main, staging ]
-  pull_request_target:
-    types: [ closed ]
-    branches: [ main, staging ]
   # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
   workflow_call:
@@ -26,7 +21,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.event_name != 'pull_request_target' || github.event.pull_request.merged == true
     steps:
       - name: Setup Node
         uses: actions/setup-node@v4
