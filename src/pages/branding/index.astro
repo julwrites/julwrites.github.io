@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import LogoDef from '../../components/LogoDef.astro';
 ---
 
 <Layout title="tehj.io | Brand Identity Kit" description="Brand Identity Kit for tehj.io">
@@ -19,7 +20,6 @@ import Layout from '../../layouts/Layout.astro';
         --brand-line: #9ca3af;
 
         background-color: var(--brand-bg);
-        background-image: linear-gradient(var(--brand-grid) 1px, transparent 1px), linear-gradient(90deg, var(--brand-grid) 1px, transparent 1px);
         background-size: 20px 20px;
         color: var(--brand-text);
         padding: 2rem;
@@ -86,7 +86,6 @@ import Layout from '../../layouts/Layout.astro';
     }
 
     .pixel-grid {
-        background-image: linear-gradient(var(--brand-grid) 1px, transparent 1px), linear-gradient(90deg, var(--brand-grid) 1px, transparent 1px);
         background-size: 8px 8px;
     }
 
@@ -116,28 +115,9 @@ import Layout from '../../layouts/Layout.astro';
     .measure-line-y { border-left: 1px solid var(--brand-line); }
   </style>
 
-  <div class="branding-wrapper dark">
+  <div class="branding-wrapper grid-background dark">
     <!-- Reusable SVG Definition for the clean logo -->
-    <svg width="0" height="0" class="hidden">
-        <defs>
-            <g id="clean-logo">
-                <!-- Vertical Stem -->
-                <line x1="50" y1="10" x2="50" y2="58" stroke="currentColor" stroke-width="6" stroke-linecap="round" />
-                <!-- Horizontal Bar -->
-                <line x1="25" y1="35" x2="75" y2="35" stroke="currentColor" stroke-width="6" stroke-linecap="round" />
-                <!-- U-Shape Bottom (Modified into a 'j') -->
-                <!-- The right side goes up to the middle of the dot (cy=22, instead of 42) -->
-                <!-- We'll keep the left side standard, but the right side path will go up to cy=45 to maintain equal spacing -->
-                <path d="M 28 65 A 22 22 0 0 0 72 65 L 72 45" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
-                <!-- Pen Nib -->
-                <path d="M 44 60 L 56 60 L 50 78 Z" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
-                <circle cx="50" cy="65" r="1.5" fill="var(--brand-board-bg)" />
-                <line x1="50" y1="67" x2="50" y2="76" stroke="var(--brand-board-bg)" stroke-width="1" />
-                <!-- Active Mint Dot, moved above the right arm of the cross -->
-                <circle cx="72" cy="22" r="6" fill="#3AFBC0" />
-            </g>
-        </defs>
-    </svg>
+    <LogoDef />
 
     <div class="branding-board max-w-7xl w-full border border-gray-300 dark:border-gray-700 p-8 md:p-12 text-sm relative">
         <!-- Dark Mode Toggle -->
@@ -358,7 +338,7 @@ import Layout from '../../layouts/Layout.astro';
                         </div>
 
                         <!-- Zoomed Callout -->
-                        <div class="absolute right-0 bottom-6 w-32 h-32 border border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-900 pixel-grid flex items-center justify-center overflow-hidden">
+                        <div class="absolute right-0 bottom-6 w-32 h-32 border border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-900 grid-background pixel-grid flex items-center justify-center overflow-hidden">
                             <svg viewBox="0 0 100 100" class="w-48 h-48 opacity-90 text-[#3C3C3B] dark:text-[#f3f4f6]"><use href="#clean-logo" /></svg>
                             <div class="absolute bottom-1 right-1 bg-white/80 dark:bg-gray-800/80 px-1 text-[8px] font-mono text-gray-500 dark:text-gray-400">tehj.io_favicon.svg</div>
                         </div>
@@ -451,17 +431,17 @@ import Layout from '../../layouts/Layout.astro';
                     <div>
                         <p class="text-[10px] text-gray-500 mb-3">Links</p>
                         <div class="flex gap-6 items-center">
-                            <a href="#" style="color: var(--accent-color);" class="hover:underline" onclick="event.preventDefault()">Standard Link</a>
-                            <a href="#" style="color: var(--accent-color);" class="underline" onclick="event.preventDefault()">Hover State</a>
+                            <a href="#" class="hover:underline" onclick="event.preventDefault()">Standard Link</a>
+                            <a href="#" class="underline" onclick="event.preventDefault()">Hover State</a>
                         </div>
                     </div>
 
                     <div>
                         <p class="text-[10px] text-gray-500 mb-3">Buttons (Simulated)</p>
                         <div class="flex flex-wrap gap-4 items-center">
-                            <button style="background-color: var(--accent-color);" class="text-white px-4 py-2 rounded-md hover:brightness-110 transition-colors border-none cursor-pointer">Primary</button>
-                            <button style="border: 1px solid var(--accent-color); color: var(--accent-color);" class="bg-transparent px-4 py-2 rounded-md hover:brightness-110 transition-colors cursor-pointer">Secondary</button>
-                            <button style="background-color: var(--border-color); color: var(--disabled-font-color);" class="px-4 py-2 rounded-md cursor-not-allowed border-none">Disabled</button>
+                            <button class="btn-primary px-4 py-2 rounded-md hover:brightness-110 transition-colors border-none cursor-pointer">Primary</button>
+                            <button class="btn-secondary px-4 py-2 rounded-md hover:brightness-110 transition-colors cursor-pointer">Secondary</button>
+                            <button class="btn-disabled px-4 py-2 rounded-md border-none">Disabled</button>
                         </div>
                     </div>
 
@@ -482,8 +462,8 @@ import Layout from '../../layouts/Layout.astro';
 
                     <div>
                         <p class="text-[10px] text-gray-500 mb-3">Card</p>
-                        <div style="background-color: var(--card-background); border-radius: var(--border-radius);" class="p-5 shadow-md border border-gray-200 dark:border-gray-800">
-                            <h3 style="color: var(--font-color);" class="text-lg font-bold mb-2">Card Title</h3>
+                        <div class="card p-5 border border-gray-200 dark:border-gray-800 m-0 shadow-md">
+                            <h3 class="text-lg font-bold mb-2">Card Title</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-300">This is standard card content. It features a subtle shadow and rounded corners as defined by <code class="bg-gray-200 dark:bg-gray-900 px-1 py-0.5 rounded text-xs">--border-radius</code> and <code class="bg-gray-200 dark:bg-gray-900 px-1 py-0.5 rounded text-xs">--card-background</code>.</p>
                         </div>
                     </div>
