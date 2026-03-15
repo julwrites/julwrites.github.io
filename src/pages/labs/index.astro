@@ -33,7 +33,7 @@ const labs = [
 <Layout title="Labs | tehj.io">                                                 
   <main class="max-w-3xl mx-auto px-4 py-8">                                    
     <h1 class="text-3xl font-bold mb-6">Labs</h1>                               
-    <p class="mb-8 text-gray-600 dark:text-gray-400">                           
+    <p class="mb-8 text-[var(--disabled-font-color)]">
       Interactive tools and experiments                                         
     </p>                                                                        
                                                                                 
@@ -41,8 +41,7 @@ const labs = [
       {labs.map(lab => (                                                        
         <a                                                                      
           href={lab.path}                                                       
-          class="block p-6 border rounded-lg hover:bg-gray-50                   
-dark:hover:bg-gray-800 transition-colors group"                                 
+          class="block p-6 border border-[var(--border-color)] rounded-lg hover:bg-[var(--hover-bg)] transition-colors group"
           data-umami-event="lab-click"
           data-umami-event-lab={lab.name}
         >                                                                       

@@ -5,6 +5,7 @@
   --accent-color: #3273dc;
   --disabled-font-color: #808080;
   --card-background: #2a3547;
+  --hover-bg: rgba(255, 255, 255, 0.05);
   --padding: 30px;
   --menu-spacing: 10px;
   --footer-spacing: 30px;
@@ -16,21 +17,11 @@
   --styles-loaded: true;
 }
 
-/* Media query variables - simplified to use responsive classes instead where possible, but kept CSS vars for easy globals */
-@media (max-width: 768px) {
-  :root {
-    --padding: 15px;
-    --menu-spacing: 5px;
-    --footer-spacing: 20px;
-    --content-spacing: 20px;
-  }
-}
-
 body {
   background-color: var(--background-color);
   color: var(--font-color);
   font-family: 'Fira Sans', sans-serif;
-  padding: var(--padding);
+  @apply p-[15px] md:p-[30px];
   margin: 0 auto;
   line-height: 1.5;
 }
@@ -93,7 +84,7 @@ img {
 nav {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--menu-spacing);
+  @apply gap-[5px] md:gap-[10px];
   margin: 1em 0;
 }
 
@@ -140,7 +131,7 @@ blockquote {
 .container {
   display: flex;
   flex-direction: column;
-  gap: var(--content-spacing);
+  @apply gap-[20px] md:gap-[30px];
   max-width: var(--max-width);
   margin: 0 auto;
   width: 100%;

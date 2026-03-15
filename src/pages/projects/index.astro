@@ -46,7 +46,7 @@ const sortedProjects = sortPostsByDate(projects);
   }
 
   .project-item {
-    border-bottom: 1px solid #eaeaea;
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: 2rem;
   }
 
@@ -63,22 +63,12 @@ const sortedProjects = sortPostsByDate(projects);
 
   .project-date {
     font-size: 14px;
-    color: #666;
+    color: var(--disabled-font-color);
     margin: 0 0 0.5rem 0;
   }
 
   .project-description {
     margin: 0;
     line-height: 1.5;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .project-item {
-      border-bottom-color: #333;
-    }
-    
-    .project-date {
-      color: #aaa;
-    }
   }
 </style>
