@@ -248,7 +248,7 @@ import Layout from '../../layouts/Layout.astro';
                             <div class="w-20 h-20 bg-[#3C3C3B] border border-gray-200 dark:border-gray-700"></div>
                             <div class="text-[10px] leading-tight flex flex-col justify-between py-1">
                                 <div>
-                                    <p class="text-sm font-semibold mb-1">Graphite Gray</p>
+                                    <p class="text-sm font-semibold mb-1">Graphite Gray <span class="font-mono text-[8px] bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded ml-1 font-normal">--border-color</span></p>
                                     <p><span class="w-8 inline-block">HEX</span> 3C3C3B</p>
                                     <p><span class="w-8 inline-block">RGB</span> 60, 60, 59</p>
                                     <p><span class="w-8 inline-block">CMYK</span> 67, 58, 59, 41</p>
@@ -292,7 +292,7 @@ import Layout from '../../layouts/Layout.astro';
                             <div class="w-20 h-20 bg-[#222C3C] border border-gray-200 dark:border-gray-700"></div>
                             <div class="text-[10px] leading-tight flex flex-col justify-between py-1">
                                 <div>
-                                    <p class="text-sm font-semibold mb-1">Dark Blue</p>
+                                    <p class="text-sm font-semibold mb-1">Dark Blue <span class="font-mono text-[8px] bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded ml-1 font-normal">--background-color</span></p>
                                     <p><span class="w-8 inline-block">HEX</span> 222C3C</p>
                                     <p><span class="w-8 inline-block">RGB</span> 34, 44, 60</p>
                                     <p><span class="w-8 inline-block">HSL</span> 217, 28, 18</p>
@@ -308,7 +308,7 @@ import Layout from '../../layouts/Layout.astro';
                             <div class="w-20 h-20 bg-[#3273DC] border border-gray-200 dark:border-gray-700"></div>
                             <div class="text-[10px] leading-tight flex flex-col justify-between py-1">
                                 <div>
-                                    <p class="text-sm font-semibold mb-1">Accent Blue</p>
+                                    <p class="text-sm font-semibold mb-1">Accent Blue <span class="font-mono text-[8px] bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded ml-1 font-normal">--accent-color</span></p>
                                     <p><span class="w-8 inline-block">HEX</span> 3273DC</p>
                                     <p><span class="w-8 inline-block">RGB</span> 50, 115, 220</p>
                                     <p><span class="w-8 inline-block">HSL</span> 217, 71, 53</p>
@@ -321,7 +321,7 @@ import Layout from '../../layouts/Layout.astro';
                             <div class="w-20 h-20 bg-[#2A3547] border border-gray-200 dark:border-gray-700"></div>
                             <div class="text-[10px] leading-tight flex flex-col justify-between py-1">
                                 <div>
-                                    <p class="text-sm font-semibold mb-1">Card Bg</p>
+                                    <p class="text-sm font-semibold mb-1">Card Bg <span class="font-mono text-[8px] bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded ml-1 font-normal">--card-background</span></p>
                                     <p><span class="w-8 inline-block">HEX</span> 2A3547</p>
                                     <p><span class="w-8 inline-block">RGB</span> 42, 53, 71</p>
                                     <p><span class="w-8 inline-block">HSL</span> 217, 26, 22</p>
@@ -380,12 +380,13 @@ import Layout from '../../layouts/Layout.astro';
         <!-- TYPOGRAPHY -->
         <div class="relative w-full mb-12">
             <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-8 absolute -top-4 left-0">TYPOGRAPHY</h2>
+            <p class="text-[10px] text-gray-500 mb-4 pt-4">Note: <code class="bg-gray-200 dark:bg-gray-800 px-1 py-0.5 rounded">Fira Sans</code> is the primary font used across the site as defined in <code class="bg-gray-200 dark:bg-gray-800 px-1 py-0.5 rounded">shared.css</code>. <code class="bg-gray-200 dark:bg-gray-800 px-1 py-0.5 rounded">Outfit</code> is used specifically for the logotype and this branding kit UI.</p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-4">
                 <!-- Headings -->
                 <div class="space-y-6">
                     <div class="border-b border-gray-300 dark:border-gray-700 pb-2 mb-4">
-                        <p class="text-[10px] text-gray-500 font-semibold mb-1">HEADINGS (Fira Sans / Outfit)</p>
+                        <p class="text-[10px] text-gray-500 font-semibold mb-1">HEADINGS</p>
                     </div>
 
                     <div class="flex items-baseline gap-4">
@@ -450,17 +451,17 @@ import Layout from '../../layouts/Layout.astro';
                     <div>
                         <p class="text-[10px] text-gray-500 mb-3">Links</p>
                         <div class="flex gap-6 items-center">
-                            <a href="#" class="text-[#3273DC] hover:underline" onclick="event.preventDefault()">Standard Link</a>
-                            <a href="#" class="text-[#3273DC] underline" onclick="event.preventDefault()">Hover State</a>
+                            <a href="#" style="color: var(--accent-color);" class="hover:underline" onclick="event.preventDefault()">Standard Link</a>
+                            <a href="#" style="color: var(--accent-color);" class="underline" onclick="event.preventDefault()">Hover State</a>
                         </div>
                     </div>
 
                     <div>
                         <p class="text-[10px] text-gray-500 mb-3">Buttons (Simulated)</p>
                         <div class="flex flex-wrap gap-4 items-center">
-                            <button class="bg-[#3273DC] text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors border-none cursor-pointer">Primary</button>
-                            <button class="bg-transparent border border-[#3273DC] text-[#3273DC] px-4 py-2 rounded-md hover:bg-[#3273DC] hover:text-white transition-colors cursor-pointer">Secondary</button>
-                            <button class="bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-400 px-4 py-2 rounded-md cursor-not-allowed border-none">Disabled</button>
+                            <button style="background-color: var(--accent-color);" class="text-white px-4 py-2 rounded-md hover:brightness-110 transition-colors border-none cursor-pointer">Primary</button>
+                            <button style="border: 1px solid var(--accent-color); color: var(--accent-color);" class="bg-transparent px-4 py-2 rounded-md hover:brightness-110 transition-colors cursor-pointer">Secondary</button>
+                            <button style="background-color: var(--border-color); color: var(--disabled-font-color);" class="px-4 py-2 rounded-md cursor-not-allowed border-none">Disabled</button>
                         </div>
                     </div>
 
@@ -480,10 +481,10 @@ import Layout from '../../layouts/Layout.astro';
                     </div>
 
                     <div>
-                        <p class="text-[10px] text-gray-500 mb-3">Card (Radius: 10px, Background: #2a3547)</p>
-                        <div class="bg-white dark:bg-[#2A3547] rounded-[10px] p-5 shadow-md border border-gray-200 dark:border-gray-800">
-                            <h3 class="text-lg font-bold mb-2">Card Title</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-300">This is standard card content. It features a subtle shadow and rounded corners as defined by <code class="bg-gray-200 dark:bg-gray-900 px-1 py-0.5 rounded text-xs">--border-radius</code>.</p>
+                        <p class="text-[10px] text-gray-500 mb-3">Card</p>
+                        <div style="background-color: var(--card-background); border-radius: var(--border-radius);" class="p-5 shadow-md border border-gray-200 dark:border-gray-800">
+                            <h3 style="color: var(--font-color);" class="text-lg font-bold mb-2">Card Title</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">This is standard card content. It features a subtle shadow and rounded corners as defined by <code class="bg-gray-200 dark:bg-gray-900 px-1 py-0.5 rounded text-xs">--border-radius</code> and <code class="bg-gray-200 dark:bg-gray-900 px-1 py-0.5 rounded text-xs">--card-background</code>.</p>
                         </div>
                     </div>
 
@@ -502,8 +503,9 @@ import Layout from '../../layouts/Layout.astro';
         <!-- SPACING & LAYOUT / ICONS -->
         <div class="relative w-full mb-12">
             <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-8 absolute -top-4 left-0">SPACING & LAYOUT / ICONS</h2>
+            <p class="text-[10px] text-gray-500 mb-4 pt-4">Note: Spacing values represent the default variables defined in <code class="bg-gray-200 dark:bg-gray-800 px-1 py-0.5 rounded">src/styles/shared.css</code>. These values may be updated globally.</p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-4">
                 <!-- Spacing Guides -->
                 <div>
                     <div class="border-b border-gray-300 dark:border-gray-700 pb-2 mb-6">
