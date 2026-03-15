@@ -1,0 +1,33 @@
+ WARN  Cannot switch to pnpm@latest: "latest" is not a valid version
+
+> julwrites.github.io@2.0.0 dev /app
+> astro dev
+
+▶ Astro collects anonymous usage data.
+  This information helps us improve Astro.
+  Run "astro telemetry disable" to opt-out.
+  https://astro.build/telemetry
+
+12:52:19 [types] Generated 1ms
+
+Auto-generating collections for folders in "src/content/" that are not defined as collections.
+This is deprecated, so you should define these collections yourself in "src/content.config.ts".
+The following collections have been auto-generated: drafts
+
+12:52:20 [content] Syncing content
+12:52:21 [content] Synced content
+
+ astro  v5.7.4 ready in 2851 ms
+
+┃ Local    http://localhost:4321/
+┃ Network  use --host to expose
+
+12:52:21 watching for file changes...
+
+ update  ▶ New version of Astro available: 6.0.4
+  Run pnpm dlx @astrojs/upgrade to update
+
+Browserslist: browsers data (caniuse-lite) is 11 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+12:52:41 [200] /branding 1197ms
