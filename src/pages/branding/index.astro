@@ -1,0 +1,885 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LogoDef from '../../components/LogoDef.astro';
+import { getPath } from '../../utils/path';
+---
+
+<Layout title="tehj.io | Brand Identity Kit" description="Brand Identity Kit for tehj.io">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style is:global>
+    /* Scope the body styles from the original HTML to a specific wrapper so we don't break the global Layout */
+    .branding-wrapper {
+        font-family: 'Outfit', sans-serif;
+        --brand-bg: #f0f3f5;
+        --brand-text: #3C3C3B;
+        --brand-grid: rgba(200, 208, 218, 0.4);
+        --brand-board-bg: rgba(248, 249, 250, 0.95);
+        --brand-ruler: #cbd5e1;
+        --brand-line: #9ca3af;
+
+        background-color: var(--brand-bg);
+        background-size: 20px 20px;
+        color: var(--brand-text);
+        padding: 2rem;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .branding-wrapper.dark {
+        --brand-bg: #111827;
+        --brand-text: #f3f4f6;
+        --brand-grid: rgba(75, 85, 99, 0.4);
+        --brand-board-bg: rgba(31, 41, 55, 0.95);
+        --brand-ruler: #4b5563;
+        --brand-line: #6b7280;
+    }
+
+    /* Reset heading colors inside the wrapper since shared.css forces h1-h6 to white */
+    .branding-wrapper h1,
+    .branding-wrapper h2,
+    .branding-wrapper h3,
+    .branding-wrapper h4,
+    .branding-wrapper h5,
+    .branding-wrapper h6 {
+        color: var(--brand-text);
+        margin: 0;
+    }
+
+    .branding-wrapper p {
+        margin: 0;
+    }
+
+    .branding-board {
+        background-color: var(--brand-board-bg);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        position: relative;
+        transition: background-color 0.3s ease;
+    }
+
+    /* Rulers overlay */
+    .branding-board::before {
+        content: '';
+        position: absolute;
+        top: 0; left: -20px; right: 0; bottom: 0;
+        border-left: 1px solid var(--brand-ruler);
+        background-image: repeating-linear-gradient(to bottom, transparent, transparent 9px, var(--brand-ruler) 9px, var(--brand-ruler) 10px);
+        background-size: 100% 100px;
+        width: 5px;
+        z-index: 10;
+    }
+    .branding-board::after {
+        content: '';
+        position: absolute;
+        top: -20px; left: 0; right: 0; bottom: 0;
+        border-top: 1px solid var(--brand-ruler);
+        background-image: repeating-linear-gradient(to right, transparent, transparent 9px, var(--brand-ruler) 9px, var(--brand-ruler) 10px);
+        background-size: 100px 100%;
+        height: 5px;
+        z-index: 10;
+    }
+
+    .pixel-grid {
+        background-size: 8px 8px;
+    }
+
+    .measure-line {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .measure-line::before, .measure-line::after {
+        content: '';
+        position: absolute;
+        background-color: var(--brand-line);
+    }
+    .measure-line-x::before, .measure-line-x::after {
+        width: 1px; height: 8px; top: -4px;
+    }
+    .measure-line-x::before { left: 0; }
+    .measure-line-x::after { right: 0; }
+    .measure-line-x { border-top: 1px solid var(--brand-line); }
+
+    .measure-line-y::before, .measure-line-y::after {
+        height: 1px; width: 8px; left: -4px;
+    }
+    .measure-line-y::before { top: 0; }
+    .measure-line-y::after { bottom: 0; }
+    .measure-line-y { border-left: 1px solid var(--brand-line); }
+  </style>
+
+  <div class="branding-wrapper grid-background dark">
+    <!-- Reusable SVG Definition for the clean logo -->
+    <LogoDef />
+
+    <div class="branding-board max-w-7xl w-full border border-gray-300 dark:border-gray-700 p-8 md:p-12 text-sm relative">
+        <!-- Dark Mode Toggle -->
+        <button
+          id="theme-toggle"
+          class="absolute top-4 right-4 z-50 p-2 rounded-full bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 shadow-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+          aria-label="Toggle Dark Mode"
+        >
+          <!-- Sun Icon (shows in dark mode) -->
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.22 4.22a1 1 0 011.415 1.415l-.708.707a1 1 0 01-1.414-1.414l.707-.708zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm-4.22-4.22a1 1 0 01-1.415-1.415l.708-.707a1 1 0 011.414 1.414l-.707.708zM5 9a1 1 0 100 2H4a1 1 0 100-2h1zM8 10a2 2 0 100-4 2 2 0 000 4z"></path>
+            <path d="M10 16a6 6 0 100-12 6 6 0 000 12z"></path>
+          </svg>
+          <!-- Moon Icon (shows in light mode) -->
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+        </button>
+
+        <!-- Top Half -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+            <!-- LEFT COLUMN -->
+            <div class="space-y-12">
+
+                <!-- Primary Logo -->
+                <div class="relative">
+                    <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-8 absolute -top-4 -left-2">PRIMARY LOGO</h2>
+
+                    <div class="absolute top-0 right-0 flex gap-2">
+                        <button class="text-[10px] px-2 py-1 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" data-copy-svg="clean-logo" data-umami-event="branding-copy-svg" data-umami-event-svg="clean-logo">Copy SVG</button>
+                        <a href={getPath('/assets/branding/logo/vector/default.svg')} download class="text-[10px] px-2 py-1 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center gap-1" data-umami-event="branding-download-asset" data-umami-event-asset="default.svg"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg> SVG</a>
+                        <a href={getPath('/assets/branding/logo/default.png')} download class="text-[10px] px-2 py-1 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center gap-1" data-umami-event="branding-download-asset" data-umami-event-asset="default.png"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg> PNG</a>
+                    </div>
+
+                    <div class="flex flex-col items-center justify-center pt-8">
+                        <!-- SVG with Vector Nodes (Illustrator Style) -->
+                        <div class="relative w-40 h-40 mb-4 text-[#3C3C3B] dark:text-[#f3f4f6]">
+                            <svg viewBox="0 0 100 100" class="w-full h-full overflow-visible">
+                                <use href="#clean-logo" />
+
+                                <!-- Vector Node Overlays to match image -->
+                                <g fill="var(--brand-board-bg)" stroke="currentColor" stroke-width="0.8">
+                                    <circle cx="50" cy="10" r="1.5" />
+                                    <circle cx="50" cy="35" r="1.5" />
+                                    <circle cx="50" cy="58" r="1.5" />
+                                    <circle cx="25" cy="35" r="1.5" />
+                                    <circle cx="75" cy="35" r="1.5" />
+                                    <circle cx="28" cy="65" r="1.5" />
+                                    <circle cx="50" cy="87" r="1.5" /> <!-- Curve control point estimate -->
+                                    <circle cx="72" cy="65" r="1.5" />
+                                    <circle cx="72" cy="45" r="1.5" />
+                                    <circle cx="44" cy="60" r="1.5" />
+                                    <circle cx="56" cy="60" r="1.5" />
+                                    <circle cx="50" cy="78" r="1.5" />
+                                </g>
+                                <!-- Control handles -->
+                                <line x1="28" y1="65" x2="28" y2="55" stroke="currentColor" stroke-width="0.5" />
+                                <circle cx="28" cy="55" r="1" fill="currentColor" />
+                                <line x1="72" y1="45" x2="72" y2="35" stroke="currentColor" stroke-width="0.5" />
+                                <circle cx="72" cy="35" r="1" fill="currentColor" />
+
+                                <!-- Mint circle nodes -->
+                                <circle cx="72" cy="16" r="1" fill="none" stroke="#3AFBC0" stroke-width="0.5" />
+                                <circle cx="72" cy="28" r="1" fill="none" stroke="#3AFBC0" stroke-width="0.5" />
+                                <circle cx="66" cy="22" r="1" fill="none" stroke="#3AFBC0" stroke-width="0.5" />
+                                <circle cx="78" cy="22" r="1" fill="none" stroke="#3AFBC0" stroke-width="0.5" />
+                                <path d="M 72 16 A 6 6 0 0 1 78 22 A 6 6 0 0 1 72 28 A 6 6 0 0 1 66 22 A 6 6 0 0 1 72 16" fill="none" stroke="#3AFBC0" stroke-width="0.5" />
+                            </svg>
+                        </div>
+                        <h1 class="text-6xl font-bold tracking-tight mb-2">tehj.io</h1>
+                        <p class="text-xl font-light tracking-widest text-gray-700 dark:text-gray-300">Create . Bless . Truth</p>
+                    </div>
+                </div>
+
+                <div class="h-px bg-gray-300 dark:bg-gray-700 w-full my-8"></div>
+
+                <!-- Logotype Only -->
+                <div class="relative">
+                    <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-8 absolute -top-4 -left-2">LOGOTYPE ONLY</h2>
+                    <div class="absolute top-0 right-0 flex gap-2">
+                        <a href={getPath('/assets/branding/logo/vector/isolated-layout.svg')} download class="text-[10px] px-2 py-1 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center gap-1" data-umami-event="branding-download-asset" data-umami-event-asset="isolated-layout.svg"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg> SVG</a>
+                    </div>
+                    <div class="flex items-center justify-center gap-12 pt-8">
+                        <div class="text-center">
+                            <h1 class="text-6xl font-bold tracking-tight mb-2">tehj.io</h1>
+                            <p class="text-xl font-light tracking-widest text-gray-700 dark:text-gray-300">Create . Bless . Truth</p>
+                        </div>
+                        <div class="text-[10px] text-gray-500 dark:text-gray-400 leading-relaxed border-l border-gray-300 dark:border-gray-600 pl-4">
+                            <p class="font-semibold text-gray-700 dark:text-gray-300">Typeface: Geometric Sans-Serif Regular/Light</p>
+                            <p>Size: 18pt/12pt</p>
+                            <p>Leading: 24pt</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="space-y-12 border-l border-gray-300 dark:border-gray-700 pl-12 relative">
+
+                <!-- Brand Color Palette -->
+                <div class="relative">
+                    <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-6">BRAND COLOR PALETTE</h2>
+                    <div class="flex gap-12">
+                        <!-- Color 1 -->
+                        <div class="flex gap-4">
+                            <div class="w-20 h-20 bg-[#3C3C3B] border border-gray-200 dark:border-gray-700"></div>
+                            <div class="text-[10px] leading-tight flex flex-col justify-between py-1">
+                                <div>
+                                    <p class="text-sm font-semibold mb-1">Graphite Gray <span class="font-mono text-[8px] bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded ml-1 font-normal">--border-color</span></p>
+                                    <p><span class="w-8 inline-block">HEX</span> 3C3C3B</p>
+                                    <p><span class="w-8 inline-block">RGB</span> 60, 60, 59</p>
+                                    <p><span class="w-8 inline-block">CMYK</span> 67, 58, 59, 41</p>
+                                    <p><span class="w-8 inline-block">HSL</span> 60, 1, 23</p>
+                                </div>
+                                <button class="font-bold hover:text-gray-500 transition-colors flex items-center gap-1" data-copy-color="#3C3C3B" data-umami-event="branding-copy-color" data-umami-event-color="#3C3C3B">3C3C3B <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg></button>
+                            </div>
+                        </div>
+                        <!-- Color 2 -->
+                        <div class="flex gap-4">
+                            <div class="w-20 h-20 bg-[#3AFBC0] border border-gray-200 dark:border-gray-700"></div>
+                            <div class="text-[10px] leading-tight flex flex-col justify-between py-1">
+                                <div>
+                                    <p class="text-sm font-semibold mb-1">Active Mint</p>
+                                    <p><span class="w-8 inline-block">HEX</span> 3AFBC0</p>
+                                    <p><span class="w-8 inline-block">RGB</span> 58, 251, 192</p>
+                                    <p><span class="w-8 inline-block">CMYK</span> 56, 0, 38, 0</p>
+                                    <p><span class="w-8 inline-block">HSL</span> 161, 96, 60</p>
+                                </div>
+                                <button class="font-bold hover:text-gray-500 transition-colors flex items-center gap-1" data-copy-color="#3AFBC0" data-umami-event="branding-copy-color" data-umami-event-color="#3AFBC0">3AFBC0 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-12 mt-6">
+                        <!-- Color 3 -->
+                        <div class="flex gap-4">
+                            <div class="w-20 h-20 bg-[#00E5FF] border border-gray-200 dark:border-gray-700"></div>
+                            <div class="text-[10px] leading-tight flex flex-col justify-between py-1">
+                                <div>
+                                    <p class="text-sm font-semibold mb-1">Neon Cyan</p>
+                                    <p><span class="w-8 inline-block">HEX</span> 00E5FF</p>
+                                    <p><span class="w-8 inline-block">RGB</span> 0, 229, 255</p>
+                                    <p><span class="w-8 inline-block">HSL</span> 186, 100, 50</p>
+                                </div>
+                                <button class="font-bold hover:text-gray-500 transition-colors flex items-center gap-1" data-copy-color="#00E5FF" data-umami-event="branding-copy-color" data-umami-event-color="#00E5FF">00E5FF <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg></button>
+                            </div>
+                        </div>
+                        <!-- Color 4 -->
+                        <div class="flex gap-4">
+                            <div class="w-20 h-20 bg-[#222C3C] border border-gray-200 dark:border-gray-700"></div>
+                            <div class="text-[10px] leading-tight flex flex-col justify-between py-1">
+                                <div>
+                                    <p class="text-sm font-semibold mb-1">Dark Blue <span class="font-mono text-[8px] bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded ml-1 font-normal">--background-color</span></p>
+                                    <p><span class="w-8 inline-block">HEX</span> 222C3C</p>
+                                    <p><span class="w-8 inline-block">RGB</span> 34, 44, 60</p>
+                                    <p><span class="w-8 inline-block">HSL</span> 217, 28, 18</p>
+                                </div>
+                                <button class="font-bold hover:text-gray-500 transition-colors flex items-center gap-1" data-copy-color="#222C3C" data-umami-event="branding-copy-color" data-umami-event-color="#222C3C">222C3C <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-12 mt-6">
+                        <!-- Color 5 -->
+                        <div class="flex gap-4">
+                            <div class="w-20 h-20 bg-[#3273DC] border border-gray-200 dark:border-gray-700"></div>
+                            <div class="text-[10px] leading-tight flex flex-col justify-between py-1">
+                                <div>
+                                    <p class="text-sm font-semibold mb-1">Accent Blue <span class="font-mono text-[8px] bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded ml-1 font-normal">--accent-color</span></p>
+                                    <p><span class="w-8 inline-block">HEX</span> 3273DC</p>
+                                    <p><span class="w-8 inline-block">RGB</span> 50, 115, 220</p>
+                                    <p><span class="w-8 inline-block">HSL</span> 217, 71, 53</p>
+                                </div>
+                                <button class="font-bold hover:text-gray-500 transition-colors flex items-center gap-1" data-copy-color="#3273DC" data-umami-event="branding-copy-color" data-umami-event-color="#3273DC">3273DC <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg></button>
+                            </div>
+                        </div>
+                        <!-- Color 6 -->
+                        <div class="flex gap-4">
+                            <div class="w-20 h-20 bg-[#2A3547] border border-gray-200 dark:border-gray-700"></div>
+                            <div class="text-[10px] leading-tight flex flex-col justify-between py-1">
+                                <div>
+                                    <p class="text-sm font-semibold mb-1">Card Bg <span class="font-mono text-[8px] bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded ml-1 font-normal">--card-background</span></p>
+                                    <p><span class="w-8 inline-block">HEX</span> 2A3547</p>
+                                    <p><span class="w-8 inline-block">RGB</span> 42, 53, 71</p>
+                                    <p><span class="w-8 inline-block">HSL</span> 217, 26, 22</p>
+                                </div>
+                                <button class="font-bold hover:text-gray-500 transition-colors flex items-center gap-1" data-copy-color="#2A3547" data-umami-event="branding-copy-color" data-umami-event-color="#2A3547">2A3547 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="h-px bg-gray-300 dark:bg-gray-700 w-full my-8"></div>
+
+                <!-- Favicon / Icon -->
+                <div class="relative">
+                    <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-8">FAVICON / ICON</h2>
+                    <div class="absolute top-0 right-0 flex gap-2">
+                        <a href={getPath('/assets/branding/logo/vector/favicon.svg')} download class="text-[10px] px-2 py-1 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center gap-1" data-umami-event="branding-download-asset" data-umami-event-asset="favicon.svg"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg> SVG</a>
+                    </div>
+                    <div class="flex items-end gap-8 relative mt-12">
+                        <!-- 16x16 -->
+                        <div class="flex flex-col items-center gap-2">
+                            <svg viewBox="0 0 100 100" class="w-4 h-4 text-[#3C3C3B] dark:text-[#f3f4f6]"><use href="#clean-logo" /></svg>
+                            <p class="text-[10px] text-gray-500 dark:text-gray-400">16x16</p>
+                        </div>
+                        <!-- 32x32 -->
+                        <div class="flex flex-col items-center gap-2">
+                            <svg viewBox="0 0 100 100" class="w-8 h-8 text-[#3C3C3B] dark:text-[#f3f4f6]"><use href="#clean-logo" /></svg>
+                            <p class="text-[10px] text-gray-500 dark:text-gray-400">32x32</p>
+                        </div>
+                        <!-- 64x64 -->
+                        <div class="flex flex-col items-center gap-2">
+                            <svg viewBox="0 0 100 100" class="w-16 h-16 text-[#3C3C3B] dark:text-[#f3f4f6]"><use href="#clean-logo" /></svg>
+                            <p class="text-[10px] text-gray-500 dark:text-gray-400">64x64</p>
+                        </div>
+
+                        <!-- Zoomed Callout -->
+                        <div class="absolute right-0 bottom-6 w-32 h-32 border border-gray-400 dark:border-gray-600 bg-white dark:bg-gray-900 grid-background pixel-grid flex items-center justify-center overflow-hidden">
+                            <svg viewBox="0 0 100 100" class="w-48 h-48 opacity-90 text-[#3C3C3B] dark:text-[#f3f4f6]"><use href="#clean-logo" /></svg>
+                            <div class="absolute bottom-1 right-1 bg-white/80 dark:bg-gray-800/80 px-1 text-[8px] font-mono text-gray-500 dark:text-gray-400">tehj.io_favicon.svg</div>
+                        </div>
+
+                        <!-- Callout connecting lines -->
+                        <svg class="absolute w-full h-full pointer-events-none top-0 left-0 -z-10" style="min-height: 150px;">
+                            <path d="M 125 50 L 220 10" stroke="var(--brand-line)" stroke-width="0.5" fill="none" />
+                            <path d="M 125 110 L 220 130" stroke="var(--brand-line)" stroke-width="0.5" fill="none" />
+                        </svg>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="h-px bg-gray-300 dark:bg-gray-700 w-full mt-12 mb-8"></div>
+
+        <!-- TYPOGRAPHY -->
+        <div class="relative w-full mb-12">
+            <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-8 absolute -top-4 left-0">TYPOGRAPHY</h2>
+            <p class="text-[10px] text-gray-500 mb-4 pt-4">Note: <code class="bg-gray-200 dark:bg-gray-800 px-1 py-0.5 rounded">Fira Sans</code> is the primary font used across the site as defined in <code class="bg-gray-200 dark:bg-gray-800 px-1 py-0.5 rounded">shared.css</code>. <code class="bg-gray-200 dark:bg-gray-800 px-1 py-0.5 rounded">Outfit</code> is used specifically for the logotype and this branding kit UI.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-4">
+                <!-- Headings -->
+                <div class="space-y-6">
+                    <div class="border-b border-gray-300 dark:border-gray-700 pb-2 mb-4">
+                        <p class="text-[10px] text-gray-500 font-semibold mb-1">HEADINGS</p>
+                    </div>
+
+                    <div class="flex items-baseline gap-4">
+                        <div class="w-16 text-[10px] text-gray-500 text-right">H1</div>
+                        <h1 class="text-4xl font-bold">Heading 1</h1>
+                    </div>
+                    <div class="flex items-baseline gap-4">
+                        <div class="w-16 text-[10px] text-gray-500 text-right">H2</div>
+                        <h2 class="text-3xl font-semibold">Heading 2</h2>
+                    </div>
+                    <div class="flex items-baseline gap-4">
+                        <div class="w-16 text-[10px] text-gray-500 text-right">H3</div>
+                        <h3 class="text-2xl font-semibold">Heading 3</h3>
+                    </div>
+                    <div class="flex items-baseline gap-4">
+                        <div class="w-16 text-[10px] text-gray-500 text-right">H4</div>
+                        <h4 class="text-xl font-medium">Heading 4</h4>
+                    </div>
+                    <div class="flex items-baseline gap-4">
+                        <div class="w-16 text-[10px] text-gray-500 text-right">H5</div>
+                        <h5 class="text-lg font-medium">Heading 5</h5>
+                    </div>
+                </div>
+
+                <!-- Paragraphs -->
+                <div class="space-y-6">
+                    <div class="border-b border-gray-300 dark:border-gray-700 pb-2 mb-4">
+                        <p class="text-[10px] text-gray-500 font-semibold mb-1">BODY COPY</p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="text-[10px] text-gray-500">Normal / 16px</div>
+                        <p class="text-base leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="text-[10px] text-gray-500">Small / 14px</div>
+                        <p class="text-sm leading-relaxed text-gray-700 dark:text-gray-300">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+
+                    <div class="space-y-2 mt-4 p-4 bg-gray-200 dark:bg-gray-800 rounded border-l-4 border-[#3273DC]">
+                        <div class="text-[10px] text-gray-500">Blockquote</div>
+                        <blockquote class="italic text-gray-700 dark:text-gray-300 m-0 border-0 p-0 bg-transparent">"The quick brown fox jumps over the lazy dog."</blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="h-px bg-gray-300 dark:bg-gray-700 w-full mt-12 mb-8"></div>
+
+        <!-- UI COMPONENTS -->
+        <div class="relative w-full mb-12">
+            <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-8 absolute -top-4 left-0">UI COMPONENTS</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8">
+                <!-- Interactive -->
+                <div class="space-y-8">
+                    <div class="border-b border-gray-300 dark:border-gray-700 pb-2">
+                        <p class="text-[10px] text-gray-500 font-semibold mb-1">INTERACTIVE ELEMENTS</p>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] text-gray-500 mb-3">Links</p>
+                        <div class="flex gap-6 items-center">
+                            <a href="#" class="hover:underline" onclick="event.preventDefault()">Standard Link</a>
+                            <a href="#" class="underline" onclick="event.preventDefault()">Hover State</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] text-gray-500 mb-3">Buttons (Simulated)</p>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <button class="btn-primary px-4 py-2 rounded-md hover:brightness-110 transition-colors border-none cursor-pointer">Primary</button>
+                            <button class="btn-secondary px-4 py-2 rounded-md hover:brightness-110 transition-colors cursor-pointer">Secondary</button>
+                            <button class="btn-disabled px-4 py-2 rounded-md border-none">Disabled</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] text-gray-500 mb-3">Navigation Links</p>
+                        <nav class="flex gap-2">
+                            <a href="#" class="px-3 py-2 rounded-md bg-white/10 text-brand-text font-bold" onclick="event.preventDefault()">Active</a>
+                            <a href="#" class="px-3 py-2 rounded-md text-brand-text hover:bg-white/10" onclick="event.preventDefault()">Inactive</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- Containers -->
+                <div class="space-y-8">
+                    <div class="border-b border-gray-300 dark:border-gray-700 pb-2">
+                        <p class="text-[10px] text-gray-500 font-semibold mb-1">CONTAINERS</p>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] text-gray-500 mb-3">Card</p>
+                        <div class="card p-5 border border-gray-200 dark:border-gray-800 m-0 shadow-md">
+                            <h3 class="text-lg font-bold mb-2">Card Title</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">This is standard card content. It features a subtle shadow and rounded corners as defined by <code class="bg-gray-200 dark:bg-gray-900 px-1 py-0.5 rounded text-xs">--border-radius</code> and <code class="bg-gray-200 dark:bg-gray-900 px-1 py-0.5 rounded text-xs">--card-background</code>.</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="text-[10px] text-gray-500 mb-3">Code Block</p>
+                        <pre class="bg-gray-200 dark:bg-gray-900 p-4 rounded-md overflow-x-auto text-sm font-mono border border-gray-300 dark:border-gray-800 text-brand-text"><code>function greet() &#123;
+  console.log("Hello World");
+&#125;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="h-px bg-gray-300 dark:bg-gray-700 w-full mt-12 mb-8"></div>
+
+        <!-- SPACING & LAYOUT / ICONS -->
+        <div class="relative w-full mb-12">
+            <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-8 absolute -top-4 left-0">SPACING & LAYOUT / ICONS</h2>
+            <p class="text-[10px] text-gray-500 mb-4 pt-4">Note: Spacing values represent the default variables defined in <code class="bg-gray-200 dark:bg-gray-800 px-1 py-0.5 rounded">src/styles/shared.css</code>. These values may be updated globally.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 pt-4">
+                <!-- Spacing Guides -->
+                <div>
+                    <div class="border-b border-gray-300 dark:border-gray-700 pb-2 mb-6">
+                        <p class="text-[10px] text-gray-500 font-semibold mb-1">GLOBAL SPACING VARIABLES</p>
+                    </div>
+
+                    <div class="space-y-4 font-mono text-xs">
+                        <!-- Padding -->
+                        <div class="flex items-center gap-4">
+                            <div class="w-24 text-gray-500 text-right">--padding</div>
+                            <div class="h-8 bg-[#3AFBC0]/30 border border-[#3AFBC0] flex items-center justify-center relative w-full max-w-[200px]">
+                                <span class="absolute text-[10px] font-sans">30px</span>
+                                <div class="w-[30px] h-full bg-[#3AFBC0]/50 ml-auto"></div>
+                            </div>
+                        </div>
+
+                        <!-- Content Spacing -->
+                        <div class="flex items-center gap-4">
+                            <div class="w-24 text-gray-500 text-right">--content-spacing</div>
+                            <div class="h-16 flex flex-col justify-between relative w-full max-w-[200px]">
+                                <div class="h-3 w-full bg-gray-300 dark:bg-gray-700 rounded-sm"></div>
+                                <div class="h-[30px] w-full bg-[#00E5FF]/20 border-y border-[#00E5FF] flex items-center justify-center">
+                                    <span class="text-[10px] font-sans">30px gap</span>
+                                </div>
+                                <div class="h-3 w-full bg-gray-300 dark:bg-gray-700 rounded-sm"></div>
+                            </div>
+                        </div>
+
+                        <!-- Border Radius -->
+                        <div class="flex items-center gap-4">
+                            <div class="w-24 text-gray-500 text-right">--border-radius</div>
+                            <div class="w-16 h-16 bg-gray-300 dark:bg-gray-700 rounded-[10px] border-2 border-dashed border-[#3273DC] flex items-center justify-center">
+                                <span class="text-[10px] font-sans">10px</span>
+                            </div>
+                        </div>
+
+                        <!-- Max Width -->
+                        <div class="flex items-center gap-4">
+                            <div class="w-24 text-gray-500 text-right">--max-width</div>
+                            <div class="h-6 w-full max-w-[200px] bg-gray-200 dark:bg-gray-800 border-x-2 border-[#3273DC] flex items-center justify-center relative">
+                                <div class="h-px w-full bg-[#3273DC] absolute"></div>
+                                <span class="bg-gray-200 dark:bg-gray-800 px-1 text-[10px] font-sans z-10">1200px</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Icons -->
+                <div>
+                    <div class="border-b border-gray-300 dark:border-gray-700 pb-2 mb-6">
+                        <p class="text-[10px] text-gray-500 font-semibold mb-1">STANDARD ICONOGRAPHY</p>
+                    </div>
+
+                    <div class="grid grid-cols-4 gap-6">
+                        <!-- External Link -->
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded flex items-center justify-center border border-gray-200 dark:border-gray-700 text-[#3C3C3B] dark:text-[#f3f4f6]">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                            </div>
+                            <p class="text-[10px] text-gray-500 text-center">External<br>Link</p>
+                        </div>
+
+                        <!-- Github -->
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded flex items-center justify-center border border-gray-200 dark:border-gray-700 text-[#3C3C3B] dark:text-[#f3f4f6]">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <p class="text-[10px] text-gray-500 text-center">GitHub</p>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded flex items-center justify-center border border-gray-200 dark:border-gray-700 text-[#3C3C3B] dark:text-[#f3f4f6]">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                            </div>
+                            <p class="text-[10px] text-gray-500 text-center">Menu</p>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="flex flex-col items-center gap-2">
+                            <div class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded flex items-center justify-center border border-gray-200 dark:border-gray-700 text-[#3C3C3B] dark:text-[#f3f4f6]">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <p class="text-[10px] text-gray-500 text-center">Email</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="h-px bg-gray-300 dark:bg-gray-700 w-full mt-12 mb-8"></div>
+
+        <!-- ASSET SPECIFICATIONS & USE CASES -->
+        <div class="relative w-full">
+            <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-8 absolute -top-4 left-0">ASSET SPECIFICATIONS & USE CASES (EXAMPLE ONLY)</h2>
+
+            <div class="flex flex-wrap lg:flex-nowrap justify-between gap-8 pt-8">
+
+                <!-- Spec 1: Logo Path -->
+                <div class="relative w-72">
+                    <p class="text-center text-[10px] text-gray-500 dark:text-gray-400 mb-4 font-semibold">SVG_LOGO_PATH</p>
+
+                    <div class="relative w-full h-40 border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 flex items-center justify-center p-6">
+                        <div class="w-full h-full border border-dashed border-gray-400 dark:border-gray-600 flex flex-col items-center justify-center p-4 relative">
+                            <svg viewBox="0 0 100 100" class="w-16 h-16 mb-2 text-[#3C3C3B] dark:text-[#f3f4f6]"><use href="#clean-logo" /></svg>
+                            <h1 class="text-2xl font-bold tracking-tight">tehj.io</h1>
+                        </div>
+
+                        <!-- Measurement Annotations -->
+                        <div class="absolute -top-3 left-6 right-6 measure-line measure-line-x text-[8px] text-gray-500 dark:text-gray-400">
+                            <span class="px-1 -mt-3" style="background-color: var(--brand-bg);">250</span>
+                        </div>
+                        <div class="absolute top-6 bottom-6 -left-3 measure-line measure-line-y text-[8px] text-gray-500 dark:text-gray-400 flex items-center">
+                            <span class="py-1 -ml-6" style="background-color: var(--brand-bg);">350</span>
+                        </div>
+                        <div class="absolute -top-3 left-0 w-6 measure-line measure-line-x text-[8px] text-gray-500 dark:text-gray-400">
+                            <span class="px-1 -mt-3" style="background-color: var(--brand-bg);">10</span>
+                        </div>
+                        <div class="absolute -top-3 right-0 w-6 measure-line measure-line-x text-[8px] text-gray-500 dark:text-gray-400">
+                            <span class="px-1 -mt-3" style="background-color: var(--brand-bg);">20</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Connecting Line between Box 1 & Box 2 -->
+                <div class="hidden lg:flex items-center justify-center flex-1 relative min-w-[40px]">
+                    <div class="w-full border-t border-gray-400 dark:border-gray-600 absolute"></div>
+                    <span class="px-2 text-[8px] text-gray-500 dark:text-gray-400 z-10 -mt-4" style="background-color: var(--brand-bg);">250 paths</span>
+                    <!-- Arrow head -->
+                    <svg class="absolute right-0 w-3 h-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+
+                <!-- Spec 2: Print Layout -->
+                <div class="relative w-80">
+                    <p class="text-center text-[10px] text-gray-500 dark:text-gray-400 mb-4 font-semibold">PRINT LAYOUT_SVG</p>
+
+                    <div class="relative w-full h-40 border border-gray-300 dark:border-gray-700 bg-gray-200 dark:bg-gray-800 p-2">
+                        <div class="w-full h-full bg-white dark:bg-gray-900 flex shadow-sm">
+                            <div class="w-1/2 h-full flex flex-col items-center justify-center border-r border-gray-100 dark:border-gray-700">
+                                <svg viewBox="0 0 100 100" class="w-12 h-12 mb-1 text-[#3C3C3B] dark:text-[#f3f4f6]"><use href="#clean-logo" /></svg>
+                                <h1 class="text-xl font-bold tracking-tight">tehj.io</h1>
+                                <p class="text-[5px] font-light tracking-widest text-gray-500 mt-1">Create . Bless . Truth</p>
+                            </div>
+                            <div class="w-1/2 h-full p-4 flex flex-col gap-2 justify-center">
+                                <div class="h-3 bg-gray-300 dark:bg-gray-600 rounded-sm w-full"></div>
+                                <div class="h-1.5 bg-gray-200 dark:bg-gray-700 rounded-sm w-3/4"></div>
+                                <div class="h-1.5 bg-gray-200 dark:bg-gray-700 rounded-sm w-full"></div>
+                                <div class="h-1.5 bg-gray-200 dark:bg-gray-700 rounded-sm w-1/2"></div>
+                            </div>
+                        </div>
+
+                        <!-- Measurement Annotations -->
+                        <div class="absolute -top-3 left-0 w-2 measure-line measure-line-x text-[8px] text-gray-500 dark:text-gray-400"></div>
+                        <div class="absolute -left-3 top-0 h-2 measure-line measure-line-y text-[8px] text-gray-500 dark:text-gray-400"></div>
+                        <span class="absolute -top-5 left-1 text-[8px] text-gray-500 dark:text-gray-400">70</span>
+                        <span class="absolute top-1 -left-5 text-[8px] text-gray-500 dark:text-gray-400">40</span>
+                        <span class="absolute bottom-1 -left-5 text-[8px] text-gray-500 dark:text-gray-400">50</span>
+                    </div>
+                </div>
+
+                <!-- Connecting Line between Box 2 & Box 3 -->
+                <div class="hidden lg:flex items-center justify-center flex-1 relative min-w-[40px]">
+                    <div class="w-full border-t border-gray-400 dark:border-gray-600 absolute"></div>
+                    <span class="px-2 text-[8px] text-gray-500 dark:text-gray-400 z-10 -mt-4" style="background-color: var(--brand-bg);">File export margins</span>
+                    <!-- Arrow head -->
+                    <svg class="absolute right-0 w-3 h-3 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+
+                <!-- Spec 3: Web Layout -->
+                <div class="relative flex-1 min-w-[280px]">
+                    <p class="text-right text-[10px] text-gray-500 dark:text-gray-400 mb-4 font-semibold">WEB_SVG</p>
+
+                    <div class="relative w-full h-24 border border-gray-300 dark:border-gray-700 bg-gray-200 dark:bg-gray-800 p-2 mt-8">
+                        <div class="w-full h-full bg-white dark:bg-gray-900 flex items-center px-4 justify-between shadow-sm relative border border-dashed border-gray-300 dark:border-gray-600">
+                            <div class="flex items-center gap-3">
+                                <svg viewBox="0 0 100 100" class="w-8 h-8 text-[#3C3C3B] dark:text-[#f3f4f6]"><use href="#clean-logo" /></svg>
+                                <h1 class="text-xl font-bold tracking-tight">tehj.io</h1>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-8 h-2 bg-gray-300 dark:bg-gray-600 rounded-sm"></div>
+                                <div class="w-8 h-2 bg-gray-300 dark:bg-gray-600 rounded-sm"></div>
+                                <div class="w-8 h-2 bg-gray-300 dark:bg-gray-600 rounded-sm"></div>
+                            </div>
+
+                            <!-- Inner annotations -->
+                            <div class="absolute -top-4 right-1/4 text-[8px] text-gray-500 dark:text-gray-400">tehj.io_primary_logo.svg</div>
+                            <div class="absolute h-4 w-px bg-gray-400 dark:bg-gray-600 -top-2 left-6"></div>
+
+                            <div class="absolute -bottom-6 left-12 text-[8px] text-gray-500 dark:text-gray-400">tehj.io_favicon.svg</div>
+                            <div class="absolute h-4 w-px bg-gray-400 dark:bg-gray-600 -bottom-2 left-8"></div>
+                        </div>
+
+                        <!-- Measurement Annotations -->
+                        <div class="absolute -left-3 top-2 bottom-2 measure-line measure-line-y text-[8px] text-gray-500 dark:text-gray-400 flex items-center">
+                            <span class="py-1 -ml-5" style="background-color: var(--brand-bg);">200</span>
+                        </div>
+                        <div class="absolute -right-3 top-2 bottom-2 measure-line measure-line-y text-[8px] text-gray-500 dark:text-gray-400 flex items-center">
+                            <span class="py-1 -mr-5" style="background-color: var(--brand-bg);">200</span>
+                        </div>
+                        <div class="absolute top-0 right-1/3 w-6 measure-line measure-line-y text-[8px] text-gray-500 dark:text-gray-400 flex items-center">
+                             <span class="py-1 ml-2" style="background-color: var(--brand-bg);">276</span>
+                        </div>
+                        <div class="absolute bottom-0 left-1/3 w-6 measure-line measure-line-y text-[8px] text-gray-500 dark:text-gray-400 flex items-center">
+                             <span class="py-1 ml-2" style="background-color: var(--brand-bg);">120</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="h-px bg-gray-300 dark:bg-gray-700 w-full mt-12 mb-8"></div>
+
+        <!-- FRAMEWORK USAGE -->
+        <div class="relative w-full">
+            <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-6">USAGE IN FRAMEWORKS</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                <!-- Astro -->
+                <div class="relative bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 p-4 rounded group">
+                    <p class="text-[10px] font-semibold mb-2">Astro</p>
+                    <pre class="text-[10px] text-gray-600 dark:text-gray-400 overflow-x-auto overflow-y-hidden"><code>&lt;Icon name="logo" /&gt;</code></pre>
+                    <button class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity" data-copy-code='<Icon name="logo" />' aria-label="Copy Astro snippet" data-umami-event="branding-copy-code" data-umami-event-framework="astro"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg></button>
+                </div>
+                <!-- Vue -->
+                <div class="relative bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 p-4 rounded group">
+                    <p class="text-[10px] font-semibold mb-2">Vue</p>
+                    <pre class="text-[10px] text-gray-600 dark:text-gray-400 overflow-x-auto overflow-y-hidden"><code>&lt;template&gt;
+  &lt;LogoIcon /&gt;
+&lt;/template&gt;</code></pre>
+                    <button class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity" data-copy-code='<template>
+  <LogoIcon />
+</template>' aria-label="Copy Vue snippet" data-umami-event="branding-copy-code" data-umami-event-framework="vue"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg></button>
+                </div>
+                <!-- React -->
+                <div class="relative bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 p-4 rounded group">
+                    <p class="text-[10px] font-semibold mb-2">React / Next.js</p>
+                    <pre class="text-[10px] text-gray-600 dark:text-gray-400 overflow-x-auto overflow-y-hidden"><code>import Logo from './logo.svg';
+
+const App = () =&gt; (
+  &lt;Logo /&gt;
+);</code></pre>
+                    <button class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity" data-copy-code="import Logo from './logo.svg';
+
+const App = () => (
+  <Logo />
+);" aria-label="Copy React snippet" data-umami-event="branding-copy-code" data-umami-event-framework="react"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg></button>
+                </div>
+                <!-- Nuxt -->
+                <div class="relative bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 p-4 rounded group">
+                    <p class="text-[10px] font-semibold mb-2">Nuxt.js</p>
+                    <pre class="text-[10px] text-gray-600 dark:text-gray-400 overflow-x-auto overflow-y-hidden"><code>&lt;template&gt;
+  &lt;LogoIcon /&gt;
+&lt;/template&gt;</code></pre>
+                    <button class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity" data-copy-code='<template>
+  <LogoIcon />
+</template>' aria-label="Copy Nuxt snippet" data-umami-event="branding-copy-code" data-umami-event-framework="nuxt"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg></button>
+                </div>
+                <!-- HTML / IMG -->
+                <div class="relative bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 p-4 rounded group">
+                    <p class="text-[10px] font-semibold mb-2">HTML &lt;img&gt;</p>
+                    <pre class="text-[10px] text-gray-600 dark:text-gray-400 overflow-x-auto overflow-y-hidden"><code>&lt;img src="{getPath('/assets/branding/logo/vector/default.svg')}" alt="tehj.io Logo" /&gt;</code></pre>
+                    <button class="absolute top-2 right-2 p-1 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity" data-copy-code={`<img src="${getPath('/assets/branding/logo/vector/default.svg')}" alt="tehj.io Logo" />`} aria-label="Copy HTML snippet" data-umami-event="branding-copy-code" data-umami-event-framework="html"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="h-px bg-gray-300 dark:bg-gray-700 w-full mt-12 mb-8"></div>
+
+        <!-- USAGE GUIDELINES -->
+        <div class="relative w-full pb-8">
+            <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-6">BRAND USAGE GUIDELINES</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-gray-700 dark:text-gray-300">
+                <div class="space-y-4">
+                    <div class="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 p-4 rounded border-l-4 border-l-[#3AFBC0]">
+                        <h3 class="font-bold mb-2 text-[#3C3C3B] dark:text-[#f3f4f6]">Do</h3>
+                        <ul class="list-disc pl-5 space-y-1 text-xs">
+                            <li>Maintain adequate clear space around the logo.</li>
+                            <li>Use the provided vector files for high-quality reproduction.</li>
+                            <li>Ensure sufficient contrast between the logo and background.</li>
+                            <li>Use the isolated icon for small scale applications like avatars or favicons.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 p-4 rounded border-l-4 border-l-red-500">
+                        <h3 class="font-bold mb-2 text-[#3C3C3B] dark:text-[#f3f4f6]">Don't</h3>
+                        <ul class="list-disc pl-5 space-y-1 text-xs">
+                            <li>Do not alter the proportions or distort the logo.</li>
+                            <li>Do not change the logo colors outside of the approved brand palette.</li>
+                            <li>Do not add drop shadows, strokes, or other effects to the logo.</li>
+                            <li>Do not use the logo over complex backgrounds that reduce legibility.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+  </div>
+
+  <script>
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+    const brandingWrapper = document.querySelector('.branding-wrapper');
+
+    if (themeToggleBtn && themeToggleDarkIcon && themeToggleLightIcon && brandingWrapper) {
+      // Default to dark mode based on class presence
+      let isDarkMode = brandingWrapper.classList.contains('dark');
+
+      // Update icons initially
+      if (isDarkMode) {
+          themeToggleLightIcon.classList.remove('hidden');
+      } else {
+          themeToggleDarkIcon.classList.remove('hidden');
+      }
+
+      themeToggleBtn.addEventListener('click', () => {
+          // Toggle wrapper class
+          brandingWrapper.classList.toggle('dark');
+
+          // Toggle icons
+          themeToggleDarkIcon.classList.toggle('hidden');
+          themeToggleLightIcon.classList.toggle('hidden');
+      });
+    }
+
+    // Copy Functionality
+    const handleCopy = async (textToCopy: string, btnElement: Element, originalContent: string) => {
+        try {
+            await navigator.clipboard.writeText(textToCopy);
+
+            // Visual feedback
+            const isSvgButton = btnElement.hasAttribute('data-copy-svg');
+            const isCodeButton = btnElement.hasAttribute('data-copy-code');
+            const isColorButton = btnElement.hasAttribute('data-copy-color');
+
+            if (isSvgButton) {
+                btnElement.textContent = 'Copied!';
+            } else if (isCodeButton) {
+                btnElement.innerHTML = '<svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+            } else if (isColorButton) {
+                const hex = btnElement.getAttribute('data-copy-color').replace('#', '');
+                btnElement.innerHTML = `${hex} <svg class="w-3 h-3 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>`;
+            }
+
+            setTimeout(() => {
+                btnElement.innerHTML = originalContent;
+            }, 2000);
+
+        } catch (err) {
+            console.error('Failed to copy text: ', err);
+            // Handle error visually if needed
+        }
+    };
+
+    // Attach listeners for SVG copy
+    document.querySelectorAll('[data-copy-svg]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const svgId = btn.getAttribute('data-copy-svg');
+            const svgElement = document.getElementById(svgId);
+            if (svgElement) {
+                // Get the raw HTML and format it nicely
+                let svgContent = svgElement.outerHTML;
+
+                // Optional: Cleanup the SVG string a bit if it has id or hidden classes we don't want to export
+                svgContent = svgContent.replace(/class="hidden"\s*/, '');
+
+                handleCopy(svgContent, btn, btn.innerHTML);
+            }
+        });
+    });
+
+    // Attach listeners for Color copy
+    document.querySelectorAll('[data-copy-color]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const colorCode = btn.getAttribute('data-copy-color');
+            handleCopy(colorCode, btn, btn.innerHTML);
+        });
+    });
+
+    // Attach listeners for Code snippets
+    document.querySelectorAll('[data-copy-code]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const codeContent = btn.getAttribute('data-copy-code');
+            handleCopy(codeContent, btn, btn.innerHTML);
+        });
+    });
+  </script>
+</Layout>

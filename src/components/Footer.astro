@@ -1,4 +1,5 @@
 ---
+import { getPath } from '../utils/path';
 ---
 
 <footer>
@@ -6,16 +7,16 @@
     <div class="links-section flex flex-col items-center p-4 w-full max-w-[500px] bg-[var(--card-background)] rounded-[var(--border-radius)] shadow-md gap-[var(--footer-spacing)]">
       <p>Connect With Me</p>
       <div class="icons flex flex-wrap justify-center gap-[var(--footer-spacing)] w-full">
-        <a href="https://github.com/julwrites/julwrites.github.io/raw/main/public/assets/resume/Resume_Julian_Teh.pdf" target="_blank" title="Resume">
-          <img src="/assets/images/dark/resume.png" alt="Resume" />
+        <a href="https://github.com/julwrites/julwrites.github.io/raw/main/public/assets/resume/Resume_Julian_Teh.pdf" target="_blank" rel="noopener noreferrer" title="Resume" data-umami-event="footer-link-click" data-umami-event-link="resume">
+          <img src={getPath('/assets/images/dark/resume.png')} alt="Resume" />
           <span>Resume</span>
         </a>
-        <a href="https://linkedin.com/in/julwrites" target="_blank" title="LinkedIn">
-          <img src="/assets/images/dark/linkedin.png" alt="LinkedIn" />
+        <a href="https://linkedin.com/in/julwrites" target="_blank" rel="noopener noreferrer" title="LinkedIn" data-umami-event="footer-link-click" data-umami-event-link="linkedin">
+          <img src={getPath('/assets/images/dark/linkedin.png')} alt="LinkedIn" />
           <span>LinkedIn</span>
         </a>
-        <a href="mailto:contact@tehj.io" target="_blank" title="Email">
-          <img src="/assets/images/dark/email.png" alt="Email" />
+        <a href="mailto:contact@tehj.io" target="_blank" rel="noopener noreferrer" title="Email" data-umami-event="footer-link-click" data-umami-event-link="email">
+          <img src={getPath('/assets/images/dark/email.png')} alt="Email" />
           <span>Email</span>
         </a>
       </div>

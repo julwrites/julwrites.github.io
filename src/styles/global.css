@@ -1,5 +1,9 @@
 @import './shared.css';
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Ensure styles are properly loaded in production */
 :root {
   --loaded: true;

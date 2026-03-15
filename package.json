@@ -26,5 +26,9 @@
     "glob": "^11.0.3",
     "tailwindcss": "^3.3.5",
     "vue": "^3.3.8"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.7",
+    "typescript": "^5.9.3"
   }
 }
