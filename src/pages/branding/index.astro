@@ -91,7 +91,7 @@ import { getPath } from '../../utils/path';
     }
 
     .measure-line {
-        position: relative;
+        position: absolute;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -148,7 +148,7 @@ import { getPath } from '../../utils/path';
                 <div class="relative">
                     <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-8 absolute -top-4 -left-2">PRIMARY LOGO</h2>
 
-                    <div class="absolute top-0 right-0 flex gap-2">
+                    <div class="absolute top-0 right-0 flex gap-2 z-10">
                         <button class="text-[10px] px-2 py-1 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" data-copy-svg="clean-logo" data-umami-event="branding-copy-svg" data-umami-event-svg="clean-logo">Copy SVG</button>
                         <a href={getPath('/assets/branding/logo/vector/default.svg')} download class="text-[10px] px-2 py-1 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center gap-1" data-umami-event="branding-download-asset" data-umami-event-asset="default.svg"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg> SVG</a>
                         <a href={getPath('/assets/branding/logo/default.png')} download class="text-[10px] px-2 py-1 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center gap-1" data-umami-event="branding-download-asset" data-umami-event-asset="default.png"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg> PNG</a>
@@ -199,7 +199,7 @@ import { getPath } from '../../utils/path';
                 <!-- Logotype Only -->
                 <div class="relative">
                     <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-8 absolute -top-4 -left-2">LOGOTYPE ONLY</h2>
-                    <div class="absolute top-0 right-0 flex gap-2">
+                    <div class="absolute top-0 right-0 flex gap-2 z-10">
                         <a href={getPath('/assets/branding/logo/vector/isolated-layout.svg')} download class="text-[10px] px-2 py-1 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center gap-1" data-umami-event="branding-download-asset" data-umami-event-asset="isolated-layout.svg"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg> SVG</a>
                     </div>
                     <div class="flex items-center justify-center gap-12 pt-8">
@@ -318,7 +318,7 @@ import { getPath } from '../../utils/path';
                 <!-- Favicon / Icon -->
                 <div class="relative">
                     <h2 class="text-xs font-semibold tracking-wider text-gray-600 dark:text-gray-400 mb-8">FAVICON / ICON</h2>
-                    <div class="absolute top-0 right-0 flex gap-2">
+                    <div class="absolute top-0 right-0 flex gap-2 z-10">
                         <a href={getPath('/assets/branding/logo/vector/favicon.svg')} download class="text-[10px] px-2 py-1 border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center gap-1" data-umami-event="branding-download-asset" data-umami-event-asset="favicon.svg"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg> SVG</a>
                     </div>
                     <div class="flex items-end gap-8 relative mt-12">
