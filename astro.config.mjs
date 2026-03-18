@@ -10,9 +10,6 @@ import yeskunallumami from "@yeskunall/astro-umami";
 export default defineConfig({
   site: "https://tehj.io",
   base: process.env.ASTRO_BASE || undefined,
-  redirects: {
-    "/resume": "/assets/resume/Resume_Julian_Teh.pdf",
-  },
   integrations: [
     mdx(),
     sitemap(),
