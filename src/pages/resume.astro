@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getPath } from '../utils/path';
+
+const resumePath = getPath('/assets/resume/Resume_Julian_Teh.pdf');
+---
+
+<Layout title="Redirecting..." description="Redirecting to resume">
+  <div class="page-content" style="display: flex; justify-content: center; align-items: center; min-height: 50vh; flex-direction: column;">
+    <h1 class="page-title" style="margin-bottom: 1rem;">Redirecting to resume...</h1>
+    <p style="color: var(--font-color); font-size: 1.1rem;">
+      If you are not redirected automatically,
+      <a href={resumePath} style="color: var(--accent-color); text-decoration: underline;">click here</a>.
+    </p>
+  </div>
+  <script is:inline define:vars={{ resumePath }}>
+    setTimeout(() => {
+      window.location.href = resumePath;
+    }, 500);
+  </script>
+</Layout>
