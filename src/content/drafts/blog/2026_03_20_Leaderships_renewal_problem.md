@@ -64,4 +64,6 @@ The ultimate measure of leadership isn't what we built while we were there—it'
 
 ---
 
-*The Disciple-making Leader, like Christ, is a servant to all, and not a king.*
+Most leadership renewals end either in the death of the organization, or a rather painful transition as leaders vie for the top.
+
+I believe the only successful kind of renewal happens with a true servant leader.

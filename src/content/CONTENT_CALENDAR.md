@@ -4,7 +4,7 @@
 
 | Date | Draft | Status | Next Action |
 |------|-------|--------|-------------|
-| **Mar 20 2026** | **Leadership's Renewal Problem** | Needs conclusion | Write final 2-3 paragraphs |
+| **Mar 20 2026** | **Leadership's Renewal Problem** | Conclusion added | Editorial pass (15-20 min) |
 | **Mar 27 2026** | **The Two Levers of Leadership** | Draft ready | Editorial pass (15-20 min) |
 | **Apr 03 2026** | **The Cost of Hesitation** | Fresh draft | Editorial pass (15-20 min) |
 | **Apr 17 2026** | **Leadership and Exploration** | Early draft | Expand from 10 lines to full post |
