@@ -60,3 +60,11 @@ test('sortPostsByDate works with Date objects', () => {
   assert.strictEqual(sorted[0].id, 2);
   assert.strictEqual(sorted[1].id, 1);
 });
+
+test('sortPostsByDate handles empty array', () => {
+  const posts: any[] = [];
+  const sorted = sortPostsByDate(posts);
+
+  assert.strictEqual(sorted.length, 0);
+  assert.deepStrictEqual(sorted, []);
+});
