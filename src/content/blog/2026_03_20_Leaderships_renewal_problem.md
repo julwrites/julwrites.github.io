@@ -61,8 +61,14 @@ The passionate steward understands that the organization isn't there to serve th
 
 The opinionated steward understands that their opinion has to be in service of the organization's goals, and is willing to bend their personal preference for the sake of the organizational good. 
 
-## Stewardship is not a guarantee
+## The model of Jesus
 
-As I mentioned, leadership renewal is a difficult problem. There are many other factors that prevent leadership renewal.
+I don't think this is a particularly new concept; this is actually what Jesus posits for us as the values of the Kingdom of God, and he teaches these with words like 'those who want to be first must be last' and 'the greatest among you will be your servant'. 
 
-But among the factors that prevent a successful succession, I think the lack of a stewardship mindset lies at the very top. 
+In fact this is probably the only model that can scale, logically speaking.
+
+A model where only one person can be at the top is a model that - by definition - requires fighting for the top spot. Stepping on others is - in this scheme - a prerequisite. Removing competition is a basic play. 
+
+But a model where the one at the top is the greatest servant, actually creates space for many leaders to rise up in service of the mission. Raising others up is beneficial for the whole. Fostering healthy competition is a tactic to find the best solution.
+
+If everyone is a steward, then the best leader will naturally emerge as the one who is able to serve the organization the best in pursuit of the mission. This, I think, is the only way to achieve leadership renewal.
