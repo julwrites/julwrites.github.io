@@ -4,7 +4,7 @@
 
 | Date | Draft | Status | Next Action |
 |------|-------|--------|-------------|
-| **Mar 20 2026** | **Leadership's Renewal Problem** | Editorial pass complete | Ready for final review |
+| **Mar 20 2026** | **Leadership's Renewal Problem** | ✓ Published | View post |
 | **Mar 27 2026** | **The Two Levers of Leadership** | Enhanced with agency insights | Editorial pass (15-20 min) |
 | **Apr 03 2026** | **The Cost of Hesitation** | Fresh draft | Editorial pass (15-20 min) |
 | **Apr 17 2026** | **Leadership and Exploration** | Early draft | Expand from 10 lines to full post |
@@ -17,10 +17,10 @@
 ---
 
 ## Current Priority
-**Leadership's Renewal Problem** (due Mar 20)
-- Status: Editorial pass complete
-- Action: Ready for final review and publishing
-- File: `2026_03_20_Leaderships_renewal_problem.md`
+**The Two Levers of Leadership** (due Mar 27)
+- Status: Enhanced with agency insights
+- Action: Editorial pass (15-20 min)
+- File: `2026_03_27_The_Two_Levers_of_Leadership.md`
 
 ---
 
@@ -45,10 +45,10 @@
 ---
 
 ## Progress Tracking
-- Last updated: 2026-03-21 09:45
-- Next draft due: Leadership's Renewal Problem (Mar 20) ✓ Ready for publishing
+- Last updated: 2026-03-21 21:15
+- Next draft due: The Two Levers of Leadership (Mar 27)
 - Drafts in pipeline: 9
+- Published: 1 (Leadership's Renewal Problem)
 - Ready for editorial pass: 5 drafts (The Two Levers of Leadership, The Cost of Hesitation, The Wisdom Arbitrage, The Guardian of Principles, Wolves in the Open Field)
 - Needs work: 3 drafts (Leadership and Exploration, Keep Moving Forward, 50 Things I Know)
 - Seeds captured: 1 (The Cost of Hesitation → drafted)
-- **Today's focus**: Final review and publishing of "Leadership's Renewal Problem"
