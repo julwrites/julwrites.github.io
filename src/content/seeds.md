@@ -22,6 +22,13 @@ This file captures raw thoughts and ideas that can be fleshed out into full blog
 
 ---
 
+### Organizational Structure: Autonomy vs Hierarchy
+**Seed planted**: 2026-03-22
+**Seed text**: "I'm thinking about leadership and organizational structure. What is the optimal organizational structure, and what are principles for this? It obviously depends on the type of organization, and the mission. Some missions are inherently hierarchical in terms of grand strategy, while having great autonomy in terms of on-the-ground tactics, like military. Other missions benefit greatly from having autonomy throughout the organization, like Spotify's famous 'Tribes' structure. I don't think there is a perfect one, but I'd like to use the post to just ruminate over what I personally prefer, which leans toward having autonomy throughout the organization, while recognizing that hierarchy is a necessary thing for decision-making tie-breaking."
+**Potential title**: "The Structure of Success: Finding Balance Between Autonomy and Hierarchy"
+**Key themes**: Leadership, Organizational Design, Decision-making, Team Structure
+**Status**: Seed captured, not scheduled
+
 ## Notes
 - I post only on my website (julwrites.github.io)
 - Publishing frequency: 1 post every 1-2 weeks
