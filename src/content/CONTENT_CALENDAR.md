@@ -45,10 +45,10 @@
 ---
 
 ## Progress Tracking
-- Last updated: 2026-03-22 22:06
+- Last updated: 2026-03-23 22:45
 - Next draft due: The Two Levers of Leadership (Mar 27)
 - Drafts in pipeline: 9
 - Published: 1 (Leadership's Renewal Problem)
 - Ready for editorial pass: 5 drafts (The Two Levers of Leadership, The Cost of Hesitation, The Wisdom Arbitrage, The Guardian of Principles, Wolves in the Open Field)
 - Needs work: 3 drafts (Leadership and Exploration, Keep Moving Forward, 50 Things I Know)
-- Seeds captured: 2 (The Cost of Hesitation → drafted, Organizational Structure → seed)
+- Seeds captured: 2 (The Cost of Hesitation → drafted, Organizational Structure → expanded seed)
