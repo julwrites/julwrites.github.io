@@ -34,8 +34,6 @@ I gave the generated branding assets image back to Gemini and asked it to conver
 
 With the rough HTML in place, I took the design into "antigravity" (my manual fine-tuning process). I spent some time tweaking the logo paths by hand until I was completely happy with how it looked and scaled.
 
-![Manual fine-tuning process in editor](/assets/blog/2026_03_27_Branding_Design_Kit/manual_finetuning.png)
-
 Once the core logo and base colors were solid, it was time to build a real system. I brought Jules into the loop. I asked Jules to take the initial branding assets and expand them into a full, robust design system.
 
 My website, `tehj.io`, became the perfect testing ground. I could easily host and view the branding assets live, reviewing how the design system translated into actual CSS variables, typography scales, and component structures.
@@ -47,16 +45,16 @@ The final step was applying the new design system to the rest of the site. I tas
 Here are some localized, before-and-after comparisons showing how the design system propagated to specific features across the repository:
 
 #### The Logo Identity
-![Logo Before and After](/assets/blog/2026_03_27_Branding_Design_Kit/logo_comparison.png)
+![Logo Before and After](/assets/blog/2026_03_27_Branding_Design_Kit/identity_diff.png)
 
 #### The Main Navigation Header
-![Header Before and After](/assets/blog/2026_03_27_Branding_Design_Kit/header_comparison.png)
+![Header Before and After](/assets/blog/2026_03_27_Branding_Design_Kit/topnav_diff.png)
 
 #### Interface Buttons and Cards
-![Button Before and After](/assets/blog/2026_03_27_Branding_Design_Kit/button_comparison.png)
+![Button Before and After](/assets/blog/2026_03_27_Branding_Design_Kit/comp_btn_diff.png)
 
 #### Typography Updates
-![Typography Before and After](/assets/blog/2026_03_27_Branding_Design_Kit/font_comparison.png)
+![Typography Before and After](/assets/blog/2026_03_27_Branding_Design_Kit/text_style_diff.png)
 
 ![Final site design system live](/assets/blog/2026_03_27_Branding_Design_Kit/final_design_system.png)
 
