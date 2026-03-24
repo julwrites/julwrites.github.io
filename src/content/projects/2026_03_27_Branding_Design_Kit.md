@@ -4,45 +4,51 @@ description: "A look into how I used Gemini and Jules to generate, refine, and i
 pubDate: "Mar 27 2026"
 ---
 
-A website is always a work in progress. Recently, I decided it was time to establish a cohesive visual identity for my personal site. The goal wasn't just to make it look nicer, but to build out a solid branding design kit that could serve as the foundation for the whole site. I didn't want to start completely from scratch, so I decided to see how far I could get with AI tools like Gemini and Jules.
+This website is always a work in progress, but recently I thought... Maybe I should start considering my personal branding. And what do you know, I just got a Google AI Pro subscription! Gemini may not be the best model in a particular category, but having so many model type options is fascinating and also maybe useful for this. 
 
-### Extrapolating Themes with Gemini
+So... I pulled up Gemini, and started talking to it.
 
-The first step was figuring out what the brand should actually represent. I fed Gemini a bunch of my past blog posts and projects and asked it to extrapolate a set of core themes. From there, I asked it to conceptualize how those themes could translate into a logo.
+### What have I already said about me?
 
-We went through several rounds of iteration. I refined the concepts, gave feedback, and slowly honed in on a rough idea of what I liked. It was an interesting process—less like directing a designer and more like exploring a massive possibility space together. As a maker, you usually have to learn every skill yourself or pay someone else. This felt like a completely new third option.
+The first step was figuring out what my branding should represent. I basically asked Gemini here to read my website, past blog posts and projects and asked it to extrapolate a set of core ideas/themes. 
 
-Here are a couple of the early iterations that Gemini generated as we tried to nail down the core logo concept:
+Using these, I asked it to conceptualize a set of logos.
+
+We went through several rounds of iteration; I refined the concepts, gave feedback, and slowly honed in on a rough idea of what I liked. This felt a lot like working with a design consultant; they would come in, ask questions about what this was about, and then try to suggest some options for what it could be. I'd say ok, or no, or how about changing it this way or that?
 
 ![Gemini Iteration 1](/assets/blog/2026_03_27_Branding_Design_Kit/gemini_iteration_1.png)
 
+Eventually we started to converge; I wanted the website in the logo, and I wanted the t and j to be prominent. I liked the idea of having the cross as part of it, and kind of was interested in having a pen or a keycap as a little nod to my writing/building hobbies.
+
+So from here I asked it to pick one, and flesh that out more strongly. Now, I really liked this idea. 
+
 ![Gemini Iteration 2](/assets/blog/2026_03_27_Branding_Design_Kit/gemini_iteration_2.png)
 
-### From Logo to Branding Assets
+### How about...
 
-Once we had a solid logo concept, I asked Gemini to expand that single idea into a full set of branding assets. I wanted more than just an icon; I wanted colors, typography suggestions, and secondary elements that felt cohesive.
+Once we had a solid logo concept, I asked Gemini to expand the icon into a full set of branding assets. This meant colors, typography suggestions, and secondary elements that felt cohesive.
 
-Here's the branding asset sheet that Gemini came up with:
+Gemini took 2-3 tries, and landed on something like this. 
 
 ![Gemini Branding Assets](/assets/blog/2026_03_27_Branding_Design_Kit/gemini_branding_assets.png)
 
-At this point, I had a great visual reference, but I still needed to turn it into something usable. Converting the AI-generated imagery cleanly into SVG format proved to be a bit tricky. Instead of wrestling with vector tracing, I took a different approach.
+This was pretty good! It wasn't comprehensive enough, but that could be expanded now that the idea was put down. The next new problem was turning it into something I could export as code, so that I could actually tweak it. 
 
-I gave the generated branding assets image back to Gemini and asked it to convert the visual design into an HTML page that approximated the layout and styling. This generated page became my initial `/branding` route on the website.
+I struggled for awhile trying to turn this or that into SVG, and then eventually realized I could just ask it to convert the visual design into an HTML page that approximated the layout and styling. This generated page became my initial `/branding` route on the website.
 
-### Fine-Tuning and Building the Design System
+### Fine-tuning
 
-With the rough HTML in place, I took the design into "antigravity" (my manual fine-tuning process). I spent some time tweaking the logo paths by hand until I was completely happy with how it looked and scaled.
+With the rough HTML in place, I took the design into Antigravity and launched this locally so I could make semi-manual changes and see them in real time. I focused first on the logo, then the color themes. Then the rest kind of just fell into place, and the branding page was good enough as reference. 
 
-Once the core logo and base colors were solid, it was time to build a real system. I brought Jules into the loop. I asked Jules to take the initial branding assets and expand them into a full, robust design system.
+At this point I ran out of tokens on Antigravity, so...
 
-My website, `tehj.io`, became the perfect testing ground. I could easily host and view the branding assets live, reviewing how the design system translated into actual CSS variables, typography scales, and component structures.
+Jules it is. I asked Jules to take the initial branding assets and expand them into a full, robust design system, and iterated on this a few times. I had also set up my staging version so I could actually observe the changes semi-real-time and see if I was doing everything correctly. 
 
 ### Site-Wide Application
 
-The final step was applying the new design system to the rest of the site. I tasked Jules with scouring the entire codebase—looking for hardcoded colors, inconsistent spacing, and legacy styles—and suggesting the necessary changes to bring everything into alignment with the new kit.
+The final step was applying the new design system to the rest of the site. I again got Jules to read through the entire codebase—looking for hardcoded colors, inconsistent spacing, and legacy styles—and suggesting the necessary changes to bring everything into alignment with the new kit.
 
-Here are some localized, before-and-after comparisons showing how the design system propagated to specific features across the repository:
+I thought the final product was pretty nice! The logo is quite clean and minimal (one of my criteria for logos is that a child should be able to draw it), and the colors pop nicely against each other.  
 
 #### The Logo Identity
 ![Logo Before and After](/assets/blog/2026_03_27_Branding_Design_Kit/identity_diff.png)
@@ -56,6 +62,6 @@ Here are some localized, before-and-after comparisons showing how the design sys
 #### Typography Updates
 ![Typography Before and After](/assets/blog/2026_03_27_Branding_Design_Kit/text_style_diff.png)
 
-![Final site design system live](/assets/blog/2026_03_27_Branding_Design_Kit/final_design_system.png)
+Perhaps very nicely, the whole branding design kit could live in the website itself; this is really useful for any future updates to my website, since I can always just ask an agent to refer to this and style accordingly. It's not perfect (you'll see some of the measurements are all over the place), but good enough for my use. 
 
-The result is a much more cohesive, intentional design across the entire site, rooted in a visual identity that feels unique to my work. It was a fascinating workflow, blending high-level AI conceptualization with meticulous manual refinement and AI-assisted implementation.
+![Final site design system live](/assets/blog/2026_03_27_Branding_Design_Kit/final_design_system.png)
