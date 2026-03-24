@@ -1,9 +1,9 @@
 ---
 title: "The Two Levers of Leadership"
 description: "Satya Nadella’s concise, precise, and actionable architecture for leadership success."
-pubDate: "Mar 27 2026"
+pubDate: "Apr 03 2026"
 tags: ["Leadership", "Strategy", "Management", "Wisdom"]
-heroImage: "/assets/blog/2026_03_27_The_Two_Levers_of_Leadership/leadership_levers.png"
+heroImage: "/assets/blog/2026_04_03_The_Two_Levers_of_Leadership/leadership_levers.png"
 ---
 
 There's a moment in every leader's journey where the "happy talk" stops and the physics of the situation takes over. Jeffrey Snover recently recounted a speech by Satya Nadella that provides perhaps the most concise architecture for success ever delivered to a room of executives.

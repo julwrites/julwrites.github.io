@@ -1,7 +1,7 @@
 ---
 title: "The Cost of Hesitation"
 description: "Leadership requires decision-making, and hesitation carries hidden costs that many leaders fail to account for."
-pubDate: "Apr 03 2026"
+pubDate: "Apr 17 2026"
 draft: true
 ---
 

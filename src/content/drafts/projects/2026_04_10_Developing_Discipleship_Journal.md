@@ -1,7 +1,7 @@
 ---
 title: "Developing Discipleship Journal"
 description: "Revisiting the basics of spiritual growth with modern tools."
-pubDate: "Apr 03 2026"
+pubDate: "Apr 10 2026"
 tags: ["React", "PWA", "Firebase", "PostgreSQL"]
 ---
 

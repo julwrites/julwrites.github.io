@@ -1,7 +1,7 @@
 ---
 title: "Developing Bible AI API"
 description: "Splitting the monolith after 10 years of ScriptureBot."
-pubDate: "May 01 2026"
+pubDate: "Apr 24 2026"
 tags: ["Golang", "Cloud Run", "LLM", "Bible"]
 ---
 

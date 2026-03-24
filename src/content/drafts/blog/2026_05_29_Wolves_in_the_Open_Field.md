@@ -1,9 +1,9 @@
 ---
 title: "Wolves in the Open Field: The Asymmetry of Structural Mismatch"
 description: "Why flat organizations are uniquely vulnerable to hierarchical leaders, and how the 'Wolf' thrives among 'Sheep'."
-pubDate: "Jun 05 2026"
+pubDate: "May 29 2026"
 tags: ["Leadership", "Culture", "Management", "Organizational Design"]
-heroImage: "/assets/blog/2026_06_05_Wolves_in_the_Open_Field/structural_mismatch.png"
+heroImage: "/assets/blog/2026_05_29_Wolves_in_the_Open_Field/structural_mismatch.png"
 ---
 
 There is no such thing as a perfect organizational structure, but there is definitely such a thing as a catastrophic leadership mismatch. 

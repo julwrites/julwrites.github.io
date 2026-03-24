@@ -1,7 +1,7 @@
 ---
 title: "Building a Brand Design Kit with AI"
 description: "A look into how I used Gemini and Jules to generate, refine, and implement a full branding design kit for my site."
-pubDate: "March 20 2026"
+pubDate: "Mar 27 2026"
 ---
 
 A website is always a work in progress. Recently, I decided it was time to establish a cohesive visual identity for my personal site. The goal wasn't just to make it look nicer, but to build out a solid branding design kit that could serve as the foundation for the whole site. I didn't want to start completely from scratch, so I decided to see how far I could get with AI tools like Gemini and Jules.
