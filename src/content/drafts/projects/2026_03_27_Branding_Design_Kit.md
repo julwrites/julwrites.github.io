@@ -44,6 +44,20 @@ My website, `tehj.io`, became the perfect testing ground. I could easily host an
 
 The final step was applying the new design system to the rest of the site. I tasked Jules with scouring the entire codebase—looking for hardcoded colors, inconsistent spacing, and legacy styles—and suggesting the necessary changes to bring everything into alignment with the new kit.
 
+Here are some localized, before-and-after comparisons showing how the design system propagated to specific features across the repository:
+
+#### The Logo Identity
+![Logo Before and After](/assets/blog/2026_03_20_Branding_Design_Kit/logo_comparison.png)
+
+#### The Main Navigation Header
+![Header Before and After](/assets/blog/2026_03_20_Branding_Design_Kit/header_comparison.png)
+
+#### Interface Buttons and Cards
+![Button Before and After](/assets/blog/2026_03_20_Branding_Design_Kit/button_comparison.png)
+
+#### Typography Updates
+![Typography Before and After](/assets/blog/2026_03_20_Branding_Design_Kit/font_comparison.png)
+
 ![Final site design system live](/assets/blog/2026_03_20_Branding_Design_Kit/final_design_system.png)
 
 The result is a much more cohesive, intentional design across the entire site, rooted in a visual identity that feels unique to my work. It was a fascinating workflow, blending high-level AI conceptualization with meticulous manual refinement and AI-assisted implementation.
