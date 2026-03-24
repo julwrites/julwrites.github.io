@@ -45,7 +45,7 @@
 ---
 
 ## Progress Tracking
-- Last updated: 2026-03-23 22:45
+- Last updated: 2026-03-24 09:25
 - Next draft due: The Two Levers of Leadership (Mar 27)
 - Drafts in pipeline: 9
 - Published: 1 (Leadership's Renewal Problem)
