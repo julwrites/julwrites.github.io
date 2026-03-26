@@ -4,7 +4,9 @@ description: "A look into how I used Gemini and Jules to generate, refine, and i
 pubDate: "Mar 27 2026"
 ---
 
-This website is always a work in progress, but recently I thought... Maybe I should start considering my personal branding. And what do you know, I just got a Google AI Pro subscription! Gemini may not be the best model in a particular category, but having so many model type options is fascinating and also maybe useful for this. 
+This website is always a work in progress, but recently I thought... Maybe I should start considering my personal branding. And what do you know, I just got a Google AI Pro subscription! 
+
+Gemini may not be the best model in a particular category, but having so many model type options is fascinating and also maybe useful for this. Not all providers have text, vision, image generation, video generation, autonomous agents...
 
 So... I pulled up Gemini, and started talking to it.
 
