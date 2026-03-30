@@ -1,9 +1,9 @@
 ---
 title: "The Wisdom Arbitrage"
 description: "In an age of infinite intelligence, wisdom is the only remaining differentiator."
-pubDate: "Apr 24 2026"
+pubDate: "May 08 2026"
 tags: ["AI", "Philosophy", "Leadership", "Wisdom"]
-heroImage: "/assets/blog/2026_04_24_The_Wisdom_Arbitrage/wisdom_filter.png"
+heroImage: "/assets/blog/2026_05_08_The_Wisdom_Arbitrage/wisdom_filter.png"
 ---
 
 We are approaching the "Singularity of Knowledge." In 2026, the cost of a correct answer to any "What" or "How" question has effectively dropped to zero. If you can describe a problem, the machine can solve it. Intelligence—the ability to process information and execute logic—has become a utility as ubiquitous as electricity.
