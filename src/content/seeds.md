@@ -16,8 +16,8 @@ This file captures raw thoughts and ideas that can be fleshed out into full blog
 **Seed planted**: 2026-03-18
 **Seed text**: "Many leaders get stuck - and often because of extenuating factors - in the mire of indecision. But ultimately clear decision-making, communication and action defines the leader. If a leader therefore pauses for too long, there is a cost to this. The basic cost is of course just time; time spent not doing something is time wasted. And on this time there can be other costs, like the cost of running a business, paying salaries, etc... Or the cost of opportunity, of not doing something - not in favor of something else - and doing nothing instead. I'm not against waiting; sometimes waiting is indeed the answer. I just think that waiting has a cost, which I observe many leaders do not take into account."
 **Draft created**: 2026-03-18
-**Draft file**: `2026_04_03_The_Cost_of_Hesitation.md`
-**Scheduled for**: Apr 03 2026
+**Draft file**: `2026_04_17_The_Cost_of_Hesitation.md`
+**Scheduled for**: Apr 17 2026
 **Status**: Ready for editorial pass
 
 ---
