@@ -1,9 +1,8 @@
 ---
 title: "The Two Levers of Leadership"
-description: "Satya Nadella’s concise, precise, and actionable architecture for leadership success."
+description: "Satya Nadella's concise, precise, and actionable architecture for leadership success."
 pubDate: "Apr 03 2026"
 tags: ["Leadership", "Strategy", "Management", "Wisdom"]
-heroImage: "/assets/blog/2026_04_03_The_Two_Levers_of_Leadership/leadership_levers.png"
 ---
 
 There comes a moment in every leader's journey when the "happy talk" stops and the physics of the situation takes over. Jeffrey Snover recently recounted a speech by Satya Nadella that provides perhaps the most concise architecture for success ever delivered to a room of executives.
@@ -41,7 +40,7 @@ This concept of the two levers represents a crucial mindset shift. I can either 
 
 ## The Parable of the Talents
 
-This is deeply biblical. It calls to mind the parable of the talents, where three servants are given different amounts of resources from their master, with no explicit instruction. Two of them double the money before the master returns, and one hides it. The two are praised and given even more responsibility; the one is condemned as lazy and slothful.
+This is deeply biblical. It calls to mind the Parable of the Talents (Matthew 25:14-30), where a master entrusts three servants with different amounts of money (talents) before leaving on a journey. Two servants invest and double their talents through trading; one buries his single talent in the ground. Upon returning, the master praises the first two as "good and faithful servants" and condemns the third as "wicked and lazy."
 
 That's the idea here. We do have agency over the things we are entrusted with, and we are accountable for the results we produce. The master doesn't ask why you didn't have more talents—he asks what you did with the ones you were given.
 
