@@ -14,7 +14,7 @@ const basePath = getPath('/assets/images/photos/');
   <p class="text-xl md:text-2xl m-0 text-[var(--accent-color)]">Welcome to my domain</p>
 </section>
 
-<script define:vars={{ images, basePath }}>
+<script is:inline define:vars={{ images, basePath }}>
   const randomImage = images[Math.floor(Math.random() * images.length)];
   const img = document.getElementById("intro-image");
   if (img) {

@@ -18,7 +18,7 @@ const sortedProjects = sortPostsByDate(projects);
       </a>
     </div>
     <ul class="project-list">
-      {sortedProjects.map((project) => (
+      {sortedProjects.map((project: any) => (
         <li class="project-item">
           <a href={getPath(`/projects/${project.slug}/`)} data-umami-event="project-post-click" data-umami-event-project={project.data.title}>
             <h2 class="project-title">{project.data.title}</h2>
