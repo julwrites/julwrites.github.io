@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert';
-import { sortPostsByDate } from './post.ts';
+import { sortPostsByDate, formatDate } from './post.ts';
 
 test('sortPostsByDate sorts posts by date in descending order', () => {
   const posts = [
@@ -59,6 +59,17 @@ test('sortPostsByDate works with Date objects', () => {
 
   assert.strictEqual(sorted[0].id, 2);
   assert.strictEqual(sorted[1].id, 1);
+});
+
+test('formatDate correctly formats dates', () => {
+  const date = new Date('2023-01-01');
+  const formatted = formatDate(date);
+  assert.strictEqual(formatted, 'January 1, 2023');
+});
+
+test('formatDate handles string input', () => {
+  const formatted = formatDate('2023-05-20');
+  assert.strictEqual(formatted, 'May 20, 2023');
 });
 
 test('sortPostsByDate handles empty array', () => {

@@ -11,3 +11,14 @@ export function sortPostsByDate<T extends { data: { pubDate: Date | string } }>(
     return dateB - dateA;
   });
 }
+
+const itemDateFormatter = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+export function formatDate(date: Date | string): string {
+  const d = typeof date === 'string' ? new Date(date) : date;
+  return itemDateFormatter.format(d);
+}
