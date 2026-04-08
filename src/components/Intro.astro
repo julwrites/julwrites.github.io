@@ -4,7 +4,7 @@ import path from 'node:path';
 import { getPath } from '../utils/path';
 
 const photosDir = path.join(process.cwd(), 'public/assets/images/photos');
-const images = fs.readdirSync(photosDir).filter(file => /\.(jpg|jpeg|png|webp)$/i.test(file));
+const images = (await fs.promises.readdir(photosDir)).filter(file => /\.(jpg|jpeg|png|webp)$/i.test(file));
 const basePath = getPath('/assets/images/photos/');
 ---
 
