@@ -6,6 +6,8 @@ import { formatDate } from '../../utils/post';
 
 import type { CollectionEntry } from 'astro:content';
 
+import type { CollectionEntry } from 'astro:content';
+
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
   return projects.map(project => ({
