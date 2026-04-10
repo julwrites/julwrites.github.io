@@ -13,8 +13,6 @@ When I really thought about what disciples and disciple-makers *really* need—d
 
 Among the many possibilities, the one that stood out as most essential was simply a journal. 
 
-![Discipleship Journal UI Concept](/assets/blog/2026_04_03_Developing_Discipleship_Journal/journal_ui_concept.png)
-
 A place to write down what you're learning, what you're struggling with, and what you're praying for. A way to engage Scripture directly in that context. And even better, a way to share those insights with a mentor or a small group.
 
 ## Why a New App?
@@ -31,8 +29,6 @@ A core skill in discipleship is journaling. We often hear that writing improves 
 
 Imagine writing a journal entry, highlighting a thought, and being able to pull the exact Bible passage you need directly into your notes. 
 
-![Journal Entry with Bible Context](/assets/blog/2026_04_03_Developing_Discipleship_Journal/journal_entry_bible.png)
-
 Then, imagine being able to ask questions about it—requesting context, cross-references, or historical background—without ever leaving your journal. All of this remains permanently available to you. It's a traditional journal, but with a vastly expanded toolkit.
 
 This isn't necessarily a tool everyone is looking for, but I believe it enhances the one thing everyone needs to do. 
@@ -48,8 +44,6 @@ I decided to build this as a **Progressive Web App (PWA)** to ensure it’s acce
 
 Since this involves retrieving Bible passages, I refactored the logic from my long-standing Telegram bot into a standalone service. Now, both the bot and the PWA use the same backend, allowing them to share core features while specializing for their respective interfaces. 
 
-![PWA Architecture Diagram](/assets/blog/2026_04_03_Developing_Discipleship_Journal/architecture_diagram.png)
-
 I eventually moved the database to TiDB after Cloud SQL burned through $300 of free credits in record time. I’m happy to pay for scale, but I’d like to keep infrastructure costs lean before the user base actually arrives. Building things is fun; paying for idle servers is not.
 
 ## Fun fact
@@ -61,3 +55,5 @@ I actually spent very little time on the "manual" coding for this project. A sig
 I’m trying to follow my own advice and focus on a true MVP first. Once the core experience is solid, I'll add features based on feedback from fellow disciple-makers. 
 
 The immediate roadmap includes Bible reading plans, memory verses, and basic social sharing. Eventually, I’d like to explore more granular interactions, like inline commenting or running AI analysis on specific text selections to generate deeper reflections.
+
+For now, I'm not sharing this yet with anyone; I'm dog-fooding this particular prototype with a very small group of people first, and might want to migrate this over to let the ministry own it in the future. 
