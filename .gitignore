@@ -49,3 +49,4 @@ venv/
 !.agents/**/.keep
 logs/
 .agents/
+.jules_tmp/

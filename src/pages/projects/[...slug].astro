@@ -2,6 +2,9 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import { getPath } from '../../utils/path';
+import { formatDate } from '../../utils/post';
+
+import type { CollectionEntry } from 'astro:content';
 
 import type { CollectionEntry } from 'astro:content';
 
@@ -27,20 +30,12 @@ const { Content } = await project.render();
       <h1>{project.data.title}</h1>
       <div class="date">
         <time datetime={project.data.pubDate.toISOString()}>
-          {project.data.pubDate.toLocaleDateString('en-us', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })}
+          {formatDate(project.data.pubDate)}
         </time>
         {project.data.updatedDate && (
           <div class="updated">
             Last updated on <time datetime={project.data.updatedDate.toISOString()}>
-              {project.data.updatedDate.toLocaleDateString('en-us', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              })}
+              {formatDate(project.data.updatedDate)}
             </time>
           </div>
         )}
