@@ -21,15 +21,15 @@
 ---
 
 ## Current Priority
-**Developing Discipleship Journal** (due Apr 10)
-- Status: Ready for publication
-- Action: Publish today
-- File: `2026_04_10_Developing_Discipleship_Journal.md`
-
 **The Cost of Hesitation** (due Apr 17)
 - Status: Fresh draft
 - Action: Editorial pass (15-20 min)
 - File: `2026_04_17_The_Cost_of_Hesitation.md`
+
+**Developing Bible AI API** (due Apr 24)
+- Status: Draft ready
+- Action: Editorial pass
+- File: `2026_04_24_Developing_Bible_AI_API.md`
 
 ---
 
@@ -54,7 +54,7 @@
 ---
 
 ## Progress Tracking
-- Last updated: 2026-04-10 20:00
+- Last updated: 2026-04-12 08:00
 - Next draft due: The Cost of Hesitation (Apr 17)
 - Drafts in pipeline: 11 (9 blog posts + 2 project updates)
 - Published: 4 (Leadership's Renewal Problem, Branding Design Kit with AI, The Two Levers of Leadership, Developing Discipleship Journal)
